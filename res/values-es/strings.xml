@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">HandCoach</string>
+    <string name="action_settings">Settings</string>
+    <string name="telaNav_btPartidas">Partidos</string>
+    <string name="telaNav_btTreinos">Formación</string>
+    <string name="telaNav_btSobre">Acerca</string>
+    <string name="telaNav_btStats">Estadísticas</string>
+    
+</resources>
