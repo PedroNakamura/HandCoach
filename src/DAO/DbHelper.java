@@ -24,12 +24,15 @@ public class DbHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		
+		db.execSQL(JogadorDAO.CREATE_TABLE);
+		//adicionar outros DAOs
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		
+		db.execSQL(JogadorDAO.DROP_TABLE);
+		//adicionar outros DAOs
+		onCreate(db);
 	}
 
 }
