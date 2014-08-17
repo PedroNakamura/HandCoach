@@ -13,12 +13,12 @@ public class JogadorDAO extends DAO_Base<Jogador>{
 	public static final String COLUNA_ALTURA = "altura";
 	public static final String COLUNA_DT_NASC = "dt_nasc";
 	
-	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("+COLUNA_ID+"LONG PRIMARY KEY AUTO_INCREMENT, "+
-	                                                                            COLUNA_NOME+"TEXT, "+
-	                                                                            COLUNA_SEXO+"BOOLEAN, "+
-	                                                                            COLUNA_FOTO+"BLOB, "+
-	                                                                            COLUNA_ALTURA+"TEXT, "+
-	                                                                            COLUNA_DT_NASC+"DATE )";
+	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("+COLUNA_ID+" LONG PRIMARY KEY AUTO_INCREMENT, "+
+	                                                                            COLUNA_NOME+" TEXT, "+
+	                                                                            COLUNA_SEXO+" BOOLEAN, "+
+	                                                                            COLUNA_FOTO+" BLOB, "+
+	                                                                            COLUNA_ALTURA+" TEXT, "+
+	                                                                            COLUNA_DT_NASC+" DATE )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	

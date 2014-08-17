@@ -10,7 +10,6 @@ public class TelaNav extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_nav);
-		//teste commit
 	}
 
 	@Override

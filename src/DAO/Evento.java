@@ -7,7 +7,7 @@ public class Evento implements EntidadeInterface {
 	private long id_jog;
 	private long id_eq;
 	private double tempoIn;
-	private double tempoFm;
+	private double tempoFi;
 	
 	//Getters and Setters ID Evento
 	@Override
@@ -52,11 +52,11 @@ public class Evento implements EntidadeInterface {
 	}
 	
 	//Getters and Setters Tempo Fim
-	public double getTempoFm() {
-		return tempoFm;
+	public double getTempoFi() {
+		return tempoFi;
 	}
-	public void setTempoFm(double tempoFm) {
-		this.tempoFm = tempoFm;
+	public void setTempoFi(double tempoFm) {
+		this.tempoFi = tempoFm;
 	}
 	
 	

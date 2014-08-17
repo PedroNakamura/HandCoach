@@ -3,7 +3,7 @@ package DAO;
 public class Categoria implements EntidadeInterface {
 	
 	private long id_cat;
-	private String desc;
+	private String descr;
 	
 	//Getters and Setters ID Categoria
 	@Override
@@ -16,11 +16,11 @@ public class Categoria implements EntidadeInterface {
 	}
 	
 	//Getters and Setters Descrição da Categoria
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescr(String descr) {
+		this.descr = descr;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescr() {
+		return descr;
 	}
 
 }

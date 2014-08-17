@@ -25,13 +25,19 @@ public class DbHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(JogadorDAO.CREATE_TABLE);
-		//adicionar outros DAOs
+		db.execSQL(CategoriaDAO.CREATE_TABLE);
+		db.execSQL(EquipeDAO.CREATE_TABLE);
+		db.execSQL(EventoDAO.CREATE_TABLE);
+		db.execSQL(PartidaDAO.CREATE_TABLE);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		db.execSQL(JogadorDAO.DROP_TABLE);
-		//adicionar outros DAOs
+		db.execSQL(CategoriaDAO.DROP_TABLE);
+		db.execSQL(EquipeDAO.DROP_TABLE);
+		db.execSQL(EventoDAO.DROP_TABLE);
+		db.execSQL(PartidaDAO.DROP_TABLE);
 		onCreate(db);
 	}
 
