@@ -1,12 +1,10 @@
 package DAO;
 
-import java.sql.Blob;
-import java.sql.SQLException;
-
 import android.content.ContentValues;
 import android.content.Context;
 
-public class JogadorDAO extends DAO_Base<Jogador>{
+public class JogadorDAO extends DAO_Base<Jogador> {
+	
 	
 	public static final String NOME_TABELA = "jogador";
 	public static final String COLUNA_ID = "id_jog";
@@ -20,7 +18,7 @@ public class JogadorDAO extends DAO_Base<Jogador>{
 	                                                                            COLUNA_NOME+" TEXT, "+
 	                                                                            COLUNA_SEXO+" BOOLEAN, "+
 	                                                                            COLUNA_FOTO+" BLOB, "+
-	                                                                            COLUNA_ALTURA+" TEXT, "+
+	                                                                           // COLUNA_ALTURA+" TEXT, "+
 	                                                                            COLUNA_DT_NASC+" DATE )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
@@ -56,9 +54,9 @@ public class JogadorDAO extends DAO_Base<Jogador>{
 		}
 		cv.put(COLUNA_NOME, entidade.getNome());
 		cv.put(COLUNA_SEXO, entidade.isSexo());
-		// WUT? - pede para retornar string! -> cv.put(COLUNA_FOTO, entidade.getFoto());
+		//cv.put(FOTO) ????
 		cv.put(COLUNA_ALTURA, entidade.getAltura());
-		// pede para retornar string! -> cv.put(COLUNA_DT_NASC, entidade.getDt_nasc());
+		// como faz?  cv.put(COLUNA_DT_NASC, entidade.getDt_nasc());
 		return cv;
 	}
 
@@ -68,14 +66,7 @@ public class JogadorDAO extends DAO_Base<Jogador>{
 		jogador.setId(contentValues.getAsLong(COLUNA_ID));
 		jogador.setNome(contentValues.getAsString(COLUNA_NOME));
 		jogador.setSexo(contentValues.getAsBoolean(COLUNA_SEXO));
-		// getAsBlob???? jogador.setFoto(contentValues.getAs??(COLUNA_FOTO));
-		//try {
-			//Blob b = ;
-			//jogador.setFoto());
-		//} catch (SQLException e) {
-			// TODO Auto-generated catch block
-		//	e.printStackTrace();
-		//}
+		//getAsBlob???? jogador.setFoto(contentValues.getAs??(COLUNA_FOTO));
 		jogador.setAltura(contentValues.getAsString(COLUNA_ALTURA));
 		// getAsDate???? jogador.setDt_nasc(contentValues.getAs??(COLUNA_DT_NASC));
 		return jogador;

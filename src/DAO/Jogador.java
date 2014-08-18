@@ -1,6 +1,6 @@
 package DAO;
 
-import java.sql.Blob;
+//import java.io.File;
 import java.sql.Date;
 
 public class Jogador implements EntidadeInterface {
@@ -8,7 +8,7 @@ public class Jogador implements EntidadeInterface {
 	private long id_jog;
 	private String nome;
 	private boolean sexo;
-	private Blob foto;
+	//private File foto;
 	private String altura;
 	private Date dt_nasc;
 	
@@ -40,13 +40,14 @@ public class Jogador implements EntidadeInterface {
 		this.sexo = sexo;
 	}
 
-	//Getters and Setters Foto
-	public Blob getFoto() {
+	//Getters and Setters Foto 
+	/*
+	public File getFoto() {
 		return foto;
 	}
-	public void setFoto(Blob foto) {
+	public void setFoto(File foto) {
 		this.foto = foto;
-	}
+	} */
 
 	//Getters and Setters Altura
 	public String getAltura() {
