@@ -5,6 +5,8 @@ import android.content.Context;
 
 public class EquipeDAO extends DAO_Base<Equipe> {
 	
+
+
 	public static final String NOME_TABELA = "jogador";
 	public static final String COLUNA_ID = "id";
 	public static final String COLUNA_IDJOG = "id_jog";
@@ -19,7 +21,18 @@ public class EquipeDAO extends DAO_Base<Equipe> {
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	
 	private static EquipeDAO instancia;
-
+	
+	public EquipeDAO(Context context) {
+		super(context);
+	}
+	
+	public static EquipeDAO getInstancia(Context context) {
+		if(instancia == null) {
+			instancia = new EquipeDAO(context);
+		}
+		return instancia;
+	}
+	
 	@Override
 	public String getNomeColunaPrimaryKey() {
 		return COLUNA_ID;

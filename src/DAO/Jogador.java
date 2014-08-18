@@ -12,6 +12,8 @@ public class Jogador implements EntidadeInterface {
 	private String altura;
 	private Date dt_nasc;
 	
+	
+	
 	//Getters and Setters ID do Jogador
 	@Override
 	public void setId(long id) {

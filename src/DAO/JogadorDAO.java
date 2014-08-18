@@ -1,5 +1,8 @@
 package DAO;
 
+import java.sql.Blob;
+import java.sql.SQLException;
+
 import android.content.ContentValues;
 import android.content.Context;
 
@@ -66,6 +69,13 @@ public class JogadorDAO extends DAO_Base<Jogador>{
 		jogador.setNome(contentValues.getAsString(COLUNA_NOME));
 		jogador.setSexo(contentValues.getAsBoolean(COLUNA_SEXO));
 		// getAsBlob???? jogador.setFoto(contentValues.getAs??(COLUNA_FOTO));
+		//try {
+			//Blob b = ;
+			//jogador.setFoto());
+		//} catch (SQLException e) {
+			// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		//}
 		jogador.setAltura(contentValues.getAsString(COLUNA_ALTURA));
 		// getAsDate???? jogador.setDt_nasc(contentValues.getAs??(COLUNA_DT_NASC));
 		return jogador;
