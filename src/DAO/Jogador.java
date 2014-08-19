@@ -2,14 +2,14 @@ package DAO;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-
 import android.graphics.Bitmap;
 import android.net.ParseException;
 import android.util.Log;
 
 public class Jogador implements EntidadeInterface {
 	
-	private long id_jog;
+	private int id_jog;
+	private int id_eq;
 	private String nome;
 	private boolean sexo;
 	private Bitmap foto;
@@ -19,13 +19,21 @@ public class Jogador implements EntidadeInterface {
 	
 	//Getters and Setters ID do Jogador
 	@Override
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id_jog = id;
 	}
 	@Override
-	public long getId() {
+	public int getId() {
 		return id_jog;
 	}
+	
+	//Getters and Setters id equipe
+		public int getIdEq() {
+			return id_eq;
+		}
+		public void setIdEq(int id) {
+			this.id_eq = id;
+		}
 
 	//Getters and Setters Nome do jogador
 	public String getNome() {
@@ -81,13 +89,12 @@ public class Jogador implements EntidadeInterface {
 	//conversão do String para Date
     public Date stringToDate(String dataStr) throws java.text.ParseException {
         SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
-        Date dataFormatada = this.dt_nasc;
         try {
-                dataFormatada = (Date) format.parse(dataStr);
+                this.dt_nasc = (Date) format.parse(dataStr);
         } catch (ParseException e) {
                 e.printStackTrace();
         }
-        return dataFormatada;
+        return dt_nasc;
 }
 	
 

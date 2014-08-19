@@ -3,31 +3,31 @@ package DAO;
 import android.content.ContentValues;
 import android.content.Context;
 
-public class EquipeDAO extends DAO_Base<Equipe> {
-
-	public static final String NOME_TABELA = "equipe";
-	public static final String COLUNA_ID = "id_eq";
+public class EquipeAdvDAO extends DAO_Base<EquipeAdv> {
+	
+	public static final String NOME_TABELA = "equipeadv";
+	public static final String COLUNA_ID = "id_eqadv";
 	public static final String COLUNA_NOME = "nome";
 	
-	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("
-	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY "
+	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ( "
+	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY, "
 	                                                         +COLUNA_NOME+" TEXT )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	
-	private static EquipeDAO instancia;
+	private static EquipeAdvDAO instancia;
 	
-	public EquipeDAO(Context context) {
-		super(context);
-	}
-	
-	public static EquipeDAO getInstancia(Context context) {
+	public static EquipeAdvDAO getInstancia(Context context) {
 		if(instancia == null) {
-			instancia = new EquipeDAO(context);
+			instancia = new EquipeAdvDAO(context);
 		}
 		return instancia;
 	}
-	
+
+	public EquipeAdvDAO(Context context) {
+		super(context);
+	}
+
 	@Override
 	public String getNomeColunaPrimaryKey() {
 		return COLUNA_ID;
@@ -39,7 +39,7 @@ public class EquipeDAO extends DAO_Base<Equipe> {
 	}
 
 	@Override
-	public ContentValues entidadeParaContentValues(Equipe entidade) {
+	public ContentValues entidadeParaContentValues(EquipeAdv entidade) {
 		ContentValues cv = new ContentValues();
 		if(entidade.getId() > 0) {
 			cv.put(COLUNA_ID, entidade.getId());
@@ -49,8 +49,8 @@ public class EquipeDAO extends DAO_Base<Equipe> {
 	}
 
 	@Override
-	public Equipe contentValuesParaEntidade(ContentValues contentValues) {
-		Equipe equipe = new Equipe();
+	public EquipeAdv contentValuesParaEntidade(ContentValues contentValues) {
+		EquipeAdv equipe = new EquipeAdv();
 		equipe.setId(contentValues.getAsInteger(COLUNA_ID));
 		equipe.setNome(contentValues.getAsString(COLUNA_NOME));
 		return equipe;

@@ -6,19 +6,26 @@ import android.content.Context;
 public class EventoDAO extends DAO_Base<Evento> {
 	
 	public static final String NOME_TABELA = "evento";
+	public static final String TABELA_CATEGORIA = "categoria";
+	public static final String TABELA_JOGADOR = "jogador";
+	public static final String TABELA_PTDA = "partida";
 	public static final String COLUNA_ID = "id_eve";
 	public static final String COLUNA_IDCAT = "id_cat";
 	public static final String COLUNA_IDJOG = "id_jog";
-	public static final String COLUNA_IDEQ = "id_eq";
+	public static final String COLUNA_IDPTDA = "id_ptda";
 	public static final String COLUNA_TEMPOIN = "tempoin";
 	public static final String COLUNA_TEMPOFI = "tempofi";
 	
-	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("+COLUNA_ID+" LONG PRIMARY KEY AUTO_INCREMENT, "+
-	                                                                            COLUNA_IDCAT+" LONG, "+
-	                                                                            COLUNA_IDJOG+" LONG, "+
-	                                                                            COLUNA_IDEQ+" LONG, "+
-	                                                                            COLUNA_TEMPOIN+" TIME, "+
-	                                                                            COLUNA_TEMPOFI+" TIME )";
+	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ( "
+	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY, "
+	                                                         +COLUNA_IDCAT+" INT NOT NULL, "
+	                                                         +"CONSTRAINT id_eve_cat FOREIGN KEY ("+COLUNA_IDCAT+") REFERENCES "+TABELA_CATEGORIA+" ("+COLUNA_IDCAT+") ,"
+	                                                         +COLUNA_IDJOG+" INT NOT NULL, "
+	                                                         +"CONSTRAINT id_eve_jog FOREIGN KEY ("+COLUNA_IDJOG+") REFERENCES "+TABELA_JOGADOR+" ("+COLUNA_IDJOG+") ,"
+	                                                         +COLUNA_IDPTDA+" INT NOT NULL, "
+	                                                         +"CONSTRAINT id_eve_ptda FOREIGN KEY ("+COLUNA_IDPTDA+") REFERENCES "+TABELA_PTDA+" ("+COLUNA_IDPTDA+") ,"
+	                                                         +COLUNA_TEMPOIN+" TIME, "
+	                                                         +COLUNA_TEMPOFI+" TIME )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	
@@ -53,7 +60,7 @@ public class EventoDAO extends DAO_Base<Evento> {
 		}
 		cv.put(COLUNA_IDCAT, entidade.getId_cat());
 		cv.put(COLUNA_IDJOG, entidade.getId_jog());
-		cv.put(COLUNA_IDEQ, entidade.getId_eq());
+		cv.put(COLUNA_IDPTDA, entidade.getId_ptda());
 		cv.put(COLUNA_TEMPOIN, entidade.getTempoIn());
 		cv.put(COLUNA_TEMPOFI, entidade.getTempoFi());
 		return cv;
@@ -62,10 +69,10 @@ public class EventoDAO extends DAO_Base<Evento> {
 	@Override
 	public Evento contentValuesParaEntidade(ContentValues contentValues) {
 		Evento evento = new Evento();
-		evento.setId(contentValues.getAsLong(COLUNA_ID));
-		evento.setId_cat(contentValues.getAsLong(COLUNA_IDCAT));
-		evento.setId_jog(contentValues.getAsLong(COLUNA_IDCAT));
-		evento.setId_eq(contentValues.getAsLong(COLUNA_IDEQ));
+		evento.setId(contentValues.getAsInteger(COLUNA_ID));
+		evento.setId_cat(contentValues.getAsInteger(COLUNA_IDCAT));
+		evento.setId_jog(contentValues.getAsInteger(COLUNA_IDCAT));
+		evento.setId_ptda(contentValues.getAsInteger(COLUNA_IDPTDA));
 		evento.setTempoIn(contentValues.getAsDouble(COLUNA_TEMPOIN));
 		evento.setTempoFi(contentValues.getAsDouble(COLUNA_TEMPOFI));
 		return evento;

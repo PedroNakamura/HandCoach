@@ -1,18 +1,18 @@
 package DAO;
 
-public class Equipe implements EntidadeInterface {
+public class EquipeAdv implements EntidadeInterface {
 
-	private int id_eq;
+	private int id_eqadv;
 	private String nome;
 	
-	//Getters and Setters ID_Equipe
 	@Override
 	public void setId(int id) {
-		this.id_eq = id;
+		this.id_eqadv = id;
 	}
+
 	@Override
 	public int getId() {
-		return id_eq;
+		return id_eqadv;
 	}
 	
 	//Getters and Setters Nome da equipe
@@ -22,8 +22,5 @@ public class Equipe implements EntidadeInterface {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
-	
 
 }

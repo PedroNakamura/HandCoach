@@ -2,16 +2,16 @@ package DAO;
 
 public class Categoria implements EntidadeInterface {
 	
-	private long id_cat;
+	private int id_cat;
 	private String descr;
 	
 	//Getters and Setters ID Categoria
 	@Override
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id_cat = id;
 	}
 	@Override
-	public long getId() {
+	public int getId() {
 		return id_cat;
 	}
 	

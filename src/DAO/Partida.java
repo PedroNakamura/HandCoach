@@ -1,20 +1,26 @@
 package DAO;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
+import android.net.ParseException;
+import android.util.Log;
+
 public class Partida implements EntidadeInterface {
 
-	private long id_ptda;
-	private long id_eq;
-	private long id_eve;
-	private long id_adv;
+	private int id_ptda;
+	private int id_eq;
+	private int id_eqadv;
 	private String local;
+	private Date data_ptda;
 	
 	//Getters and Setters ID da Partida
 	@Override
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id_ptda = id;
 	}
 	@Override
-	public long getId() {
+	public int getId() {
 		return id_ptda;
 	}
 	
@@ -22,27 +28,19 @@ public class Partida implements EntidadeInterface {
 	public long getId_eq() {
 		return id_eq;
 	}
-	public void setId_eq(long id_eq) {
+	public void setId_eq(int id_eq) {
 		this.id_eq = id_eq;
 	}
 	
 	//Getters and Setters ID Eventos
-	public long getId_eve() {
-		return id_eve;
+	public long getId_eqadv() {
+		return id_eqadv;
 	}
-	public void setId_eve(long id_eve) {
-		this.id_eve = id_eve;
-	}
-	
-	//Getters and Setters ID Adversários
-	public long getId_adv() {
-		return id_adv;
-	}
-	public void setId_adv(long id_adv) {
-		this.id_adv = id_adv;
+	public void setId_eqadv(int id_eqadv) {
+		this.id_eqadv = id_eqadv;
 	}
 	
-	//Getters and Setters Local? 
+	//Getters and Setters Local
 	public String getLocal() {
 		return local;
 	}
@@ -50,6 +48,35 @@ public class Partida implements EntidadeInterface {
 		this.local = local;
 	}
 	
+	//Getters and Setters Data do Jogo
+	public Date getData() {
+		return data_ptda;
+	}
+	
+	public void setData(Date data) {
+		this.data_ptda = data;
+	}
+	
+	//conversão do Date para String
+	public String dateToString() {
+        //"05/09/2013 06:30:07"
+		Date data = this.data_ptda;
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        String dataFormatada = format.format(data);
+        Log.i("DATA String", dataFormatada);
+        return dataFormatada;
+}
+    
+	//conversão do String para Date
+    public Date stringToDate(String dataStr) throws java.text.ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        try {
+                this.data_ptda = (Date) format.parse(dataStr);
+        } catch (ParseException e) {
+                e.printStackTrace();
+        }
+        return data_ptda;
+}
 	
 
 }

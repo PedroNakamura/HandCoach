@@ -11,19 +11,24 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 	
 	
 	public static final String NOME_TABELA = "jogador";
+	public static final String FOREIGN_TABELA = "equipe";
 	public static final String COLUNA_ID = "id_jog";
+	public static final String COLUNA_IDEQ = "id_eq";
 	public static final String COLUNA_NOME = "nome";
 	public static final String COLUNA_SEXO = "sexo";
 	public static final String COLUNA_FOTO = "foto";
 	public static final String COLUNA_ALTURA = "altura";
 	public static final String COLUNA_DT_NASC = "dt_nasc";
 	
-	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("+COLUNA_ID+" LONG PRIMARY KEY AUTO_INCREMENT, "+
-	                                                                            COLUNA_NOME+" TEXT, "+
-	                                                                            COLUNA_SEXO+" BOOLEAN, "+
-	                                                                            COLUNA_FOTO+" BLOB, "+
-	                                                                            COLUNA_ALTURA+" TEXT, "+
-	                                                                            COLUNA_DT_NASC+" DATE )";
+	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ( "
+	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY, "
+	                                                         +COLUNA_IDEQ+" INT NOT NULL, "
+	                                                         +"CONSTRAINT id_jog_eq FOREIGN KEY ("+COLUNA_IDEQ+") REFERENCES "+FOREIGN_TABELA+" ("+COLUNA_IDEQ+"), "
+	                                                         +COLUNA_NOME+" TEXT, "
+	                                                         +COLUNA_SEXO+" BOOLEAN, "
+	                                                         +COLUNA_FOTO+" BLOB, "
+	                                                         +COLUNA_ALTURA+" TEXT, "
+	                                                         +COLUNA_DT_NASC+" DATE )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	
@@ -59,6 +64,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		cv.put(COLUNA_NOME, entidade.getNome());
 		cv.put(COLUNA_SEXO, entidade.isSexo());
 		cv.put(COLUNA_ALTURA, entidade.getAltura());
+		cv.put(COLUNA_IDEQ, entidade.getIdEq());
 		
 	    // Bitmap -> byte[]
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -74,7 +80,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 	@Override
 	public Jogador contentValuesParaEntidade(ContentValues contentValues) {
 		Jogador jogador = new Jogador();
-		jogador.setId(contentValues.getAsLong(COLUNA_ID));
+		jogador.setId(contentValues.getAsInteger(COLUNA_ID));
 		jogador.setNome(contentValues.getAsString(COLUNA_NOME));
 		jogador.setSexo(contentValues.getAsBoolean(COLUNA_SEXO));
 		
@@ -85,6 +91,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
         //
 		
 		jogador.setAltura(contentValues.getAsString(COLUNA_ALTURA));
+		jogador.setIdEq(contentValues.getAsInteger(COLUNA_IDEQ));
 		
 		String data = contentValues.getAsString(COLUNA_DT_NASC);
 		try {

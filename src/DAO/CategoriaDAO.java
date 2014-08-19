@@ -9,8 +9,10 @@ public class CategoriaDAO extends DAO_Base<Categoria> {
 	public static final String COLUNA_ID = "id_cat";
 	public static final String COLUNA_DESCR = "descr";
 	
-	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("+COLUNA_ID+" LONG PRIMARY KEY AUTO_INCREMENT, "+
-	                                                                            COLUNA_DESCR+" TEXT )";
+	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("
+	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY, "
+	                                                         +COLUNA_DESCR+" TEXT )";
+	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	
 	private static CategoriaDAO instancia;
@@ -49,7 +51,7 @@ public class CategoriaDAO extends DAO_Base<Categoria> {
 	@Override
 	public Categoria contentValuesParaEntidade(ContentValues contentValues) {
 		Categoria categoria = new Categoria();
-		categoria.setId(contentValues.getAsLong(COLUNA_ID));
+		categoria.setId(contentValues.getAsInteger(COLUNA_ID));
 		categoria.setDescr(contentValues.getAsString(COLUNA_DESCR));
 		return categoria;
 	}
