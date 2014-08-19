@@ -1,7 +1,11 @@
 package DAO;
 
+import java.io.ByteArrayOutputStream;
+import java.text.ParseException;
 import android.content.ContentValues;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 public class JogadorDAO extends DAO_Base<Jogador> {
 	
@@ -18,7 +22,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 	                                                                            COLUNA_NOME+" TEXT, "+
 	                                                                            COLUNA_SEXO+" BOOLEAN, "+
 	                                                                            COLUNA_FOTO+" BLOB, "+
-	                                                                           // COLUNA_ALTURA+" TEXT, "+
+	                                                                            COLUNA_ALTURA+" TEXT, "+
 	                                                                            COLUNA_DT_NASC+" DATE )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
@@ -54,9 +58,16 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		}
 		cv.put(COLUNA_NOME, entidade.getNome());
 		cv.put(COLUNA_SEXO, entidade.isSexo());
-		//cv.put(FOTO) ????
 		cv.put(COLUNA_ALTURA, entidade.getAltura());
-		// como faz?  cv.put(COLUNA_DT_NASC, entidade.getDt_nasc());
+		
+	    // Bitmap -> byte[]
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		entidade.getFoto().compress(Bitmap.CompressFormat.PNG, 100, stream);
+		byte[] byteArray = stream.toByteArray();
+	
+		cv.put(COLUNA_FOTO, byteArray);
+		cv.put(COLUNA_DT_NASC, entidade.dateToString());
+		
 		return cv;
 	}
 
@@ -66,9 +77,22 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		jogador.setId(contentValues.getAsLong(COLUNA_ID));
 		jogador.setNome(contentValues.getAsString(COLUNA_NOME));
 		jogador.setSexo(contentValues.getAsBoolean(COLUNA_SEXO));
-		//getAsBlob???? jogador.setFoto(contentValues.getAs??(COLUNA_FOTO));
+		
+		//byte[] -> Bitmap
+		byte[] byteArray = contentValues.getAsByteArray(COLUNA_FOTO);
+		Bitmap foto = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+		jogador.setFoto(foto);
+        //
+		
 		jogador.setAltura(contentValues.getAsString(COLUNA_ALTURA));
-		// getAsDate???? jogador.setDt_nasc(contentValues.getAs??(COLUNA_DT_NASC));
+		
+		String data = contentValues.getAsString(COLUNA_DT_NASC);
+		try {
+			jogador.setDt_nasc(jogador.stringToDate(data));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 		return jogador;
 	}
 

@@ -1,17 +1,20 @@
 package DAO;
 
-//import java.io.File;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+
+import android.graphics.Bitmap;
+import android.net.ParseException;
+import android.util.Log;
 
 public class Jogador implements EntidadeInterface {
 	
 	private long id_jog;
 	private String nome;
 	private boolean sexo;
-	//private File foto;
+	private Bitmap foto;
 	private String altura;
 	private Date dt_nasc;
-	
 	
 	
 	//Getters and Setters ID do Jogador
@@ -41,13 +44,13 @@ public class Jogador implements EntidadeInterface {
 	}
 
 	//Getters and Setters Foto 
-	/*
-	public File getFoto() {
+	
+	public Bitmap getFoto() {
 		return foto;
 	}
-	public void setFoto(File foto) {
+	public void setFoto(Bitmap foto) {
 		this.foto = foto;
-	} */
+	} 
 
 	//Getters and Setters Altura
 	public String getAltura() {
@@ -64,6 +67,28 @@ public class Jogador implements EntidadeInterface {
 	public void setDt_nasc(Date dt_nasc) {
 		this.dt_nasc = dt_nasc;
 	}
+	
+	//conversão do Date para String
+	public String dateToString() {
+        //"05/09/2013 06:30:07"
+		Date data = this.dt_nasc;
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        String dataFormatada = format.format(data);
+        Log.i("DATA String", dataFormatada);
+        return dataFormatada;
+}
+    
+	//conversão do String para Date
+    public Date stringToDate(String dataStr) throws java.text.ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        Date dataFormatada = this.dt_nasc;
+        try {
+                dataFormatada = (Date) format.parse(dataStr);
+        } catch (ParseException e) {
+                e.printStackTrace();
+        }
+        return dataFormatada;
+}
 	
 
 }
