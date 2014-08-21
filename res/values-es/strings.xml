@@ -8,4 +8,13 @@
     <string name="telaNav_btSobre">Acerca</string>
     <string name="telaNav_btStats">Estadísticas</string>
     
+    <string name="tituloAlertaTreinos">Formaciones</string>
+    <string name="msgAlertaTreino">Funcionalidad no disponible para esta versión. Compra HandCoach PRO!</string>
+    <string name="btAlertatreino">OK</string>
+    
+    <string name="tituloAlertaSobre">Acerca de la aplicación:</string>
+    <string name="msgAlertaSobre">¿Quieres visitar un link con más información acerca de el HandCoach?</string>
+    <string name="btSimAlertaSobre">Sí</string>
+    <string name="btNaoAlertaSobre">No</string>
+    
 </resources>
