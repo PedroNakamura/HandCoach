@@ -24,6 +24,23 @@
      <item name="android:textColor">#FFFFFF</item>  
      <item name="android:textSize">36sp</item>  
    </style>            
+   
+   <style name="StringTelaSobreStyle">  
+     <item name="android:layout_width">fill_parent</item>  
+     <item name="android:layout_height">wrap_content</item>  
+     <item name="android:gravity">center</item>
+     <item name="android:textColor">#E82A2A</item>  
+     <item name="android:textSize">26sp</item> 
+     <item name="android:textStyle">bold</item> 
+   </style>    
+   
+   <style name="StringTelaSobreStyle_simple">  
+     <item name="android:layout_width">fill_parent</item>  
+     <item name="android:layout_height">wrap_content</item>  
+     <item name="android:gravity">center</item>
+     <item name="android:textColor">#E82A2A</item>  
+     <item name="android:textSize">20sp</item>  
+   </style>    
     
     
 </resources>

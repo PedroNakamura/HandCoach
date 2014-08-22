@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
+    <string name="textVazio"></string>
+    
     <string name="app_name">HandCoach</string>
     <string name="action_settings">Settings</string>
     <string name="telaNav_btPartidas">Matches</string>
@@ -8,9 +10,20 @@
     <string name="telaNav_btSobre">About</string>
     <string name="telaNav_btStats">Statistics</string>
     
+    
     <string name="tituloAlertaTreinos">Trainings</string>
     <string name="msgAlertaTreino">Functionality not available for this version. Acquire HandCoach PRO!</string>
     <string name="btAlertatreino">OK</string>
+    
+        
+    <string name="telaSobre_desenvolvimentoTitulo">Developed by:</string>
+    <string name="telaSobre_idiomasTitulo">Supported languages:</string>
+    <string name="telaSobre_agradecimentosTitulo">Special thanks to teachers:</string>
+    <string name="telaSobre_informacoes">More informations:</string>
+    <string name="telaSobre_desenvolvimento">Pedro Nakamura</string>
+    <string name="telaSobre_idiomas">Portuguese - English - Spanish</string>
+    <string name="telaSobre_agradecimentos">Walter Jr. Bicca; Luis Zeni; Rodrigo Remor and Bianca Ruskowski</string>
+    
     
     <string name="tituloAlertaSobre">About HandCoach:</string>
     <string name="msgAlertaSobre">Do you want to visit a link with more informations about HandCoach?</string>

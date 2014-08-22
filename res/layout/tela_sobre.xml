@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7"
+    android:gravity="center|top"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_hc" 
+        android:layout_gravity="center|top"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/espacoBranco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textVazio" />
+
+    <TextView
+        android:id="@+id/tv_desenvolvimentoTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/StringTelaSobreStyle"
+        android:text="@string/telaSobre_desenvolvimentoTitulo" />
+
+    <TextView
+        android:id="@+id/tv_desenvolvimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/telaSobre_desenvolvimento" 
+        style="@style/StringTelaSobreStyle_simple"/>
+
+    <TextView
+        android:id="@+id/espacoBranco2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textVazio" />
+
+    <TextView
+        android:id="@+id/tv_idiomasTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/StringTelaSobreStyle"
+        android:text="@string/telaSobre_idiomasTitulo" />
+
+    <TextView
+        android:id="@+id/tv_idiomas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/StringTelaSobreStyle_simple"
+        android:text="@string/telaSobre_idiomas" />
+
+    <TextView
+        android:id="@+id/espacoBranco3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textVazio" />
+
+    <TextView
+        android:id="@+id/tv_agradecimentosTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/StringTelaSobreStyle"
+        android:text="@string/telaSobre_agradecimentosTitulo"/>
+
+    <TextView
+        android:id="@+id/tv_agradecimentos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/StringTelaSobreStyle_simple"
+        android:text="@string/telaSobre_agradecimentos" />
+
+    <TextView
+        android:id="@+id/espacoBranco4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textVazio" />
+
+    <TextView
+        android:id="@+id/tv_informacoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/StringTelaSobreStyle"
+        android:text="@string/telaSobre_informacoes" />
+
+    <TextView
+        android:id="@+id/espacoBranco5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textVazio" />
+
+    <ImageButton
+        android:id="@+id/btsobre_alerta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btsobre_alerta" />
+
+</LinearLayout>

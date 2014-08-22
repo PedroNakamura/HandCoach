@@ -36,7 +36,7 @@
         </activity>
        
         <activity
-            android:name="TelaStats"
+            android:name="TelaSobre"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">    
         </activity>
         

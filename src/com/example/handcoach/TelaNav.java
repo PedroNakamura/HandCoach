@@ -1,10 +1,8 @@
 package com.example.handcoach;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -74,24 +72,8 @@ public class TelaNav extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				AlertDialog.Builder alerta = new AlertDialog.Builder(TelaNav.this);
-				alerta.setIcon(R.drawable.ic_launcher);
-				alerta.setTitle(R.string.tituloAlertaSobre);
-				alerta.setMessage(R.string.msgAlertaSobre);
-				alerta.setPositiveButton(R.string.btSimAlertaSobre, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface arg0, int arg1) {
-						
-						Uri uri = Uri.parse("http://pedronakamura.com.br/handcoach");
-						Intent it = new Intent(Intent.ACTION_VIEW, uri);
-						startActivity(it);
-						
-					}
-				});
-				
-				alerta.setNegativeButton(R.string.btNaoAlertaSobre, null);
-				alerta.show();
+				Intent it = new Intent(TelaNav.this, TelaSobre.class);
+				startActivity(it);
 				
 			}
 		});
