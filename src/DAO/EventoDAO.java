@@ -17,13 +17,13 @@ public class EventoDAO extends DAO_Base<Evento> {
 	public static final String COLUNA_TEMPOFI = "tempofi";
 	
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ( "
-	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY, "
-	                                                         +COLUNA_IDCAT+" INT NOT NULL, "
-	                                                         +"CONSTRAINT id_eve_cat FOREIGN KEY ("+COLUNA_IDCAT+") REFERENCES "+TABELA_CATEGORIA+" ("+COLUNA_IDCAT+") ,"
-	                                                         +COLUNA_IDJOG+" INT NOT NULL, "
-	                                                         +"CONSTRAINT id_eve_jog FOREIGN KEY ("+COLUNA_IDJOG+") REFERENCES "+TABELA_JOGADOR+" ("+COLUNA_IDJOG+") ,"
-	                                                         +COLUNA_IDPTDA+" INT NOT NULL, "
-	                                                         +"CONSTRAINT id_eve_ptda FOREIGN KEY ("+COLUNA_IDPTDA+") REFERENCES "+TABELA_PTDA+" ("+COLUNA_IDPTDA+") ,"
+	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
+	                                                         +COLUNA_IDCAT+" INTEGER NOT NULL, "
+	                                                         +"FOREIGN KEY("+COLUNA_IDCAT+") "+"REFERENCES "+TABELA_CATEGORIA+"("+COLUNA_IDCAT+"), "
+	                                                         +COLUNA_IDJOG+" INTEGER NOT NULL, "
+	                                                         +"FOREIGN KEY("+COLUNA_IDJOG+") "+"REFERENCES "+TABELA_JOGADOR+"("+COLUNA_IDJOG+"), "
+	                                                         +COLUNA_IDPTDA+" INTEGER NOT NULL, "
+	                                                         +"FOREIGN KEY("+COLUNA_IDPTDA+") "+"REFERENCES "+TABELA_PTDA+"("+COLUNA_IDPTDA+"), "
 	                                                         +COLUNA_TEMPOIN+" TIME, "
 	                                                         +COLUNA_TEMPOFI+" TIME )";
 	

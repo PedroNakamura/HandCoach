@@ -10,7 +10,7 @@ public class CategoriaDAO extends DAO_Base<Categoria> {
 	public static final String COLUNA_DESCR = "descr";
 	
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("
-	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY, "
+	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 	                                                         +COLUNA_DESCR+" TEXT )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;

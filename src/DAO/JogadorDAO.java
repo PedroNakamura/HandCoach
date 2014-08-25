@@ -21,15 +21,16 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 	public static final String COLUNA_DT_NASC = "dt_nasc";
 	
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ( "
-	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY, "
-	                                                         +COLUNA_IDEQ+" INT NOT NULL, "
-	                                                         +"CONSTRAINT id_jog_eq FOREIGN KEY ("+COLUNA_IDEQ+") REFERENCES "+FOREIGN_TABELA+" ("+COLUNA_IDEQ+"), "
+	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
+	                                                         +COLUNA_IDEQ+" INTEGER NOT NULL, "
 	                                                         +COLUNA_NOME+" TEXT, "
 	                                                         +COLUNA_SEXO+" BOOLEAN, "
 	                                                         +COLUNA_FOTO+" BLOB, "
 	                                                         +COLUNA_ALTURA+" TEXT, "
-	                                                         +COLUNA_DT_NASC+" DATE )";
-	
+	                                                         +COLUNA_DT_NASC+" DATE," 
+	                                                         +"FOREIGN KEY("+COLUNA_IDEQ+") "+"REFERENCES "+FOREIGN_TABELA+"("+COLUNA_IDEQ+")"
+	                                                         +" )";
+	// +"CONSTRAINT id_jog_eq FOREIGN KEY ("+COLUNA_IDEQ+") REFERENCES "+FOREIGN_TABELA+" ("+COLUNA_IDEQ+"), "
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	
 	private static JogadorDAO instancia;

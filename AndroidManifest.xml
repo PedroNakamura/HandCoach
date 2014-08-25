@@ -39,6 +39,7 @@
             android:name="TelaSobre"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">    
         </activity>
+        <activity android:name="TelaScouting"></activity>
         
     </application>
 

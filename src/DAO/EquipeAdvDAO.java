@@ -10,7 +10,7 @@ public class EquipeAdvDAO extends DAO_Base<EquipeAdv> {
 	public static final String COLUNA_NOME = "nome";
 	
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ( "
-	                                                         +COLUNA_ID+" INT NOT NULL AUTOINCREMENT PRIMARY KEY, "
+	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 	                                                         +COLUNA_NOME+" TEXT )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
