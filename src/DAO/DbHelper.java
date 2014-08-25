@@ -30,7 +30,7 @@ public class DbHelper extends SQLiteOpenHelper {
 		db.execSQL(JogadorDAO.CREATE_TABLE);
 		db.execSQL(PartidaDAO.CREATE_TABLE);
 		db.execSQL(EventoDAO.CREATE_TABLE);
-		//this.populaCategoria(db);
+		this.populaCategoria(db);
 	}
 
 	@Override

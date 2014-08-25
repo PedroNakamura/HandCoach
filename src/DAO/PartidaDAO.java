@@ -19,11 +19,12 @@ public class PartidaDAO extends DAO_Base<Partida> {
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("
 	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 	                                                         +COLUNA_IDEQUIPE+" INTEGER NOT NULL, "
-	                                                         +"FOREIGN KEY("+COLUNA_IDEQUIPE+") "+"REFERENCES "+TABELA_EQUIPE+"("+COLUNA_IDEQUIPE+"), "
 	                                                         +COLUNA_IDEQADV+" INTEGER NOT NULL, "
-	                                                         +"FOREIGN KEY("+COLUNA_IDEQADV+") "+"REFERENCES "+TABELA_EQUIPEADV+"("+COLUNA_IDEQADV+"), "
 	                                                         +COLUNA_DTPTDA+" DATE, "
-	                                                         +COLUNA_LOCAL+" TEXT )";
+	                                                         +COLUNA_LOCAL+" TEXT, "
+	                                                         +"FOREIGN KEY("+COLUNA_IDEQUIPE+") "+"REFERENCES "+TABELA_EQUIPE+"("+COLUNA_IDEQUIPE+"), "
+	                                                         +"FOREIGN KEY("+COLUNA_IDEQADV+") "+"REFERENCES "+TABELA_EQUIPEADV+"("+COLUNA_IDEQADV+") "+
+	                                                         " )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	

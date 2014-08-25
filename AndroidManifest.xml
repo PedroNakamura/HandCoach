@@ -40,6 +40,8 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">    
         </activity>
         <activity android:name="TelaScouting"></activity>
+        <activity android:name="TelaCadastroEq"></activity>
+        <activity android:name="TelaCadastroJog"></activity>
         
     </application>
 

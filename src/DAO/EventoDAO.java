@@ -19,13 +19,14 @@ public class EventoDAO extends DAO_Base<Evento> {
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ( "
 	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 	                                                         +COLUNA_IDCAT+" INTEGER NOT NULL, "
-	                                                         +"FOREIGN KEY("+COLUNA_IDCAT+") "+"REFERENCES "+TABELA_CATEGORIA+"("+COLUNA_IDCAT+"), "
 	                                                         +COLUNA_IDJOG+" INTEGER NOT NULL, "
-	                                                         +"FOREIGN KEY("+COLUNA_IDJOG+") "+"REFERENCES "+TABELA_JOGADOR+"("+COLUNA_IDJOG+"), "
 	                                                         +COLUNA_IDPTDA+" INTEGER NOT NULL, "
-	                                                         +"FOREIGN KEY("+COLUNA_IDPTDA+") "+"REFERENCES "+TABELA_PTDA+"("+COLUNA_IDPTDA+"), "
 	                                                         +COLUNA_TEMPOIN+" TIME, "
-	                                                         +COLUNA_TEMPOFI+" TIME )";
+	                                                         +COLUNA_TEMPOFI+" TIME, " 
+	                                                         +"FOREIGN KEY("+COLUNA_IDCAT+") "+"REFERENCES "+TABELA_CATEGORIA+"("+COLUNA_IDCAT+"), "
+	                                                         +"FOREIGN KEY("+COLUNA_IDJOG+") "+"REFERENCES "+TABELA_JOGADOR+"("+COLUNA_IDJOG+"), "
+	                                                         +"FOREIGN KEY("+COLUNA_IDPTDA+") "+"REFERENCES "+TABELA_PTDA+"("+COLUNA_IDPTDA+")"
+	                                                         +" )";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+NOME_TABELA;
 	
