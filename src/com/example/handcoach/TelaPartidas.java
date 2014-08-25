@@ -2,6 +2,7 @@ package com.example.handcoach;
 
 import DAO.CategoriaDAO;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,7 +16,7 @@ public class TelaPartidas extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_partidas);
 		TextView txtv = (TextView) findViewById(R.id.textView1);
-		txtv.setText(CategoriaDAO.getInstancia(this).buscarTodos().size());
+		txtv.setText(CategoriaDAO.getInstancia(this).buscarPorID(1).getDescr());
 		
 		Button btScouting = (Button) findViewById(R.id.button1);
 		Button btCadastroEq = (Button) findViewById(R.id.button2);
@@ -25,7 +26,8 @@ public class TelaPartidas extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
+				Intent intent = new Intent(TelaPartidas.this, TelaScouting.class);
+				startActivity(intent);
 			}
 		});
 		
@@ -33,7 +35,8 @@ public class TelaPartidas extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
+				Intent intent = new Intent(TelaPartidas.this, TelaCadastroEq.class);
+				startActivity(intent);
 			}
 		});
 		
@@ -41,7 +44,8 @@ public class TelaPartidas extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
+				Intent intent = new Intent(TelaPartidas.this, TelaCadastroJog.class);
+				startActivity(intent);
 			}
 		});
 		

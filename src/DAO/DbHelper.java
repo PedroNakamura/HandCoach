@@ -30,7 +30,6 @@ public class DbHelper extends SQLiteOpenHelper {
 		db.execSQL(JogadorDAO.CREATE_TABLE);
 		db.execSQL(PartidaDAO.CREATE_TABLE);
 		db.execSQL(EventoDAO.CREATE_TABLE);
-		this.populaCategoria(db);
 	}
 
 	@Override
@@ -67,7 +66,6 @@ public class DbHelper extends SQLiteOpenHelper {
 		cv.put("descr", "PB_adv");
 		
 		//Cria no Banco
-		db.insert(CategoriaDAO.NOME_TABELA, null, cv);
 
 	}
 
