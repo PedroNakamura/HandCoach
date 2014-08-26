@@ -1,11 +1,12 @@
 package com.example.handcoach;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class TelaPartidas extends Activity {
 	
@@ -14,9 +15,10 @@ public class TelaPartidas extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_partidas);
 		
-		Button btScouting = (Button) findViewById(R.id.button1);
-		Button btCadastroEq = (Button) findViewById(R.id.button2);
-		Button btCadastroJog = (Button) findViewById(R.id.button3);
+		ImageButton btScouting = (ImageButton) findViewById(R.id.btMenuPartidas);
+		ImageButton btCadastroEq = (ImageButton) findViewById(R.id.btMenuEquipes);
+		ImageButton btCadastroJog = (ImageButton) findViewById(R.id.btMenuJogadores);
+		ImageButton btTorneios = (ImageButton) findViewById(R.id.btMenuTorneios);
 		
 		btScouting.setOnClickListener(new OnClickListener() {
 			
@@ -42,6 +44,19 @@ public class TelaPartidas extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent(TelaPartidas.this, TelaCadastroJog.class);
 				startActivity(intent);
+			}
+		});
+		
+		btTorneios.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				AlertDialog.Builder alerta = new AlertDialog.Builder(TelaPartidas.this);
+				alerta.setIcon(R.drawable.ic_launcher);
+				alerta.setTitle(R.string.tituloAlertaTorneios);
+				alerta.setMessage(R.string.msgAlertaTreino);
+				alerta.setNeutralButton(R.string.btAlertatreino, null);
+				alerta.show();
 			}
 		});
 		

@@ -14,6 +14,7 @@
     
     
     <string name="tituloAlertaTreinos">Treinamentos</string>
+    <string name="tituloAlertaEstatisticas">Estatísticas</string>
     <string name="msgAlertaTreino">Funcionalidade não disponível para essa versão. Adquira HandCoach PRO!</string>
     <string name="btAlertatreino">OK</string>
     
@@ -33,9 +34,17 @@
     <string name="btNaoAlertaSobre">Não</string>    
     
     
+    <string name="telaPartidasTitulo">Partidas</string>
     <string name="btMenuScoutingPartida">Nova Partida</string>
-    <string name="btMenuCadastroEquipes">Gerenciar Equipes</string>
-    <string name="btMenuCadastroJogadores">Gerenciar Jogadores</string>
+    <string name="btMenuCadastroEquipes">Gerir Equipes</string>
+    <string name="btMenuCadastroJogadores">Gerir Jogadores</string>
     <string name="btMenuTorneios">Competições</string>
+    <string name="tituloAlertaTorneios">Competições</string>
 
+    
+    <string name="TituloTelaCadastroEq">Cadastro Equipes</string>
+    <string name="CadastroEqNome">Nome da Equipe:</string>
+    <string name="btCadastrar">Cadastrar!</string>
+    <string name="CadastroEqLista">Equipes:</string>
+    
 </resources>

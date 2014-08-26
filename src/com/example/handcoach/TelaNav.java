@@ -55,10 +55,9 @@ public class TelaNav extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				//O alerta diz a mesma coisa que a opção para partidas! 
 				AlertDialog.Builder alerta = new AlertDialog.Builder(TelaNav.this);
 				alerta.setIcon(R.drawable.ic_launcher);
-				alerta.setTitle(R.string.tituloAlertaTreinos);
+				alerta.setTitle(R.string.tituloAlertaEstatisticas);
 				alerta.setMessage(R.string.msgAlertaTreino);
 				alerta.setNeutralButton(R.string.btAlertatreino, null);
 				alerta.show();

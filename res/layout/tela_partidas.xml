@@ -1,27 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7F7F7"
-    android:gravity="center|top"
-    android:orientation="vertical" >
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button1"
+    <TextView
+        android:id="@+id/tvTituloTelaPartidas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="scout" />
+        style="@style/StringTituloTela"
+        android:text="@string/telaPartidasTitulo"
+        android:layout_marginBottom="20dp"/>/
 
-    <Button
-        android:id="@+id/button2"
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="eq" />
+        android:columnCount="2" >
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="jog" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/btMenuPartidas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bt_menu_scouting" />
+
+            <TextView
+                android:id="@+id/tv_telaPartidasBtNovaPart"
+                style="@style/StringTelaSecStyle"
+                android:layout_gravity="bottom|center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/btMenuScoutingPartida" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btMenuJogadores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bt_menu_jogadores" />
+
+            <TextView
+                android:id="@+id/tv_telPartidasBtNovoJog"
+                style="@style/StringTelaSecStyle"
+                android:layout_gravity="bottom|center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/btMenuCadastroJogadores" />
+
+        </FrameLayout>
+
+        <FrameLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btMenuEquipes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bt_menu_equipes" />
+
+            <TextView
+                android:id="@+id/tv_telaPartidasBtMenuEquipes"
+                style="@style/StringTelaSecStyle"
+                android:layout_gravity="bottom|center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/btMenuCadastroEquipes" />
+
+        </FrameLayout>
+
+        <FrameLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btMenuTorneios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bt_menu_torneios" />
+
+            <TextView
+                android:id="@+id/tv_telaPartidasBtMenuTorneios"
+                style="@style/StringTelaSecStyle"
+                android:layout_gravity="bottom|center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/btMenuTorneios" />
+
+        </FrameLayout>
+
+    </GridLayout>
 
 </LinearLayout>

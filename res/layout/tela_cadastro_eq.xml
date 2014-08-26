@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#F7F7F7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp" >
+
+        <TextView
+            android:id="@+id/titutoTelaCadastroEq"
+            style="@style/StringTituloTela"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TituloTelaCadastroEq" />
+
+        <TextView
+            android:id="@+id/textVazioTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tv_cadastroEqNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CadastroEqNome" />
+
+        <EditText
+            android:id="@+id/editText_nomeEquipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" >
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/textVazio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <Button
+            android:id="@+id/botaoCadastroEq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btCadastrar" />
+
+        <TextView
+            android:id="@+id/textVazio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CadastroEqLista" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -39,9 +39,18 @@
             android:name="TelaSobre"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">    
         </activity>
-        <activity android:name="TelaScouting"></activity>
-        <activity android:name="TelaCadastroEq"></activity>
-        <activity android:name="TelaCadastroJog"></activity>
+        
+        <activity android:name="TelaScouting"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">            
+        </activity>
+        
+        <activity android:name="TelaCadastroEq"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">         
+        </activity>
+        
+        <activity android:name="TelaCadastroJog"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
         
     </application>
 

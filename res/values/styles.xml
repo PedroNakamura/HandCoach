@@ -40,7 +40,23 @@
      <item name="android:gravity">center</item>
      <item name="android:textColor">#E82A2A</item>  
      <item name="android:textSize">20sp</item>  
-   </style>    
+   </style>
+   
+   <style name="StringTelaSecStyle">
+       <item name="android:gravity">center</item>
+       <item name="android:layout_width">fill_parent</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:textColor">#FFFFFF</item>
+       <item name="android:textSize">26sp</item>
+   </style>
+   
+   <style name="StringTituloTela">
+       <item name="android:gravity">center</item>
+       <item name="android:layout_width">fill_parent</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:textColor">#E82A2A</item>
+       <item name="android:textSize">30sp</item>
+   </style>
     
     
 </resources>
