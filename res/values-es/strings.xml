@@ -31,4 +31,9 @@
     <string name="btNaoAlertaSobre">No</string>
     
     
+    <string name="btMenuScoutingPartida">Nuevo Partido</string>
+    <string name="btMenuCadastroEquipes">Gestionar Equipos</string>
+    <string name="btMenuCadastroJogadores">Gestionar Jugadores</string>
+    <string name="btMenuTorneios">Competiciones</string>
+    
 </resources>

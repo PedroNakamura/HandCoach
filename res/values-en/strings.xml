@@ -30,4 +30,10 @@
     <string name="btSimAlertaSobre">Yes</string>
     <string name="btNaoAlertaSobre">No</string>    
     
+    
+    <string name="btMenuScoutingPartida">New Match</string>
+    <string name="btMenuCadastroEquipes">Manage Teams</string>
+    <string name="btMenuCadastroJogadores">Manage Players</string>
+    <string name="btMenuTorneios">Competitions</string>    
+    
 </resources>

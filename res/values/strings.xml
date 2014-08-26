@@ -31,5 +31,11 @@
     <string name="msgAlertaSobre">Deseja acessar um link com maiores informações sobre HandCoach?</string>
     <string name="btSimAlertaSobre">Sim</string>
     <string name="btNaoAlertaSobre">Não</string>
+    
+    <!-- TelaPartidas -->
+    <string name="btMenuScoutingPartida">Nova Partida</string>
+    <string name="btMenuCadastroEquipes">Gerenciar Equipes</string>
+    <string name="btMenuCadastroJogadores">Gerenciar Jogadores</string>
+    <string name="btMenuTorneios">Competições</string>
 
 </resources>

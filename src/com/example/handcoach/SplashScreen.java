@@ -7,7 +7,7 @@ import android.content.Intent;
 public class SplashScreen extends Activity {
 	
 	protected boolean _active = true;
-	protected int _splashTime = 1500;
+	protected int _splashTime = 1000;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
