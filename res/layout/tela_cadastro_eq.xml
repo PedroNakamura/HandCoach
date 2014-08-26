@@ -60,10 +60,16 @@
             android:text="@string/textVazio" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_cadastroEqLista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/CadastroEqLista" />
+
+        <ListView
+            android:id="@+id/listEquipeCadastrada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
 
     </LinearLayout>
 

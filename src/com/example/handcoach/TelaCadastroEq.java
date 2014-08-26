@@ -1,5 +1,7 @@
 package com.example.handcoach;
 
+import java.util.List;
+
 import DAO.Equipe;
 import DAO.EquipeDAO;
 import android.app.Activity;
@@ -19,6 +21,8 @@ public class TelaCadastroEq extends Activity {
 		Button btCadastro = (Button) findViewById(R.id.botaoCadastroEq);
 		final EditText nomeEquipe = (EditText) findViewById(R.id.editText_nomeEquipe);
 		
+		List<Equipe> listaEquipes = EquipeDAO.getInstancia(TelaCadastroEq.this).buscarTodos();
+		
 		btCadastro.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -27,6 +31,7 @@ public class TelaCadastroEq extends Activity {
                 EquipeDAO.getInstancia(TelaCadastroEq.this).Inserir(new Equipe(nomeEq));
 			}
 		});
+		
 		
 	}
 
