@@ -16,7 +16,7 @@ public class TelaPartidas extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_partidas);
 		TextView txtv = (TextView) findViewById(R.id.textView1);
-		txtv.setText(CategoriaDAO.getInstancia(this).buscarPorID(1).getDescr());
+		txtv.setText(CategoriaDAO.getInstancia(this).buscarTodos().size()+"");
 		
 		Button btScouting = (Button) findViewById(R.id.button1);
 		Button btCadastroEq = (Button) findViewById(R.id.button2);

@@ -30,6 +30,7 @@ public class DbHelper extends SQLiteOpenHelper {
 		db.execSQL(JogadorDAO.CREATE_TABLE);
 		db.execSQL(PartidaDAO.CREATE_TABLE);
 		db.execSQL(EventoDAO.CREATE_TABLE);
+		populaCategoria(db);
 	}
 
 	@Override
@@ -44,29 +45,33 @@ public class DbHelper extends SQLiteOpenHelper {
 	}
 	
 	public void populaCategoria(SQLiteDatabase db) {
-		ContentValues cv = new ContentValues();
 		//Bota nos contentValues
-		cv.put("descr", "AR_gol");
-		cv.put("descr", "AR_defesa");
-		cv.put("descr", "AR_fora");
-		cv.put("descr", "AR_GK");
-		cv.put("descr", "PSS_certo");
-		cv.put("descr", "PSS_errado");
-		cv.put("descr", "RCP_certa");
-		cv.put("descr", "RCP_errada");
-		cv.put("descr", "FT_tecnica");
-		cv.put("descr", "FT_ataque");
-		cv.put("descr", "FT_defesa");
-		cv.put("descr", "FT_7m");
-		cv.put("descr", "CT_amarelo");
-		cv.put("descr", "2min");
-		cv.put("descr", "SFT_ataque");
-		cv.put("descr", "SFT_defesa");
-		cv.put("descr", "PB_equipe");
-		cv.put("descr", "PB_adv");
-		
-		//Cria no Banco
-
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("AR_gol"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("AR_defesa"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("AR_fora"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("AR_GK"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PSS_certo"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PSS_errado"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("RCP_certa"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("RCP_errada"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("FT_tecnica"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("FT_defesa"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("FT_ataque"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("FT_7m"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("CT_amarelo"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("2min"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("SFT_ataque"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PB_equipe"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("SFT_defesa"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PB_equipe"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PB_adv"));
 	}
 
+	private ContentValues popCat(String s) {
+		ContentValues c = new ContentValues();
+		c.put("descr", s);
+		return c;
+		
+	}
+	
 }
