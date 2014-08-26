@@ -35,9 +35,9 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 	}
 	
 	//
-	public void Editar(T entidade) {
+	public void Editar(T entidade, T entidadeAtualizada) {
 		String[] valores = {String.valueOf(entidade.getId())};
-		ContentValues cv = entidadeParaContentValues(entidade);
+		ContentValues cv = entidadeParaContentValues(entidadeAtualizada);
 		db.update(getNomeTabela(), cv, getNomeColunaPrimaryKey() + " = ?", valores);
 	}
 	
@@ -58,6 +58,16 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 	//
 	public List<T> buscarTodos() {
 		String query = "SELECT * FROM "+getNomeTabela();
+		return getQuery(query);
+	}
+	
+	public List<T> buscarNome() {
+		String query = "SELECT * FROM "+getNomeTabela()+" WHERE nome = %";
+		return getQuery(query);
+	}
+	
+	public List<T> buscarDaEquipe(int id_eq) {
+		String query = "SELECT * FROM "+getNomeTabela()+" WHERE id_eq = "+id_eq;
 		return getQuery(query);
 	}
 	

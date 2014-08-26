@@ -38,11 +38,30 @@
     <string name="btMenuCadastroJogadores">Manage Players</string>
     <string name="btMenuTorneios">Competitions</string>    
     <string name="tituloAlertaTorneios">Competitions</string>
+    <string name="EquipeAdicionada">Added team!</string>
     
     
     <string name="TituloTelaCadastroEq">Register Teams</string>
     <string name="CadastroEqNome">Name of the team:</string>
     <string name="btCadastrar">Register!</string>
     <string name="CadastroEqLista">Teams:</string>
+    <string name="btAtualizar">Update</string>
+    <string name="btDeletar">Delete</string>
+    <string name="alertaAtualizado">Updated!</string>
+    <string name="alertaDeletado">Deleted!</string>
+    
+        <!-- Aviso Cadastro Jog -->
+    <string name="CadastroEscolhaEq">Choose a team:</string>
+    
+    <!-- CadastroJogadores -->
+    <string name="TituloTelaCadastroJog">Player register</string>
+    <string name="TituloListaJogadores">Players of the team</string>
+    <string name="btNovoJogador">New Player</string>
+    <string name="JogadorEdit">Edit Players</string>
+    <string name="JogadorEditNome">Name:</string>
+    <string name="JogadorEditSexo">Sex:</string>
+    <string name="JogadorEditFoto">Photo:</string>
+    <string name="JogadorEditAltura">Height:</string>
+    <string name="JogadorEditDT_Nasc">Born date:</string>
     
 </resources>

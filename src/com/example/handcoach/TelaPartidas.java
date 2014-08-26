@@ -42,7 +42,7 @@ public class TelaPartidas extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(TelaPartidas.this, TelaCadastroJog.class);
+				Intent intent = new Intent(TelaPartidas.this, TelaMenuJogadores.class);
 				startActivity(intent);
 			}
 		});

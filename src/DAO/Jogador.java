@@ -84,7 +84,7 @@ public class Jogador implements EntidadeInterface {
         String dataFormatada = format.format(data);
         Log.i("DATA String", dataFormatada);
         return dataFormatada;
-}
+    }
     
 	//conversão do String para Date
     public Date stringToDate(String dataStr) throws java.text.ParseException {
@@ -95,7 +95,11 @@ public class Jogador implements EntidadeInterface {
                 e.printStackTrace();
         }
         return dt_nasc;
-}
+    }
+    
+	public String toString() {
+		return this.nome;
+	}
 	
 
 }

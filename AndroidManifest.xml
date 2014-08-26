@@ -13,7 +13,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" 
+        android:screenOrientation="portrait">
         
         <activity
             android:name="com.example.handcoach.TelaNav"
@@ -40,15 +41,38 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">    
         </activity>
         
-        <activity android:name="TelaScouting"
+        <activity 
+            android:name="TelaScouting"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">            
         </activity>
         
-        <activity android:name="TelaCadastroEq"
+        <activity 
+            android:name="TelaCadastroEq"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">         
         </activity>
         
-        <activity android:name="TelaCadastroJog"
+        <activity 
+            android:name="TelaCadastroJog"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
+        
+        <activity 
+            android:name="TelaEditarEq"
+             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        ></activity>
+        
+        <activity 
+            android:name="TelaEditarJog" 
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
+        
+        <activity 
+            android:name="TelaMenuJogadores"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
+        
+        <activity 
+            android:name="TelaMenuJog"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         

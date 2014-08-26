@@ -8,6 +8,11 @@ public class Equipe implements EntidadeInterface {
 	public Equipe() {
 	}
 	
+	public Equipe(int id, String nome) {
+		this.id_eq = id;
+		this.nome = nome;
+	}
+	
 	public Equipe(String nome) {
 		this.nome = nome;
 	}
@@ -30,7 +35,8 @@ public class Equipe implements EntidadeInterface {
 		this.nome = nome;
 	}
 	
-	
-	
+	public String toString() {
+		return this.nome;
+	}
 
 }
