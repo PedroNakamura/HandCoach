@@ -65,6 +65,10 @@
     <string name="JogadorEditSexo">Sexo:</string>
     <string name="JogadorEditFoto">Foto:</string>
     <string name="JogadorEditAltura">Altura:</string>
+    <string name="JogadorEditTextAltura">1m80cm</string>
     <string name="JogadorEditDT_Nasc">Data de Nascimento:</string>
+    <string name="JogadorMasculino">Masculino</string>
+    <string name="JogadorFeminino">Feminino</string>
+    
 
 </resources>

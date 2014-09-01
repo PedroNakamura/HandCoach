@@ -1,5 +1,6 @@
 package com.example.handcoach;
 
+import com.example.handcoach.telaPartidas.TelaPartidas;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;

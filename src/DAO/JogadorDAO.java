@@ -67,12 +67,16 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		cv.put(COLUNA_ALTURA, entidade.getAltura());
 		cv.put(COLUNA_IDEQ, entidade.getIdEq());
 		
-	    // Bitmap -> byte[]
-		ByteArrayOutputStream stream = new ByteArrayOutputStream();
-		entidade.getFoto().compress(Bitmap.CompressFormat.PNG, 100, stream);
-		byte[] byteArray = stream.toByteArray();
-	
-		cv.put(COLUNA_FOTO, byteArray);
+		if(entidade.getFoto() != null) {
+		    // Bitmap -> byte[]
+			ByteArrayOutputStream stream = new ByteArrayOutputStream();
+			entidade.getFoto().compress(Bitmap.CompressFormat.PNG, 100, stream);
+			byte[] byteArray = stream.toByteArray();
+			cv.put(COLUNA_FOTO, byteArray);
+		} else {
+			cv.putNull(COLUNA_FOTO);
+		}
+
 		cv.put(COLUNA_DT_NASC, entidade.dateToString());
 		
 		return cv;

@@ -1,7 +1,8 @@
-package com.example.handcoach;
+package com.example.handcoach.telaPartidas.equipes;
 
 
 import java.util.List;
+import com.example.handcoach.R;
 import DAO.Equipe;
 import DAO.EquipeDAO;
 import android.app.Activity;

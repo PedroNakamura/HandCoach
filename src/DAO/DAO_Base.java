@@ -1,5 +1,7 @@
 package DAO;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.ContentValues;
@@ -7,6 +9,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ParseException;
 
 public abstract class DAO_Base <T extends EntidadeInterface>{
 	
@@ -81,5 +84,17 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 			return null;
 		}
 	}
+	
+	//conversão do String para Date
+    public Date stringToDate(String dataStr) throws java.text.ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        Date dtnasc = null;
+        try {
+                dtnasc = (Date) format.parse(dataStr);
+        } catch (ParseException e) {
+                e.printStackTrace();
+        }
+        return dtnasc;
+    }
 
 }

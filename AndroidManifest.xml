@@ -8,72 +8,88 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="14" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" 
-        android:screenOrientation="portrait">
-        
-        <activity
-            android:name="com.example.handcoach.TelaNav"
-            android:label="@string/app_name" 
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        </activity>
+        android:theme="@style/AppTheme" >
         
         <activity 
             android:name="SplashScreen"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         
-        <activity
-            android:name="TelaPartidas"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity 
+            android:name=".telaPartidas.equipes.TelaCadastroEq"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
         </activity>
-       
-        <activity
+        
+        <activity 
+            android:name=".telaPartidas.jogadores.TelaCadastroJog"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.equipes.TelaEditarEq"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.jogadores.TelaEditarJog"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.jogadores.TelaMenuEquipes"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.jogadores.TelaMenuJog"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.Scouting.TelaMenuScouting"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name="TelaNav"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.TelaPartidas"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.Scouting.TelaScouting"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
             android:name="TelaSobre"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">    
-        </activity>
-        
-        <activity 
-            android:name="TelaScouting"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">            
-        </activity>
-        
-        <activity 
-            android:name="TelaCadastroEq"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">         
-        </activity>
-        
-        <activity 
-            android:name="TelaCadastroJog"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        </activity>
-        
-        <activity 
-            android:name="TelaEditarEq"
-             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-        ></activity>
-        
-        <activity 
-            android:name="TelaEditarJog" 
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        </activity>
-        
-        <activity 
-            android:name="TelaMenuJogadores"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        </activity>
-        
-        <activity 
-            android:name="TelaMenuJog"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
         </activity>
         
     </application>

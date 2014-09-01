@@ -16,6 +16,16 @@ public class Jogador implements EntidadeInterface {
 	private String altura;
 	private Date dt_nasc;
 	
+	public Jogador() {
+	}
+	
+	public Jogador(int id_eq, String nome, boolean sexo, Bitmap foto, String altura, Date dt_nasc) {
+		this.id_eq = id_eq;
+		this.nome = nome;
+		this.sexo = sexo;
+		this.foto = foto;
+		this.altura = altura;	
+	}
 	
 	//Getters and Setters ID do Jogador
 	@Override

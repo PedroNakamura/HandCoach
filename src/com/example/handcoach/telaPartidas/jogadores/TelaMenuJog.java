@@ -1,7 +1,7 @@
-package com.example.handcoach;
+package com.example.handcoach.telaPartidas.jogadores;
 
 import java.util.List;
-
+import com.example.handcoach.R;
 import DAO.Jogador;
 import DAO.JogadorDAO;
 import android.app.Activity;
@@ -27,7 +27,7 @@ public class TelaMenuJog extends Activity {
 		
 		Intent it = getIntent();
 		Bundle valor = it.getExtras();
-		int id_eq = valor.getInt("Equipe");
+		final int id_eq = valor.getInt("Equipe");
 		
         List<Jogador> listaJogadores = JogadorDAO.getInstancia(TelaMenuJog.this).buscarDaEquipe(id_eq);
 		
@@ -39,6 +39,7 @@ public class TelaMenuJog extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent it = new Intent(TelaMenuJog.this, TelaCadastroJog.class);
+				it.putExtra("id_eq", id_eq);
 				startActivity(it);
 			}
 		});

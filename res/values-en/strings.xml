@@ -5,18 +5,20 @@
     
     <string name="app_name">HandCoach</string>
     <string name="action_settings">Settings</string>
+    
+    <!-- Tela Nav -->
     <string name="telaNav_btPartidas">Matches</string>
     <string name="telaNav_btTreinos">Training</string>
     <string name="telaNav_btSobre">About</string>
     <string name="telaNav_btStats">Statistics</string>
     
-    
+    <!-- Alertas Tela Nav -->
     <string name="tituloAlertaTreinos">Trainings</string>
     <string name="tituloAlertaEstatisticas">Statistics</string>
     <string name="msgAlertaTreino">Functionality not available for this version. Acquire HandCoach PRO!</string>
     <string name="btAlertatreino">OK</string>
     
-        
+    <!-- Tela Sobre -->
     <string name="telaSobre_desenvolvimentoTitulo">Developed by:</string>
     <string name="telaSobre_idiomasTitulo">Supported languages:</string>
     <string name="telaSobre_agradecimentosTitulo">Special thanks to teachers:</string>
@@ -25,13 +27,13 @@
     <string name="telaSobre_idiomas">Portuguese - English - Spanish</string>
     <string name="telaSobre_agradecimentos">Walter Jr. Bicca; Luis Zeni; Rodrigo Remor and Bianca Ruskowski</string>
     
-    
+    <!-- Alertas Tela Sobre -->
     <string name="tituloAlertaSobre">About HandCoach:</string>
     <string name="msgAlertaSobre">Do you want to visit a link with more informations about HandCoach?</string>
     <string name="btSimAlertaSobre">Yes</string>
     <string name="btNaoAlertaSobre">No</string>    
     
-    
+    <!-- TelaPartidas -->
     <string name="telaPartidasTitulo">Matches</string>
     <string name="btMenuScoutingPartida">New Match</string>
     <string name="btMenuCadastroEquipes">Manage Teams</string>
@@ -40,7 +42,7 @@
     <string name="tituloAlertaTorneios">Competitions</string>
     <string name="EquipeAdicionada">Added team!</string>
     
-    
+    <!-- CadastroEquipes -->
     <string name="TituloTelaCadastroEq">Register Teams</string>
     <string name="CadastroEqNome">Name of the team:</string>
     <string name="btCadastrar">Register!</string>
@@ -50,7 +52,7 @@
     <string name="alertaAtualizado">Updated!</string>
     <string name="alertaDeletado">Deleted!</string>
     
-        <!-- Aviso Cadastro Jog -->
+    <!-- Aviso Cadastro Jog -->
     <string name="CadastroEscolhaEq">Choose a team:</string>
     
     <!-- CadastroJogadores -->
@@ -62,6 +64,9 @@
     <string name="JogadorEditSexo">Sex:</string>
     <string name="JogadorEditFoto">Photo:</string>
     <string name="JogadorEditAltura">Height:</string>
+    <string name="JogadorEditTextAltura">5ft11</string>
     <string name="JogadorEditDT_Nasc">Born date:</string>
+    <string name="JogadorMasculino">Male</string>
+    <string name="JogadorFeminino">Female</string>
     
 </resources>
