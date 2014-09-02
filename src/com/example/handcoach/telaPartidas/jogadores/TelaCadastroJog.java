@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class TelaCadastroJog extends Activity {
 	
@@ -57,7 +58,7 @@ public class TelaCadastroJog extends Activity {
 				}
 				
 				JogadorDAO.getInstancia(TelaCadastroJog.this).Inserir(new Jogador(id_eq, nomeJogador, sexoJogador, null, alturaJogador, nascJog));
-				
+				Toast.makeText(TelaCadastroJog.this, R.string.AlertaJogCadastrado, Toast.LENGTH_SHORT).show();
 			}		
 		});
 	

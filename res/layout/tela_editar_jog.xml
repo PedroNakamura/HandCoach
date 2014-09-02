@@ -2,23 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFAFAF" >
+    android:background="#FFAFAF"
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" 
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginBottom="15dp">
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/tv_JogadorEdit"
+            style="@style/StringTituloTela"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/StringTituloTela"
             android:text="@string/JogadorEdit" />
 
         <TextView
@@ -29,6 +29,7 @@
 
         <TextView
             android:id="@+id/tv_nomeEditarJogador"
+            style="@style/StringTelaSobreStyle_simple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/JogadorEditNome" />
@@ -50,15 +51,30 @@
 
         <TextView
             android:id="@+id/tv_jogadorEditSexo"
+            style="@style/StringTelaSobreStyle_simple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/JogadorEditSexo"/>
+            android:text="@string/JogadorEditSexo" />
 
-        <EditText
-            android:id="@+id/editText_jogadorEditSexo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10" />
+        <RadioGroup
+            android:id="@+id/radioGroup_editJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/masculinoEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/JogadorMasculino" />
+
+            <RadioButton
+                android:id="@+id/femininoEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/JogadorFeminino" />
+
+        </RadioGroup>
 
         <TextView
             android:id="@+id/espacoBnc3"
@@ -68,6 +84,7 @@
 
         <TextView
             android:id="@+id/tv_jogadorEditAltura"
+            style="@style/StringTelaSobreStyle_simple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/JogadorEditAltura" />
@@ -86,6 +103,7 @@
 
         <TextView
             android:id="@+id/tv_jogadorEditDT_Nasc"
+            style="@style/StringTelaSobreStyle_simple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/JogadorEditDT_Nasc" />

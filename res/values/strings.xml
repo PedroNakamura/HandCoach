@@ -55,6 +55,7 @@
     
     <!-- Aviso Cadastro Jog -->
     <string name="CadastroEscolhaEq">Escolha uma equipe:</string>
+    <string name="AlertaJogCadastrado">Cadastrado!</string>
     
     <!-- CadastroJogadores -->
     <string name="TituloTelaCadastroJog">Cadastro Jogador</string>

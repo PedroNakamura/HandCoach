@@ -76,7 +76,7 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 	}
 	
 	//
-	public T buscarPorID(long id) {
+	public T buscarPorID(int id) {
 		String query = "SELECT * FROM "+getNomeTabela()+" WHERE "+getNomeColunaPrimaryKey()+" = "+id;
 		List<T> resultado = getQuery(query);
 		if(resultado.size() > 0) {
