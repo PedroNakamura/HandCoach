@@ -1,6 +1,6 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 
 import com.example.handcoach.R;
@@ -49,7 +49,7 @@ public class TelaCadastroJog extends Activity {
 				}
 				String alturaJogador = editAlturaJogador.getText().toString();	
 				String nascimentoJogador = editNascimentoJogador.getText().toString();	
-				Date nascJog = null;
+				Date nascJog = new Date();
 				try {
 					nascJog = JogadorDAO.getInstancia(TelaCadastroJog.this).stringToDate(nascimentoJogador);
 				} catch (ParseException e) {

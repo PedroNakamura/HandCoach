@@ -90,9 +90,13 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		jogador.setSexo(contentValues.getAsBoolean(COLUNA_SEXO));
 		
 		//byte[] -> Bitmap
-		byte[] byteArray = contentValues.getAsByteArray(COLUNA_FOTO);
-		Bitmap foto = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-		jogador.setFoto(foto);
+		if(contentValues.getAsByteArray(COLUNA_FOTO) != null) {
+			byte[] byteArray = contentValues.getAsByteArray(COLUNA_FOTO);
+			Bitmap foto = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+			jogador.setFoto(foto);
+		} else {
+			jogador.setFoto(null);
+		}
         //
 		
 		jogador.setAltura(contentValues.getAsString(COLUNA_ALTURA));

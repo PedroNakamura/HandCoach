@@ -1,6 +1,6 @@
 package DAO;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import android.graphics.Bitmap;
 import android.net.ParseException;
@@ -17,6 +17,8 @@ public class Jogador implements EntidadeInterface {
 	private Date dt_nasc;
 	
 	public Jogador() {
+		this.dt_nasc = new Date();
+		//this.foto = new Bitmap();
 	}
 	
 	public Jogador(int id_eq, String nome, boolean sexo, Bitmap foto, String altura, Date dt_nasc) {
@@ -24,7 +26,8 @@ public class Jogador implements EntidadeInterface {
 		this.nome = nome;
 		this.sexo = sexo;
 		this.foto = foto;
-		this.altura = altura;	
+		this.altura = altura;
+		this.dt_nasc = dt_nasc;
 	}
 	
 	//Getters and Setters ID do Jogador
