@@ -32,6 +32,7 @@ public class TelaMenuJog extends Activity {
         List<Jogador> listaJogadores = JogadorDAO.getInstancia(TelaMenuJog.this).buscarDaEquipe(id_eq);
 		
 		final ArrayAdapter<Jogador> adp = new ArrayAdapter<Jogador>(TelaMenuJog.this, android.R.layout.simple_list_item_1, listaJogadores);
+		adp.notifyDataSetChanged();
 		listaJog.setAdapter(adp);
 		
 		btNovoJogador.setOnClickListener(new OnClickListener() {
