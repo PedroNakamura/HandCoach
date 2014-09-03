@@ -55,6 +55,7 @@
     <!-- Aviso Cadastro Jog -->
     <string name="CadastroEscolhaEq">Choose a team:</string>
     <string name="AlertaJogCadastro">Added player!</string>
+    <string name="AlertaCtzDelete">Exclusion confirmed?</string>
     
     <!-- CadastroJogadores -->
     <string name="TituloTelaCadastroJog">Player register</string>

@@ -55,6 +55,7 @@
     <!-- Aviso Cadastro Jog -->
     <string name="CadastroEscolhaEq">Seleccione un equipo:</string>
     <string name="AlertaJogCadastro">Adicionado jugador!</string>
+    <string name="AlertaCtzDelete">Confirma la exclusión?</string>
     
     <!-- CadastroJogadores -->
     <string name="TituloTelaCadastroJog">Registrar Jugador</string>

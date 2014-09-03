@@ -120,12 +120,6 @@
             android:layout_height="wrap_content"
             android:text="@string/btAtualizar" />
 
-        <Button
-            android:id="@+id/btEditJogador_Deleta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btDeletar" />
-
     </LinearLayout>
 
 </LinearLayout>

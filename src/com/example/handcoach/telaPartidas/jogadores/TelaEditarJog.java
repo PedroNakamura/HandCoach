@@ -17,10 +17,10 @@ import android.widget.Toast;
 
 public class TelaEditarJog extends Activity {
 	
-	Bundle valor;
-	int id;
-	Intent it;
-	Jogador jogador;
+	private Bundle valor;
+	private int id;
+	private Intent it;
+	private Jogador jogador;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class TelaEditarJog extends Activity {
 		
 		it = getIntent();
 		valor = it.getExtras();
-		final int id = valor.getInt("Jogador");
+		id = valor.getInt("Jogador");
 		
 		final EditText jogadorNome = (EditText) findViewById(R.id.editText_jogadorEditNome);
 		final RadioGroup jogadorSexo = (RadioGroup) findViewById(R.id.radioGroup_editJogador);
@@ -38,27 +38,18 @@ public class TelaEditarJog extends Activity {
 		final EditText jogadorAltura = (EditText) findViewById(R.id.editText_jogadorEditAltura);
 		final EditText jogadorDtNasc = (EditText) findViewById(R.id.editText_jogadorEditDT_Nasc);
 		Button btAtualiza = (Button) findViewById(R.id.btEditJogador_Atualiza);
-	    Button btDeleta = (Button) findViewById(R.id.btEditJogador_Deleta);
 	 
 	    jogador = JogadorDAO.getInstancia(TelaEditarJog.this).buscarPorID(id);
 	    jogadorNome.setText(jogador.getNome());
-
+	    
 	    if(jogador.isSexo()) {
 	    	masculino.setSelected(true);
 	    } else {
+	    	masculino.setSelected(false);
 	    	feminino.setSelected(true);
 	    }
 	    jogadorAltura.setText(jogador.getAltura());
 	    jogadorDtNasc.setText(jogador.dateToString());
-	    
-	    btDeleta.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				JogadorDAO.getInstancia(TelaEditarJog.this).Deletar(jogador);
-				Toast.makeText(TelaEditarJog.this, R.string.alertaDeletado, Toast.LENGTH_SHORT).show();
-			}
-		});
 	    
 	    btAtualiza.setOnClickListener(new OnClickListener() {
 			
@@ -81,7 +72,6 @@ public class TelaEditarJog extends Activity {
 			    try {
 					nascJog = JogadorDAO.getInstancia(TelaEditarJog.this).stringToDate(dtNascJogador);
 				} catch (java.text.ParseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -97,6 +87,8 @@ public class TelaEditarJog extends Activity {
 			    JogadorDAO.getInstancia(TelaEditarJog.this).Editar(jogador, jogador2);
 			    
 				Toast.makeText(TelaEditarJog.this, R.string.alertaAtualizado, Toast.LENGTH_SHORT).show();
+				
+				finish();
 			}
 		});
 	    

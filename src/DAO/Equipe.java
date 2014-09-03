@@ -38,5 +38,11 @@ public class Equipe implements EntidadeInterface {
 	public String toString() {
 		return this.nome;
 	}
+	
+	
+	@Override
+	public boolean equals(Object o) {
+		return this.id_eq == ((Equipe)o).getId();
+	}
 
 }

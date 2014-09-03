@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public class TelaEditarEq extends Activity {
 	
+	Intent it;
 	Bundle valor;
 	int id;
 	
@@ -23,7 +24,6 @@ public class TelaEditarEq extends Activity {
 		setContentView(R.layout.tela_editar_eq);
 		
 		Button btAtualizar = (Button) findViewById(R.id.btAtualizarEquipe);
-		Button btDeletar = (Button) findViewById(R.id.btDeletarEquipe);
 		final EditText nomeEquipe = (EditText) findViewById(R.id.editText_editarNomeEq);
 		
 		Intent intent = getIntent();
@@ -33,15 +33,6 @@ public class TelaEditarEq extends Activity {
 		
 		nomeEquipe.setText(equipe.getNome());
 		
-		btDeletar.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				EquipeDAO.getInstancia(TelaEditarEq.this).Deletar(equipe);
-				Toast.makeText(TelaEditarEq.this, R.string.alertaDeletado, Toast.LENGTH_SHORT).show();
-			}
-		});
-		
 		btAtualizar.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -49,9 +40,11 @@ public class TelaEditarEq extends Activity {
 				Equipe eq = new Equipe(equipe.getId(), nomeEquipe.getText().toString());
 				EquipeDAO.getInstancia(TelaEditarEq.this).Editar(equipe, eq);
 				Toast.makeText(TelaEditarEq.this, R.string.alertaAtualizado, Toast.LENGTH_SHORT).show();
+				finish();
 			}
 		});
 		
 	}
+	
 
 }

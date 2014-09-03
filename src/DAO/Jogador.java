@@ -114,5 +114,8 @@ public class Jogador implements EntidadeInterface {
 		return this.nome;
 	}
 	
+	public boolean equals(Object o) {
+		return this.id_jog == ((Jogador)o).getId();
+	}
 
 }

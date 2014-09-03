@@ -59,6 +59,9 @@ public class TelaCadastroJog extends Activity {
 				
 				JogadorDAO.getInstancia(TelaCadastroJog.this).Inserir(new Jogador(id_eq, nomeJogador, sexoJogador, null, alturaJogador, nascJog));
 				Toast.makeText(TelaCadastroJog.this, R.string.AlertaJogCadastro, Toast.LENGTH_SHORT).show();
+				
+				finish();
+				
 			}		
 		});
 	
