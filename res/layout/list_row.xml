@@ -16,7 +16,7 @@
         android:layout_marginRight="5dip">
  
         <ImageView
-            android:id="@+id/Jogador-list_image"
+            android:id="@+id/Jogador_list_image"
             android:layout_width="50dip"
             android:layout_height="50dip"/>
  
@@ -24,7 +24,7 @@
  
     <!-- Nome do Jogador -->
     <TextView
-        android:id="@+id/JogadorNome-listView"
+        android:id="@+id/JogadorNome_listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
@@ -35,25 +35,25 @@
  
     <!-- Nome da Equipe -->
     <TextView
-        android:id="@+id/JogadorEquipe-listView"
+        android:id="@+id/JogadorEquipe_listView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/JogadorNome-listView"
+        android:layout_below="@id/JogadorNome_listView"
         android:textColor="#343434"
-        android:textSize="10dip"
+        android:textSize="12sp"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/thumbnail"/>
  
     <!-- Homem ou Mulher -->
     <TextView
-        android:id="@+id/duration"
+        android:id="@+id/JogadorDataNasc_listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/JogadorNome-listView"
+        android:layout_alignTop="@id/JogadorNome_listView"
         android:gravity="right"
         android:layout_marginRight="5dip"
-        android:textSize="10dip"
+        android:textSize="12sp"
         android:textColor="#10bcc9"
         android:textStyle="bold"/>
  
@@ -61,6 +61,7 @@
      <ImageView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:src="@drawable/arrow"
         android:layout_centerVertical="true"/> >
     
 
