@@ -43,11 +43,11 @@ public class TelaEditarJog extends Activity {
 	    jogadorNome.setText(jogador.getNome());
 	    
 	    if(jogador.isSexo()) {
-	    	masculino.setSelected(true);
+	    	masculino.setChecked(true);
 	    } else {
-	    	masculino.setSelected(false);
-	    	feminino.setSelected(true);
+	    	feminino.setChecked(true);
 	    }
+	    
 	    jogadorAltura.setText(jogador.getAltura());
 	    jogadorDtNasc.setText(jogador.dateToString());
 	    

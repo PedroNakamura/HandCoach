@@ -58,7 +58,11 @@ public class Jogador implements EntidadeInterface {
 
 	//Getters and Setters Sexo
 	public boolean isSexo() {
-		return sexo;
+		if(this.sexo) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	public void setSexo(boolean sexo) {
 		this.sexo = sexo;

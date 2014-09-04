@@ -30,35 +30,27 @@
         android:layout_alignTop="@+id/thumbnail"
         android:layout_toRightOf="@+id/thumbnail"
         android:textColor="#040404"
+        android:textSize="16sp"
         android:typeface="sans"
         android:textStyle="bold"/>
  
     <!-- Nome da Equipe -->
-    <TextView
-        android:id="@+id/JogadorEquipe_listView"
+
+    <ImageView
+        android:id="@+id/JogadorSexo_listView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@id/JogadorNome_listView"
-        android:textColor="#343434"
-        android:textSize="12sp"
         android:layout_marginTop="1dip"
-        android:layout_toRightOf="@+id/thumbnail"/>
+        android:layout_toLeftOf="@+id/arrow" />
  
     <!-- Homem ou Mulher -->
-    <TextView
-        android:id="@+id/JogadorDataNasc_listView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/JogadorNome_listView"
-        android:gravity="right"
-        android:layout_marginRight="5dip"
-        android:textSize="12sp"
-        android:textColor="#10bcc9"
-        android:textStyle="bold"/>
  
      <!-- Rightend Arrow -->
-     <ImageView android:layout_width="wrap_content"
+     <ImageView 
+        android:id="@+id/arrow"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:src="@drawable/arrow"

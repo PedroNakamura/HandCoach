@@ -14,7 +14,6 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -22,7 +21,7 @@ import android.widget.Toast;
 public class TelaMenuJog extends Activity {
 	
     List<Jogador> listaJogadores;
-	ArrayAdapter<Jogador> adp;
+	LazyAdapter adp;
 	Intent it;
 	Bundle valor;
 	int id_eq;
@@ -55,7 +54,7 @@ public class TelaMenuJog extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent it = new Intent(TelaMenuJog.this, TelaEditarJog.class);
-				it.putExtra("Jogador", adp.getItem(position).getId());
+				it.putExtra("Jogador", ((Jogador) adp.getItem(position)).getId());
 				startActivity(it);
 			}
 		});
@@ -73,9 +72,10 @@ public class TelaMenuJog extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Jogador jogador = JogadorDAO.getInstancia(TelaMenuJog.this).buscarPorID(adp.getItem(posicao).getId());
+						Jogador jogadorSelecionado = (Jogador)adp.getItem(posicao);
+						Jogador jogador = (Jogador)JogadorDAO.getInstancia(TelaMenuJog.this).buscarPorID(jogadorSelecionado.getId());
 						JogadorDAO.getInstancia(TelaMenuJog.this).Deletar(jogador);
-						Toast.makeText(TelaMenuJog.this, R.string.alertaDeletado, Toast.LENGTH_SHORT).show();
+						Toast.makeText(TelaMenuJog.this, R.string.AlertaCtzDelete, Toast.LENGTH_SHORT).show();
 						adp.remove(jogador);
 						listaJog.setAdapter(adp);
 					}
@@ -85,14 +85,14 @@ public class TelaMenuJog extends Activity {
 				return true;
 			}
 		});
-		
+	
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
         listaJogadores = JogadorDAO.getInstancia(TelaMenuJog.this).buscarDaEquipe(id_eq);
-		adp = new ArrayAdapter<Jogador>(TelaMenuJog.this, android.R.layout.simple_list_item_1, listaJogadores);
+		adp = new LazyAdapter(this, listaJogadores);
 		listaJog.setAdapter(adp);
 	}
 

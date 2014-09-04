@@ -1,6 +1,8 @@
-package com.example.handcoach;
+package com.example.handcoach.telaPartidas.jogadores;
 
-import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
 import DAO.Jogador;
 import android.app.Activity;
 import android.content.Context;
@@ -12,27 +14,33 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.handcoach.R;
+
 public class LazyAdapter extends BaseAdapter {
 	
 	private Activity act;
-	private ArrayList<Jogador> data;
+	private List<Jogador> listaJogador;
 	private static LayoutInflater inflater = null;
 	public Bitmap Image;
 	
-	public LazyAdapter(Activity a, ArrayList<Jogador> d) {
+	public LazyAdapter(Activity a, List<Jogador> d) {
 		act = a;
-		data = d;
+		listaJogador = d;
 		inflater = (LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
+	public void remove(Jogador jogador) {
+		listaJogador.remove(jogador);
+	}
+	
 	@Override
 	public int getCount() {
-		return data.size();
+		return listaJogador.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return position;
+		return this.listaJogador.get(position);
 	}
 
 	@Override
@@ -40,7 +48,6 @@ public class LazyAdapter extends BaseAdapter {
 		return position;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View vi = convertView;
@@ -48,20 +55,23 @@ public class LazyAdapter extends BaseAdapter {
 			vi = inflater.inflate(R.layout.list_row, null);
 		}
 		TextView playerName = (TextView) vi.findViewById(R.id.JogadorNome_listView);
-		TextView playerTeam = (TextView) vi.findViewById(R.id.JogadorEquipe_listView);
-		TextView playerBorn = (TextView) vi.findViewById(R.id.JogadorDataNasc_listView);
+		ImageView playerSex = (ImageView) vi.findViewById(R.id.JogadorSexo_listView);
 		ImageView imagem = (ImageView) vi.findViewById(R.id.Jogador_list_image);
 		
-		ArrayList<Jogador> jogador = new ArrayList<Jogador>();
-		jogador.get(position);
+		Calendar c = new GregorianCalendar();
+		c.setTime(listaJogador.get(position).getDt_nasc());
 		
-		playerName.setText(jogador.get(position).getNome());
-		playerTeam.setText(jogador.get(position).getIdEq());
-		playerBorn.setText(jogador.get(position).getDt_nasc().getDay()+"/"+jogador.get(position).getDt_nasc().getMonth()+"/"+jogador.get(position).getDt_nasc().getYear());
-		imagem.setImageBitmap(jogador.get(position).getFoto());
+		Jogador jogador = listaJogador.get(position);
 		
+		playerName.setText(jogador.getNome());
+		if(jogador.isSexo()) {
+			playerSex.setImageResource(R.drawable.masc);
+		} else {
+			playerSex.setImageResource(R.drawable.femin);
+		}
+		imagem.setImageBitmap(null);
+	
 		return vi;
 	}
-	
 
 }

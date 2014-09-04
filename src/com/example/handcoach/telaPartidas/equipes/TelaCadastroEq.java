@@ -3,6 +3,7 @@ package com.example.handcoach.telaPartidas.equipes;
 
 import java.util.List;
 import com.example.handcoach.R;
+import com.example.handcoach.telaPartidas.jogadores.LazyAdapterEq;
 import DAO.Equipe;
 import DAO.EquipeDAO;
 import android.app.Activity;
@@ -15,7 +16,6 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -24,7 +24,7 @@ import android.widget.Toast;
 public class TelaCadastroEq extends Activity {
 	
 	private List<Equipe> listaEquipes;
-	private ArrayAdapter<Equipe> adp;
+	private LazyAdapterEq adp;
 	private ListView lista;
 	
 	@Override
@@ -40,8 +40,9 @@ public class TelaCadastroEq extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Equipe equipeSelecionado = (Equipe) adp.getItem(position);
 				Intent it = new Intent(TelaCadastroEq.this, TelaEditarEq.class);
-				it.putExtra("Equipe", adp.getItem(position).getId());
+				it.putExtra("Equipe", equipeSelecionado.getId());
 				startActivity(it);
 			}
 		});
@@ -59,7 +60,8 @@ public class TelaCadastroEq extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Equipe equipe = EquipeDAO.getInstancia(TelaCadastroEq.this).buscarPorID(adp.getItem(posicao).getId());
+						Equipe equipeSelecionado = (Equipe) adp.getItem(posicao);
+						Equipe equipe = EquipeDAO.getInstancia(TelaCadastroEq.this).buscarPorID(equipeSelecionado.getId());
 						EquipeDAO.getInstancia(TelaCadastroEq.this).Deletar(equipe);
 						Toast.makeText(TelaCadastroEq.this, R.string.alertaDeletado, Toast.LENGTH_SHORT).show();
 						adp.remove(equipe);
@@ -91,7 +93,7 @@ public class TelaCadastroEq extends Activity {
 	protected void onResume() {
 		super.onResume();
         listaEquipes = EquipeDAO.getInstancia(TelaCadastroEq.this).buscarTodos();
-		adp = new ArrayAdapter<Equipe>(TelaCadastroEq.this, android.R.layout.simple_list_item_1, listaEquipes);
+		adp = new LazyAdapterEq(this, listaEquipes);
 		lista.setAdapter(adp);
 	}
 
