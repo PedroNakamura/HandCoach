@@ -29,10 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
         android:layout_toRightOf="@+id/thumbnail"
-        android:textColor="#040404"
-        android:textSize="16sp"
-        android:typeface="sans"
-        android:textStyle="bold"/>
+        android:style="@style/listRowStyle"
+     />
  
     <!-- Nome da Equipe -->
 
