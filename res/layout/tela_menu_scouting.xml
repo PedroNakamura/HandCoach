@@ -2,7 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:orientation="vertical" 
+    android:background="#F7F7F7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp" >
+
+        <TextView
+            android:id="@+id/tituloMenuScouting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTituloTela"
+            android:text="@string/TituloMenuScouting" />
+        
+    </LinearLayout>
 
 </LinearLayout>

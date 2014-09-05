@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/titutloEscolhaTipoEquipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/StringTituloTela"
+        android:text="@string/TituloEscolhaTipoEquipe"
+        android:layout_marginBottom="20dp"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/btEquipeEquipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btequipeequipe" />
+
+            <TextView
+                android:id="@+id/tv_telaPartidasBtNovaPart"
+                style="@style/StringTelaSecStyle"
+                android:layout_gravity="bottom|center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/EquipeEquipe" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btEquipeAdv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btequipeadv" />
+
+            <TextView
+                android:id="@+id/tv_telPartidasBtNovoJog"
+                style="@style/StringTelaSecStyle"
+                android:layout_gravity="bottom|center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/EquipeAdv" />
+
+        </FrameLayout>      
+
+    </GridLayout>
+
+</LinearLayout>

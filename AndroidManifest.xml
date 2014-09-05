@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="14" />
+        android:targetSdkVersion="19" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
@@ -97,6 +97,11 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">  
         </activity>
+        <activity android:name=".telaPartidas.equipes.TelaMenuEq"></activity>
+        <activity android:name=".telaPartidas.equipes.TelaEscolhaTipoEquipe"></activity>
+        <activity android:name=".telaPartidas.equipes.TelaMenuEqAdv"></activity>
+        <activity android:name=".telaPartidas.equipes.TelaCadastroEqAdv"></activity>
+        <activity android:name=".telaPartidas.equipes.TelaEditarEqAdv"></activity>
         
     </application>
 

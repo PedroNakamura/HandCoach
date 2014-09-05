@@ -2,9 +2,8 @@ package com.example.handcoach.telaPartidas;
 
 import com.example.handcoach.R;
 import com.example.handcoach.telaPartidas.Scouting.TelaMenuScouting;
-import com.example.handcoach.telaPartidas.equipes.TelaCadastroEq;
+import com.example.handcoach.telaPartidas.equipes.TelaEscolhaTipoEquipe;
 import com.example.handcoach.telaPartidas.jogadores.TelaMenuEquipes;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -38,7 +37,7 @@ public class TelaPartidas extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(TelaPartidas.this, TelaCadastroEq.class);
+				Intent intent = new Intent(TelaPartidas.this, TelaEscolhaTipoEquipe.class);
 				startActivity(intent);
 			}
 		});

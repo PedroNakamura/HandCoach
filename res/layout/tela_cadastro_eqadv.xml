@@ -15,27 +15,27 @@
         android:layout_marginRight="15dp" >
 
         <TextView
-            android:id="@+id/titutoTelaCadastroEq"
+            android:id="@+id/titutoTelaCadastroEqAdv"
             style="@style/StringTituloTela"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/TituloTelaCadastroEq" />
 
         <TextView
-            android:id="@+id/textVazioTC"
+            android:id="@+id/textVazioTCCCC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textVazio" />
 
         <TextView
-            android:id="@+id/tv_cadastroEqNome"
+            android:id="@+id/tv_cadastroEqNomeAdv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/StringTelaSobreStyle_simple"
             android:text="@string/CadastroEqNome" />
 
         <EditText
-            android:id="@+id/editText_nomeEquipe"
+            android:id="@+id/editText_nomeEquipeAdv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -44,19 +44,19 @@
         </EditText>
 
         <TextView
-            android:id="@+id/textVazio2"
+            android:id="@+id/textVazio222"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textVazio" />
 
         <Button
-            android:id="@+id/botaoCadastroEq"
+            android:id="@+id/botaoCadastroEqAdv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btCadastrar" />
 
         <TextView
-            android:id="@+id/textVazio3"
+            android:id="@+id/textVazio3333"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textVazio" />

@@ -2,17 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="#F7F7F7">
+    android:background="#F7F7F7"
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="0dip"
         android:layout_marginBottom="15dp"
-        android:layout_marginRight="15dp" >
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="0.22"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/titutoTelaCadastroEq"
@@ -22,38 +23,10 @@
             android:text="@string/TituloTelaCadastroEq" />
 
         <TextView
-            android:id="@+id/textVazioTC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textVazio" />
-
-        <TextView
-            android:id="@+id/tv_cadastroEqNome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/StringTelaSobreStyle_simple"
-            android:text="@string/CadastroEqNome" />
-
-        <EditText
-            android:id="@+id/editText_nomeEquipe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10" >
-            <requestFocus />
-        </EditText>
-
-        <TextView
             android:id="@+id/textVazio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textVazio" />
-
-        <Button
-            android:id="@+id/botaoCadastroEq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btCadastrar" />
 
         <TextView
             android:id="@+id/textVazio3"
@@ -61,6 +34,26 @@
             android:layout_height="wrap_content"
             android:text="@string/textVazio" />
 
+        <TextView
+            android:id="@+id/tv_cadastroEqLista"
+            style="@style/StringTelaSobreStyle_simple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CadastroEqLista" />
+
+        <ListView
+            android:id="@+id/listEquipeCadastrada"
+            android:layout_width="fill_parent"
+            android:layout_height="266dp"
+            android:divider="#b5b5b5"
+            android:dividerHeight="1dp" >
+        </ListView>
+
+        <Button
+            android:id="@+id/botaoTelaCadastroEq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastrarEquipes" />
     </LinearLayout>
 
 </LinearLayout>

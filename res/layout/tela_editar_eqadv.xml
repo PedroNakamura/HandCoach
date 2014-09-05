@@ -11,55 +11,49 @@
         android:orientation="vertical"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginRight="15dp" >
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp" >
 
         <TextView
-            android:id="@+id/titutoTelaCadastroEq"
-            style="@style/StringTituloTela"
+            android:id="@+id/tituloTelaEditarEqAdv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/TituloTelaCadastroEq" />
+            style="@style/StringTituloTela"
+            android:text="@string/TituloTelaEditarEq" />
 
         <TextView
-            android:id="@+id/textVazioTC"
+            android:id="@+id/textEspacoBb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textVazio" />
 
         <TextView
-            android:id="@+id/tv_cadastroEqNome"
+            android:id="@+id/tv_telaCadastroEqAdvNome"
+            style="@style/StringTelaSobreStyle_simple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/StringTelaSobreStyle_simple"
             android:text="@string/CadastroEqNome" />
 
         <EditText
-            android:id="@+id/editText_nomeEquipe"
+            android:id="@+id/editText_editarNomeEqAdv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
             android:ems="10" >
+
             <requestFocus />
         </EditText>
 
         <TextView
-            android:id="@+id/textVazio2"
+            android:id="@+id/textEspacoBbb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textVazio" />
 
         <Button
-            android:id="@+id/botaoCadastroEq"
+            android:id="@+id/btAtualizarEquipeAdv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btCadastrar" />
-
-        <TextView
-            android:id="@+id/textVazio3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textVazio" />
+            android:text="@string/btAtualizar" />
 
     </LinearLayout>
 

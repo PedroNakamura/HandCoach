@@ -41,6 +41,10 @@
     <string name="btMenuTorneios">Competições</string>
     <string name="tituloAlertaTorneios">Competições</string>
     <string name="EquipeAdicionada">Equipe adicionada!</string>
+    
+        <!-- CadastroEquipesAdv -->
+    <string name="TituloTelaCadastroEqAdv">Equipes Adversárias</string>
+    <string name="EquipeAdvAdicionada">Equipe adversária adicionada!</string>
 
     <!-- CadastroEquipes -->
     <string name="TituloTelaCadastroEq">Cadastro Equipes</string>
@@ -51,6 +55,12 @@
     <string name="btDeletar">Deletar</string>
     <string name="alertaAtualizado">Atualizado!</string>
     <string name="alertaDeletado">Deletado!</string>
+    <string name="cadastrarEquipes">Nova equipe</string>
+    
+        <!-- MenuEquipes e EquipesAdv -->
+    <string name="TituloEscolhaTipoEquipe">Escolha o tipo de equipe:</string>
+    <string name="EquipeEquipe">Suas equipes</string>
+    <string name="EquipeAdv">Adversários</string>
     
     <!-- Aviso Cadastro Jog -->
     <string name="CadastroEscolhaEq">Escolha uma equipe:</string>
@@ -68,6 +78,7 @@
     <string name="JogadorEditAltura">Altura:</string>
     <string name="JogadorEditTextAltura">1m80cm</string>
     <string name="JogadorEditDT_Nasc">Data de Nascimento:</string>
+    <string name="JogadorEditTextDT">dd/mm/aaaa</string>
     <string name="JogadorMasculino">Masculino</string>
     <string name="JogadorFeminino">Feminino</string>
     
