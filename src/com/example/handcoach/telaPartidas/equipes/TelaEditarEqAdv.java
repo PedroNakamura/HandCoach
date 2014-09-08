@@ -6,6 +6,7 @@ import DAO.EquipeAdvDAO;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -23,14 +24,16 @@ public class TelaEditarEqAdv extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_editar_eqadv);
 		
-		Button btAtualizar = (Button) findViewById(R.id.btAtualizarEquipe);
-		final EditText nomeEquipe = (EditText) findViewById(R.id.editText_editarNomeEq);
+		Button btAtualizar = (Button) findViewById(R.id.btAtualizarEquipeAdv);
+		final EditText nomeEquipe = (EditText) findViewById(R.id.editText_editarNomeEqAdv);
 		
 		it = getIntent();
 		valor = it.getExtras();
 		id = (Integer) valor.get("Equipe");
+		Log.i("DEBUG ID:", id+"");
 		final EquipeAdv equipe = EquipeAdvDAO.getInstancia(TelaEditarEqAdv.this).buscarPorID(id);
 		
+		Log.i("DEBUGG!!= ",""+equipe.getNome());
 		nomeEquipe.setText(equipe.getNome());
 		
 		btAtualizar.setOnClickListener(new OnClickListener() {

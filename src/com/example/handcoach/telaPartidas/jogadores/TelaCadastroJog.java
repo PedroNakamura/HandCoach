@@ -10,6 +10,7 @@ import DAO.JogadorDAO;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -40,12 +41,15 @@ public class TelaCadastroJog extends Activity {
 			public void onClick(View v) {
 				String nomeJogador = editNomeJogador.getText().toString();
 				boolean sexoJogador = false;
+				Log.i("DEBUG!!!", radioGroupSexo.getCheckedRadioButtonId()+"");
 				switch(radioGroupSexo.getCheckedRadioButtonId()) {
 				case R.id.masculino:
 					sexoJogador = true;
+					Log.i("DEBUG!!!", "MASCULINO");
 					break;
 				case R.id.feminino:
 					sexoJogador = false;
+					Log.i("DEBUG!!!", "FEMININO");
 					break;	
 				}
 				String alturaJogador = editAlturaJogador.getText().toString();	

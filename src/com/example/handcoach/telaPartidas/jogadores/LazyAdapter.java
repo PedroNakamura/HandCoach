@@ -1,7 +1,5 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 import DAO.Jogador;
 import android.app.Activity;
@@ -58,17 +56,19 @@ public class LazyAdapter extends BaseAdapter {
 		ImageView playerSex = (ImageView) vi.findViewById(R.id.JogadorSexo_listView);
 		ImageView imagem = (ImageView) vi.findViewById(R.id.Jogador_list_image);
 		
-		Calendar c = new GregorianCalendar();
-		c.setTime(listaJogador.get(position).getDt_nasc());
+		//Calendar c = new GregorianCalendar();
+		//c.setTime(listaJogador.get(position).getDt_nasc());
 		
 		Jogador jogador = listaJogador.get(position);
 		
 		playerName.setText(jogador.getNome());
+		
 		if(jogador.isSexo()) {
 			playerSex.setImageResource(R.drawable.masc);
 		} else {
 			playerSex.setImageResource(R.drawable.femin);
 		}
+		
 		imagem.setImageBitmap(null);
 	
 		return vi;

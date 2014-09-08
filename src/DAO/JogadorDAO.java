@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 public class JogadorDAO extends DAO_Base<Jogador> {
 	
@@ -88,6 +89,8 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		jogador.setId(contentValues.getAsInteger(COLUNA_ID));
 		jogador.setNome(contentValues.getAsString(COLUNA_NOME));
 		jogador.setSexo(contentValues.getAsBoolean(COLUNA_SEXO));
+		
+		Log.i("DEBUG: ", jogador.isSexo()+"");
 		
 		//byte[] -> Bitmap
 		if(contentValues.getAsByteArray(COLUNA_FOTO) != null) {

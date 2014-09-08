@@ -65,13 +65,14 @@
                 android:id="@+id/masculino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                style="@style/StringTelaSobreStyle_simple_clone"
                 android:text="@string/JogadorMasculino" />
 
             <RadioButton
                 android:id="@+id/feminino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/StringTelaSobreStyle_simple_clone"
                 android:text="@string/JogadorFeminino" />
         </RadioGroup>
 
