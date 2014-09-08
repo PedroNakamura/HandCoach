@@ -88,7 +88,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		Jogador jogador = new Jogador();
 		jogador.setId(contentValues.getAsInteger(COLUNA_ID));
 		jogador.setNome(contentValues.getAsString(COLUNA_NOME));
-		jogador.setSexo(contentValues.getAsBoolean(COLUNA_SEXO));
+		jogador.setSexo(contentValues.getAsInteger(COLUNA_SEXO));
 		
 		Log.i("DEBUG: ", jogador.isSexo()+"");
 		

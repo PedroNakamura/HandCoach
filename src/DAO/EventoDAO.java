@@ -72,7 +72,7 @@ public class EventoDAO extends DAO_Base<Evento> {
 		Evento evento = new Evento();
 		evento.setId(contentValues.getAsInteger(COLUNA_ID));
 		evento.setId_cat(contentValues.getAsInteger(COLUNA_IDCAT));
-		evento.setId_jog(contentValues.getAsInteger(COLUNA_IDCAT));
+		evento.setId_jog(contentValues.getAsInteger(COLUNA_IDJOG));
 		evento.setId_ptda(contentValues.getAsInteger(COLUNA_IDPTDA));
 		evento.setTempoIn(contentValues.getAsDouble(COLUNA_TEMPOIN));
 		evento.setTempoFi(contentValues.getAsDouble(COLUNA_TEMPOFI));

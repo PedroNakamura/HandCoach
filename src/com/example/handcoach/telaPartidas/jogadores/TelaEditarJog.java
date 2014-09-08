@@ -1,6 +1,5 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
-import java.util.Date;
 import com.example.handcoach.R;
 import DAO.Jogador;
 import DAO.JogadorDAO;
@@ -55,34 +54,27 @@ public class TelaEditarJog extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String nomeJogador = jogadorNome.getText().toString();
-				boolean sexoJogador = false;
+				Jogador jogador2 = new Jogador();
+
 				switch(jogadorSexo.getCheckedRadioButtonId()) {
 				case R.id.masculinoEdit:
-					sexoJogador = true;
+					jogador.setSexo(1);
 					break;
 				case R.id.femininoEdit:
-					sexoJogador = false;
+					jogador.setSexo(0);
 					break;
 				}
-				String alturaJogador = jogadorAltura.getText().toString();
+				
 				String dtNascJogador = jogadorDtNasc.getText().toString();
 				
-				Date nascJog = new Date();
 			    try {
-					nascJog = JogadorDAO.getInstancia(TelaEditarJog.this).stringToDate(dtNascJogador);
+			    	jogador2.setDt_nasc(JogadorDAO.getInstancia(TelaEditarJog.this).stringToDate(dtNascJogador));
 				} catch (java.text.ParseException e) {
 					e.printStackTrace();
 				}
-				
-			    Jogador jogador2 = new Jogador();
 			    
 			    jogador2.setId(jogador.getId());
 			    jogador2.setIdEq(jogador.getIdEq());
-			    jogador2.setNome(nomeJogador);
-			    jogador2.setSexo(sexoJogador);
-			    jogador2.setAltura(alturaJogador);
-			    jogador2.setDt_nasc(nascJog);
 			    
 			    JogadorDAO.getInstancia(TelaEditarJog.this).Editar(jogador, jogador2);
 			    

@@ -82,4 +82,12 @@
     <string name="JogadorMasculino">Male</string>
     <string name="JogadorFeminino">Female</string>
     
+        <!-- MenuScouting -->
+    <string name="TituloMenuScouting">Before Match</string>
+    <string name="tv_suaequipe_ms">Your team:</string>
+    <string name="tv_adv_ms">Opponent Team:</string>
+    <string name="tv_local_ms">Location:</string>
+    <string name="btiniciarpartida">Begin match!</string>
+    <string name="autoCompleteLocal">Location of the match</string>
+    
 </resources>

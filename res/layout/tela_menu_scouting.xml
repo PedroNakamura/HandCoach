@@ -20,6 +20,77 @@
             android:layout_height="wrap_content"
             style="@style/StringTituloTela"
             android:text="@string/TituloMenuScouting" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tv_suaequipe_ms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple"
+            android:text="@string/tv_suaequipe_ms" />
+
+        <Spinner
+            android:id="@+id/spinner_equipes"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tv_adv_ms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple"
+            android:text="@string/tv_adv_ms" />
+
+        <Spinner
+            android:id="@+id/spinner_equipes_adv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tv_local_ms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple"
+            android:text="@string/tv_local_ms" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoComplete_local"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/autoCompleteLocal" >
+
+            <requestFocus />
+        </AutoCompleteTextView>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <Button
+            android:id="@+id/bt_iniciarptda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btiniciarpartida" />
         
     </LinearLayout>
 

@@ -54,6 +54,7 @@ public class DbHelper extends SQLiteOpenHelper {
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PSS_errado"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("RCP_certa"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("RCP_errada"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("RCP_rbdabola"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("FT_tecnica"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("FT_defesa"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("FT_ataque"));
@@ -61,7 +62,6 @@ public class DbHelper extends SQLiteOpenHelper {
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("CT_amarelo"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("2min"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("SFT_ataque"));
-		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PB_equipe"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("SFT_defesa"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PB_equipe"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PB_adv"));

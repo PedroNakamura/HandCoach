@@ -1,10 +1,7 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
-import java.util.Date;
 import java.text.ParseException;
-
 import com.example.handcoach.R;
-
 import DAO.Jogador;
 import DAO.JogadorDAO;
 import android.app.Activity;
@@ -39,29 +36,33 @@ public class TelaCadastroJog extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String nomeJogador = editNomeJogador.getText().toString();
-				boolean sexoJogador = false;
+				Jogador jogador = new Jogador();
+				
+				jogador.setIdEq(id_eq);
+				jogador.setNome(editNomeJogador.getText().toString());
 				Log.i("DEBUG!!!", radioGroupSexo.getCheckedRadioButtonId()+"");
+				
 				switch(radioGroupSexo.getCheckedRadioButtonId()) {
 				case R.id.masculino:
-					sexoJogador = true;
+					jogador.setSexo(1);
 					Log.i("DEBUG!!!", "MASCULINO");
 					break;
 				case R.id.feminino:
-					sexoJogador = false;
+					jogador.setSexo(0);
 					Log.i("DEBUG!!!", "FEMININO");
 					break;	
 				}
-				String alturaJogador = editAlturaJogador.getText().toString();	
+				
+				jogador.setAltura(editAlturaJogador.getText().toString());
 				String nascimentoJogador = editNascimentoJogador.getText().toString();	
-				Date nascJog = new Date();
+				
 				try {
-					nascJog = JogadorDAO.getInstancia(TelaCadastroJog.this).stringToDate(nascimentoJogador);
+					jogador.setDt_nasc(JogadorDAO.getInstancia(TelaCadastroJog.this).stringToDate(nascimentoJogador));
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
 				
-				JogadorDAO.getInstancia(TelaCadastroJog.this).Inserir(new Jogador(id_eq, nomeJogador, sexoJogador, null, alturaJogador, nascJog));
+				JogadorDAO.getInstancia(TelaCadastroJog.this).Inserir(jogador);
 				Toast.makeText(TelaCadastroJog.this, R.string.AlertaJogCadastro, Toast.LENGTH_SHORT).show();
 				
 				finish();

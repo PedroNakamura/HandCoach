@@ -11,7 +11,7 @@ public class Jogador implements EntidadeInterface {
 	private int id_jog;
 	private int id_eq;
 	private String nome;
-	private boolean sexo;
+	private int sexo;
 	private Bitmap foto;
 	private String altura;
 	private Date dt_nasc;
@@ -21,7 +21,7 @@ public class Jogador implements EntidadeInterface {
 		//this.foto = new Bitmap();
 	}
 	
-	public Jogador(int id_eq, String nome, boolean sexo, Bitmap foto, String altura, Date dt_nasc) {
+	public Jogador(int id_eq, String nome, int sexo, Bitmap foto, String altura, Date dt_nasc) {
 		this.id_eq = id_eq;
 		this.nome = nome;
 		this.sexo = sexo;
@@ -58,13 +58,13 @@ public class Jogador implements EntidadeInterface {
 
 	//Getters and Setters Sexo
 	public boolean isSexo() {
-		if(this.sexo) {
+		if(this.sexo == 1) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	public void setSexo(boolean sexo) {
+	public void setSexo(int sexo) {
 		this.sexo = sexo;
 	}
 

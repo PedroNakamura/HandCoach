@@ -14,7 +14,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" 
+        android:screenOrientation="portrait">
         
         <activity 
             android:name="SplashScreen"
@@ -97,11 +98,36 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">  
         </activity>
-        <activity android:name=".telaPartidas.equipes.TelaMenuEq"></activity>
-        <activity android:name=".telaPartidas.equipes.TelaEscolhaTipoEquipe"></activity>
-        <activity android:name=".telaPartidas.equipes.TelaMenuEqAdv"></activity>
-        <activity android:name=".telaPartidas.equipes.TelaCadastroEqAdv"></activity>
-        <activity android:name=".telaPartidas.equipes.TelaEditarEqAdv"></activity>
+        
+        <activity 
+            android:name=".telaPartidas.equipes.TelaMenuEq"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.equipes.TelaEscolhaTipoEquipe"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.equipes.TelaMenuEqAdv"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.equipes.TelaCadastroEqAdv"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaPartidas.equipes.TelaEditarEqAdv"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
         
     </application>
 

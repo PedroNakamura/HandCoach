@@ -41,7 +41,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/JogadorNome_listView"
         android:layout_marginTop="1dip"
-        android:layout_marginLeft="10dip"
+        android:layout_marginLeft="30dip"
         android:layout_toLeftOf="@+id/arrow" />
  
     <!-- Homem ou Mulher -->
