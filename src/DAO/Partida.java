@@ -77,6 +77,10 @@ public class Partida implements EntidadeInterface {
         }
         return data_ptda;
 }
+    
+    public String toString() {
+    	return this.local;
+    }
 	
 
 }
