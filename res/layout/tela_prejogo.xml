@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#F7F7F7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_tituloPreJogoJogadores"
+            style="@style/StringTelaSobreStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TituloMenuScouting" />
+
+        <ListView
+            android:id="@+id/preJogoListaJogadoresEquipe"
+            android:layout_width="fill_parent"
+            android:layout_height="332dp"
+            android:divider="#b5b5b5"
+            android:dividerHeight="1dp" >
+        </ListView>
+
+        <Button
+            android:id="@+id/bt_preJogo_jogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btTacaLePauNessaPartida" />
+    </LinearLayout>
+
+</LinearLayout>

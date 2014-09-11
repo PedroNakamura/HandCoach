@@ -90,5 +90,12 @@
     <string name="tv_local_ms">Local:</string>
     <string name="btiniciarpartida">Iniciar partida!</string>
     <string name="autoCompleteLocal">Local da partida</string>
+    
+    <!-- Pré Jogo -->
+    <string name="btTacaLePauNessaPartida">Começar partida!</string>
+    
+    <!-- Avisos variados -->
+    <string name="stringSelecionado">Marcado!</string>
+    <string name="stringDesSelecionado">Desmarcado!</string>
 
 </resources>

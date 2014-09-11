@@ -128,6 +128,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".telaPartidas.Scouting.TelaPreJogo"></activity>
         
     </application>
 

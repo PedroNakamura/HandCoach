@@ -1,13 +1,18 @@
 package DAO;
 
 import java.util.Date;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import android.graphics.Bitmap;
 import android.net.ParseException;
 import android.util.Log;
 
-public class Jogador implements EntidadeInterface {
+public class Jogador implements EntidadeInterface, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_jog;
 	private int id_eq;
 	private String nome;
@@ -15,6 +20,7 @@ public class Jogador implements EntidadeInterface {
 	private Bitmap foto;
 	private String altura;
 	private Date dt_nasc;
+	private boolean marcado;
 	
 	public Jogador() {
 		this.dt_nasc = new Date();
@@ -93,6 +99,15 @@ public class Jogador implements EntidadeInterface {
 		this.dt_nasc = dt_nasc;
 	}
 	
+	//getters and setters marcado
+	public boolean isMarcado() {
+		return this.marcado;
+	}
+	
+	public void setMarcado(boolean marcado) {
+		this.marcado = marcado;
+	}
+	
 	//conversão do Date para String
 	public String dateToString() {
         //"05/09/2013 06:30:07"
@@ -121,5 +136,5 @@ public class Jogador implements EntidadeInterface {
 	public boolean equals(Object o) {
 		return this.id_jog == ((Jogador)o).getId();
 	}
-
+	
 }
