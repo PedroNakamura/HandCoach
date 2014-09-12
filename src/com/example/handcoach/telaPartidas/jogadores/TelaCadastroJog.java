@@ -6,16 +6,22 @@ import DAO.Jogador;
 import DAO.JogadorDAO;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class TelaCadastroJog extends Activity {
+	
+	ImageButton btFoto;
+	Bitmap image = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +36,17 @@ public class TelaCadastroJog extends Activity {
 		final RadioGroup radioGroupSexo = (RadioGroup) findViewById(R.id.radioGroupSexo);
 		final EditText editAlturaJogador = (EditText) findViewById(R.id.editTextAlturaJogador);
 		final EditText editNascimentoJogador = (EditText) findViewById(R.id.editTextNascimentoJogador);
+		btFoto = (ImageButton) findViewById(R.id.bt_ftPessoa_img);
 		Button btCadastrar = (Button) findViewById(R.id.btOkCadastroJogador);
+		
+		btFoto.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+				startActivityForResult(i, 0);
+			}
+		});
 		
 		btCadastrar.setOnClickListener(new OnClickListener() {
 			
@@ -54,6 +70,7 @@ public class TelaCadastroJog extends Activity {
 				}
 				
 				jogador.setAltura(editAlturaJogador.getText().toString());
+				jogador.setFoto(image);
 				String nascimentoJogador = editNascimentoJogador.getText().toString();	
 				
 				try {
@@ -70,7 +87,18 @@ public class TelaCadastroJog extends Activity {
 			}		
 		});
 	
+	}
 	
-
-}
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(data != null) {
+			Bundle bundle = data.getExtras();
+			if(bundle != null) {
+				Bitmap bitmap = (Bitmap) bundle.get("data");
+				image = bitmap;
+				btFoto.setImageBitmap(bitmap);
+			}
+		}
+	}
+	
 }

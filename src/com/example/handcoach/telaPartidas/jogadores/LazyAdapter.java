@@ -69,7 +69,7 @@ public class LazyAdapter extends BaseAdapter {
 			playerSex.setImageResource(R.drawable.femin);
 		}
 		
-		imagem.setImageBitmap(null);
+		imagem.setImageBitmap(jogador.getFoto());
 	
 		return vi;
 	}

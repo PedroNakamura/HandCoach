@@ -5,122 +5,155 @@
     android:background="#F7F7F7"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/tv_JogadorEdit"
-            style="@style/StringTituloTela"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/JogadorEdit" />
-
-        <TextView
-            android:id="@+id/espacoBnc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textVazio" />
-
-        <TextView
-            android:id="@+id/tv_nomeEditarJogador"
-            style="@style/StringTelaSobreStyle_simple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/JogadorEditNome" />
-
-        <EditText
-            android:id="@+id/editText_jogadorEditNome"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10" >
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical" >
 
-            <requestFocus />
-        </EditText>
-
-        <TextView
-            android:id="@+id/espacoBnc2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textVazio" />
-
-        <TextView
-            android:id="@+id/tv_jogadorEditSexo"
-            style="@style/StringTelaSobreStyle_simple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/JogadorEditSexo" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup_editJogador"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <RadioButton
-                android:id="@+id/masculinoEdit"
+            <TextView
+                android:id="@+id/tv_JogadorEdit"
+                style="@style/StringTituloTela"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/JogadorMasculino"
-                style="@style/StringTelaSobreStyle_simple_clone" />
+                android:text="@string/JogadorEdit" />
 
-            <RadioButton
-                android:id="@+id/femininoEdit"
+            <TextView
+                android:id="@+id/espacoBnc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/JogadorFeminino"
-                style="@style/StringTelaSobreStyle_simple_clone" />
+                android:text="@string/textVazio" />
 
-        </RadioGroup>
+            <TextView
+                android:id="@+id/tv_nomeEditarJogador"
+                style="@style/StringTelaSobreStyle_simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/JogadorEditNome" />
 
-        <TextView
-            android:id="@+id/espacoBnc3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textVazio" />
+            <EditText
+                android:id="@+id/editText_jogadorEditNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10" />
 
-        <TextView
-            android:id="@+id/tv_jogadorEditAltura"
-            style="@style/StringTelaSobreStyle_simple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/JogadorEditAltura" />
+            <TextView
+                android:id="@+id/espacoBnc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textVazio" />
 
-        <EditText
-            android:id="@+id/editText_jogadorEditAltura"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10" />
+            <TextView
+                android:id="@+id/tv_jogadorEditSexo"
+                style="@style/StringTelaSobreStyle_simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/JogadorEditSexo" />
 
-        <TextView
-            android:id="@+id/espacoBnc4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textVazio" />
+            <RadioGroup
+                android:id="@+id/radioGroup_editJogador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/tv_jogadorEditDT_Nasc"
-            style="@style/StringTelaSobreStyle_simple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/JogadorEditDT_Nasc" />
+                <RadioButton
+                    android:id="@+id/masculinoEdit"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/JogadorMasculino" />
 
-        <EditText
-            android:id="@+id/editText_jogadorEditDT_Nasc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10" />
+                <RadioButton
+                    android:id="@+id/femininoEdit"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/JogadorFeminino" />
+            </RadioGroup>
 
-        <Button
-            android:id="@+id/btEditJogador_Atualiza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btAtualizar" />
+            <TextView
+                android:id="@+id/espacoBnc3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textVazio" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_jogadorEditAltura"
+                style="@style/StringTelaSobreStyle_simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/JogadorEditAltura" />
+
+            <EditText
+                android:id="@+id/editText_jogadorEditAltura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+            <TextView
+                android:id="@+id/espacoBnc4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textVazio" />
+
+            <TextView
+                android:id="@+id/tv_jogadorEditDT_Nasc"
+                style="@style/StringTelaSobreStyle_simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/JogadorEditDT_Nasc" />
+
+            <EditText
+                android:id="@+id/editText_jogadorEditDT_Nasc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+            <TextView
+                android:id="@+id/textView124"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textVazio" />
+
+            <TextView
+                android:id="@+id/jogadorEditFoto"
+                style="@style/StringTelaSobreStyle_simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/JogadorEditFoto" />
+
+            <TextView
+                android:id="@+id/textView2232"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textVazio" />
+
+            <ImageButton
+                android:id="@+id/ft_Jogador_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/foto_pessoa" />
+
+            <TextView
+                android:id="@+id/textView3123"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textVazio" />
+
+            <Button
+                android:id="@+id/btEditJogador_Atualiza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btAtualizar" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
