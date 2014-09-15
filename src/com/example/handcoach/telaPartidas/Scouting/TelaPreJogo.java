@@ -40,7 +40,7 @@ public class TelaPreJogo extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				valor.putSerializable("jog_joga", (ArrayList<Jogador>) JogadorAdapter.getSelecionados());
+				valor.putIntegerArrayList("jog_joga", (ArrayList<Integer>) JogadorAdapter.getSelecionados());
 				Intent itt = new Intent(TelaPreJogo.this, TelaScouting.class);
 				itt.putExtras(valor);
 				startActivity(itt);

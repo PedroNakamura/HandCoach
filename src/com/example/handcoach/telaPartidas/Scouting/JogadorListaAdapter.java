@@ -1,12 +1,14 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import DAO.Jogador;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,7 +25,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 	
 	private Activity act;
 	private List<Jogador> listaJogador;
-	private List<Jogador> idSelecionados = new ArrayList<Jogador>();
+	private List<Integer> idSelecionados = new ArrayList<Integer>();
 	private static LayoutInflater inflater = null;
 	public Bitmap Image;
 	
@@ -37,7 +39,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 		listaJogador.remove(jogador);
 	}
 	
-	public List<Jogador> getSelecionados() {
+	public List<Integer> getSelecionados() {
 		return idSelecionados;
 	}
 	
@@ -83,7 +85,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 		jogSelected.setChecked(jogador.isMarcado());
 		jogSelected.setTag(jogador);
 		
-		imagem.setImageBitmap(null);
+		imagem.setImageBitmap(jogador.getFoto());
 		
 		jogSelected.setOnClickListener(new OnClickListener() {
 			
@@ -91,20 +93,21 @@ public class JogadorListaAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				CheckBox check = (CheckBox) v;
 				Jogador j = (Jogador) v.getTag();
-				j.setMarcado(((CheckBox) v).isChecked());
-				
+				j.setMarcado(check.isChecked());
 				if(check.isChecked()) {
 					Toast.makeText(act, R.string.stringSelecionado, Toast.LENGTH_SHORT).show();
-					if(!idSelecionados.contains(j)) {
-						idSelecionados.add(j);
+					if(!idSelecionados.contains(new Integer(j.getId()))) {
+						Log.i("DEBUG!!!", "======== "+"I:"+j.getId()+"T:"+idSelecionados.size()+" ========");
+						idSelecionados.add(new Integer(j.getId()));
+						
 					}
 				} else {
-					Toast.makeText(act, R.string.stringDesSelecionado, Toast.LENGTH_SHORT).show();
-					if(idSelecionados.contains(j)) {
-						idSelecionados.remove(j);
+					Toast.makeText(act, R.string.stringDesSelecionado, Toast.LENGTH_SHORT).show();					
+					if(idSelecionados.contains(new Integer(j.getId()))) {
+						Log.i("DEBUG!!!", "======== "+"I:"+j.getId()+"T:"+idSelecionados.size()+" ========");
+						idSelecionados.remove(new Integer(j.getId()));
 					}
-				}
-				
+				}				
 			}
 		});
 	

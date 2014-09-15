@@ -90,4 +90,11 @@
     <string name="btiniciarpartida">Abrir el partido!</string>
     <string name="autoCompleteLocal">Local de partido</string>
     
+        <!-- Pré Jogo -->
+    <string name="btTacaLePauNessaPartida">Abrir el partido!</string>
+    
+    <!-- Avisos variados -->
+    <string name="stringSelecionado">Marcado!</string>
+    <string name="stringDesSelecionado">Sin Marcación!</string>
+    
 </resources>

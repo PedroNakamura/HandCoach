@@ -1,8 +1,10 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.example.handcoach.R;
 import DAO.Jogador;
+import DAO.JogadorDAO;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,19 +18,24 @@ public class TelaScouting extends Activity {
 	
 	Intent it;
 	Bundle valores;
-	List<Jogador> listaJog;
+	List<Integer> listaJog;
+	List<Jogador> jogadores;
 	
-	@SuppressWarnings("unchecked")
-	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_scouting);
 		
+		jogadores = new ArrayList<Jogador>();
 		it = getIntent();
 		valores = it.getExtras();
-		listaJog = (List<Jogador>) valores.getSerializable("jog_joga");
+		listaJog = (List<Integer>) valores.getIntegerArrayList("jog_joga");
 		
-		ArrayAdapter<Jogador> adp = new ArrayAdapter<Jogador>(TelaScouting.this, android.R.layout.simple_list_item_1, listaJog);
+		for (Integer id : listaJog) {
+			Jogador jogador = JogadorDAO.getInstancia(TelaScouting.this).buscarPorID(id);
+			jogadores.add(jogador);
+		}
+		
+		ArrayAdapter<Jogador> adp = new ArrayAdapter<Jogador>(TelaScouting.this, android.R.layout.simple_list_item_1, jogadores);
 		
 		ListView lista = (ListView) findViewById(R.id.listView1);
 		

@@ -90,4 +90,11 @@
     <string name="btiniciarpartida">Begin match!</string>
     <string name="autoCompleteLocal">Location of the match</string>
     
+        <!-- Pré Jogo -->
+    <string name="btTacaLePauNessaPartida">Begin match!</string>
+    
+    <!-- Avisos variados -->
+    <string name="stringSelecionado">Selected!</string>
+    <string name="stringDesSelecionado">Unselected!</string>
+    
 </resources>

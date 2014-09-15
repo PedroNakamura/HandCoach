@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -69,10 +70,12 @@ public class TelaEditarJog extends Activity {
 
 				switch(jogadorSexo.getCheckedRadioButtonId()) {
 				case R.id.masculinoEdit:
-					jogador.setSexo(1);
+					jogador2.setSexo(1);
+					Log.i("DEBUG!!!", "MASCULINO");
 					break;
 				case R.id.femininoEdit:
-					jogador.setSexo(0);
+					jogador2.setSexo(0);
+					Log.i("DEBUG!!!", "FEMININO");
 					break;
 				}
 				

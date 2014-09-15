@@ -2,7 +2,6 @@ package DAO;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-
 import android.net.ParseException;
 import android.util.Log;
 
@@ -12,6 +11,8 @@ public class Partida implements EntidadeInterface {
 	private int id_eq;
 	private int id_eqadv;
 	private String local;
+	private int gol_eq;
+	private int gol_adv;
 	private Date data_ptda;
 	
 	//Getters and Setters ID da Partida
@@ -57,6 +58,24 @@ public class Partida implements EntidadeInterface {
 		this.data_ptda = data;
 	}
 	
+	//Getters and Setters goleq
+	
+	public int getGol_eq() {
+		return gol_eq;
+	}
+	public void setGol_eq(int gol_eq) {
+		this.gol_eq = gol_eq;
+	}
+	
+	//Getters and Setters goleqadv
+	
+	public int getGol_adv() {
+		return gol_adv;
+	}
+	public void setGol_adv(int gol_adv) {
+		this.gol_adv = gol_adv;
+	}
+	
 	//conversão do Date para String
 	public String dateToString() {
         //"05/09/2013 06:30:07"
@@ -65,8 +84,8 @@ public class Partida implements EntidadeInterface {
         String dataFormatada = format.format(data);
         Log.i("DATA String", dataFormatada);
         return dataFormatada;
-}
-    
+    }
+
 	//conversão do String para Date
     public Date stringToDate(String dataStr) throws java.text.ParseException {
         SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
@@ -76,7 +95,7 @@ public class Partida implements EntidadeInterface {
                 e.printStackTrace();
         }
         return data_ptda;
-}
+    }
     
     public String toString() {
     	return this.local;

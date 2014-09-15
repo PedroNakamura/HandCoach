@@ -15,6 +15,8 @@ public class PartidaDAO extends DAO_Base<Partida> {
 	public static final String COLUNA_IDEQADV = "id_eqadv";
 	public static final String COLUNA_LOCAL = "local";
 	public static final String COLUNA_DTPTDA = "dt_ptda";
+	public static final String COLUNA_GOLEQ = "gol_eq";
+	public static final String COLUNA_GOLADV = "gol_adv";
 	
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("
 	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
@@ -22,6 +24,8 @@ public class PartidaDAO extends DAO_Base<Partida> {
 	                                                         +COLUNA_IDEQADV+" INTEGER NOT NULL, "
 	                                                         +COLUNA_DTPTDA+" DATE, "
 	                                                         +COLUNA_LOCAL+" TEXT, "
+	                                                         +COLUNA_GOLEQ+" INTEGER NOT NULL, "
+	                                                         +COLUNA_GOLADV+" INTEGER NOT NULL, "
 	                                                         +"FOREIGN KEY("+COLUNA_IDEQUIPE+") "+"REFERENCES "+TABELA_EQUIPE+"("+COLUNA_IDEQUIPE+"), "
 	                                                         +"FOREIGN KEY("+COLUNA_IDEQADV+") "+"REFERENCES "+TABELA_EQUIPEADV+"("+COLUNA_IDEQADV+") "+
 	                                                         " )";
@@ -61,6 +65,8 @@ public class PartidaDAO extends DAO_Base<Partida> {
 		cv.put(COLUNA_IDEQADV, entidade.getId_eqadv());
 		cv.put(COLUNA_LOCAL, entidade.getLocal());
 		cv.put(COLUNA_DTPTDA, entidade.dateToString());
+		cv.put(COLUNA_GOLEQ, entidade.getGol_eq());
+		cv.put(COLUNA_GOLADV, entidade.getGol_adv());
 		return cv;
 	}
 
@@ -79,6 +85,9 @@ public class PartidaDAO extends DAO_Base<Partida> {
 			e.printStackTrace();
 		}
 		
+	    partida.setGol_eq(contentValues.getAsInteger(COLUNA_GOLEQ));
+		partida.setGol_adv(contentValues.getAsInteger(COLUNA_GOLADV));
+	    
 		return partida;
 	}
 
