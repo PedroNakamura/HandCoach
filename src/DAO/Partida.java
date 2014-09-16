@@ -15,6 +15,17 @@ public class Partida implements EntidadeInterface {
 	private int gol_adv;
 	private Date data_ptda;
 	
+	public Partida() { }
+	
+	public Partida(int id_eq, int id_eqadv, String local, Date data_ptda) {
+		this.id_eq = id_eq;
+		this.id_eqadv = id_eqadv;
+		this.local = local;
+		this.gol_eq = 0;
+		this.gol_adv = 0;
+		this.data_ptda = data_ptda;
+	}
+	
 	//Getters and Setters ID da Partida
 	@Override
 	public void setId(int id) {

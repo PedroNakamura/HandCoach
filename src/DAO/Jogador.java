@@ -17,7 +17,7 @@ public class Jogador implements EntidadeInterface, Serializable {
 	private int id_eq;
 	private String nome;
 	private int sexo;
-	private String pos;
+	private int pos;
 	private Bitmap foto;
 	private String altura;
 	private Date dt_nasc;
@@ -76,10 +76,10 @@ public class Jogador implements EntidadeInterface, Serializable {
 	}
 	
 	//Getters and Setters pos
-	public String getPos() {
+	public int getPos() {
 		return pos;
 	}
-	public void setPos(String pos) {
+	public void setPos(int pos) {
 		this.pos = pos;
 	}
 

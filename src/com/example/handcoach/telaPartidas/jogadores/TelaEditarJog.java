@@ -1,7 +1,5 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
-import java.util.ArrayList;
-
 import com.example.handcoach.R;
 import DAO.Jogador;
 import DAO.JogadorDAO;
@@ -13,16 +11,12 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 public class TelaEditarJog extends Activity {
 	
@@ -32,8 +26,6 @@ public class TelaEditarJog extends Activity {
 	private Jogador jogador;
 	private Bitmap image;
 	private ImageButton btFoto;
-	ArrayList<String> posicoes;
-	String positionJ;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,29 +42,14 @@ public class TelaEditarJog extends Activity {
 		RadioButton feminino = (RadioButton) findViewById(R.id.femininoEdit);
 		final EditText jogadorAltura = (EditText) findViewById(R.id.editText_jogadorEditAltura);
 		final EditText jogadorDtNasc = (EditText) findViewById(R.id.editText_jogadorEditDT_Nasc);
-		final Spinner jogadorPos = (Spinner) findViewById(R.id.Edit_JogadorPosicao);
+		final RadioGroup radioGroupPos = (RadioGroup) findViewById(R.id.radioPosEdit);
+		RadioButton goleiro = (RadioButton) findViewById(R.id.goleiroEdit);
+		RadioButton armador = (RadioButton) findViewById(R.id.armadorEdit);
+		RadioButton meia = (RadioButton) findViewById(R.id.meiaEdit);
+		RadioButton ponta = (RadioButton) findViewById(R.id.pontaEdit);
+		RadioButton pivo = (RadioButton) findViewById(R.id.pivoEdit);
 		btFoto = (ImageButton) findViewById(R.id.ft_Jogador_edit);
 		Button btAtualiza = (Button) findViewById(R.id.btEditJogador_Atualiza);
-		
-		posicoes.add(getResources().getString(R.string.goleiro));
-		posicoes.add(getResources().getString(R.string.armador));
-		posicoes.add(getResources().getString(R.string.meia));
-		posicoes.add(getResources().getString(R.string.ponta));
-		posicoes.add(getResources().getString(R.string.pivo));
-		
-		ArrayAdapter<String> adp = new ArrayAdapter<String>(TelaEditarJog.this, android.R.layout.simple_spinner_dropdown_item, posicoes);
-		jogadorPos.setAdapter(adp);
-		
-		jogadorPos.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> adp, View view, int position, long id) {
-				positionJ = posicoes.get(position);
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {}
-		});
 	 
 	    jogador = JogadorDAO.getInstancia(TelaEditarJog.this).buscarPorID(id);
 	    jogadorNome.setText(jogador.getNome());
@@ -85,6 +62,24 @@ public class TelaEditarJog extends Activity {
 	    } else {
 	    	feminino.setChecked(true);
 	    }
+	    
+	    //testa Posições
+	    if(jogador.getPos() == 1) {
+	       goleiro.setChecked(true);
+	    }
+        if(jogador.getPos() == 2) {
+	       armador.setChecked(true);
+	    }
+        if(jogador.getPos() == 3) {
+	    	meia.setChecked(true);
+	    }
+        if(jogador.getPos() == 4) {
+	    	ponta.setChecked(true);
+	    }
+        if(jogador.getPos() == 5) {
+	    	pivo.setChecked(true);
+	    }
+        //ufa!
 	    
 	    jogadorAltura.setText(jogador.getAltura());
 	    jogadorDtNasc.setText(jogador.dateToString());
@@ -108,6 +103,29 @@ public class TelaEditarJog extends Activity {
 					break;
 				}
 				
+				switch(radioGroupPos.getCheckedRadioButtonId()) {
+				case R.id.goleiroEdit:
+					jogador2.setPos(1);
+					Log.i("DEBUG!!!", "GOLEIRO");
+					break;
+				case R.id.armadorEdit:
+					jogador2.setPos(2);
+					Log.i("DEBUG!!!", "ARMADOR");
+				    break;
+				case R.id.meiaEdit:
+					jogador2.setPos(3);
+					Log.i("DEBUG!!!", "MEIA");
+					break;
+				case R.id.pontaEdit:
+					jogador2.setPos(4);
+					Log.i("DEBUG!!!", "PONTA");
+					break;
+				case R.id.pivoEdit:
+					jogador2.setPos(5);
+					Log.i("DEBUG!!!", "PIVO");
+					break;
+				}
+				
 				String dtNascJogador = jogadorDtNasc.getText().toString();
 				
 			    try {
@@ -116,7 +134,7 @@ public class TelaEditarJog extends Activity {
 					e.printStackTrace();
 				}
 			    
-			    jogador2.setPos(positionJ);
+			    //jogador2.setPos(positionJ);
 			    jogador2.setAltura(jogadorAltura.getText().toString());
 			    jogador2.setId(jogador.getId());
 			    jogador2.setIdEq(jogador.getIdEq());

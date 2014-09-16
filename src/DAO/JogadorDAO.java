@@ -28,7 +28,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 	                                                         +COLUNA_SEXO+" BOOLEAN, "
 	                                                         +COLUNA_FOTO+" BLOB, "
 	                                                         +COLUNA_ALTURA+" TEXT, "
-	                                                         +COLUNA_POS+" TEXT, "
+	                                                         +COLUNA_POS+" INTEGER, "
 	                                                         +COLUNA_DT_NASC+" DATE," 
 	                                                         +"FOREIGN KEY("+COLUNA_IDEQ+") "+"REFERENCES "+FOREIGN_TABELA+"("+COLUNA_IDEQ+")"
 	                                                         +" )";
@@ -106,7 +106,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		
 		jogador.setAltura(contentValues.getAsString(COLUNA_ALTURA));
 		jogador.setIdEq(contentValues.getAsInteger(COLUNA_IDEQ));
-		jogador.setPos(contentValues.getAsString(COLUNA_POS));
+		jogador.setPos(contentValues.getAsInteger(COLUNA_POS));
 		
 		String data = contentValues.getAsString(COLUNA_DT_NASC);
 		try {

@@ -96,30 +96,67 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10" />
-            
+
             <TextView
                 android:id="@+id/textWhite400222"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textVazio" />
-            
+
             <TextView
                 android:id="@+id/Edit_JogadorPosicao"
-                android:layout_width="wrap_content"
                 style="@style/StringTelaSobreStyle_simple"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/JogadorPosicao" />
-            
+
             <TextView
                 android:id="@+id/textWhite41322222"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textVazio" />
-            
-              <Spinner
-                android:id="@+id/editSpinnerPosicoes"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" />            
+
+            <RadioGroup
+                android:id="@+id/radioPosEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/goleiroEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/goleiro" />
+
+                <RadioButton
+                    android:id="@+id/armadorEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/armador" />
+
+                <RadioButton
+                    android:id="@+id/meiaEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/meia" />
+                
+                <RadioButton
+                    android:id="@+id/pontaEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/ponta" />
+                
+                <RadioButton
+                    android:id="@+id/pivoEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/pivo" />
+             
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/espacoBnc4"
@@ -176,8 +213,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btAtualizar" />
-        </LinearLayout>
 
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>

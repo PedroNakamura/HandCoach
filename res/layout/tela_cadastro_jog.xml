@@ -117,10 +117,47 @@
                 android:layout_height="wrap_content"
                 android:text="@string/textVazio" />
 
-            <Spinner
-                android:id="@+id/spinnerdeposicoes"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" />
+            <RadioGroup
+                android:id="@+id/radioPos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/goleiro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/goleiro" />
+
+                <RadioButton
+                    android:id="@+id/armador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/armador" />
+
+                <RadioButton
+                    android:id="@+id/meia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/meia" />
+                
+                <RadioButton
+                    android:id="@+id/ponta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/ponta" />
+                
+                <RadioButton
+                    android:id="@+id/pivo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="@string/pivo" />
+             
+            </RadioGroup>
             
              <TextView
                 android:id="@+id/textWhite4ghweagawe"

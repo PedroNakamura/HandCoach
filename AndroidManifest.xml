@@ -88,7 +88,7 @@
         <activity 
             android:name=".telaPartidas.Scouting.TelaScouting"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
         </activity>
         
         <activity 
@@ -132,7 +132,12 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".telaPartidas.Scouting.TelaPreJogo"></activity>
+        
+        <activity 
+            android:name=".telaPartidas.Scouting.TelaPreJogo"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
         
     </application>
 
