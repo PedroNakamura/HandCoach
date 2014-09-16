@@ -6,6 +6,13 @@
     <string name="app_name">HandCoach</string>
     <string name="action_settings">Settings</string>
     
+    <!-- Posições -->
+    <string name="goleiro">Goleiro</string>
+    <string name="ponta">Ponta</string>
+    <string name="meia">Meia</string>
+    <string name="armador">Armador Central</string>
+    <string name="pivo">Pivô</string>
+    
     <!-- Tela Nav -->
     <string name="telaNav_btPartidas">Partidas</string>
     <string name="telaNav_btTreinos">Treinos</string>
@@ -72,6 +79,7 @@
     <string name="TituloListaJogadores">Jogadores da Equipe</string>
     <string name="btNovoJogador">Novo Jogador</string>
     <string name="JogadorEdit">Editar Jogadores</string>
+    <string name="JogadorPosicao">Posição</string>
     <string name="JogadorEditNome">Nome:</string>
     <string name="JogadorEditSexo">Sexo:</string>
     <string name="JogadorEditFoto">Foto:</string>

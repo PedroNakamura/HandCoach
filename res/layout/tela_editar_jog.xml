@@ -96,6 +96,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10" />
+            
+            <TextView
+                android:id="@+id/textWhite400222"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textVazio" />
+            
+            <TextView
+                android:id="@+id/Edit_JogadorPosicao"
+                android:layout_width="wrap_content"
+                style="@style/StringTelaSobreStyle_simple"
+                android:layout_height="wrap_content"
+                android:text="@string/JogadorPosicao" />
+            
+            <TextView
+                android:id="@+id/textWhite41322222"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textVazio" />
+            
+              <Spinner
+                android:id="@+id/editSpinnerPosicoes"
+                android:layout_width="match_parent"
+                android:layout_height="65dp" />            
 
             <TextView
                 android:id="@+id/espacoBnc4"

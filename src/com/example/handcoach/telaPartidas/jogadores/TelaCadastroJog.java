@@ -1,6 +1,7 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import com.example.handcoach.R;
 import DAO.Jogador;
 import DAO.JogadorDAO;
@@ -12,16 +13,22 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class TelaCadastroJog extends Activity {
 	
 	ImageButton btFoto;
 	Bitmap image = null;
+	ArrayList<String> posicoes;
+	String positionJ = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +43,29 @@ public class TelaCadastroJog extends Activity {
 		final RadioGroup radioGroupSexo = (RadioGroup) findViewById(R.id.radioGroupSexo);
 		final EditText editAlturaJogador = (EditText) findViewById(R.id.editTextAlturaJogador);
 		final EditText editNascimentoJogador = (EditText) findViewById(R.id.editTextNascimentoJogador);
+		final Spinner posJogador = (Spinner) findViewById(R.id.spinnerdeposicoes);
 		btFoto = (ImageButton) findViewById(R.id.bt_ftPessoa_img);
 		Button btCadastrar = (Button) findViewById(R.id.btOkCadastroJogador);
+		
+		posicoes.add(getResources().getString(R.string.goleiro));
+		posicoes.add(getResources().getString(R.string.armador));
+		posicoes.add(getResources().getString(R.string.meia));
+		posicoes.add(getResources().getString(R.string.ponta));
+		posicoes.add(getResources().getString(R.string.pivo));
+		
+		ArrayAdapter<String> adp = new ArrayAdapter<String>(TelaCadastroJog.this, android.R.layout.simple_spinner_dropdown_item, posicoes);
+		posJogador.setAdapter(adp);
+		
+		posJogador.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> adp, View view, int position, long id) {
+				positionJ = posicoes.get(position);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {}
+		});
 		
 		btFoto.setOnClickListener(new OnClickListener() {
 			
@@ -71,6 +99,7 @@ public class TelaCadastroJog extends Activity {
 				
 				jogador.setAltura(editAlturaJogador.getText().toString());
 				jogador.setFoto(image);
+				jogador.setPos(positionJ);
 				String nascimentoJogador = editNascimentoJogador.getText().toString();	
 				
 				try {

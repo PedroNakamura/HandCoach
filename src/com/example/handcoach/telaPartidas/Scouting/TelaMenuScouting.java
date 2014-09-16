@@ -1,7 +1,6 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.List;
-
 import DAO.Equipe;
 import DAO.EquipeAdv;
 import DAO.EquipeAdvDAO;
@@ -19,7 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
-
 import com.example.handcoach.R;
 
 public class TelaMenuScouting extends Activity {

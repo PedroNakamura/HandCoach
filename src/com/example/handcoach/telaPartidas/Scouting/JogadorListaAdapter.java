@@ -1,10 +1,9 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
 import DAO.Jogador;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,7 +17,6 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.handcoach.R;
 
 public class JogadorListaAdapter extends BaseAdapter {
@@ -58,6 +56,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 		return position;
 	}
 
+	@SuppressLint("UseValueOf")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View vi = convertView;
@@ -89,6 +88,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 		
 		jogSelected.setOnClickListener(new OnClickListener() {
 			
+			@SuppressLint("UseValueOf")
 			@Override
 			public void onClick(View v) {
 				CheckBox check = (CheckBox) v;

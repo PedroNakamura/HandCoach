@@ -10,7 +10,6 @@ import android.util.Log;
 
 public class JogadorDAO extends DAO_Base<Jogador> {
 	
-	
 	public static final String NOME_TABELA = "jogador";
 	public static final String FOREIGN_TABELA = "equipe";
 	public static final String COLUNA_ID = "id_jog";
@@ -18,6 +17,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 	public static final String COLUNA_NOME = "nome";
 	public static final String COLUNA_SEXO = "sexo";
 	public static final String COLUNA_FOTO = "foto";
+	public static final String COLUNA_POS = "pos";
 	public static final String COLUNA_ALTURA = "altura";
 	public static final String COLUNA_DT_NASC = "dt_nasc";
 	
@@ -28,6 +28,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 	                                                         +COLUNA_SEXO+" BOOLEAN, "
 	                                                         +COLUNA_FOTO+" BLOB, "
 	                                                         +COLUNA_ALTURA+" TEXT, "
+	                                                         +COLUNA_POS+" TEXT, "
 	                                                         +COLUNA_DT_NASC+" DATE," 
 	                                                         +"FOREIGN KEY("+COLUNA_IDEQ+") "+"REFERENCES "+FOREIGN_TABELA+"("+COLUNA_IDEQ+")"
 	                                                         +" )";
@@ -79,6 +80,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		}
 
 		cv.put(COLUNA_DT_NASC, entidade.dateToString());
+		cv.put(COLUNA_POS, entidade.getPos());
 		
 		return cv;
 	}
@@ -104,6 +106,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		
 		jogador.setAltura(contentValues.getAsString(COLUNA_ALTURA));
 		jogador.setIdEq(contentValues.getAsInteger(COLUNA_IDEQ));
+		jogador.setPos(contentValues.getAsString(COLUNA_POS));
 		
 		String data = contentValues.getAsString(COLUNA_DT_NASC);
 		try {
