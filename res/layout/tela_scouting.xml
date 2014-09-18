@@ -15,7 +15,7 @@
         android:orientation="horizontal" >
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/btPlayPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -42,6 +42,64 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:src="@drawable/bt_tempo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/listViewScouting"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content" >
+
+        </ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btFalta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Falta" />
+
+        <Button
+            android:id="@+id/btPasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Passe" />
+
+        <Button
+            android:id="@+id/btAr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arremeso" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/ctAmarelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cartão abarelo" />
+
+        <Button
+            android:id="@+id/bt2min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 minutos" />
 
     </LinearLayout>
 

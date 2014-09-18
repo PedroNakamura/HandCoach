@@ -19,7 +19,7 @@ public class PartidaDAO extends DAO_Base<Partida> {
 	public static final String COLUNA_GOLADV = "gol_adv";
 	
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("
-	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
+	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY, "
 	                                                         +COLUNA_IDEQUIPE+" INTEGER NOT NULL, "
 	                                                         +COLUNA_IDEQADV+" INTEGER NOT NULL, "
 	                                                         +COLUNA_DTPTDA+" DATE, "
