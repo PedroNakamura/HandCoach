@@ -103,4 +103,11 @@
 
     </LinearLayout>
 
+    <Chronometer
+        android:id="@+id/cronos_tempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/StringTelaSobreStyle_simple"
+        android:text="Chronometer" />
+
 </LinearLayout>

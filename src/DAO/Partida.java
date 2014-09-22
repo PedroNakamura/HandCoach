@@ -17,8 +17,7 @@ public class Partida implements EntidadeInterface {
 	
 	public Partida() { }
 	
-	public Partida(int id_ptda, int id_eq, int id_eqadv, String local, Date data_ptda) {
-		this.id_ptda = id_ptda;
+	public Partida(int id_eq, int id_eqadv, String local, Date data_ptda) {
 		this.id_eq = id_eq;
 		this.id_eqadv = id_eqadv;
 		this.local = local;

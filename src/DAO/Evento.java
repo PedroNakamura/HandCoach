@@ -9,6 +9,17 @@ public class Evento implements EntidadeInterface {
 	private double tempoIn;
 	private double tempoFi;
 	
+	//construtores
+	public Evento() { }
+	
+	public Evento(int id_cat, int id_jog, int id_ptda, double tempoIn, double tempoFi) {
+		this.id_cat = id_cat;
+		this.id_jog = id_jog;
+		this.id_ptda = id_ptda;
+		this.tempoIn = tempoIn;
+		this.tempoFi = tempoFi;
+	}
+	
 	//Getters and Setters ID Evento
 	@Override
 	public void setId(int id) {

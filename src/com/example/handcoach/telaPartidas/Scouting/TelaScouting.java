@@ -6,9 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import com.example.handcoach.R;
-import com.example.handcoach.telaPartidas.jogadores.LazyAdapter;
 import DAO.Evento;
+import DAO.EventoDAO;
 import DAO.Jogador;
 import DAO.JogadorDAO;
 import DAO.Partida;
@@ -22,9 +21,11 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
+import com.example.handcoach.R;
+import com.example.handcoach.telaPartidas.jogadores.LazyAdapter;
 
 //http://www.vogella.com/tutorials/AndroidListView/article.html
 //http://www.guj.com.br/4372-listview-multiselecionavel-com-checkbox-selecionar-varios-itens-de-uma-listview
@@ -41,6 +42,18 @@ public class TelaScouting extends Activity {
 	int id_ptda;
 	Date data;
 	int onClickJog;
+	
+	Partida partida;
+	ListView listaJogadores;
+	Button btFalta;
+	Button btPasse;
+	Button btAr;
+	Button btCtAmarelo;
+	Button bt2min;
+	ImageButton btTempo;
+	ImageButton btPlayPause;
+	Chronometer cronosTempo;
+	Chronometer cronosJogo;
 	
 	//variáveis dos eventos
 	int eventoAR_Gol = 1;
@@ -80,22 +93,28 @@ public class TelaScouting extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_scouting);
 		
-		ImageButton btTempo = (ImageButton) findViewById(R.id.btTempo_1min);
-		ListView listaJogadores = (ListView) findViewById(R.id.listViewScouting);
+		btTempo = (ImageButton) findViewById(R.id.btTempo_1min);
+		btPlayPause = (ImageButton) findViewById(R.id.btPlayPause);
+		cronosJogo = (Chronometer) findViewById(R.id.cronos_tempoJogo);
+		cronosTempo = (Chronometer) findViewById(R.id.cronos_tempo);
+		listaJogadores = (ListView) findViewById(R.id.listViewScouting);
 		jogadores = new ArrayList<Jogador>();
 		it = getIntent();
-		valores = it.getExtras();
+		valores = it.getExtras();	
 		
-		Button btFalta = (Button) findViewById(R.id.btFalta);
-		Button btPasse = (Button) findViewById(R.id.btPasse);
-		Button btAr = (Button) findViewById(R.id.btAr);
-		Button btCtAmarelo = (Button) findViewById(R.id.ctAmarelo);
-		Button bt2min = (Button) findViewById(R.id.bt2min);
+		btFalta = (Button) findViewById(R.id.btFalta);
+		btPasse = (Button) findViewById(R.id.btPasse);
+		btAr = (Button) findViewById(R.id.btAr);
+		btCtAmarelo = (Button) findViewById(R.id.ctAmarelo);
+		bt2min = (Button) findViewById(R.id.bt2min);
 			
 		//pega o restante dos valores do bundle
 		local = valores.getString("Local");
 		id_eq = valores.getInt("id_equipe");
 		id_eqadv = valores.getInt("id_equipeAdv");
+		
+		//visibilidade
+		cronosTempo.setVisibility(View.INVISIBLE);
 		
 		//pega os jogadores selecionados para o jogo vindos da última tela
 		listaJog = (List<Integer>) valores.getIntegerArrayList("jog_joga");
@@ -111,19 +130,14 @@ public class TelaScouting extends Activity {
 		Log.i("DEBUG: ------ ", ""+strDate);
 		//Pronto!
 		
-		if(PartidaDAO.getInstancia(this).buscarTodos() == null) {
-			id_ptda = 1;
-		} else {
-			int id_atual = PartidaDAO.getInstancia(this).buscarMaiorID();
-			id_ptda = id_atual+1;
-		}
-		
 		try {
-			Partida partida = new Partida(id_ptda, id_eq, id_eqadv, local, stringToDate(strDate));
+			partida = new Partida(id_eq, id_eqadv, local, stringToDate(strDate));
 			PartidaDAO.getInstancia(this).Inserir(partida);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
+		id_ptda = PartidaDAO.getInstancia(this).buscarMaiorID().getId();
 		
 		final LazyAdapter jogadorLista = new LazyAdapter(TelaScouting.this, jogadores);
 		listaJogadores.setAdapter(jogadorLista);
@@ -184,13 +198,21 @@ public class TelaScouting extends Activity {
 		arQuick.setOnActionItemClickListener(new QuickAction.OnActionItemClickListener() {
 			public void onItemClick(int pos) {
 				if (pos == 0) { 
-					Evento eventoGol; //faz o resto depois, te fode ae te achando
+					Evento eventoGol = new Evento(1, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoGol);
+					Log.i("EventoGol ---- ", eventoGol.getId_cat()+"");
 				} else if (pos == 1) { 
-					Evento eventoGoleiro;
+					Evento eventoGoleiro = new Evento(4, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoGoleiro);
+					Log.i("EventoGoleiro ---- ", eventoGoleiro.getId_cat()+"");
 				} else if (pos == 2) { 
-					Evento eventoFora;
+					Evento eventoFora = new Evento(3, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFora);
+					Log.i("EventoFora ---- ", eventoFora.getId_cat()+"");
 				} else if (pos == 3) {
-					Evento eventoDefesa;
+					Evento eventoDefesa = new Evento(2, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoDefesa);
+					Log.i("EventoDefesa ---- ", eventoDefesa.getId_cat()+"");
 				}
 			}
 		});
@@ -213,17 +235,51 @@ public class TelaScouting extends Activity {
 			}
 		});
 		
-		//setOnClickListener para bt		
+		//setOnClickListener para bt	
 		
-		/*btTempo.setOnClickListener(new OnClickListener() {
+		
+		btPlayPause.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				mQuickAction.show(v);
-				mQuickAction.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
+				if(cronosJogo.isActivated()) {
+					cronosJogo.start();
+					habilitaBotoes(true);
+				}else {
+					cronosJogo.stop();
+					habilitaBotoes(false);
+				}
+                				
 			}
-		});*/
+		});
 		
+		btTempo.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				cronosTempo.start();
+				habilitaBotoes(false);
+				cronosJogo.stop();
+			}
+		});
+		
+	}
+	
+	private void habilitaBotoes(boolean habilita) {
+		if(habilita) {
+			cronosTempo.setVisibility(View.INVISIBLE);
+			cronosTempo.stop();
+		} else {
+			cronosTempo.setVisibility(View.VISIBLE);
+			cronosTempo.start();
+		}
+		bt2min.setActivated(habilita);
+		btAr.setActivated(habilita);
+		btPasse.setActivated(habilita);
+		btCtAmarelo.setActivated(habilita);
+		btFalta.setActivated(habilita);
+		btPlayPause.setActivated(habilita);
+		listaJogadores.setActivated(habilita);
 	}
 
 }

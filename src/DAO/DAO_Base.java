@@ -59,16 +59,6 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 		return listaRetorno;
 	}
 	
-	public int getQueryInt(String query) {
-		if(buscarTodos() == null) {
-			return 1;
-		} else if(buscarTodos().size() <= 1) {
-			return 2;
-		} else {
-			return buscarTodos().get(buscarTodos().size()-1).getId();
-		}
-	}
-	
 	//
 	public List<T> buscarTodos() {
 		String query = "SELECT * FROM "+getNomeTabela();
@@ -85,9 +75,14 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 		return getQuery(query);
 	}
 	
-	public int buscarMaiorID() {
-		String query = "SELECT MAX(id_ptida) FROM "+getNomeTabela();
-		return getQueryInt(query);
+	public T buscarMaiorID() {
+		String query = "SELECT MAX("+getNomeColunaPrimaryKey()+") FROM "+getNomeTabela();
+		List<T> resultado = getQuery(query);
+		if(resultado.size() > 0) {
+			return resultado.get(0);
+		} else {
+			return null;
+		}
 	}
 	
 	//
