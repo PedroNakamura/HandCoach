@@ -13,6 +13,7 @@ import DAO.JogadorDAO;
 import DAO.Partida;
 import DAO.PartidaDAO;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,9 +22,9 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.example.handcoach.R;
 import com.example.handcoach.telaPartidas.jogadores.LazyAdapter;
 
@@ -32,28 +33,31 @@ import com.example.handcoach.telaPartidas.jogadores.LazyAdapter;
 
 public class TelaScouting extends Activity {
 	
-	Intent it;
-	Bundle valores;
-	List<Integer> listaJog;
-	List<Jogador> jogadores;
-	String local;
-	int id_eq;
-	int id_eqadv;
-	int id_ptda;
-	Date data;
-	int onClickJog;
+	private Intent it;
+	private Bundle valores;
+	private List<Integer> listaJog;
+	private List<Jogador> jogadores;
+	private String local;
+	private int id_eq;
+	private int id_eqadv;
+	private int id_ptda;
+	private Date data;
+	private int onClickJog = 0;
+	private Context context = TelaScouting.this;
 	
-	Partida partida;
-	ListView listaJogadores;
-	Button btFalta;
-	Button btPasse;
-	Button btAr;
-	Button btCtAmarelo;
-	Button bt2min;
-	ImageButton btTempo;
-	ImageButton btPlayPause;
-	Chronometer cronosTempo;
-	Chronometer cronosJogo;
+	private Partida partida;
+	private ListView listaJogadores;
+	private Button btFalta;
+	private Button btPasse;
+	private Button btAr;
+	private Button btCtAmarelo;
+	private Button bt2min;
+	private ImageButton btTempo;
+	private ImageButton btPlayPause;
+	private TextView cronosTempo;
+	private TextView cronosJogo;
+	private FinalCountdown cronometroTempo;
+	private FinalCountdown cronometroJogo;
 	
 	//variáveis dos eventos
 	int eventoAR_Gol = 1;
@@ -75,18 +79,6 @@ public class TelaScouting extends Activity {
 	int eventoSftDef = 17;
 	int eventoPB_equipe = 18;
 	int eventoPB_equipeadv = 19;
-	
-	//GAMBIARRA AFFE
-    public Date stringToDate(String dataStr) throws java.text.ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
-        try {
-                data = (Date) format.parse(dataStr);
-        } catch (ParseException e) {
-                e.printStackTrace();
-        }
-        return data;
-    }
-    //GAMBIARRA
     
 	// MÁGICA COMEÇA A ACONTECER!
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,18 +87,24 @@ public class TelaScouting extends Activity {
 		
 		btTempo = (ImageButton) findViewById(R.id.btTempo_1min);
 		btPlayPause = (ImageButton) findViewById(R.id.btPlayPause);
-		cronosJogo = (Chronometer) findViewById(R.id.cronos_tempoJogo);
-		cronosTempo = (Chronometer) findViewById(R.id.cronos_tempo);
+		cronosJogo = (TextView) findViewById(R.id.cronos_tempoJogo);
+		cronosTempo = (TextView) findViewById(R.id.cronos_tempo);	
 		listaJogadores = (ListView) findViewById(R.id.listViewScouting);
 		jogadores = new ArrayList<Jogador>();
 		it = getIntent();
-		valores = it.getExtras();	
-		
+		valores = it.getExtras();		
 		btFalta = (Button) findViewById(R.id.btFalta);
 		btPasse = (Button) findViewById(R.id.btPasse);
 		btAr = (Button) findViewById(R.id.btAr);
 		btCtAmarelo = (Button) findViewById(R.id.ctAmarelo);
 		bt2min = (Button) findViewById(R.id.bt2min);
+		
+		//cria cronômetros
+		cronometroTempo = new FinalCountdown(100000, 1000);
+		cronometroTempo.setText(cronosTempo);
+		
+		cronometroJogo = new FinalCountdown(1500000, 1000);
+		cronometroJogo.setText(cronosJogo);
 			
 		//pega o restante dos valores do bundle
 		local = valores.getString("Local");
@@ -131,13 +129,19 @@ public class TelaScouting extends Activity {
 		//Pronto!
 		
 		try {
-			partida = new Partida(id_eq, id_eqadv, local, stringToDate(strDate));
+			
+			partida.setId_eq(id_eq);
+			partida.setId_eqadv(id_eqadv);
+			partida.setLocal(local);
+			partida.setGol_eq(0);
+			partida.setGol_adv(0);
+			partida.setData((Date) PartidaDAO.getInstancia(TelaScouting.this).stringToDate(strDate));
 			PartidaDAO.getInstancia(this).Inserir(partida);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		
-		id_ptda = PartidaDAO.getInstancia(this).buscarMaiorID().getId();
+		id_ptda = PartidaDAO.getInstancia(TelaScouting.this).buscarMaiorID();
 		
 		final LazyAdapter jogadorLista = new LazyAdapter(TelaScouting.this, jogadores);
 		listaJogadores.setAdapter(jogadorLista);
@@ -217,11 +221,63 @@ public class TelaScouting extends Activity {
 			}
 		});
 		
+		//Faltas!
+		ActionItem actionFaltaTec = new ActionItem();
+		actionFaltaTec.setTitle("Falta Técnica");
+		actionFaltaTec.setIcon(getResources().getDrawable(R.drawable.phone));
+		ActionItem actionFaltaDef = new ActionItem();
+		actionFaltaDef.setTitle("Falta Defesa!");
+		actionFaltaDef.setIcon(getResources().getDrawable(R.drawable.gmail));
+		ActionItem actionFaltaAtk = new ActionItem();
+		actionFaltaAtk.setTitle("Falta Ataque!");
+		actionFaltaAtk.setIcon(getResources().getDrawable(R.drawable.talk));
+		ActionItem actionFalta7m = new ActionItem();
+		actionFalta7m.setTitle("7 metros!");
+        actionFalta7m.setIcon(getResources().getDrawable(R.drawable.ic_launcher));		
+		final QuickAction ftQuick = new QuickAction(this);
+		ftQuick.addActionItem(actionFaltaTec);
+		ftQuick.addActionItem(actionFaltaDef);
+		ftQuick.addActionItem(actionFaltaAtk);
+		ftQuick.addActionItem(actionFalta7m);
+		ftQuick.setOnActionItemClickListener(new QuickAction.OnActionItemClickListener() {
+			public void onItemClick(int pos) {
+				if (pos == 0) { 
+					Evento eventoFaltaTec = new Evento(10, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaTec);
+					Log.i("EventoFaltaTec ---- ", eventoFaltaTec.getId_cat()+"");
+				} else if (pos == 1) { 
+					Evento eventoFaltaDef = new Evento(11, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaDef);
+					Log.i("EventoFaltaDef ---- ", eventoFaltaDef.getId_cat()+"");
+				} else if (pos == 2) { 
+					Evento eventoFaltaAtk= new Evento(12, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaAtk);
+					Log.i("EventoFaltaAtk ---- ", eventoFaltaAtk.getId_cat()+"");
+				} else if (pos == 3) {
+					Evento evento7m = new Evento(13, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(evento7m);
+					Log.i("EventoFalta7m ---- ", evento7m.getId_cat()+"");
+				}
+			}
+		});
+		//
+		
 		listaJogadores.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				onClickJog = ((Jogador) jogadorLista.getItem(position)).getId();
+				if(onClickJog == 0) {
+					onClickJog = ((Jogador) jogadorLista.getItem(position)).getId();
+				} else {
+					int jogadorQuePassou = onClickJog;
+					onClickJog = ((Jogador) jogadorLista.getItem(position)).getId();
+					Evento passeCerto = new Evento(5, jogadorQuePassou, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(passeCerto);
+					Log.i("PASSE CERTO: ", "De "+jogadorQuePassou+" para "+onClickJog);
+					Evento rcpCerta = new Evento(7, onClickJog, id_ptda, 0, 0);
+					EventoDAO.getInstancia(TelaScouting.this).Inserir(rcpCerta);
+					Log.i("RECEPÇÃO CERTA: ", "De "+onClickJog);
+				}
 			}
 			
 		});	
@@ -238,7 +294,7 @@ public class TelaScouting extends Activity {
 		//setOnClickListener para bt	
 		
 		
-		btPlayPause.setOnClickListener(new OnClickListener() {
+		/*btPlayPause.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -251,9 +307,9 @@ public class TelaScouting extends Activity {
 				}
                 				
 			}
-		});
+		});*/
 		
-		btTempo.setOnClickListener(new OnClickListener() {
+		/*btTempo.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -261,11 +317,11 @@ public class TelaScouting extends Activity {
 				habilitaBotoes(false);
 				cronosJogo.stop();
 			}
-		});
+		});*/
 		
 	}
 	
-	private void habilitaBotoes(boolean habilita) {
+	/*private void habilitaBotoes(boolean habilita) {
 		if(habilita) {
 			cronosTempo.setVisibility(View.INVISIBLE);
 			cronosTempo.stop();
@@ -280,6 +336,6 @@ public class TelaScouting extends Activity {
 		btFalta.setActivated(habilita);
 		btPlayPause.setActivated(habilita);
 		listaJogadores.setActivated(habilita);
-	}
+	}*/
 
 }

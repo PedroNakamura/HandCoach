@@ -18,6 +18,7 @@ public class TelaPreJogo extends Activity {
 	List<Jogador> listaJogadores;
 	Intent it;
 	Bundle valor;
+	Bundle valor2;
 	int id_eq;
 	
 	@Override
@@ -40,9 +41,10 @@ public class TelaPreJogo extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				valor.putIntegerArrayList("jog_joga", (ArrayList<Integer>) JogadorAdapter.getSelecionados());
+				valor2.putIntegerArrayList("jog_joga", (ArrayList<Integer>) JogadorAdapter.getSelecionados());
+				valor2.putInt("id_equipe", id_eq);
 				Intent itt = new Intent(TelaPreJogo.this, TelaScouting.class);
-				itt.putExtras(valor);
+				itt.putExtras(valor2);
 				startActivity(itt);
 				finish();
 			}

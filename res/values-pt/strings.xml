@@ -104,5 +104,7 @@
     <!-- Avisos variados -->
     <string name="stringSelecionado">Marcado!</string>
     <string name="stringDesSelecionado">Desmarcado!</string>
+    <string name="tempoAcabando">O tempo está acabando!</string>
+    <string name="tempoAcabou">O tempo acabou!</string>
     
 </resources>

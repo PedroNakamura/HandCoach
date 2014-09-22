@@ -23,7 +23,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 	
 	private Activity act;
 	private List<Jogador> listaJogador;
-	private List<Integer> idSelecionados = new ArrayList<Integer>();
+	private ArrayList<Integer> idSelecionados = new ArrayList<Integer>();
 	private static LayoutInflater inflater = null;
 	public Bitmap Image;
 	
@@ -37,7 +37,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 		listaJogador.remove(jogador);
 	}
 	
-	public List<Integer> getSelecionados() {
+	public ArrayList<Integer> getSelecionados() {
 		return idSelecionados;
 	}
 	
@@ -67,9 +67,6 @@ public class JogadorListaAdapter extends BaseAdapter {
 		ImageView playerSex = (ImageView) vi.findViewById(R.id.JogadorSexo_listView_adp);
 		ImageView imagem = (ImageView) vi.findViewById(R.id.Jogador_list_image_adp);
 		CheckBox jogSelected = (CheckBox) vi.findViewById(R.id.chec_selecionaJogador);
-		
-		//Calendar c = new GregorianCalendar();
-		//c.setTime(listaJogador.get(position).getDt_nasc());
 		
 		Jogador jogador = listaJogador.get(position);
 		
