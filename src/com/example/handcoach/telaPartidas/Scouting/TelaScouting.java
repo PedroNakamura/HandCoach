@@ -8,7 +8,6 @@ import java.util.Calendar;
 import java.util.List;
 import com.example.handcoach.R;
 import com.example.handcoach.telaPartidas.jogadores.LazyAdapter;
-
 import DAO.Evento;
 import DAO.Jogador;
 import DAO.JogadorDAO;
@@ -19,6 +18,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -122,7 +122,6 @@ public class TelaScouting extends Activity {
 			Partida partida = new Partida(id_ptda, id_eq, id_eqadv, local, stringToDate(strDate));
 			PartidaDAO.getInstancia(this).Inserir(partida);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -186,14 +185,12 @@ public class TelaScouting extends Activity {
 			public void onItemClick(int pos) {
 				if (pos == 0) { 
 					Evento eventoGol; //faz o resto depois, te fode ae te achando
-				} else if (pos == 1) { // Gmail item selected
-					Toast.makeText(TelaScouting.this, "GMAIL item selected",Toast.LENGTH_SHORT).show();
-                                        // Place code handling for Gmail action here
-				} else if (pos == 2) { // Talk item selected
-					Toast.makeText(TelaScouting.this, "TALK selected",Toast.LENGTH_SHORT).show();
-                                        // Place code handling for Talk action here
+				} else if (pos == 1) { 
+					Evento eventoGoleiro;
+				} else if (pos == 2) { 
+					Evento eventoFora;
 				} else if (pos == 3) {
-					
+					Evento eventoDefesa;
 				}
 			}
 		});
@@ -207,8 +204,16 @@ public class TelaScouting extends Activity {
 			
 		});	
 		
-		//setOnClickListener para bt
+		btAr.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				arQuick.show(v);
+				arQuick.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
+			}
+		});
 		
+		//setOnClickListener para bt		
 		
 		/*btTempo.setOnClickListener(new OnClickListener() {
 			

@@ -60,9 +60,13 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 	}
 	
 	public int getQueryInt(String query) {
-		int x = 0;
-		// como raios posso saber o maior valor inteiro no banco de dados?
-		return x;
+		if(buscarTodos() == null) {
+			return 1;
+		} else if(buscarTodos().size() <= 1) {
+			return 2;
+		} else {
+			return buscarTodos().get(buscarTodos().size()-1).getId();
+		}
 	}
 	
 	//
