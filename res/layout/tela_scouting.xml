@@ -69,17 +69,22 @@
             android:text="Falta" />
 
         <Button
-            android:id="@+id/btPasse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Passe" />
-
-        <Button
             android:id="@+id/btAr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arremeso" />
 
+        <Button
+            android:id="@+id/btPerdaBola"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perda de Bola" />
+
+        <TextView
+            android:id="@+id/cronos_tempo"
+            style="@style/StringTelaSobreStyle_simple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
@@ -100,12 +105,18 @@
             android:layout_height="wrap_content"
             android:text="2 minutos" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/placarEq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple"/>
 
-    <TextView
-        android:id="@+id/cronos_tempo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/StringTelaSobreStyle_simple"/>
+        <TextView
+            android:id="@+id/PlacarEqAdv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple"/>
+
+    </LinearLayout>
 
 </LinearLayout>

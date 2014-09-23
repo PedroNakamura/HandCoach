@@ -9,9 +9,6 @@ import android.util.Log;
 
 public class Jogador implements EntidadeInterface, Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int id_jog;
 	private int id_eq;
@@ -112,7 +109,6 @@ public class Jogador implements EntidadeInterface, Serializable {
 	public boolean isMarcado() {
 		return marcado;
 	}
-	
 	public void setMarcado(boolean marcado) {
 		this.marcado = marcado;
 	}

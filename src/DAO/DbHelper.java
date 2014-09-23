@@ -65,6 +65,7 @@ public class DbHelper extends SQLiteOpenHelper {
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("SFT_defesa"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PB_equipe"));
 		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("PB_adv"));
+		db.insert(CategoriaDAO.NOME_TABELA, null, popCat("RBT_rebote"));
 	}
 
 	private ContentValues popCat(String s) {
