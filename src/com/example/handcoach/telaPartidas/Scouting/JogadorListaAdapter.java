@@ -23,7 +23,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 	
 	private Activity act;
 	private List<Jogador> listaJogador;
-	private ArrayList<Integer> idSelecionados = new ArrayList<Integer>();
+	private List<Integer> idSelecionados = new ArrayList<Integer>();
 	private static LayoutInflater inflater = null;
 	public Bitmap Image;
 	
@@ -37,7 +37,7 @@ public class JogadorListaAdapter extends BaseAdapter {
 		listaJogador.remove(jogador);
 	}
 	
-	public ArrayList<Integer> getSelecionados() {
+	public List<Integer> getSelecionados() {
 		return idSelecionados;
 	}
 	

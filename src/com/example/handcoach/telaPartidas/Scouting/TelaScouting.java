@@ -1,10 +1,11 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
-import java.sql.Date;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import DAO.Evento;
 import DAO.EventoDAO;
@@ -45,7 +46,7 @@ public class TelaScouting extends Activity {
 	private int onClickJog = 0;
 	private Context context = TelaScouting.this;
 	
-	private Partida partida;
+	private Partida partida = new Partida();
 	private ListView listaJogadores;
 	private Button btFalta;
 	private Button btPasse;
@@ -123,25 +124,25 @@ public class TelaScouting extends Activity {
 		
 		//getDataDeHoje
 		Calendar c = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd:MM:yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		String strDate = sdf.format(c.getTime());	
 		Log.i("DEBUG: ------ ", ""+strDate);
 		//Pronto!
 		
 		try {
-			
 			partida.setId_eq(id_eq);
 			partida.setId_eqadv(id_eqadv);
 			partida.setLocal(local);
 			partida.setGol_eq(0);
 			partida.setGol_adv(0);
-			partida.setData((Date) PartidaDAO.getInstancia(TelaScouting.this).stringToDate(strDate));
+			partida.setData(PartidaDAO.getInstancia(TelaScouting.this).stringToDate(strDate));
 			PartidaDAO.getInstancia(this).Inserir(partida);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		
-		id_ptda = PartidaDAO.getInstancia(TelaScouting.this).buscarMaiorID();
+		Partida pt_criada = (Partida) PartidaDAO.getInstancia(TelaScouting.this).buscarMaiorID();
+		id_ptda = pt_criada.getId();
 		
 		final LazyAdapter jogadorLista = new LazyAdapter(TelaScouting.this, jogadores);
 		listaJogadores.setAdapter(jogadorLista);
@@ -289,6 +290,16 @@ public class TelaScouting extends Activity {
 				arQuick.show(v);
 				arQuick.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
 			}
+		});
+		
+		btFalta.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				ftQuick.show(v);
+				ftQuick.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
+			}
+			
 		});
 		
 		//setOnClickListener para bt	

@@ -1,6 +1,6 @@
 package DAO;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import android.net.ParseException;
 import android.util.Log;

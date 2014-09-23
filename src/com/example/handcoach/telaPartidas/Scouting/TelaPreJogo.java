@@ -6,6 +6,7 @@ import com.example.handcoach.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -26,22 +27,23 @@ public class TelaPreJogo extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_prejogo);
 		
+		valor2 = new Bundle();
 		it = getIntent();
 		valor = it.getExtras();
 		id_eq = valor.getInt("id_equipe");
-		
+		Log.i("DEBUGG", id_eq+" ID da Equipe");
 		ListView listViewJog = (ListView) findViewById(R.id.preJogoListaJogadoresEquipe);
 		Button btJogar = (Button) findViewById(R.id.bt_preJogo_jogo);
 		
 		listaJogadores = JogadorDAO.getInstancia(TelaPreJogo.this).buscarDaEquipe(id_eq);
-		final JogadorListaAdapter JogadorAdapter = new JogadorListaAdapter(this, listaJogadores);
-		listViewJog.setAdapter(JogadorAdapter);
+		final JogadorListaAdapter jogadorAdapter = new JogadorListaAdapter(this, listaJogadores);
+		listViewJog.setAdapter(jogadorAdapter);
 		
 		btJogar.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				valor2.putIntegerArrayList("jog_joga", (ArrayList<Integer>) JogadorAdapter.getSelecionados());
+				valor2.putIntegerArrayList("jog_joga", (ArrayList<Integer>) jogadorAdapter.getSelecionados());
 				valor2.putInt("id_equipe", id_eq);
 				Intent itt = new Intent(TelaPreJogo.this, TelaScouting.class);
 				itt.putExtras(valor2);

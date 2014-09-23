@@ -84,10 +84,9 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 		return getQuery(query);
 	}
 	
-	public int buscarMaiorID() {
-		String query = "SELECT MAX("+getNomeColunaPrimaryKey()+") FROM "+getNomeTabela();
-		int valor = simpleGetQuery(query);
-		return valor;
+	public T buscarMaiorID() {
+		String query = "SELECT * FROM "+getNomeTabela()+" ORDER BY "+getNomeColunaPrimaryKey()+" DESC LIMIT 1";
+		return getQuery(query).get(0);
 	}
 	
 	//
