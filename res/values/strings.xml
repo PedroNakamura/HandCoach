@@ -107,5 +107,6 @@
     <string name="stringDesSelecionado">Desmarcado!</string>
     <string name="tempoAcabando">O tempo está acabando!</string>
     <string name="tempoAcabou">O tempo acabou!</string>
+    <string name="tempo">Tempo!</string>
 
 </resources>

@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 import com.example.handcoach.R;
 import android.content.Context;
 import android.os.Vibrator;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,13 +30,14 @@ public class FinalCountdown extends CountDownTimerWithPause {
 
 	@Override
 	public void onFinish() {
-		text.setText("0:0");
 		Toast.makeText(tela, R.string.tempoAcabou, Toast.LENGTH_SHORT).show();
-		onFinished = true;
 		if(tipoCronos == 1) {
 			
 		} else if(tipoCronos == 2) {
 			tela.habilitaBotoes(true);
+			tela.habilitaPlayPause(true);
+			tela.cronosTempo.setVisibility(View.INVISIBLE);
+			tela.cronometroTempo.setFinished(true);
 			tela.cronometroJogo.resume();
 		} else if(tipoCronos == 3) {
 			
@@ -76,6 +78,9 @@ public class FinalCountdown extends CountDownTimerWithPause {
 	
 	public boolean isFinished() {
 		return onFinished;
+	}
+	public void setFinished(boolean bool) {
+		this.onFinished = bool;
 	}
 
 }

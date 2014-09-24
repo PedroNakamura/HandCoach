@@ -24,6 +24,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.handcoach.R;
 import com.example.handcoach.telaPartidas.jogadores.LazyAdapter;
 
@@ -53,8 +55,8 @@ public class TelaScouting extends Activity {
 	private ImageButton btPlayPause;
 	private TextView placarEq;
 	private TextView placarEqAdv;
-	private TextView cronosTempo;
-	private TextView cronosJogo;
+	protected TextView cronosTempo;
+	protected TextView cronosJogo;
 	protected FinalCountdown cronometroTempo;
 	protected FinalCountdown cronometroJogo;
 	
@@ -107,7 +109,7 @@ public class TelaScouting extends Activity {
 		bt2min = (Button) findViewById(R.id.bt2min);
 		
 		//cria cronômetros
-		cronometroTempo = new FinalCountdown(100000, 1000, false, 2, this);
+		cronometroTempo = new FinalCountdown(10000, 1000, false, 2, this);
 		cronometroTempo.setText(cronosTempo);
 		cronometroTempo.create();
 		
@@ -181,7 +183,7 @@ public class TelaScouting extends Activity {
 		arQuick.setOnActionItemClickListener(new QuickAction.OnActionItemClickListener() {
 			public void onItemClick(int pos) {
 				if (pos == 0) { 
-					Evento eventoGol = new Evento(1, onClickJog, id_ptda, 0, 0);
+					Evento eventoGol = new Evento(eventoAR_Gol, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoGol);
 					Log.i("EventoGol ---- ", eventoGol.getId_cat()+"");
 					placarEqCont++;
@@ -189,17 +191,17 @@ public class TelaScouting extends Activity {
 					placarEq.refreshDrawableState();
 					comBola = false;
 				} else if (pos == 1) { 
-					Evento eventoGoleiro = new Evento(4, onClickJog, id_ptda, 0, 0);
+					Evento eventoGoleiro = new Evento(eventoAR_Gk, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoGoleiro);
 					Log.i("EventoGoleiro ---- ", eventoGoleiro.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 2) { 
-					Evento eventoFora = new Evento(3, onClickJog, id_ptda, 0, 0);
+					Evento eventoFora = new Evento(eventoAR_Fora, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFora);
 					Log.i("EventoFora ---- ", eventoFora.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 3) {
-					Evento eventoDefesa = new Evento(2, onClickJog, id_ptda, 0, 0);
+					Evento eventoDefesa = new Evento(eventoAR_Defesa, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoDefesa);
 					Log.i("EventoDefesa ---- ", eventoDefesa.getId_cat()+"");
 					comBola = false;
@@ -228,22 +230,22 @@ public class TelaScouting extends Activity {
 		ftQuick.setOnActionItemClickListener(new QuickAction.OnActionItemClickListener() {
 			public void onItemClick(int pos) {
 				if (pos == 0) { 
-					Evento eventoFaltaTec = new Evento(10, onClickJog, id_ptda, 0, 0);
+					Evento eventoFaltaTec = new Evento(eventoFT_tecnica, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaTec);
 					Log.i("EventoFaltaTec ---- ", eventoFaltaTec.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 1) { 
-					Evento eventoFaltaDef = new Evento(11, onClickJog, id_ptda, 0, 0);
+					Evento eventoFaltaDef = new Evento(eventoFT_defesa, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaDef);
 					Log.i("EventoFaltaDef ---- ", eventoFaltaDef.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 2) { 
-					Evento eventoFaltaAtk= new Evento(12, onClickJog, id_ptda, 0, 0);
+					Evento eventoFaltaAtk= new Evento(eventoFT_ataque, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaAtk);
 					Log.i("EventoFaltaAtk ---- ", eventoFaltaAtk.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 3) {
-					Evento evento7m = new Evento(13, onClickJog, id_ptda, 0, 0);
+					Evento evento7m = new Evento(eventoFT_7m, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(evento7m);
 					Log.i("EventoFalta7m ---- ", evento7m.getId_cat()+"");
 					comBola = false;
@@ -261,10 +263,10 @@ public class TelaScouting extends Activity {
 				} else {
 					int jogadorQuePassou = onClickJog;
 					onClickJog = ((Jogador) jogadorLista.getItem(position)).getId();
-					Evento passeCerto = new Evento(5, jogadorQuePassou, id_ptda, 0, 0);
+					Evento passeCerto = new Evento(eventoPSS_Certo, jogadorQuePassou, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(passeCerto);
 					Log.i("PASSE CERTO: ", "De "+jogadorQuePassou+" para "+onClickJog);
-					Evento rcpCerta = new Evento(7, onClickJog, id_ptda, 0, 0);
+					Evento rcpCerta = new Evento(eventoRCP_Certa, onClickJog, id_ptda, 0, 0);
 					EventoDAO.getInstancia(TelaScouting.this).Inserir(rcpCerta);
 					Log.i("RECEPÇÃO CERTA: ", "De "+onClickJog);
 				}
@@ -330,8 +332,23 @@ public class TelaScouting extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				cronometroJogo.pause();
-				cronometroTempo.resume();
+				Toast.makeText(TelaScouting.this, R.string.tempo, Toast.LENGTH_SHORT).show();
+				if(!cronometroTempo.isFinished()) {
+					cronometroJogo.pause();
+					cronosTempo.setVisibility(View.VISIBLE);
+					habilitaBotoes(false);
+					habilitaPlayPause(false);
+					cronometroTempo.resume();
+				} else {
+					FinalCountdown cronometro2 = new FinalCountdown(10000, 1000, false, 2, TelaScouting.this);
+					cronometro2.setText(cronosTempo);
+					cronometroTempo = cronometro2;
+					cronometroJogo.pause();
+					cronosTempo.setVisibility(View.VISIBLE);
+					habilitaBotoes(false);
+					habilitaPlayPause(false);
+					cronometroTempo.resume();
+				}
 			}
 		});
 		
@@ -355,6 +372,7 @@ public class TelaScouting extends Activity {
 			public void onClick(View v) {
 			   Evento eventoCtAmarelo = new Evento(eventoCT_amarelo, onClickJog, id_ptda, 0, 0);
 			   EventoDAO.getInstancia(context).Inserir(eventoCtAmarelo);
+			   Log.i("Cartão amarelo", ""+onClickJog);
 			}		
 			
 		});
@@ -365,19 +383,29 @@ public class TelaScouting extends Activity {
 			public void onClick(View v) {
 				Evento evento2m = new Evento(evento2min, onClickJog, id_ptda, 0, 0);
 				EventoDAO.getInstancia(context).Inserir(evento2m);
+				Log.i("2 minutos", ""+onClickJog);
 			}
 		});
 		
 	}
 	
 	protected void habilitaBotoes(boolean habilita) {
-		bt2min.setActivated(habilita);
-		btAr.setActivated(habilita);
-		btPerdaBola.setActivated(habilita);
-		btCtAmarelo.setActivated(habilita);
-		btFalta.setActivated(habilita);
-		btPlayPause.setActivated(habilita);
-		listaJogadores.setActivated(habilita);
+		
+		btAr.setClickable(habilita);
+		btPerdaBola.setClickable(habilita);
+		btCtAmarelo.setClickable(habilita);
+		btFalta.setClickable(habilita);
+		bt2min.setClickable(habilita);
+	    if(!habilita) {
+	    	listaJogadores.setVisibility(View.INVISIBLE);
+	    } else {
+	    	listaJogadores.setVisibility(View.VISIBLE);
+	    }
+		
+	}
+	
+	protected void habilitaPlayPause(boolean hab) {
+		btPlayPause.setClickable(hab);
 	}
 
 }
