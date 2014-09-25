@@ -101,6 +101,8 @@
     
     <!-- Pré Jogo -->
     <string name="btTacaLePauNessaPartida">Começar partida!</string>
+    <string name="titulares">Titulares</string>
+    <string name="reservas">Reservas</string>
     
     <!-- Avisos variados -->
     <string name="stringSelecionado">Marcado!</string>
@@ -108,5 +110,6 @@
     <string name="tempoAcabando">O tempo está acabando!</string>
     <string name="tempoAcabou">O tempo acabou!</string>
     <string name="tempo">Tempo!</string>
+    <string name="PlayPauseClick">Clique no play para voltar ao jogo!</string>
 
 </resources>

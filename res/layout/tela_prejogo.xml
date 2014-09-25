@@ -1,39 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="#F7F7F7">
+    android:background="#F7F7F7"
+    android:orientation="vertical" >
 
-    <LinearLayout
+    <fragment
+        android:id="@+id/fragment_place"
+        android:name="com.example.handcoach.telaPartidas.Scouting.MenuPreJogo_listaTitulares"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/bt_selectTitulares"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="vertical" >
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/bt_selectReservas"
+        android:layout_below="@+id/tv_tituloPreJogoJogadores"
+        android:layout_marginTop="21dp"
+        android:text="@string/titulares"
+        android:onClick="selectFrag" />
 
-        <TextView
-            android:id="@+id/tv_tituloPreJogoJogadores"
-            style="@style/StringTelaSobreStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TituloMenuScouting" />
+    <Button
+        android:id="@+id/bt_selectReservas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_selectTitulares"
+        android:layout_toLeftOf="@+id/fragment_place"
+        android:text="@string/reservas"
+        android:onClick="selectFrag" />
 
-        <ListView
-            android:id="@+id/preJogoListaJogadoresEquipe"
-            android:layout_width="fill_parent"
-            android:layout_height="332dp"
-            android:divider="#b5b5b5"
-            android:dividerHeight="1dp" >
-        </ListView>
+    <Button
+        android:id="@+id/bt_iniciarJogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/bt_selectReservas"
+        android:layout_below="@+id/bt_selectReservas"
+        android:text="@string/btTacaLePauNessaPartida" />
 
-        <Button
-            android:id="@+id/bt_preJogo_jogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btTacaLePauNessaPartida" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_tituloPreJogoJogadores"
+        style="@style/StringTelaSobreStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/TituloMenuScouting" />
 
-</LinearLayout>
+</RelativeLayout>

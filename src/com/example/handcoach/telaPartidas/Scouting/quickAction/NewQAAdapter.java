@@ -1,4 +1,4 @@
-package com.example.handcoach.telaPartidas.Scouting;
+package com.example.handcoach.telaPartidas.Scouting.quickAction;
 
 import android.view.View;
 import android.view.ViewGroup;

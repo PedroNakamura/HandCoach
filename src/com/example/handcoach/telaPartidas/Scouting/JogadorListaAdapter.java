@@ -101,7 +101,6 @@ public class JogadorListaAdapter extends BaseAdapter {
 					if(!idSelecionados.contains(new Integer(j.getId()))) {
 						Log.i("DEBUG!!!", "======== "+"I:"+j.getId()+"T:"+idSelecionados.size()+" ========");
 						idSelecionados.add(new Integer(j.getId()));
-						
 					}
 				} else {
 					Toast.makeText(act, R.string.stringDesSelecionado, Toast.LENGTH_SHORT).show();					

@@ -32,13 +32,13 @@ public class FinalCountdown extends CountDownTimerWithPause {
 	public void onFinish() {
 		Toast.makeText(tela, R.string.tempoAcabou, Toast.LENGTH_SHORT).show();
 		if(tipoCronos == 1) {
-			
+			tela.cronometroJogo.setFinished(true);
+			tela.cronometroTempo.setFinished(false);
 		} else if(tipoCronos == 2) {
-			tela.habilitaBotoes(true);
 			tela.habilitaPlayPause(true);
 			tela.cronosTempo.setVisibility(View.INVISIBLE);
 			tela.cronometroTempo.setFinished(true);
-			tela.cronometroJogo.resume();
+			Toast.makeText(tela, R.string.PlayPauseClick, Toast.LENGTH_LONG).show();
 		} else if(tipoCronos == 3) {
 			
 		}

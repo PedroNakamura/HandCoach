@@ -25,8 +25,9 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.handcoach.R;
+import com.example.handcoach.telaPartidas.Scouting.quickAction.ActionItem;
+import com.example.handcoach.telaPartidas.Scouting.quickAction.QuickAction;
 import com.example.handcoach.telaPartidas.jogadores.LazyAdapter;
 
 //http://www.learn2crack.com/2014/05/android-working-with-fragments.html
@@ -132,7 +133,7 @@ public class TelaScouting extends Activity {
 		//pega os jogadores selecionados para o jogo vindos da última tela
 		listaJog = (List<Integer>) valores.getIntegerArrayList("jog_joga");
 		for (Integer id : listaJog) {
-			Jogador jogador = JogadorDAO.getInstancia(TelaScouting.this).buscarPorID(id);
+			Jogador jogador = JogadorDAO.getInstancia(context).buscarPorID(id);
 			jogadores.add(jogador);
 		}
 		
@@ -149,13 +150,13 @@ public class TelaScouting extends Activity {
 			partida.setLocal(local);
 			partida.setGol_eq(0);
 			partida.setGol_adv(0);
-			partida.setData(PartidaDAO.getInstancia(TelaScouting.this).stringToDate(strDate));
+			partida.setData(PartidaDAO.getInstancia(context).stringToDate(strDate));
 			PartidaDAO.getInstancia(this).Inserir(partida);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		
-		Partida pt_criada = (Partida) PartidaDAO.getInstancia(TelaScouting.this).buscarMaiorID();
+		Partida pt_criada = (Partida) PartidaDAO.getInstancia(context).buscarMaiorID();
 		id_ptda = pt_criada.getId();
 		
 		final LazyAdapter jogadorLista = new LazyAdapter(TelaScouting.this, jogadores);
@@ -183,7 +184,7 @@ public class TelaScouting extends Activity {
 			public void onItemClick(int pos) {
 				if (pos == 0) { 
 					Evento eventoGol = new Evento(eventoAR_Gol, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoGol);
+					EventoDAO.getInstancia(context).Inserir(eventoGol);
 					Log.i("EventoGol ---- ", eventoGol.getId_cat()+"");
 					placarEqCont++;
 					placarEq.setText(placarEqCont+"");
@@ -191,17 +192,17 @@ public class TelaScouting extends Activity {
 					comBola = false;
 				} else if (pos == 1) { 
 					Evento eventoGoleiro = new Evento(eventoAR_Gk, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoGoleiro);
+					EventoDAO.getInstancia(context).Inserir(eventoGoleiro);
 					Log.i("EventoGoleiro ---- ", eventoGoleiro.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 2) { 
 					Evento eventoFora = new Evento(eventoAR_Fora, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFora);
+					EventoDAO.getInstancia(context).Inserir(eventoFora);
 					Log.i("EventoFora ---- ", eventoFora.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 3) {
 					Evento eventoDefesa = new Evento(eventoAR_Defesa, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoDefesa);
+					EventoDAO.getInstancia(context).Inserir(eventoDefesa);
 					Log.i("EventoDefesa ---- ", eventoDefesa.getId_cat()+"");
 					comBola = false;
 				}
@@ -230,22 +231,22 @@ public class TelaScouting extends Activity {
 			public void onItemClick(int pos) {
 				if (pos == 0) { 
 					Evento eventoFaltaTec = new Evento(eventoFT_tecnica, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaTec);
+					EventoDAO.getInstancia(context).Inserir(eventoFaltaTec);
 					Log.i("EventoFaltaTec ---- ", eventoFaltaTec.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 1) { 
 					Evento eventoFaltaDef = new Evento(eventoFT_defesa, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaDef);
+					EventoDAO.getInstancia(context).Inserir(eventoFaltaDef);
 					Log.i("EventoFaltaDef ---- ", eventoFaltaDef.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 2) { 
 					Evento eventoFaltaAtk= new Evento(eventoFT_ataque, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(eventoFaltaAtk);
+					EventoDAO.getInstancia(context).Inserir(eventoFaltaAtk);
 					Log.i("EventoFaltaAtk ---- ", eventoFaltaAtk.getId_cat()+"");
 					comBola = false;
 				} else if (pos == 3) {
 					Evento evento7m = new Evento(eventoFT_7m, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(evento7m);
+					EventoDAO.getInstancia(context).Inserir(evento7m);
 					Log.i("EventoFalta7m ---- ", evento7m.getId_cat()+"");
 					comBola = false;
 				}
@@ -263,10 +264,10 @@ public class TelaScouting extends Activity {
 					int jogadorQuePassou = onClickJog;
 					onClickJog = ((Jogador) jogadorLista.getItem(position)).getId();
 					Evento passeCerto = new Evento(eventoPSS_Certo, jogadorQuePassou, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(passeCerto);
+					EventoDAO.getInstancia(context).Inserir(passeCerto);
 					Log.i("PASSE CERTO: ", "De "+jogadorQuePassou+" para "+onClickJog);
 					Evento rcpCerta = new Evento(eventoRCP_Certa, onClickJog, id_ptda, 0, 0);
-					EventoDAO.getInstancia(TelaScouting.this).Inserir(rcpCerta);
+					EventoDAO.getInstancia(context).Inserir(rcpCerta);
 					Log.i("RECEPÇÃO CERTA: ", "De "+onClickJog);
 				}
 			}
@@ -339,9 +340,9 @@ public class TelaScouting extends Activity {
 					habilitaPlayPause(false);
 					cronometroTempo.resume();
 				} else {
-					FinalCountdown cronometro2 = new FinalCountdown(10000, 1000, false, 2, TelaScouting.this);
-					cronometro2.setText(cronosTempo);
-					cronometroTempo = cronometro2;
+					cronometroTempo = new FinalCountdown(10000, 1000, false, 2, TelaScouting.this);
+					cronometroTempo.setText(cronosTempo);
+					cronometroTempo.create();
 					cronometroJogo.pause();
 					cronosTempo.setVisibility(View.VISIBLE);
 					habilitaBotoes(false);
