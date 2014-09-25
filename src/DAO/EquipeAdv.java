@@ -1,5 +1,7 @@
 package DAO;
 
+import Entidades.EntidadeInterface;
+
 public class EquipeAdv implements EntidadeInterface {
 
 	private int id_eqadv;

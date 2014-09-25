@@ -2,6 +2,7 @@ package DAO;
 
 import java.text.ParseException;
 
+import Entidades.Partida;
 import android.content.ContentValues;
 import android.content.Context;
 

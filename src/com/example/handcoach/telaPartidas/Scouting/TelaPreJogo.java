@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import DAO.Jogador;
 import DAO.JogadorDAO;
+import Entidades.Jogador;
 
 public class TelaPreJogo extends Activity {
 	

@@ -1,8 +1,8 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
 import com.example.handcoach.R;
-import DAO.Jogador;
 import DAO.JogadorDAO;
+import Entidades.Jogador;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;

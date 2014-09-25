@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.example.handcoach.R;
 import com.example.handcoach.telaPartidas.jogadores.LazyAdapterEq;
-import DAO.Equipe;
 import DAO.EquipeDAO;
+import Entidades.Equipe;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

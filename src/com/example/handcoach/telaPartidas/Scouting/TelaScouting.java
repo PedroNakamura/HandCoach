@@ -5,12 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import DAO.Evento;
 import DAO.EventoDAO;
-import DAO.Jogador;
 import DAO.JogadorDAO;
-import DAO.Partida;
 import DAO.PartidaDAO;
+import Entidades.Evento;
+import Entidades.Jogador;
+import Entidades.Partida;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,8 +29,7 @@ import android.widget.Toast;
 import com.example.handcoach.R;
 import com.example.handcoach.telaPartidas.jogadores.LazyAdapter;
 
-//http://www.vogella.com/tutorials/AndroidListView/article.html
-//http://www.guj.com.br/4372-listview-multiselecionavel-com-checkbox-selecionar-varios-itens-de-uma-listview
+//http://www.learn2crack.com/2014/05/android-working-with-fragments.html
 
 public class TelaScouting extends Activity {
 	

@@ -1,12 +1,12 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.List;
-import DAO.Equipe;
 import DAO.EquipeAdv;
 import DAO.EquipeAdvDAO;
 import DAO.EquipeDAO;
-import DAO.Partida;
 import DAO.PartidaDAO;
+import Entidades.Equipe;
+import Entidades.Partida;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -2,6 +2,8 @@ package DAO;
 
 import java.io.ByteArrayOutputStream;
 import java.text.ParseException;
+
+import Entidades.Jogador;
 import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Bitmap;

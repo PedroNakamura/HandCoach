@@ -1,8 +1,13 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.ArrayList;
+
+//http://www.vogella.com/tutorials/AndroidListView/article.html
+//http://www.guj.com.br/4372-listview-multiselecionavel-com-checkbox-selecionar-varios-itens-de-uma-listview
+
 import java.util.List;
-import DAO.Jogador;
+
+import Entidades.Jogador;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;

@@ -1,5 +1,6 @@
 package DAO;
 
+import Entidades.Categoria;
 import android.content.ContentValues;
 import android.content.Context;
 

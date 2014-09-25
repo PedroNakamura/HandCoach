@@ -1,4 +1,4 @@
-package DAO;
+package Entidades;
 
 public class Categoria implements EntidadeInterface {
 	

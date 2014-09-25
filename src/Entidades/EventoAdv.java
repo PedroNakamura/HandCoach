@@ -1,4 +1,5 @@
-package DAO;
+package Entidades;
+
 
 public class EventoAdv implements EntidadeInterface {
 	

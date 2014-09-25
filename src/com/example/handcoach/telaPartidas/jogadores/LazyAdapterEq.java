@@ -2,7 +2,8 @@ package com.example.handcoach.telaPartidas.jogadores;
 
 import java.util.List;
 import com.example.handcoach.R;
-import DAO.Equipe;
+
+import Entidades.Equipe;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -2,8 +2,8 @@ package com.example.handcoach.telaPartidas.jogadores;
 
 import java.util.List;
 import com.example.handcoach.R;
-import DAO.Jogador;
 import DAO.JogadorDAO;
+import Entidades.Jogador;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
