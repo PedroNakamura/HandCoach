@@ -8,12 +8,13 @@
 
     <fragment
         android:id="@+id/fragment_place"
-        android:name="com.example.handcoach.telaPartidas.Scouting.MenuPreJogo_listaTitulares"
+        android:name="com.example.handcoach.telaPartidas.Scouting.FragmentVazio"
         android:layout_width="400dp"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/bt_selectTitulares" />
 
     <Button
         android:id="@+id/bt_selectTitulares"
@@ -30,10 +31,10 @@
         android:id="@+id/bt_selectReservas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tv_tituloPreJogoJogadores"
         android:layout_below="@+id/bt_selectTitulares"
-        android:layout_toLeftOf="@+id/fragment_place"
-        android:text="@string/reservas"
-        android:onClick="selectFrag" />
+        android:onClick="selectFrag"
+        android:text="@string/reservas" />
 
     <Button
         android:id="@+id/bt_iniciarJogo"

@@ -1,9 +1,7 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.List;
-
 import com.example.handcoach.R;
-
 import DAO.JogadorDAO;
 import Entidades.Jogador;
 import android.app.Fragment;
@@ -19,7 +17,7 @@ public class MenuPreJogo_listaTitulares extends Fragment {
 	
 	View v;
 	List<Jogador> listaJogadores;
-	JogadorListaAdapter jogadorAdapter;
+	JogadorListaAdapter jogadorAdapterT;
 	ListView listaTitulares;
 	Bundle valor;
 	Intent it;
@@ -30,23 +28,20 @@ public class MenuPreJogo_listaTitulares extends Fragment {
 		v = inflater.inflate(R.layout.menu_prejogo_listatitulares, container, false);
 		getCoisas();
 	    listaTitulares = (ListView) v.findViewById(R.id.listaTitulares);
+	    listaJogadores = JogadorDAO.getInstancia(getActivity()).buscarDaEquipe(id_eq);
+		jogadorAdapterT = new JogadorListaAdapter(getActivity(), listaJogadores);
+		listaTitulares.setAdapter(jogadorAdapterT);
 		return v;
 	}
+	
 	@Override
-	public void onResume() {
-		// TODO Auto-generated method stub
+	public void onResume() { 
 		super.onResume();
-		listaJogadores = null;
-		listaJogadores = JogadorDAO.getInstancia(getActivity()).buscarDaEquipe(id_eq);
-		jogadorAdapter = new JogadorListaAdapter(getActivity(), listaJogadores);
-		listaTitulares.setAdapter(jogadorAdapter);
 	}
 	
-	/*
-	@Override
-	public void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-	} */
+	public List<Integer> getTitulares() {
+		return jogadorAdapterT.getSelecionados();
+	}
 	
 	public void getCoisas() {
 		it = getActivity().getIntent();

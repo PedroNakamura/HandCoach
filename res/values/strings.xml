@@ -103,6 +103,7 @@
     <string name="btTacaLePauNessaPartida">Começar partida!</string>
     <string name="titulares">Titulares</string>
     <string name="reservas">Reservas</string>
+    <string name="avisoTitInsuf">Por favor escolha 7 titulares</string>
     
     <!-- Avisos variados -->
     <string name="stringSelecionado">Marcado!</string>
