@@ -1,7 +1,10 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.ArrayList;
+import java.util.List;
 import com.example.handcoach.R;
+import DAO.JogadorDAO;
+import Entidades.Jogador;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -16,30 +19,31 @@ import android.widget.Toast;
 
 public class TelaPreJogo extends Activity {
 
-	FragmentTransaction ft;
-	FragmentManager fm;
-	Fragment fr;
-	Fragment frReservas;
-	Fragment frTitulares;
-	MenuPreJogo_listaTitulares fragTit;
-	MenuPreJogo_listaReservas fragRes;
-	Button btTitulares;
-	Button btReservas;
-	Button btIniciarJogo;
-	Intent it;
-	Bundle listas = new Bundle();
+	private FragmentTransaction ft;
+	private FragmentManager fm;
+	private Fragment fr;
+	private Fragment frReservas;
+	private Fragment frTitulares;
+	private List<Jogador> listaJogadoresDisponiveis;
+	private Button btTitulares;
+	private Button btReservas;
+	private Button btIniciarJogo;
+	private Intent it;
+	private Bundle valor;
+	private Bundle listas = new Bundle();
+	int id_eq;
 	boolean autorizacao;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_prejogo);
-		
-        frTitulares = new MenuPreJogo_listaTitulares();
-        frReservas = new MenuPreJogo_listaReservas();
-        
-        fragTit = (MenuPreJogo_listaTitulares) getFragmentManager().findFragmentById(R.id.fragment_place);
-        fragRes = (MenuPreJogo_listaReservas) getFragmentManager().findFragmentById(R.id.fragment_place);
+		valor = getIntent().getExtras();
+		id_eq = valor.getInt("id_equipe");
+		listaJogadoresDisponiveis = JogadorDAO.getInstancia(TelaPreJogo.this).buscarDaEquipe(id_eq);
+		Log.i("DEBUG!", "BUSCOU DO BD A LISTA!");
+        frTitulares = new MenuPreJogo_listaTitulares(listaJogadoresDisponiveis);
+        frReservas = new MenuPreJogo_listaReservas(listaJogadoresDisponiveis);
         
 		btTitulares = (Button) findViewById(R.id.bt_selectTitulares);
 		btReservas = (Button) findViewById(R.id.bt_selectReservas);
@@ -49,14 +53,7 @@ public class TelaPreJogo extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				if(fragTit.getTitulares().size() != 6) {
-					listas.putInt("id_equipe", fragTit.id_eq);
-					Log.i("ID EQUIPE ", ""+fragTit.id_eq);
-					listas.putIntegerArrayList("jog_joga", (ArrayList<Integer>) fragTit.getTitulares());
-					listas.putIntegerArrayList("jog_njoga", (ArrayList<Integer>) fragRes.getReservas());
-					it = new Intent(TelaPreJogo.this, TelaScouting.class);
-					it.putExtras(listas);
-	                startActivity(it);
+				if(id_eq != 6) {
 				} else {
 					Toast.makeText(TelaPreJogo.this, R.string.avisoTitInsuf, Toast.LENGTH_LONG).show();
 				}
@@ -69,9 +66,14 @@ public class TelaPreJogo extends Activity {
 		if (v == findViewById(R.id.bt_selectTitulares)) {
 			fr = frTitulares;
 		} else if (v == findViewById(R.id.bt_selectReservas)) {
+			
+			for (Jogador joga : listaJogadoresDisponiveis) {
+				
+				Log.i("Teste", joga.isTitular()+ "  " + joga.isReserva());
+			}
+			
 			fr = frReservas;
 		}
-
 		FragmentManager fm = getFragmentManager();
 		ft = fm.beginTransaction();
 		ft.replace(R.id.fragment_place, fr);

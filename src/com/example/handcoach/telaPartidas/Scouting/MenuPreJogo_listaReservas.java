@@ -1,9 +1,10 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.List;
-import com.example.handcoach.R;
-import DAO.JogadorDAO;
+
 import Entidades.Jogador;
+import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,23 +13,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-public class MenuPreJogo_listaReservas extends MenuPreJogo_listaTitulares {
+import com.example.handcoach.R;
+
+@SuppressLint("ValidFragment")
+public class MenuPreJogo_listaReservas extends Fragment {
 	
-	View v;
-	List<Jogador> listaJogadores;
-	JogadorListaAdapter jogadorAdapter;
-	ListView listaReservas;
-	Bundle valor;
-	Intent it;
-	int id_eq;
+	private View v;
+	private JogadorReservaAdapter jogadorAdapter;
+	private List<Jogador> listaJogadores;
+	private ListView listaReservas;
+	private Bundle valor;
+	private Intent it;
+	private int id_eq;
+	
+	public MenuPreJogo_listaReservas(List<Jogador> listaJogadores){
+		this.listaJogadores = listaJogadores;
+	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		v = inflater.inflate(R.layout.menu_prejogo_listareservas, container, false);
 		getCoisas();
 	    listaReservas = (ListView) v.findViewById(R.id.listaReservas);
-	    listaJogadores = JogadorDAO.getInstancia(getActivity()).buscarDaEquipe(id_eq);
-		jogadorAdapter = new JogadorListaAdapter(getActivity(), listaJogadores);
+	    //listaJogadores = JogadorDAO.getInstancia(getActivity()).buscarDaEquipe(id_eq);
+		jogadorAdapter = new JogadorReservaAdapter(getActivity(), listaJogadores);
+		
 		listaReservas.setAdapter(jogadorAdapter);
 		return v;
 	}
@@ -38,11 +47,11 @@ public class MenuPreJogo_listaReservas extends MenuPreJogo_listaTitulares {
 		super.onResume();
 	}
 	
-	public List<Integer> getReservas() {
-		return jogadorAdapter.getSelecionados();
-	}
+//	public List<Integer> getReservas() {
+//		return jogadorAdapter.getSelecionados();
+//	}
 	
-	@Override
+	
 	public void getCoisas() {
 		it = getActivity().getIntent();
 		valor = it.getExtras();

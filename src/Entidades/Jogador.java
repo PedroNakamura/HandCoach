@@ -20,6 +20,11 @@ public class Jogador implements EntidadeInterface, Serializable {
 	private Date dt_nasc;
 	private boolean marcado;
 	
+	private boolean titular;
+	private boolean reserva;
+	
+	
+	
 	public Jogador() {
 		this.dt_nasc = new Date();
 		//this.foto = new Bitmap();
@@ -45,7 +50,31 @@ public class Jogador implements EntidadeInterface, Serializable {
 		return id_jog;
 	}
 	
-	//Getters and Setters id equipe
+	
+	
+	
+	public boolean isTitular() {
+		return titular;
+	}
+
+	public void setTitular(boolean titular) {
+		this.titular = titular;
+		
+		if(titular){
+			reserva = false;
+		}
+		
+	}
+
+	public boolean isReserva() {
+		return reserva;
+	}
+
+	public void setReserva(boolean reserva) {
+		this.reserva = reserva;
+	}
+
+		//Getters and Setters id equipe
 		public int getIdEq() {
 			return id_eq;
 		}
