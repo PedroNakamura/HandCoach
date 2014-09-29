@@ -76,8 +76,8 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 		return getQuery(query);
 	}
 	
-	public List<T> buscarNome() {
-		String query = "SELECT * FROM "+getNomeTabela()+" WHERE nome = %";
+	public List<T> buscarNome(String nome) {
+		String query = "SELECT * FROM "+getNomeTabela()+" WHERE nome = '"+nome+"'";
 		return getQuery(query);
 	}
 	

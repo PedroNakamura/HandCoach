@@ -1,5 +1,6 @@
 package com.example.handcoach;
 
+import DAO.Inicializacao;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +14,8 @@ public class SplashScreen extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash_screen);
+		
+		Inicializacao.inicializa(this);
 		
 		Thread splashTread = new Thread() {
 		    @Override

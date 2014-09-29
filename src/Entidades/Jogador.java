@@ -25,13 +25,14 @@ public class Jogador implements EntidadeInterface, Serializable {
 		//this.foto = new Bitmap();
 	}
 	
-	public Jogador(int id_eq, String nome, int sexo, Bitmap foto, String altura, Date dt_nasc) {
+	public Jogador(int id_eq, String nome, int sexo, Bitmap foto, String altura, Date dt_nasc, int pos) {
 		this.id_eq = id_eq;
 		this.nome = nome;
 		this.sexo = sexo;
 		this.foto = foto;
 		this.altura = altura;
 		this.dt_nasc = dt_nasc;
+		this.pos = pos;
 	}
 	
 	//Getters and Setters ID do Jogador

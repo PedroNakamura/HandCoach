@@ -8,6 +8,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -50,6 +51,7 @@ public class TelaPreJogo extends Activity {
 			public void onClick(View v) {
 				if(fragTit.getTitulares().size() != 6) {
 					listas.putInt("id_equipe", fragTit.id_eq);
+					Log.i("ID EQUIPE ", ""+fragTit.id_eq);
 					listas.putIntegerArrayList("jog_joga", (ArrayList<Integer>) fragTit.getTitulares());
 					listas.putIntegerArrayList("jog_njoga", (ArrayList<Integer>) fragRes.getReservas());
 					it = new Intent(TelaPreJogo.this, TelaScouting.class);

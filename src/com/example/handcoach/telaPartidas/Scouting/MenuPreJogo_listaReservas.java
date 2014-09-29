@@ -49,6 +49,5 @@ public class MenuPreJogo_listaReservas extends MenuPreJogo_listaTitulares {
 		id_eq = valor.getInt("id_equipe");
 		Log.i("DEBUGG", id_eq+" ID da Equipe");
 	}
-	
 
 }
