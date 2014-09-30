@@ -85,11 +85,13 @@
     <string name="JogadorEditSexo">Sexo:</string>
     <string name="JogadorEditFoto">Foto:</string>
     <string name="JogadorEditAltura">Altura:</string>
-    <string name="JogadorEditTextAltura">1m80cm</string>
+    <string name="JogadorEditTextAltura">Em centímetros</string>
     <string name="JogadorEditDT_Nasc">Data de Nascimento:</string>
     <string name="JogadorEditTextDT">dd/mm/aaaa</string>
     <string name="JogadorMasculino">Masculino</string>
     <string name="JogadorFeminino">Feminino</string>
+    <string name="ErroCadastroData">Há um erro na data! Utilize o padrão dd/mm/aaaa</string>
+    <string name="ErroCadastroAltura">Há um erro na altura! Digite apenas números e em centímetros</string>
     
     <!-- MenuScouting -->
     <string name="TituloMenuScouting">Pré-Jogo</string>
@@ -103,7 +105,7 @@
     <string name="btTacaLePauNessaPartida">Começar partida!</string>
     <string name="titulares">Titulares</string>
     <string name="reservas">Reservas</string>
-    <string name="avisoTitInsuf">Por favor escolha 7 titulares</string>
+    <string name="avisoTitInsuf">Por favor, escolha 7 titulares</string>
     
     <!-- Avisos variados -->
     <string name="stringSelecionado">Marcado!</string>

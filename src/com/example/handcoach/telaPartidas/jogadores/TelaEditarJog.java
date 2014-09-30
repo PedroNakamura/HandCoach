@@ -1,10 +1,14 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import com.example.handcoach.R;
 import DAO.JogadorDAO;
 import Entidades.Jogador;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -81,70 +85,90 @@ public class TelaEditarJog extends Activity {
 	    }
         //ufa!
 	    
-	    jogadorAltura.setText(jogador.getAltura());
+	    jogadorAltura.setText(jogador.getAltura()+"");
 	    jogadorDtNasc.setText(jogador.dateToString());
 	    
 	    btAtualiza.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Jogador jogador2 = new Jogador();
 				
-				jogador2.setNome(jogadorNome.getText().toString());
+                String dtNascJogador = jogadorDtNasc.getText().toString();
+                String altura = jogadorAltura.getText().toString();
+                
+                try {
+					if(isDouble(altura) && isDate(dtNascJogador)) {
+						Jogador jogador2 = new Jogador();
+						
+						jogador2.setNome(jogadorNome.getText().toString());
 
-				switch(jogadorSexo.getCheckedRadioButtonId()) {
-				case R.id.masculinoEdit:
-					jogador2.setSexo(1);
-					Log.i("DEBUG!!!", "MASCULINO");
-					break;
-				case R.id.femininoEdit:
-					jogador2.setSexo(0);
-					Log.i("DEBUG!!!", "FEMININO");
-					break;
-				}
-				
-				switch(radioGroupPos.getCheckedRadioButtonId()) {
-				case R.id.goleiroEdit:
-					jogador2.setPos(1);
-					Log.i("DEBUG!!!", "GOLEIRO");
-					break;
-				case R.id.armadorEdit:
-					jogador2.setPos(2);
-					Log.i("DEBUG!!!", "ARMADOR");
-				    break;
-				case R.id.meiaEdit:
-					jogador2.setPos(3);
-					Log.i("DEBUG!!!", "MEIA");
-					break;
-				case R.id.pontaEdit:
-					jogador2.setPos(4);
-					Log.i("DEBUG!!!", "PONTA");
-					break;
-				case R.id.pivoEdit:
-					jogador2.setPos(5);
-					Log.i("DEBUG!!!", "PIVO");
-					break;
-				}
-				
-				String dtNascJogador = jogadorDtNasc.getText().toString();
-				
-			    try {
-			    	jogador2.setDt_nasc(JogadorDAO.getInstancia(TelaEditarJog.this).stringToDate(dtNascJogador));
-				} catch (java.text.ParseException e) {
+						switch(jogadorSexo.getCheckedRadioButtonId()) {
+						case R.id.masculinoEdit:
+							jogador2.setSexo(1);
+							Log.i("DEBUG!!!", "MASCULINO");
+							break;
+						case R.id.femininoEdit:
+							jogador2.setSexo(0);
+							Log.i("DEBUG!!!", "FEMININO");
+							break;
+						}
+						
+						switch(radioGroupPos.getCheckedRadioButtonId()) {
+						case R.id.goleiroEdit:
+							jogador2.setPos(1);
+							Log.i("DEBUG!!!", "GOLEIRO");
+							break;
+						case R.id.armadorEdit:
+							jogador2.setPos(2);
+							Log.i("DEBUG!!!", "ARMADOR");
+						    break;
+						case R.id.meiaEdit:
+							jogador2.setPos(3);
+							Log.i("DEBUG!!!", "MEIA");
+							break;
+						case R.id.pontaEdit:
+							jogador2.setPos(4);
+							Log.i("DEBUG!!!", "PONTA");
+							break;
+						case R.id.pivoEdit:
+							jogador2.setPos(5);
+							Log.i("DEBUG!!!", "PIVO");
+							break;
+						}
+						
+					    try {
+					    	jogador2.setDt_nasc(JogadorDAO.getInstancia(TelaEditarJog.this).stringToDate(dtNascJogador));
+						} catch (java.text.ParseException e) {
+							e.printStackTrace();
+						}
+					    
+					    //jogador2.setPos(positionJ);
+					    jogador2.setAltura(Double.parseDouble(altura));
+					    jogador2.setId(jogador.getId());
+					    jogador2.setIdEq(jogador.getIdEq());
+					    jogador2.setFoto(image);
+					    
+					    JogadorDAO.getInstancia(TelaEditarJog.this).Editar(jogador, jogador2);
+					    
+						Toast.makeText(TelaEditarJog.this, R.string.alertaAtualizado, Toast.LENGTH_SHORT).show();
+						
+						finish();
+					} else if(!isDate(dtNascJogador)) {
+						Toast.makeText(TelaEditarJog.this, R.string.ErroCadastroData, Toast.LENGTH_LONG).show();
+					} else if(!isDouble(altura)) {
+						Toast.makeText(TelaEditarJog.this, R.string.ErroCadastroAltura, Toast.LENGTH_LONG).show();
+					}
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			    
-			    //jogador2.setPos(positionJ);
-			    jogador2.setAltura(jogadorAltura.getText().toString());
-			    jogador2.setId(jogador.getId());
-			    jogador2.setIdEq(jogador.getIdEq());
-			    jogador2.setFoto(image);
-			    
-			    JogadorDAO.getInstancia(TelaEditarJog.this).Editar(jogador, jogador2);
-			    
-				Toast.makeText(TelaEditarJog.this, R.string.alertaAtualizado, Toast.LENGTH_SHORT).show();
 				
-				finish();
 			}
 		});
 	    
@@ -170,5 +194,24 @@ public class TelaEditarJog extends Activity {
 			}
 		}
 	}
+	
+	private boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+ 
+    private boolean isDate(String dataStr) throws java.text.ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        try {
+            format.parse(dataStr);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 
 }

@@ -106,7 +106,7 @@ public class JogadorDAO extends DAO_Base<Jogador> {
 		}
         //
 		
-		jogador.setAltura(contentValues.getAsString(COLUNA_ALTURA));
+		jogador.setAltura(contentValues.getAsDouble(COLUNA_ALTURA));
 		jogador.setIdEq(contentValues.getAsInteger(COLUNA_IDEQ));
 		jogador.setPos(contentValues.getAsInteger(COLUNA_POS));
 		

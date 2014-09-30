@@ -2,7 +2,6 @@ package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.List;
 import com.example.handcoach.R;
-import DAO.JogadorDAO;
 import Entidades.Jogador;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
@@ -30,14 +29,11 @@ public class MenuPreJogo_listaTitulares extends Fragment {
 		this.listaJogadores = listaJogadores;
 	}
 	
-	
-	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		v = inflater.inflate(R.layout.menu_prejogo_listatitulares, container, false);
 		getCoisas();
 	    listaTitulares = (ListView) v.findViewById(R.id.listaTitulares);
-	    //listaJogadores = TelaPreJogo.listaJogadoresDisponiveis;//JogadorDAO.getInstancia(getActivity()).buscarDaEquipe(id_eq);
 		jogadorAdapterT = new JogadorTitularListaAdapter(getActivity(), listaJogadores);
 		listaTitulares.setAdapter(jogadorAdapterT);
 		return v;
@@ -47,10 +43,6 @@ public class MenuPreJogo_listaTitulares extends Fragment {
 	public void onResume() { 
 		super.onResume();
 	}
-	
-//	public List<Integer> getTitulares() {
-//		return jogadorAdapterT.getSelecionados();
-//	}
 	
 	public void getCoisas() {
 		it = getActivity().getIntent();

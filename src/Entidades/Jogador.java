@@ -16,7 +16,7 @@ public class Jogador implements EntidadeInterface, Serializable {
 	private int sexo;
 	private int pos;
 	private Bitmap foto;
-	private String altura;
+	private double altura;
 	private Date dt_nasc;
 	private boolean marcado;
 	
@@ -24,13 +24,13 @@ public class Jogador implements EntidadeInterface, Serializable {
 	private boolean reserva;
 	
 	
-	
+
 	public Jogador() {
 		this.dt_nasc = new Date();
 		//this.foto = new Bitmap();
 	}
 	
-	public Jogador(int id_eq, String nome, int sexo, Bitmap foto, String altura, Date dt_nasc, int pos) {
+	public Jogador(int id_eq, String nome, int sexo, Bitmap foto, double altura, Date dt_nasc, int pos) {
 		this.id_eq = id_eq;
 		this.nome = nome;
 		this.sexo = sexo;
@@ -120,10 +120,10 @@ public class Jogador implements EntidadeInterface, Serializable {
 	} 
 
 	//Getters and Setters Altura
-	public String getAltura() {
+	public double getAltura() {
 		return altura;
 	}
-	public void setAltura(String altura) {
+	public void setAltura(double altura) {
 		this.altura = altura;
 	}
 

@@ -35,9 +35,7 @@ public class MenuPreJogo_listaReservas extends Fragment {
 		v = inflater.inflate(R.layout.menu_prejogo_listareservas, container, false);
 		getCoisas();
 	    listaReservas = (ListView) v.findViewById(R.id.listaReservas);
-	    //listaJogadores = JogadorDAO.getInstancia(getActivity()).buscarDaEquipe(id_eq);
 		jogadorAdapter = new JogadorReservaAdapter(getActivity(), listaJogadores);
-		
 		listaReservas.setAdapter(jogadorAdapter);
 		return v;
 	}
@@ -46,11 +44,6 @@ public class MenuPreJogo_listaReservas extends Fragment {
 	public void onResume() {
 		super.onResume();
 	}
-	
-//	public List<Integer> getReservas() {
-//		return jogadorAdapter.getSelecionados();
-//	}
-	
 	
 	public void getCoisas() {
 		it = getActivity().getIntent();

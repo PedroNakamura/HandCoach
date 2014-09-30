@@ -20,19 +20,19 @@ import android.widget.Toast;
 public class TelaPreJogo extends Activity {
 
 	private FragmentTransaction ft;
-	private FragmentManager fm;
 	private Fragment fr;
 	private Fragment frReservas;
 	private Fragment frTitulares;
 	private List<Jogador> listaJogadoresDisponiveis;
-	private Button btTitulares;
-	private Button btReservas;
+	private ArrayList<Integer> idVaiProJogo = new ArrayList<Integer>();
 	private Button btIniciarJogo;
 	private Intent it;
 	private Bundle valor;
 	private Bundle listas = new Bundle();
+	String local;
+	int id_eqAdv;
 	int id_eq;
-	boolean autorizacao;
+	int contador;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,22 +40,43 @@ public class TelaPreJogo extends Activity {
 		setContentView(R.layout.tela_prejogo);
 		valor = getIntent().getExtras();
 		id_eq = valor.getInt("id_equipe");
+		id_eqAdv = valor.getInt("id_equipeAdv");
+		local = valor.getString("Local");
+		
 		listaJogadoresDisponiveis = JogadorDAO.getInstancia(TelaPreJogo.this).buscarDaEquipe(id_eq);
 		Log.i("DEBUG!", "BUSCOU DO BD A LISTA!");
         frTitulares = new MenuPreJogo_listaTitulares(listaJogadoresDisponiveis);
         frReservas = new MenuPreJogo_listaReservas(listaJogadoresDisponiveis);
         
-		btTitulares = (Button) findViewById(R.id.bt_selectTitulares);
-		btReservas = (Button) findViewById(R.id.bt_selectReservas);
 		btIniciarJogo = (Button) findViewById(R.id.bt_iniciarJogo);
 
 		btIniciarJogo.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				if(id_eq != 6) {
+				contador = 0;
+				for(Jogador joga : listaJogadoresDisponiveis) {
+					if(joga.isTitular()) {
+						contador++;
+					}
+				}
+				if(contador == 7) {
+					for(Jogador joga : listaJogadoresDisponiveis) {
+						if(joga.isTitular() || joga.isReserva()) {
+							Log.i("Jogador ", joga+"");
+							idVaiProJogo.add(joga.getId());
+						}
+					}
+					listas.putIntegerArrayList("jog_joga", (ArrayList<Integer>) idVaiProJogo);
+					listas.putString("Local", local);
+					listas.putInt("id_equipe", id_eq);
+					listas.putInt("id_equipeAdv", id_eqAdv);
+					it = new Intent(TelaPreJogo.this, TelaScouting.class);
+					it.putExtras(listas);
+					startActivity(it);
+					finish();
 				} else {
-					Toast.makeText(TelaPreJogo.this, R.string.avisoTitInsuf, Toast.LENGTH_LONG).show();
+					Toast.makeText(TelaPreJogo.this, R.string.avisoTitInsuf, Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -66,12 +87,9 @@ public class TelaPreJogo extends Activity {
 		if (v == findViewById(R.id.bt_selectTitulares)) {
 			fr = frTitulares;
 		} else if (v == findViewById(R.id.bt_selectReservas)) {
-			
 			for (Jogador joga : listaJogadoresDisponiveis) {
-				
-				Log.i("Teste", joga.isTitular()+ "  " + joga.isReserva());
-			}
-			
+				Log.i("JOGADOR ", joga.getNome()+" - TIT: "+joga.isTitular()+" RES:"+joga.isReserva());
+				}
 			fr = frReservas;
 		}
 		FragmentManager fm = getFragmentManager();

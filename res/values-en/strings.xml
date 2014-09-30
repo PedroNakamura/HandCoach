@@ -84,11 +84,13 @@
     <string name="JogadorEditSexo">Sex:</string>
     <string name="JogadorEditFoto">Photo:</string>
     <string name="JogadorEditAltura">Height:</string>
-    <string name="JogadorEditTextAltura">5ft11</string>
+    <string name="JogadorEditTextAltura">In centimeters</string>
     <string name="JogadorEditDT_Nasc">Born date:</string>
     <string name="JogadorEditTextDT">dd/mm/yyyy</string>
     <string name="JogadorMasculino">Male</string>
     <string name="JogadorFeminino">Female</string>
+    <string name="ErroCadastroData">There is an error in the date! Use the pattern dd/mm/yyyy</string>
+    <string name="ErroCadastroAltura">There is an error in the height! Type only numbers in centimeters</string>
     
         <!-- MenuScouting -->
     <string name="TituloMenuScouting">Before Match</string>
@@ -100,11 +102,16 @@
     
         <!-- Pré Jogo -->
     <string name="btTacaLePauNessaPartida">Begin match!</string>
+    <string name="titulares">First Team</string>
+    <string name="reservas">Bench Team</string>
+    <string name="avisoTitInsuf">Please select 7 players to the first team</string>
     
     <!-- Avisos variados -->
     <string name="stringSelecionado">Selected!</string>
     <string name="stringDesSelecionado">Unselected!</string>
     <string name="tempoAcabando">Time is running out!</string>
     <string name="tempoAcabou">Time is over!</string>
+    <string name="tempo">Time!</string>
+    <string name="PlayPauseClick">Click on play to go back to the match!</string>
     
 </resources>
