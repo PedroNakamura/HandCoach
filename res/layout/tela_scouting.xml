@@ -1,122 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F7F7"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <fragment
+            android:id="@+id/fragmentContent"
+            android:name="com.example.handcoach.telaPartidas.Scouting.onPauseFragment"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" />
 
         <ImageButton
-            android:id="@+id/btPlayPause"
+            android:id="@+id/btTempo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/fragmentContent"
+            android:background="@null"
+            android:onClick="onClickOnTimeFragment"
+            android:src="@drawable/bt_tempo" />
+
+        <ImageButton
+            android:id="@+id/btPlayOrPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
             android:background="@null"
+            android:onClick="onClickOnPauseFragment"
             android:src="@drawable/bt_playpause" />
 
         <TextView
-            android:id="@+id/cronos_tempoJogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            style="@style/StringTelaSobreStyle_simple"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <ImageButton
-            android:id="@+id/btTempo_1min"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:src="@drawable/bt_tempo" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
-
-        <ListView
-            android:id="@+id/listViewScouting"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content" >
-
-        </ListView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/btFalta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Falta" />
-
-        <Button
-            android:id="@+id/btAr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Arremeso" />
-
-        <Button
-            android:id="@+id/btPerdaBola"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Perda de Bola" />
-
-        <TextView
-            android:id="@+id/cronos_tempo"
+            android:id="@+id/cronosTempoJogo"
             style="@style/StringTelaSobreStyle_simple"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/ctAmarelo"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cartão abarelo" />
-
-        <Button
-            android:id="@+id/bt2min"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2 minutos" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/btTempo"
+            android:layout_toRightOf="@+id/btPlayOrPause" />
 
         <TextView
-            android:id="@+id/placarEq"
+            android:id="@+id/placar_Eq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
             style="@style/StringTelaSobreStyle_simple"/>
 
         <TextView
-            android:id="@+id/PlacarEqAdv"
+            android:id="@+id/VS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/btTempo"
+            android:text="VS"
+            style="@style/StringTelaSobreStyle_simple" />
+
+        <TextView
+            android:id="@+id/placar_EqAdv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/cronosTempoJogo"
             style="@style/StringTelaSobreStyle_simple"/>
 
-    </LinearLayout>
+        <ExpandableListView
+            android:id="@+id/ExpListViewJogadores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/cronosTempoJogo"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/btTempo"
+            android:layout_below="@+id/placarEq" >
+
+        </ExpandableListView>
+
+    </RelativeLayout>
 
 </LinearLayout>
