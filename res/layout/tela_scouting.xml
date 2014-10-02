@@ -72,17 +72,6 @@
             android:layout_toRightOf="@+id/cronosTempoJogo"
             style="@style/StringTelaSobreStyle_simple"/>
 
-        <ExpandableListView
-            android:id="@+id/ExpListViewJogadores"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/cronosTempoJogo"
-            android:layout_alignParentLeft="true"
-            android:layout_alignRight="@+id/btTempo"
-            android:layout_below="@+id/placarEq" >
-
-        </ExpandableListView>
-
     </RelativeLayout>
 
 </LinearLayout>

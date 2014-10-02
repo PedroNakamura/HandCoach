@@ -33,7 +33,7 @@ public class TelaScouting extends FragmentActivity {
     private Fragment onTimeFragment = new onTimeFragment();
     private ImageButton btPlayPause;
     private TextView cronosJogo;
-    private ExpandableListView listaJogadores;
+    //private ExpandableListView listaJogadores;
     private ImageButton btTempo;
     private TextView placarEq;
     private TextView placarEqAdv;
@@ -65,7 +65,7 @@ public class TelaScouting extends FragmentActivity {
 		placarEqAdv = (TextView) findViewById(R.id.placar_EqAdv);
 		btPlayPause = (ImageButton) findViewById(R.id.btPlayOrPause);
 		cronosJogo = (TextView) findViewById(R.id.cronosTempoJogo);
-		listaJogadores = (ExpandableListView) findViewById(R.id.ExpListViewJogadores);
+		//listaJogadores = (ExpandableListView) findViewById(R.id.ExpListViewJogadores);
 		btTempo = (ImageButton) findViewById(R.id.btTempo);
 		
 		placarEq.setText(""+placarEqCont);
