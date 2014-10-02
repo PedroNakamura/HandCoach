@@ -8,21 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 
-public class onPauseFragment extends Fragment {
+public class OnPauseFragment extends Fragment {
 	
-	Button btOnPlayPause;
+	ImageButton btOnPlayPause;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.onpausefragment, container);
-		btOnPlayPause = (Button) v.findViewById(R.id.btOnPlayPause);
+		btOnPlayPause = (ImageButton) v.findViewById(R.id.btOnPlayPause);
 		btOnPlayPause.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				
+		
 			}
 		});
 		return v;

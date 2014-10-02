@@ -29,8 +29,10 @@ public class TelaScouting extends FragmentActivity {
 	
 	protected ScoutingCountdown cronometroJogo;
 	protected ScoutingCountdown cronometroTempo;
-    private Fragment onPauseFragment = new onPauseFragment();
-    private Fragment onTimeFragment = new onTimeFragment();
+    private Fragment onPauseFragment = new OnPauseFragment();
+    private Fragment onTimeFragment = new OnTimeFragment();
+    private Fragment onPlayingFragment = new OnPlayingFragment();
+    private Fragment onNonPlayingFragment = new OnNonPlayingFragment();
     private ImageButton btPlayPause;
     private TextView cronosJogo;
     //private ExpandableListView listaJogadores;
@@ -102,7 +104,7 @@ public class TelaScouting extends FragmentActivity {
 				if(cronometroJogo.isPaused() || !cronometroJogo.hasBeenStarted()) {
 					cronometroJogo.resume();
 					habilitaPlayPause(true);
-					//replaceFragment(onPlayingFragment);
+					replaceFragment(onPlayingFragment);
 				} else if(cronometroJogo.isRunning()) {
 					cronometroJogo.pause();
 					habilitaPlayPause(false);
