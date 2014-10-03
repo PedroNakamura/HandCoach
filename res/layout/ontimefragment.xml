@@ -6,10 +6,10 @@
     android:orientation="vertical" 
     android:background="#F7F7F7" >
 
-    <Button
-        android:id="@+id/btOnTime"
+    <TextView
+        android:id="@+id/tv_onTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OnTime" />
+        style="@style/StringTelaSobreStyle_simple" />
 
 </LinearLayout>

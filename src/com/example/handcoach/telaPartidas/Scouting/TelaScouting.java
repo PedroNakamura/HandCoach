@@ -28,7 +28,6 @@ public class TelaScouting extends FragmentActivity {
 	//http://developer.android.com/training/basics/fragments/fragment-ui.html
 	
 	protected ScoutingCountdown cronometroJogo;
-	protected ScoutingCountdown cronometroTempo;
     private Fragment onPauseFragment = new OnPauseFragment();
     private Fragment onTimeFragment = new OnTimeFragment();
     private Fragment onPlayingFragment = new OnPlayingFragment();
@@ -93,9 +92,6 @@ public class TelaScouting extends FragmentActivity {
 		cronometroJogo.setText(cronosJogo);
 		cronometroJogo.create();
 		
-		cronometroTempo = new ScoutingCountdown(10000, 1000, false, 1, TelaScouting.this);
-		//setText? Create?
-		
 		//Botões
         btPlayPause.setOnClickListener(new OnClickListener() {
 			
@@ -118,19 +114,9 @@ public class TelaScouting extends FragmentActivity {
 			@Override
 			public void onClick(View arg0) {
 				Toast.makeText(TelaScouting.this, R.string.tempo, Toast.LENGTH_SHORT).show();
-				if(!cronometroTempo.isFinished()) {
-					cronometroJogo.pause();
-					replaceFragment(onTimeFragment);
-					cronometroTempo.resume();
-					habilitaPlayPause(false);
-				} else {
-					cronometroTempo = new ScoutingCountdown(10000, 1000, false, 2, TelaScouting.this);
-					//setText? Create?
-					cronometroJogo.pause();
-					replaceFragment(onTimeFragment);
-					cronometroTempo.resume();
-					habilitaPlayPause(false);
-				}
+				habilitaPlayPause(false);
+				cronometroJogo.pause();
+				replaceFragment(onTimeFragment);
 			}
 		});
 		
@@ -157,6 +143,10 @@ public class TelaScouting extends FragmentActivity {
 	
 	private void onClickOnTimeFragment(View view) {
 		replaceFragment(onTimeFragment);
+	}
+	
+	protected void onClickOnPauseFrag() {
+		replaceFragment(onPauseFragment);
 	}
 	
 	private void habilitaPlayPause(boolean hab) {

@@ -37,15 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true" />
-
-        <TextView
-            android:id="@+id/placar_Eq"
-            style="@style/StringTelaSobreStyle_simple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/placar_EqAdv" />
+            android:layout_alignParentTop="true" 
+            android:text="15:00"/>
 
         <TextView
             android:id="@+id/VS"
@@ -61,9 +54,17 @@
             style="@style/StringTelaSobreStyle_simple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="52dp" />
+            android:layout_below="@+id/cronosTempoJogo"
+            android:layout_toRightOf="@+id/VS"/>
+
+        <TextView
+            android:id="@+id/placar_Eq"
+            style="@style/StringTelaSobreStyle_simple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/VS"
+            android:layout_alignBottom="@+id/VS"
+            android:layout_toLeftOf="@+id/VS"/>
 
     </RelativeLayout>
 

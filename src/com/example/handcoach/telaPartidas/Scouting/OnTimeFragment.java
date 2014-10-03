@@ -6,25 +6,21 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
 public class OnTimeFragment extends Fragment {
 	
-	Button btOnTime;
+	TextView onTime;
+	ScoutingCountdown contTempo;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.ontimefragment, container);
-		btOnTime = (Button) v.findViewById(R.id.btOnTime);
-		btOnTime.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-			}
-		});
+		onTime = (TextView) v.findViewById(R.id.tv_onTime);
+		contTempo = new ScoutingCountdown(20000, 1000, false, 1, getActivity());
+		contTempo.setText(onTime);
+		contTempo.create();
 		return v;
 	}
 

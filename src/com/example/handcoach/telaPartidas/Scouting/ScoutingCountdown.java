@@ -32,10 +32,8 @@ public class ScoutingCountdown extends CountDownTimerWithPause {
 	@Override
 	public void onFinish() {
 		Toast.makeText(tela, R.string.tempoAcabou, Toast.LENGTH_SHORT).show();
-		if(tela == telaScout) {
-			
-			//tela.cronometroJogo.setFinished(true);
-			//tela.cronometroTempo.setFinished(false);
+		if(tela == telaScout || tipoCronos == 1) {
+			telaScout.onClickOnPauseFrag();
 		} else if(tipoCronos == 2) {
 			//tela.habilitaPlayPause(true);
 			//tela.cronosTempo.setVisibility(View.INVISIBLE);
