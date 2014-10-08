@@ -17,7 +17,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:background="@null"
-            android:onClick="onClickOnPauseFragment"
+            android:onClick="selectFrag"
             android:src="@drawable/bt_playpause" />
 
         <ImageButton
@@ -27,7 +27,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:background="@null"
-            android:onClick="onClickOnTimeFragment"
+            android:onClick="selectFrag"
             android:src="@drawable/bt_tempo" />
 
         <TextView
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cronosTempoJogo"
             android:layout_centerHorizontal="true"
-            android:text="VS" />
+            android:text="vs" />
 
         <TextView
             android:id="@+id/placar_EqAdv"
@@ -74,7 +74,7 @@
 
         <fragment
             android:id="@+id/fragmentContent"
-            android:name="com.example.handcoach.telaPartidas.Scouting.OnPauseFragment"
+            android:name="com.example.handcoach.telaPartidas.Scouting.FragmentInitScout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

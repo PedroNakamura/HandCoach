@@ -114,5 +114,10 @@
     <string name="tempoAcabou">O tempo acabou!</string>
     <string name="tempo">Tempo!</string>
     <string name="PlayPauseClick">Clique no play para voltar ao jogo!</string>
+    
+    <!--  TelaScouting -->
+    <string name="ComBola">Com Bola</string>
+    <string name="SemBola">Sem Bola</string>
+    <string name="initScouting">Clique, quando iniciar o jogo, na posse de bola de sua equipe!</string>
 
 </resources>

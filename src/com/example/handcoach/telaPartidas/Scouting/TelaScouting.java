@@ -9,6 +9,7 @@ import com.example.handcoach.R;
 import DAO.PartidaDAO;
 import Entidades.Partida;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,8 @@ public class TelaScouting extends FragmentActivity {
 	//http://developer.android.com/training/basics/fragments/fragment-ui.html
 	
 	protected ScoutingCountdown cronometroJogo;
+	private FragmentTransaction ft;
+	private Fragment fr;
     private Fragment onPauseFragment = new OnPauseFragment();
     private Fragment onTimeFragment = new OnTimeFragment();
     private Fragment onPlayingFragment = new OnPlayingFragment();
@@ -39,7 +42,7 @@ public class TelaScouting extends FragmentActivity {
     private TextView placarEq;
     private TextView placarEqAdv;
     private Context context = this;
-    
+ 
     private Bundle valores;
     private Intent it;
     private int id_eq;
@@ -88,7 +91,7 @@ public class TelaScouting extends FragmentActivity {
 		id_ptda = pt_criada.getId();
 		
 		//Cria cronômetros
-		cronometroJogo = new ScoutingCountdown(10000, 1000, false, 1, TelaScouting.this);
+		cronometroJogo = new ScoutingCountdown(1500000, 1000, false, 1, TelaScouting.this);
 		cronometroJogo.setText(cronosJogo);
 		cronometroJogo.create();
 		
@@ -151,6 +154,19 @@ public class TelaScouting extends FragmentActivity {
 	
 	private void habilitaPlayPause(boolean hab) {
 		btPlayPause.setActivated(hab);
+	}
+	
+	public void selectFrag(View v) {
+		if(v == findViewById(R.id.btPlayPause)) {
+			fr = onPauseFragment;
+		} else if(v == findViewById(R.id.btTempo)) {
+			fr = onTimeFragment;
+		}
+		FragmentManager fm = getFragmentManager();
+		ft = fm.beginTransaction();
+		ft.replace(R.id.fragment_place, fr);
+		ft.addToBackStack(null);
+		ft.commit();
 	}
 	
 	private String getDataHoje() {

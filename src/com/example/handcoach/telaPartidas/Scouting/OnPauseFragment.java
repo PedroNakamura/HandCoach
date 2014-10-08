@@ -3,6 +3,7 @@ package com.example.handcoach.telaPartidas.Scouting;
 import com.example.handcoach.R;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,11 @@ public class OnPauseFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-		
+				OnPlayingFragment onPlay = new OnPlayingFragment();
+				FragmentTransaction  transaction = getFragmentManager().beginTransaction();
+		        transaction.replace(R.id.fragmentContent, onPlay);
+		        transaction.addToBackStack(null);
+		        transaction.commit();
 			}
 		});
 		return v;
