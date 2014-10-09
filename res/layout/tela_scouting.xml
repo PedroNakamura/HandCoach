@@ -72,9 +72,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <fragment
+        <FrameLayout
             android:id="@+id/fragmentContent"
-            android:name="com.example.handcoach.telaPartidas.Scouting.FragmentInitScout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

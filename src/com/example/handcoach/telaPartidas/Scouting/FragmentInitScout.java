@@ -13,25 +13,23 @@ import android.widget.Toast;
 
 public class FragmentInitScout extends Fragment {
 	
-	Button comBola;
-	Button semBola;
+	private Button comBola;
+	private Button semBola;
+	private TelaScouting telaS;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_init_scout, container);
 		Toast.makeText(getActivity(), R.string.initScouting, Toast.LENGTH_LONG).show();
 		
+		telaS = (TelaScouting) getActivity();
 		comBola = (Button) v.findViewById(R.id.bt_comBola);
 		semBola = (Button) v.findViewById(R.id.bt_semBola);
 		comBola.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
-				Fragment fragment = new OnPlayingFragment();
-				FragmentTransaction  transaction = getFragmentManager().beginTransaction();
-		        transaction.replace(R.id.fragmentContent, fragment);
-		        transaction.addToBackStack(null);
-		        transaction.commit();
+				telaS.comBola();
 			}
 		});
 		
@@ -39,11 +37,7 @@ public class FragmentInitScout extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				Fragment fragment = new OnNonPlayingFragment();
-				FragmentTransaction  transaction = getFragmentManager().beginTransaction();
-		        transaction.replace(R.id.fragmentContent, fragment);
-		        transaction.addToBackStack(null);
-		        transaction.commit();
+				telaS.semBola();
 			}
 		});
 		

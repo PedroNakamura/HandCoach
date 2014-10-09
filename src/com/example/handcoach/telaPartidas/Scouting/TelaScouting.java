@@ -3,11 +3,10 @@ package com.example.handcoach.telaPartidas.Scouting;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import com.example.handcoach.R;
-
 import DAO.PartidaDAO;
 import Entidades.Partida;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -23,7 +22,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TelaScouting extends FragmentActivity {
+public class TelaScouting extends Activity {
 	
 	//http://stackoverflow.com/questions/9741300/charts-for-android
 	//http://developer.android.com/training/basics/fragments/fragment-ui.html
@@ -31,6 +30,7 @@ public class TelaScouting extends FragmentActivity {
 	protected ScoutingCountdown cronometroJogo;
 	private FragmentTransaction ft;
 	private Fragment fr;
+	private Fragment init = new FragmentInitScout();
     private Fragment onPauseFragment = new OnPauseFragment();
     private Fragment onTimeFragment = new OnTimeFragment();
     private Fragment onPlayingFragment = new OnPlayingFragment();
@@ -124,7 +124,7 @@ public class TelaScouting extends FragmentActivity {
 		});
 		
 	}
-	
+	//saiu do OnCreate();
 	//Métodos private
 	private void addFragment(Fragment fragment) {
 		FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -134,22 +134,31 @@ public class TelaScouting extends FragmentActivity {
 	}
 	
 	private void replaceFragment(Fragment fragment) {
-		FragmentTransaction  transaction = getFragmentManager().beginTransaction();
+		FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentContent, fragment);
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.addToBackStack(null);
         transaction.commit();
-	}
+        
+        
+//    	FragmentManager fm = getFragmentManager();
+//		ft = fm.beginTransaction();
+//		ft.replace(R.id.fragment_place, fr);
+//		ft.addToBackStack(null);
+//		ft.commit();
 	
-	private void onClickOnPauseFragment(View view) {
-		replaceFragment(onPauseFragment);
-	}
-	
-	private void onClickOnTimeFragment(View view) {
-		replaceFragment(onTimeFragment);
 	}
 	
 	protected void onClickOnPauseFrag() {
-		replaceFragment(onPauseFragment);
+		replaceFragment(onTimeFragment);
+	}
+	
+	protected void comBola() {
+		replaceFragment(new OnPlayingFragment());
+	}
+	
+	protected void semBola() {
+		replaceFragment(new OnNonPlayingFragment());
 	}
 	
 	private void habilitaPlayPause(boolean hab) {

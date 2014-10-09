@@ -1,5 +1,7 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
+import com.example.handcoach.R;
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +12,8 @@ public class OnPlayingFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return super.onCreateView(inflater, container, savedInstanceState);
+		View v = inflater.inflate(R.layout.onplayingfragment, container);
+		return v;
 	}
 
 }
