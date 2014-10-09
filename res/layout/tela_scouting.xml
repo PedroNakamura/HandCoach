@@ -17,7 +17,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:background="@null"
-            android:onClick="selectFrag"
             android:src="@drawable/bt_playpause" />
 
         <ImageButton
@@ -27,7 +26,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:background="@null"
-            android:onClick="selectFrag"
             android:src="@drawable/bt_tempo" />
 
         <TextView

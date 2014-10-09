@@ -2,7 +2,6 @@ package com.example.handcoach.telaPartidas.Scouting;
 
 import com.example.handcoach.R;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,7 @@ public class FragmentInitScout extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_init_scout, container);
+		View v = inflater.inflate(R.layout.fragment_init_scout, container, false);
 		Toast.makeText(getActivity(), R.string.initScouting, Toast.LENGTH_LONG).show();
 		
 		telaS = (TelaScouting) getActivity();
@@ -30,6 +29,7 @@ public class FragmentInitScout extends Fragment {
 			@Override
 			public void onClick(View arg0) {
 				telaS.comBola();
+				telaS.cronometroJogo.resume();
 			}
 		});
 		
@@ -38,6 +38,7 @@ public class FragmentInitScout extends Fragment {
 			@Override
 			public void onClick(View v) {
 				telaS.semBola();
+				telaS.cronometroJogo.resume();
 			}
 		});
 		

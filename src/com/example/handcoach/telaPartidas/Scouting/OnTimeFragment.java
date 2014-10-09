@@ -16,11 +16,12 @@ public class OnTimeFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.ontimefragment, container);
+		View v = inflater.inflate(R.layout.ontimefragment, container, false);
 		onTime = (TextView) v.findViewById(R.id.tv_onTime);
-		contTempo = new ScoutingCountdown(20000, 1000, false, 1, getActivity());
+		contTempo = new ScoutingCountdown(60000, 1000, false, 3, (TelaScouting) getActivity());
 		contTempo.setText(onTime);
 		contTempo.create();
+		contTempo.resume();
 		return v;
 	}
 

@@ -2,7 +2,6 @@ package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.concurrent.TimeUnit;
 import com.example.handcoach.R;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Vibrator;
 import android.widget.TextView;
@@ -18,10 +17,9 @@ public class ScoutingCountdown extends CountDownTimerWithPause {
 	protected long tempoJogo;
 	protected boolean onFinished;
 	protected int tipoCronos;
-	protected Activity tela;
-	private TelaScouting telaScout;
+	protected TelaScouting tela;
 
-	public ScoutingCountdown(long millisInFuture, long countDownInterval, boolean mRunAtStart, int tipoCronos, Activity tela) {
+	public ScoutingCountdown(long millisInFuture, long countDownInterval, boolean mRunAtStart, int tipoCronos, TelaScouting tela) {
 		super(millisInFuture, countDownInterval, mRunAtStart);
 		this.tempoJogo = millisInFuture;
 		this.onFinished = false;
@@ -32,15 +30,22 @@ public class ScoutingCountdown extends CountDownTimerWithPause {
 	@Override
 	public void onFinish() {
 		Toast.makeText(tela, R.string.tempoAcabou, Toast.LENGTH_SHORT).show();
-		if(tela == telaScout || tipoCronos == 1) {
-			telaScout.onClickOnPauseFrag();
+		if(tipoCronos == 1) {
+			tela.contTime = 0;
+			if(!tela.segundoTempo) {
+				tela.segundoTempo = true;
+				tela.onPause();
+			} else {
+				Toast.makeText(tela, R.string.segundoTempo, Toast.LENGTH_LONG).show();
+				tela.terminarPartida = true;
+			}
 		} else if(tipoCronos == 2) {
 			//tela.habilitaPlayPause(true);
 			//tela.cronosTempo.setVisibility(View.INVISIBLE);
 			//tela.cronometroTempo.setFinished(true);
 			Toast.makeText(tela, R.string.PlayPauseClick, Toast.LENGTH_LONG).show();
-		} else if(tipoCronos == 3) {
-			
+		} else if(tipoCronos == 3) /*cronosOnTime*/ {
+			tela.onPause();
 		}
 	}
 
@@ -54,12 +59,15 @@ public class ScoutingCountdown extends CountDownTimerWithPause {
 		tempoJogo = millisUntilFinished;
 		text.refreshDrawableState();
 		
-		/*if((TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished) == 0) && TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)) == 5) {
-			v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-			v.vibrate(500);
-			Toast.makeText(context, "ACABOOOOU", Toast.LENGTH_SHORT).show();
-        }*/
-		
+		if(tipoCronos == 3) {
+			if(millisUntilFinished == 10000) {
+				v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+				if(v.hasVibrator()) {
+					v.vibrate(500);
+					Toast.makeText(tela, "rsrs", Toast.LENGTH_LONG).show();
+				}
+			}
+		}
 	}
 	
 	public void setText(TextView text) {

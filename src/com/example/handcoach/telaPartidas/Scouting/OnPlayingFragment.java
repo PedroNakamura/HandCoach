@@ -12,7 +12,7 @@ public class OnPlayingFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.onplayingfragment, container);
+		View v = inflater.inflate(R.layout.onplayingfragment, container, false);
 		return v;
 	}
 

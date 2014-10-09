@@ -10,6 +10,7 @@
         android:id="@+id/tv_onTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/StringTelaSobreStyle_simple" />
+        style="@style/StringTelaSobreStyle_simple"
+        android:text="1:00" />
 
 </LinearLayout>

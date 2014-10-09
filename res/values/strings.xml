@@ -119,5 +119,7 @@
     <string name="ComBola">Com Bola</string>
     <string name="SemBola">Sem Bola</string>
     <string name="initScouting">Clique, quando iniciar o jogo, na posse de bola de sua equipe!</string>
+    <string name="limiteTempo">Apenas dois tempos por período são permitidos!</string>
+    <string name="segundoTempo">Clique no play/pause para terminar a partida!</string>
 
 </resources>

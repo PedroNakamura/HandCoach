@@ -8,12 +8,10 @@ import DAO.PartidaDAO;
 import Entidades.Partida;
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,13 +26,6 @@ public class TelaScouting extends Activity {
 	//http://developer.android.com/training/basics/fragments/fragment-ui.html
 	
 	protected ScoutingCountdown cronometroJogo;
-	private FragmentTransaction ft;
-	private Fragment fr;
-	private Fragment init = new FragmentInitScout();
-    private Fragment onPauseFragment = new OnPauseFragment();
-    private Fragment onTimeFragment = new OnTimeFragment();
-    private Fragment onPlayingFragment = new OnPlayingFragment();
-    private Fragment onNonPlayingFragment = new OnNonPlayingFragment();
     private ImageButton btPlayPause;
     private TextView cronosJogo;
     //private ExpandableListView listaJogadores;
@@ -42,6 +33,11 @@ public class TelaScouting extends Activity {
     private TextView placarEq;
     private TextView placarEqAdv;
     private Context context = this;
+    protected int contTime = 0;
+    
+    protected boolean posseBola;
+    protected boolean segundoTempo = false;
+    protected boolean terminarPartida = false;
  
     private Bundle valores;
     private Intent it;
@@ -58,13 +54,16 @@ public class TelaScouting extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_scouting);
+		addFragment(new FragmentInitScout());
 		
+		//Get Intent, etc;
 		it = getIntent();
 		valores = it.getExtras();
 		id_eq = valores.getInt("id_equipe"); 
 		id_eqadv = valores.getInt("id_equipeAdv");
 		local = valores.getString("Local");
 		
+		//Instancia layout e botões
 		placarEq = (TextView) findViewById(R.id.placar_Eq);
 		placarEqAdv = (TextView) findViewById(R.id.placar_EqAdv);
 		btPlayPause = (ImageButton) findViewById(R.id.btPlayOrPause);
@@ -74,6 +73,8 @@ public class TelaScouting extends Activity {
 		
 		placarEq.setText(""+placarEqCont);
 		placarEqAdv.setText(""+placarEqAdvCont);
+		
+		habilitaPlayPause(false);
 		
 		//Cria partida e recupera ID
 		try {
@@ -91,7 +92,7 @@ public class TelaScouting extends Activity {
 		id_ptda = pt_criada.getId();
 		
 		//Cria cronômetros
-		cronometroJogo = new ScoutingCountdown(1500000, 1000, false, 1, TelaScouting.this);
+		cronometroJogo = new ScoutingCountdown(900000, 1000, false, 1, TelaScouting.this);
 		cronometroJogo.setText(cronosJogo);
 		cronometroJogo.create();
 		
@@ -101,13 +102,14 @@ public class TelaScouting extends Activity {
 			@Override
 			public void onClick(View v) {
 				if(cronometroJogo.isPaused() || !cronometroJogo.hasBeenStarted()) {
-					cronometroJogo.resume();
-					habilitaPlayPause(true);
-					replaceFragment(onPlayingFragment);
+					cronometroJogo.resume();;
+					if(posseBola) {
+						comBola();
+					} else {
+						semBola();
+					}
 				} else if(cronometroJogo.isRunning()) {
-					cronometroJogo.pause();
-					habilitaPlayPause(false);
-					replaceFragment(onPauseFragment);
+					onPause();
 				}
 			}
 		});
@@ -116,16 +118,21 @@ public class TelaScouting extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				Toast.makeText(TelaScouting.this, R.string.tempo, Toast.LENGTH_SHORT).show();
-				habilitaPlayPause(false);
-				cronometroJogo.pause();
-				replaceFragment(onTimeFragment);
+				if(contTime <= 2) {
+					contTime++;
+					Toast.makeText(TelaScouting.this, R.string.tempo, Toast.LENGTH_SHORT).show();
+					onTime();
+				} else {
+					Toast.makeText(TelaScouting.this, R.string.limiteTempo, Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 		
 	}
 	//saiu do OnCreate();
-	//Métodos private
+	
+	
+	//Métodos 
 	private void addFragment(Fragment fragment) {
 		FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.add(R.id.fragmentContent, fragment);
@@ -139,43 +146,39 @@ public class TelaScouting extends Activity {
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.addToBackStack(null);
         transaction.commit();
-        
-        
-//    	FragmentManager fm = getFragmentManager();
-//		ft = fm.beginTransaction();
-//		ft.replace(R.id.fragment_place, fr);
-//		ft.addToBackStack(null);
-//		ft.commit();
-	
 	}
 	
-	protected void onClickOnPauseFrag() {
-		replaceFragment(onTimeFragment);
+	protected void onTime() {
+		if(!cronometroJogo.isPaused()) {
+			cronometroJogo.pause();
+		}
+		habilitaPlayPause(false);
+		replaceFragment(new OnTimeFragment());
+	}
+	
+	protected void onPause() {
+		if(!cronometroJogo.isPaused()) {
+			cronometroJogo.pause();
+		}
+		habilitaPlayPause(false);
+		replaceFragment(new OnPauseFragment());
 	}
 	
 	protected void comBola() {
+		posseBola = true;
+		habilitaPlayPause(true);
 		replaceFragment(new OnPlayingFragment());
 	}
 	
 	protected void semBola() {
+		posseBola = false;
+		habilitaPlayPause(true);
 		replaceFragment(new OnNonPlayingFragment());
 	}
 	
 	private void habilitaPlayPause(boolean hab) {
 		btPlayPause.setActivated(hab);
-	}
-	
-	public void selectFrag(View v) {
-		if(v == findViewById(R.id.btPlayPause)) {
-			fr = onPauseFragment;
-		} else if(v == findViewById(R.id.btTempo)) {
-			fr = onTimeFragment;
-		}
-		FragmentManager fm = getFragmentManager();
-		ft = fm.beginTransaction();
-		ft.replace(R.id.fragment_place, fr);
-		ft.addToBackStack(null);
-		ft.commit();
+		btTempo.setActivated(hab);
 	}
 	
 	private String getDataHoje() {
