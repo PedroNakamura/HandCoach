@@ -2,10 +2,17 @@ package com.example.handcoach.telaPartidas.Scouting;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+
 import com.example.handcoach.R;
+
+import DAO.JogadorDAO;
 import DAO.PartidaDAO;
 import Entidades.Partida;
+import Entidades.Jogador;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -28,7 +35,13 @@ public class TelaScouting extends Activity {
 	protected ScoutingCountdown cronometroJogo;
     private ImageButton btPlayPause;
     private TextView cronosJogo;
-    //private ExpandableListView listaJogadores;
+    private ExpandableListView listaJogadores;
+    private ExpandableListAdapter listAdapter;
+    private List<Jogador> listDataHeader;
+    private HashMap<Jogador, List<Jogador>> listDataChild;
+    private List<Jogador> idJogadores;
+    private List<Jogador> jogadores = new ArrayList<Jogador>();
+    private List<Jogador> listReservas;
     private ImageButton btTempo;
     private TextView placarEq;
     private TextView placarEqAdv;
@@ -50,6 +63,7 @@ public class TelaScouting extends Activity {
 	private int placarEqCont = 0;
 	private int placarEqAdvCont = 0;
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -62,13 +76,17 @@ public class TelaScouting extends Activity {
 		id_eq = valores.getInt("id_equipe"); 
 		id_eqadv = valores.getInt("id_equipeAdv");
 		local = valores.getString("Local");
+		idJogadores = ((List<Jogador>) valores.getSerializable("jog_joga"));
+		for (Jogador joga : idJogadores) {
+			jogadores.add(joga);
+		}
 		
 		//Instancia layout e botões
 		placarEq = (TextView) findViewById(R.id.placar_Eq);
 		placarEqAdv = (TextView) findViewById(R.id.placar_EqAdv);
 		btPlayPause = (ImageButton) findViewById(R.id.btPlayOrPause);
 		cronosJogo = (TextView) findViewById(R.id.cronosTempoJogo);
-		//listaJogadores = (ExpandableListView) findViewById(R.id.ExpListViewJogadores);
+		listaJogadores = (ExpandableListView) findViewById(R.id.ExpListViewJogadores);
 		btTempo = (ImageButton) findViewById(R.id.btTempo);
 		
 		placarEq.setText(""+placarEqCont);
@@ -90,6 +108,11 @@ public class TelaScouting extends Activity {
 		}
 		Partida pt_criada = (Partida) PartidaDAO.getInstancia(context).buscarMaiorID();
 		id_ptda = pt_criada.getId();
+		
+		//Seta os ExpandableListView
+		prepararLista();
+		listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+		listaJogadores.setAdapter(listAdapter);
 		
 		//Cria cronômetros
 		cronometroJogo = new ScoutingCountdown(900000, 1000, false, 1, TelaScouting.this);
@@ -188,6 +211,43 @@ public class TelaScouting extends Activity {
 		String strDate = sdf.format(c.getTime());	
 		Log.i("DEBUG: ------ ", ""+strDate);
 		return strDate;
+	}
+	
+	private void prepararLista() {
+		listDataHeader = new ArrayList<Jogador>();
+        listDataChild = new HashMap<Jogador, List<Jogador>>();
+        listReservas = new ArrayList<Jogador>();
+        
+        //add DataHeader
+        for(Jogador jog : jogadores) {
+        	if(jog.isTitular()) {
+        		listDataHeader.add(jog);
+        	}
+        }
+        
+        //cria Reservas e data child
+        for(Jogador jog : jogadores) {
+        	if(jog.isReserva()) {
+        		listReservas.add(jog);
+        	}
+        }
+        List<Jogador> jog0 = listReservas;
+        List<Jogador> jog1 = listReservas;
+        List<Jogador> jog2 = listReservas;
+        List<Jogador> jog3 = listReservas;
+        List<Jogador> jog4 = listReservas;
+        List<Jogador> jog5 = listReservas;
+        List<Jogador> jog6 = listReservas;
+        
+        //add DataChild
+        listDataChild.put(listDataHeader.get(0), jog0);
+        listDataChild.put(listDataHeader.get(1), jog1);
+        listDataChild.put(listDataHeader.get(2), jog2);
+        listDataChild.put(listDataHeader.get(3), jog3);
+        listDataChild.put(listDataHeader.get(4), jog4);
+        listDataChild.put(listDataHeader.get(5), jog5);
+        listDataChild.put(listDataHeader.get(6), jog6);
+        
 	}
 
 }

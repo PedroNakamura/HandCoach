@@ -24,7 +24,7 @@ public class TelaPreJogo extends Activity {
 	private Fragment frReservas;
 	private Fragment frTitulares;
 	private List<Jogador> listaJogadoresDisponiveis;
-	private ArrayList<Integer> idVaiProJogo = new ArrayList<Integer>();
+	private ArrayList<Jogador> idVaiProJogo = new ArrayList<Jogador>();
 	private Button btIniciarJogo;
 	private Intent it;
 	private Bundle valor;
@@ -64,10 +64,10 @@ public class TelaPreJogo extends Activity {
 					for(Jogador joga : listaJogadoresDisponiveis) {
 						if(joga.isTitular() || joga.isReserva()) {
 							Log.i("Jogador ", joga+"");
-							idVaiProJogo.add(joga.getId());
+							idVaiProJogo.add(joga);
 						}
 					}
-					listas.putIntegerArrayList("jog_joga", (ArrayList<Integer>) idVaiProJogo);
+					listas.putSerializable("jog_joga", (ArrayList<Jogador>) idVaiProJogo);
 					listas.putString("Local", local);
 					listas.putInt("id_equipe", id_eq);
 					listas.putInt("id_equipeAdv", id_eqAdv);

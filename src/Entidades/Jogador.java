@@ -23,7 +23,6 @@ public class Jogador implements EntidadeInterface, Serializable {
 	private boolean titular;
 	private boolean reserva;
 	
-	
 
 	public Jogador() {
 		this.dt_nasc = new Date();
