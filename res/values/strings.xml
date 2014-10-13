@@ -121,5 +121,12 @@
     <string name="initScouting">Clique, quando iniciar o jogo, na posse de bola de sua equipe!</string>
     <string name="limiteTempo">Apenas dois tempos por período são permitidos!</string>
     <string name="segundoTempo">Clique no play/pause para terminar a partida!</string>
+    <!--  Botões! OnNonPlaying/OnPlaying -->
+    <string name="btRebote">Rebote</string>
+    <string name="btFalta">Falta</string>
+    <string name="btRoubada">Roubada de Bola</string>
+    <string name="btGanhoBola">Ganho de bola</string>
+    <string name="btCtAmarelo">Cartão Amarelo</string>
+    <string name="bt2min">Dois minutos</string>
 
 </resources>

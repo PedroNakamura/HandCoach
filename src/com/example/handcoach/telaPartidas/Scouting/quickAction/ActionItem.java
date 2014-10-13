@@ -18,6 +18,7 @@ public class ActionItem {
 	private Drawable icon;
 	private Bitmap thumb;
 	private String title;
+	private int id;
 	private boolean selected;
 
 	public ActionItem() {
@@ -25,6 +26,13 @@ public class ActionItem {
 
 	public ActionItem(Drawable icon) {
 		this.icon = icon;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setTitle(String title) {

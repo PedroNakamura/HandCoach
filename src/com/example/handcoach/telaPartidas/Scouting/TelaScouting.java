@@ -6,10 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-
 import com.example.handcoach.R;
-
-import DAO.JogadorDAO;
 import DAO.PartidaDAO;
 import Entidades.Partida;
 import Entidades.Jogador;
@@ -42,7 +39,7 @@ public class TelaScouting extends Activity {
     private List<Jogador> listDataHeader;
     private HashMap<Jogador, List<Jogador>> listDataChild;
     private List<Jogador> idJogadores;
-    private List<Jogador> jogadores = new ArrayList<Jogador>();
+    protected static List<Jogador> jogadores = new ArrayList<Jogador>();
     private List<Jogador> listReservas;
     private ImageButton btTempo;
     private TextView placarEq;
@@ -50,6 +47,7 @@ public class TelaScouting extends Activity {
     private Context context = this;
     protected int contTime = 0;
     
+    protected int jogadorComBola;
     protected boolean posseBola;
     protected boolean segundoTempo = false;
     protected boolean terminarPartida = false;
@@ -59,7 +57,7 @@ public class TelaScouting extends Activity {
     private int id_eq;
 	private int id_eqadv;
 	private String local;
-	private int id_ptda;
+	protected static int id_ptda;
 	private Partida partida = new Partida();
 	
 	private int placarEqCont = 0;
@@ -147,7 +145,6 @@ public class TelaScouting extends Activity {
 				if(contTime <= 2) {
 					contTime++;
 					Toast.makeText(TelaScouting.this, R.string.tempo, Toast.LENGTH_SHORT).show();
-					habilitaPlayPause(false);
 					onTime();
 				} else {
 					Toast.makeText(TelaScouting.this, R.string.limiteTempo, Toast.LENGTH_LONG).show();
@@ -160,11 +157,11 @@ public class TelaScouting extends Activity {
 			
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-				Jogador sai = listDataHeader.get(groupPosition);
-				Jogador entra = listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition);
-				listDataChild.get(listDataHeader.get(groupPosition)).set(childPosition, sai);
-				listDataHeader.set(groupPosition, entra);
-				refreshLista(listDataChild.get(listDataHeader.get(groupPosition)), listDataHeader);
+				listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition).setTitular(true);
+				listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition).setReserva(false);
+				listDataHeader.get(groupPosition).setTitular(false);
+				listDataHeader.get(groupPosition).setReserva(true);
+				refreshLista();
 				listaJogadores.setAdapter(new ExpandableListAdapter(TelaScouting.this, listDataHeader, listDataChild));
 				return false;
 			}
@@ -235,6 +232,17 @@ public class TelaScouting extends Activity {
 		btTempo.setClickable(hab);
 	}
 	
+	protected List<Jogador> getJogadoresTitulares() {
+		List<Jogador> titulares = new ArrayList<Jogador>();
+		for(Jogador jog : jogadores) {
+			if(jog.isTitular()) {
+				titulares.add(jog);
+				Log.i("Jogador", jog.getNome()+"");
+			}
+		}
+		return titulares;
+	}
+	
 	private String getDataHoje() {
 		//getDataDeHoje
 		Calendar c = Calendar.getInstance();
@@ -273,17 +281,31 @@ public class TelaScouting extends Activity {
         listDataChild.put(listDataHeader.get(6), listReservas);   
 	}
 	
-	private void refreshLista(List<Jogador> listaChild, List<Jogador> listaHeader) {
+	private void refreshLista() {
 		listDataChild.clear();
-
-        //add DataChild
-		listDataChild.put(listaHeader.get(0), listaChild);
-		listDataChild.put(listaHeader.get(1), listaChild);
-		listDataChild.put(listaHeader.get(2), listaChild);
-		listDataChild.put(listaHeader.get(3), listaChild);
-		listDataChild.put(listaHeader.get(4), listaChild);
-		listDataChild.put(listaHeader.get(5), listaChild);
-		listDataChild.put(listaHeader.get(6), listaChild);
+		listDataHeader.clear();
+		listReservas.clear();
+		
+		for(Jogador jog : jogadores) {
+        	if(jog.isTitular()) {
+        		listDataHeader.add(jog);
+        	}
+        }
+		
+		for(Jogador jog : jogadores) {
+        	if(jog.isReserva()) {
+        		listReservas.add(jog);
+        	}
+        }
+		
+		listDataChild.put(listDataHeader.get(0), listReservas);
+        listDataChild.put(listDataHeader.get(1), listReservas);
+        listDataChild.put(listDataHeader.get(2), listReservas);
+        listDataChild.put(listDataHeader.get(3), listReservas);
+        listDataChild.put(listDataHeader.get(4), listReservas);
+        listDataChild.put(listDataHeader.get(5), listReservas);
+        listDataChild.put(listDataHeader.get(6), listReservas);   
+		
 	}
 
 }

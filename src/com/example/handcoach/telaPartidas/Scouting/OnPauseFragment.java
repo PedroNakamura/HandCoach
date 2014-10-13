@@ -54,6 +54,8 @@ public class OnPauseFragment extends Fragment {
 			}
 		});
 		
+		//instancia quick actions
+		
 		return v;
 	}
 
