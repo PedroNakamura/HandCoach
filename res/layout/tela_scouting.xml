@@ -22,24 +22,13 @@
             android:background="@null"
             android:src="@drawable/bt_playpause" />
 
-        <ImageButton
-            android:id="@+id/btTempo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/btPlayOrPause"
-            android:layout_toRightOf="@+id/btPlayOrPause"
-            android:background="@null"
-            android:src="@drawable/bt_tempo" />
-
         <ExpandableListView
             android:id="@+id/ExpListViewJogadores"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/btPlayOrPause"
-            android:layout_below="@+id/placar_EqAdv" >
-        </ExpandableListView>
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/placar_EqAdv" />
 
         <TextView
             android:id="@+id/cronosTempoJogo"
@@ -56,8 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/ExpListViewJogadores"
-            android:layout_alignParentLeft="true"
-            android:text="10" />
+            android:layout_alignParentLeft="true"/>
 
         <TextView
             android:id="@+id/VS"
@@ -74,13 +62,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/btTempo"
-            android:layout_below="@+id/cronosTempoJogo"
-            android:text="11" />
+            android:layout_below="@+id/cronosTempoJogo"/>
+
+        <ImageButton
+            android:id="@+id/btTempo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/ExpListViewJogadores"
+            android:layout_toRightOf="@+id/btPlayOrPause"
+            android:background="@null"
+            android:src="@drawable/bt_tempo" />
 
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="412dp"
+        android:layout_width="425dp"
         android:layout_height="match_parent" >
 
         <FrameLayout

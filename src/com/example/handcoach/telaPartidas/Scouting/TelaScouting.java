@@ -23,6 +23,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -132,6 +134,7 @@ public class TelaScouting extends Activity {
 						semBola();
 					}
 				} else if(cronometroJogo.isRunning()) {
+					habilitaPlayPause(false);
 					onPause();
 				}
 			}
@@ -144,12 +147,40 @@ public class TelaScouting extends Activity {
 				if(contTime <= 2) {
 					contTime++;
 					Toast.makeText(TelaScouting.this, R.string.tempo, Toast.LENGTH_SHORT).show();
+					habilitaPlayPause(false);
 					onTime();
 				} else {
 					Toast.makeText(TelaScouting.this, R.string.limiteTempo, Toast.LENGTH_LONG).show();
 				}
 			}
 		});
+        
+        //eventos da expandable list view
+        listaJogadores.setOnChildClickListener(new OnChildClickListener() {
+			
+			@Override
+			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+				Jogador sai = listDataHeader.get(groupPosition);
+				Jogador entra = listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition);
+				listDataChild.get(listDataHeader.get(groupPosition)).set(childPosition, sai);
+				listDataHeader.set(groupPosition, entra);
+				refreshLista(listDataChild.get(listDataHeader.get(groupPosition)), listDataHeader);
+				listaJogadores.setAdapter(new ExpandableListAdapter(TelaScouting.this, listDataHeader, listDataChild));
+				return false;
+			}
+		});
+        
+        listaJogadores.setOnGroupExpandListener(new OnGroupExpandListener() {
+            int previousGroup = -1;
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(groupPosition != previousGroup){
+                    listaJogadores.collapseGroup(previousGroup);
+                }    
+                previousGroup = groupPosition;
+            }
+        });
 		
 	}
 	//saiu do OnCreate();
@@ -199,9 +230,9 @@ public class TelaScouting extends Activity {
 		replaceFragment(new OnNonPlayingFragment());
 	}
 	
-	private void habilitaPlayPause(boolean hab) {
-		btPlayPause.setActivated(hab);
-		btTempo.setActivated(hab);
+	protected void habilitaPlayPause(boolean hab) {
+		btPlayPause.setClickable(hab);
+		btTempo.setClickable(hab);
 	}
 	
 	private String getDataHoje() {
@@ -231,23 +262,28 @@ public class TelaScouting extends Activity {
         		listReservas.add(jog);
         	}
         }
-        List<Jogador> jog0 = listReservas;
-        List<Jogador> jog1 = listReservas;
-        List<Jogador> jog2 = listReservas;
-        List<Jogador> jog3 = listReservas;
-        List<Jogador> jog4 = listReservas;
-        List<Jogador> jog5 = listReservas;
-        List<Jogador> jog6 = listReservas;
         
         //add DataChild
-        listDataChild.put(listDataHeader.get(0), jog0);
-        listDataChild.put(listDataHeader.get(1), jog1);
-        listDataChild.put(listDataHeader.get(2), jog2);
-        listDataChild.put(listDataHeader.get(3), jog3);
-        listDataChild.put(listDataHeader.get(4), jog4);
-        listDataChild.put(listDataHeader.get(5), jog5);
-        listDataChild.put(listDataHeader.get(6), jog6);
-        
+        listDataChild.put(listDataHeader.get(0), listReservas);
+        listDataChild.put(listDataHeader.get(1), listReservas);
+        listDataChild.put(listDataHeader.get(2), listReservas);
+        listDataChild.put(listDataHeader.get(3), listReservas);
+        listDataChild.put(listDataHeader.get(4), listReservas);
+        listDataChild.put(listDataHeader.get(5), listReservas);
+        listDataChild.put(listDataHeader.get(6), listReservas);   
+	}
+	
+	private void refreshLista(List<Jogador> listaChild, List<Jogador> listaHeader) {
+		listDataChild.clear();
+
+        //add DataChild
+		listDataChild.put(listaHeader.get(0), listaChild);
+		listDataChild.put(listaHeader.get(1), listaChild);
+		listDataChild.put(listaHeader.get(2), listaChild);
+		listDataChild.put(listaHeader.get(3), listaChild);
+		listDataChild.put(listaHeader.get(4), listaChild);
+		listDataChild.put(listaHeader.get(5), listaChild);
+		listDataChild.put(listaHeader.get(6), listaChild);
 	}
 
 }

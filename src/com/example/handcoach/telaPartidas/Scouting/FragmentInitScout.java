@@ -28,6 +28,7 @@ public class FragmentInitScout extends Fragment {
 			
 			@Override
 			public void onClick(View arg0) {
+				telaS.habilitaPlayPause(true);
 				telaS.comBola();
 				telaS.cronometroJogo.resume();
 			}
@@ -37,6 +38,7 @@ public class FragmentInitScout extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+				telaS.habilitaPlayPause(true);
 				telaS.semBola();
 				telaS.cronometroJogo.resume();
 			}

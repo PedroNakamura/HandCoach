@@ -114,4 +114,11 @@
     <string name="tempo">Time!</string>
     <string name="PlayPauseClick">Click on play to go back to the match!</string>
     
+    <!--  TelaScouting -->
+    <string name="ComBola">With ball</string>
+    <string name="SemBola">Without ball</string>
+    <string name="initScouting">Click, when the match stars, on your team ball possession!</string>
+    <string name="limiteTempo">Only two times by period are permited!</string>
+    <string name="segundoTempo">Click on play/pause to finish the match!</string>
+    
 </resources>

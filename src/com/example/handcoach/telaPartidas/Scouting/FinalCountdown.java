@@ -32,8 +32,7 @@ public class FinalCountdown extends CountDownTimerWithPause {
 	public void onFinish() {
 		Toast.makeText(tela, R.string.tempoAcabou, Toast.LENGTH_SHORT).show();
 		if(tipoCronos == 1) {
-			tela.cronometroJogo.setFinished(true);
-			tela.cronometroTempo.setFinished(false);
+			//if(tela)
 		} else if(tipoCronos == 2) {
 			tela.habilitaPlayPause(true);
 			tela.cronosTempo.setVisibility(View.INVISIBLE);

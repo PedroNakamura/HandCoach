@@ -114,4 +114,11 @@
     <string name="tempo">Tiempo!</string>
     <string name="PlayPauseClick">Clic en play para reanudar el juego!</string>
     
+    <!--  TelaScouting -->
+    <string name="ComBola">Con bola</string>
+    <string name="SemBola">Sin bola</string>
+    <string name="initScouting">Clic, cuando iniciar el jogo, en posesión de su equipo!</string>
+    <string name="limiteTempo">Solo dos tiempos por período permitidos!</string>
+    <string name="segundoTempo">Clic en el play/pause para finalizar el juego!</string>
+    
 </resources>
