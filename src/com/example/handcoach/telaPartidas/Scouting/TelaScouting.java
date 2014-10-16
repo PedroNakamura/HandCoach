@@ -47,7 +47,7 @@ public class TelaScouting extends Activity {
     private Context context = this;
     protected int contTime = 0;
     
-    protected int jogadorComBola;
+    protected int jogadorComBola = 0;
     protected boolean posseBola;
     protected boolean segundoTempo = false;
     protected boolean terminarPartida = false;
@@ -65,7 +65,7 @@ public class TelaScouting extends Activity {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_scouting);
 		addFragment(new FragmentInitScout());
@@ -163,6 +163,11 @@ public class TelaScouting extends Activity {
 				listDataHeader.get(groupPosition).setReserva(true);
 				refreshLista();
 				listaJogadores.setAdapter(new ExpandableListAdapter(TelaScouting.this, listDataHeader, listDataChild));
+				if(!posseBola) {
+					replaceFragment(new OnNonPlayingFragment());
+				} else {
+					replaceFragment(new OnPlayingFragment());
+				}
 				return false;
 			}
 		});
@@ -221,10 +226,18 @@ public class TelaScouting extends Activity {
 		replaceFragment(new OnPlayingFragment());
 	}
 	
+	protected final void comBolaS() {
+		comBola();
+	}
+	
 	protected void semBola() {
 		posseBola = false;
 		habilitaPlayPause(true);
 		replaceFragment(new OnNonPlayingFragment());
+	}
+	
+	protected final void semBolaS() {
+		semBola();
 	}
 	
 	protected void habilitaPlayPause(boolean hab) {
@@ -305,7 +318,10 @@ public class TelaScouting extends Activity {
         listDataChild.put(listDataHeader.get(4), listReservas);
         listDataChild.put(listDataHeader.get(5), listReservas);
         listDataChild.put(listDataHeader.get(6), listReservas);   
-		
+	}
+	
+	protected final void setJogadorComBola(int jogadorComBola) {
+		this.jogadorComBola = jogadorComBola;
 	}
 
 }

@@ -14,15 +14,6 @@
         android:text="@string/btRebote" />
 
     <Button
-        android:id="@+id/bt2minSB"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_alignBaseline="@+id/btCtAmareloSB"
-        android:layout_alignBottom="@+id/btCtAmareloSB"
-        android:layout_alignLeft="@+id/btFaltaSB"
-        android:text="@string/bt2min" />
-
-    <Button
         android:id="@+id/btFaltaSB"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -31,15 +22,6 @@
         android:layout_marginLeft="57dp"
         android:layout_toRightOf="@+id/btReboteSB"
         android:text="@string/btFalta" />
-
-    <Button
-        android:id="@+id/btRoubadaSB"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_alignBaseline="@+id/btReboteSB"
-        android:layout_alignBottom="@+id/btReboteSB"
-        android:layout_toRightOf="@+id/bt2minSB"
-        android:text="@string/btRoubada" />
 
     <Button
         android:id="@+id/btCtAmareloSB"
@@ -58,5 +40,21 @@
         android:layout_marginRight="54dp"
         android:layout_toLeftOf="@+id/btReboteSB"
         android:text="@string/btGanhoBola" />
+
+    <Button
+        android:id="@+id/bt2minSB1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignLeft="@+id/btFaltaSB"
+        android:layout_alignTop="@+id/btCtAmareloSB"
+        android:text="@string/bt2min" />
+
+    <Button
+        android:id="@+id/btRoubadaSB"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/bt2minSB1"
+        android:text="@string/btRoubada" />
 
 </RelativeLayout>
