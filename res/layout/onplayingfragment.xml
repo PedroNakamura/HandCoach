@@ -1,8 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
 
-</LinearLayout>
+    <ImageButton
+        android:id="@+id/jogadorSB2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignTop="@+id/jogadorSB1"
+        android:layout_marginLeft="27dp"
+        android:layout_toRightOf="@+id/jogadorSB1"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/jogadorSB3"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_below="@+id/btArremessoCB"
+        android:layout_toLeftOf="@+id/jogadorSB2"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/jogadorSB4"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignLeft="@+id/jogadorSB2"
+        android:layout_alignTop="@+id/jogadorSB3"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/jogadorSB5"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignLeft="@+id/jogadorSB3"
+        android:layout_alignTop="@+id/bt2minutosCB"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/jogadorSB6"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignLeft="@+id/jogadorSB4"
+        android:layout_alignTop="@+id/jogadorSB5"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/jogadorSB1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignBottom="@+id/btFaltaCB"
+        android:layout_marginLeft="33dp"
+        android:layout_toRightOf="@+id/btPerdaBolaCB"
+        android:src="@android:drawable/btn_star" />
+
+    <Button
+        android:id="@+id/btPerdaBolaCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/btPerdaBola" />
+
+    <Button
+        android:id="@+id/bt2minutosCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btPerdaBolaCB"
+        android:layout_below="@+id/jogadorCB"
+        android:layout_marginRight="81dp"
+        android:layout_marginTop="55dp"
+        android:text="@string/bt2min" />
+
+    <Button
+        android:id="@+id/btCtAmareloCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt2minutosCB"
+        android:layout_alignBottom="@+id/bt2minutosCB"
+        android:layout_toLeftOf="@+id/bt2minutosCB"
+        android:text="@string/btCtAmarelo" />
+
+    <Button
+        android:id="@+id/btArremessoCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/jogadorCB"
+        android:layout_alignLeft="@+id/btCtAmareloCB"
+        android:layout_marginBottom="42dp"
+        android:text="@string/btArremesso" />
+
+    <Button
+        android:id="@+id/btFaltaCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btArremessoCB"
+        android:layout_alignBottom="@+id/btArremessoCB"
+        android:layout_toLeftOf="@+id/btPerdaBolaCB"
+        android:text="@string/btFalta" />
+
+    <ImageButton
+        android:id="@+id/jogadorCB"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btFaltaCB"
+        android:src="@android:drawable/btn_star" />
+
+</RelativeLayout>

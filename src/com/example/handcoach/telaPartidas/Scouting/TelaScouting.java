@@ -60,8 +60,8 @@ public class TelaScouting extends Activity {
 	protected static int id_ptda;
 	private Partida partida = new Partida();
 	
-	private int placarEqCont = 0;
-	private int placarEqAdvCont = 0;
+	protected int placarEqCont = 0;
+	protected int placarEqAdvCont = 0;
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -322,6 +322,20 @@ public class TelaScouting extends Activity {
 	
 	protected final void setJogadorComBola(int jogadorComBola) {
 		this.jogadorComBola = jogadorComBola;
+	}
+	
+	protected void golEqAdv() {
+		placarEqAdvCont++;
+		placarEqAdv.setText(placarEqAdvCont+"");
+		placarEqAdv.refreshDrawableState();
+		comBola();
+	}
+	
+	protected void golEq() {
+		placarEqCont++;
+		placarEq.setText(placarEqCont+"");
+		placarEq.refreshDrawableState();
+		semBola();
 	}
 
 }

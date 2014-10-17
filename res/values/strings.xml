@@ -128,5 +128,18 @@
     <string name="btGanhoBola">Ganho de bola</string>
     <string name="btCtAmarelo">Cartão Amarelo</string>
     <string name="bt2min">Dois minutos</string>
+    <string name="btPerdaBola">Perda de Bola</string>
+    <string name="btArremesso">Arremesso</string>
+    <string name="btGolAdv">Gol adversário</string>
+    
+    <!--  Actions OnNonPlaying/OnPlaying -->
+    <string name="faltatecnica">Falta técnica</string>
+    <string name="falta7m">7 metros</string>
+    <string name="faltadefesa">Falta de defesa</string>
+    <string name="faltaatk">Falta de ataque</string>
+    <string name="gol">Gol!</string>
+    <string name="GK">Goleiro defendeu</string>
+    <string name="fora">Pra fora!</string>
+    <string name="defense">Na defesa!</string>
 
 </resources>

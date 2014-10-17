@@ -50,6 +50,7 @@ public class OnNonPlayingFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.onnonplayingfragment, container, false);
 		
+		Log.i("id_ptda: ", id_ptda+"");
 		telaS = (TelaScouting) getActivity();
 		
 		Button btGanhoBola = (Button) v.findViewById(R.id.btGanhoSB);
@@ -58,6 +59,7 @@ public class OnNonPlayingFragment extends Fragment {
 		Button btCtAmarelo = (Button) v.findViewById(R.id.btCtAmareloSB);
 		Button bt2min = (Button) v.findViewById(R.id.bt2minSB1);
 		Button btRebote = (Button) v.findViewById(R.id.btReboteSB);
+		Button btGolAdv = (Button) v.findViewById(R.id.btGolAdvSB);
 		
 		getJogadores();
 		criaItensJogadores();
@@ -67,6 +69,14 @@ public class OnNonPlayingFragment extends Fragment {
 		criaQuickRbd();
 		criaQuick2min();
 		criaQuickRebote();
+		
+		btGolAdv.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				telaS.golEqAdv();
+			}
+		});
 		
 		btRebote.setOnClickListener(new OnClickListener() {
 			
@@ -231,15 +241,15 @@ public class OnNonPlayingFragment extends Fragment {
 	
 	private void criaQuickFt() {
 		faltaTecnica = new ActionItem();
-		faltaTecnica.setTitle("Falta técnica");
+		faltaTecnica.setTitle(getResources().getString(R.string.faltatecnica));
 		faltaTecnica.setIcon(getResources().getDrawable(R.drawable.faltatecnica));
 		
 		faltaDefesa = new ActionItem();
-		faltaDefesa.setTitle("Falta de Defesa");
+		faltaDefesa.setTitle(getResources().getString(R.string.faltadefesa));
 		faltaDefesa.setIcon(getResources().getDrawable(R.drawable.faltadefesa));
 		
 		falta7m = new ActionItem();
-		falta7m.setTitle("7 metros");
+		falta7m.setTitle(getResources().getString(R.string.falta7m));
 		falta7m.setIcon(getResources().getDrawable(R.drawable.metros7));
 		
 		ftQuick = new QuickAction(getActivity());
