@@ -1,4 +1,4 @@
-package com.example.handcoach.telaPartidas.Scouting;
+package util;
 
 /*
  * Copyright (C) 2010 Andrew Gainer

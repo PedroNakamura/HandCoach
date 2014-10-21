@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import util.ExpandableListAdapter;
+import util.ScoutingCountdown;
 import com.example.handcoach.R;
-
-import DAO.JogadorDAO;
 import DAO.PartidaDAO;
 import Entidades.Partida;
 import Entidades.Jogador;
@@ -47,12 +47,12 @@ public class TelaScouting extends Activity {
     private TextView placarEq;
     private TextView placarEqAdv;
     private Context context = this;
-    protected int contTime = 0;
+    public int contTime = 0;
     
     protected int jogadorComBola = 0;
     protected boolean posseBola;
-    protected boolean segundoTempo = false;
-    protected boolean terminarPartida = false;
+    public boolean segundoTempo = false;
+    public boolean terminarPartida = false;
  
     private Bundle valores;
     private Intent it;
@@ -65,6 +65,7 @@ public class TelaScouting extends Activity {
 	protected int placarEqCont = 0;
 	protected int placarEqAdvCont = 0;
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -77,10 +78,13 @@ public class TelaScouting extends Activity {
 		id_eq = valores.getInt("id_equipe"); 
 		id_eqadv = valores.getInt("id_equipeAdv");
 		local = valores.getString("Local");
+		
 		idJogadores = ((List<Jogador>) valores.getSerializable("jog_joga"));
 		Log.i("Tamanho IDJogadores", idJogadores.size()+"");
 		for (Jogador joga : idJogadores) {
-			jogadores.add(joga);
+			Jogador jogador = joga;
+			jogador.setFoto(joga.getOutput());
+			jogadores.add(jogador);
 		}
 		
 		//Instancia layout e botões
@@ -214,7 +218,7 @@ public class TelaScouting extends Activity {
 		replaceFragment(new OnTimeFragment());
 	}
 	
-	protected void onPause() {
+	public void onPause() {
 		if(!cronometroJogo.isPaused()) {
 			cronometroJogo.pause();
 		}
@@ -223,6 +227,9 @@ public class TelaScouting extends Activity {
 	}
 	
 	protected void comBola() {
+		if(!cronometroJogo.isRunning()) {
+			cronometroJogo.resume();
+		}
 		posseBola = true;
 		habilitaPlayPause(true);
 		replaceFragment(new OnPlayingFragment());
@@ -233,6 +240,9 @@ public class TelaScouting extends Activity {
 	}
 	
 	protected void semBola() {
+		if(!cronometroJogo.isRunning()) {
+			cronometroJogo.resume();
+		}
 		posseBola = false;
 		habilitaPlayPause(true);
 		replaceFragment(new OnNonPlayingFragment());

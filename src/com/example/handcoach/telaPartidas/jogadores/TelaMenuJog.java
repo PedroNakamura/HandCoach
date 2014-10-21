@@ -1,6 +1,9 @@
 package com.example.handcoach.telaPartidas.jogadores;
 
 import java.util.List;
+
+import util.LazyAdapter;
+
 import com.example.handcoach.R;
 import DAO.JogadorDAO;
 import Entidades.Jogador;

@@ -1,6 +1,9 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.List;
+
+import util.JogadorTitularListaAdapter;
+
 import com.example.handcoach.R;
 import Entidades.Jogador;
 import android.annotation.SuppressLint;

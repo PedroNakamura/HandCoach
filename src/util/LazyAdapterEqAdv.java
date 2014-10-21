@@ -1,4 +1,4 @@
-package com.example.handcoach.telaPartidas.jogadores;
+package util;
 
 import java.util.List;
 import com.example.handcoach.R;

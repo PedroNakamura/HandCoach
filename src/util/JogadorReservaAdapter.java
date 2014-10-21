@@ -1,4 +1,4 @@
-package com.example.handcoach.telaPartidas.Scouting;
+package util;
 
 import java.util.ArrayList;
 import java.util.List;

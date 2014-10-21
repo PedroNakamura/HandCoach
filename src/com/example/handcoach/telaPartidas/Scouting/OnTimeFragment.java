@@ -1,5 +1,7 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
+import util.ScoutingCountdown;
+
 import com.example.handcoach.R;
 
 import android.app.Fragment;

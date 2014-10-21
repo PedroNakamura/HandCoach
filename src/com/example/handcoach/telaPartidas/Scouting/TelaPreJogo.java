@@ -29,10 +29,11 @@ public class TelaPreJogo extends Activity {
 	private Intent it;
 	private Bundle valor;
 	private Bundle listas = new Bundle();
-	String local;
-	int id_eqAdv;
-	int id_eq;
-	int contador;
+	private String local;
+	private int id_eqAdv;
+	private int id_eq;
+	private int contador;
+	private int tempo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class TelaPreJogo extends Activity {
 		id_eq = valor.getInt("id_equipe");
 		id_eqAdv = valor.getInt("id_equipeAdv");
 		local = valor.getString("Local");
+		tempo = Integer.parseInt(valor.getString("tempo"));
 		
 		listaJogadoresDisponiveis = JogadorDAO.getInstancia(TelaPreJogo.this).buscarDaEquipe(id_eq);
 		Log.i("DEBUG!", "BUSCOU DO BD A LISTA!");
@@ -63,14 +65,17 @@ public class TelaPreJogo extends Activity {
 				if(contador == 7) {
 					for(Jogador joga : listaJogadoresDisponiveis) {
 						if(joga.isTitular() || joga.isReserva()) {
-							Log.i("Jogador ", joga+"");
-							idVaiProJogo.add(joga);
+							Jogador jogador = joga;
+							jogador.setFoto(null);
+							jogador.setOutput(joga.getFoto());
+							idVaiProJogo.add(jogador);
 						}
 					}
 					listas.putSerializable("jog_joga", (ArrayList<Jogador>) idVaiProJogo);
 					listas.putString("Local", local);
 					listas.putInt("id_equipe", id_eq);
 					listas.putInt("id_equipeAdv", id_eqAdv);
+					listas.putInt("tempo", tempo);
 					it = new Intent(TelaPreJogo.this, TelaScouting.class);
 					it.putExtras(listas);
 					startActivity(it);

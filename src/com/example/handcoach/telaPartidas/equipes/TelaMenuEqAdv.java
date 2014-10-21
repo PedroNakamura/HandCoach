@@ -2,8 +2,9 @@ package com.example.handcoach.telaPartidas.equipes;
 
 import java.util.List;
 
+import util.LazyAdapterEqAdv;
+
 import com.example.handcoach.R;
-import com.example.handcoach.telaPartidas.jogadores.LazyAdapterEqAdv;
 import DAO.EquipeAdv;
 import DAO.EquipeAdvDAO;
 import android.app.Activity;

@@ -1,9 +1,11 @@
 package Entidades;
 
 import java.util.Date;
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ParseException;
 import android.util.Log;
 
@@ -17,6 +19,7 @@ public class Jogador implements EntidadeInterface, Serializable {
 	private int sexo;
 	private int pos;
 	private Bitmap foto;
+	private byte[] imagem;
 	private double altura;
 	private Date dt_nasc;
 	private boolean marcado;
@@ -38,6 +41,7 @@ public class Jogador implements EntidadeInterface, Serializable {
 		this.altura = altura;
 		this.dt_nasc = dt_nasc;
 		this.pos = pos;
+		this.imagem = null;
 	}
 	
 	//Getters and Setters ID do Jogador
@@ -51,19 +55,14 @@ public class Jogador implements EntidadeInterface, Serializable {
 	}
 	
 	
-	
-	
 	public boolean isTitular() {
 		return titular;
 	}
-
 	public void setTitular(boolean titular) {
 		this.titular = titular;
-		
 		if(titular){
 			reserva = false;
-		}
-		
+		}	
 	}
 
 	public boolean isReserva() {
@@ -74,13 +73,13 @@ public class Jogador implements EntidadeInterface, Serializable {
 		this.reserva = reserva;
 	}
 
-		//Getters and Setters id equipe
-		public int getIdEq() {
-			return id_eq;
-		}
-		public void setIdEq(int id) {
-			this.id_eq = id;
-		}
+	//Getters and Setters id equipe
+	public int getIdEq() {
+		return id_eq;
+	}
+	public void setIdEq(int id) {
+		this.id_eq = id;
+	}
 
 	//Getters and Setters Nome do jogador
 	public String getNome() {
@@ -111,7 +110,6 @@ public class Jogador implements EntidadeInterface, Serializable {
 	}
 
 	//Getters and Setters Foto 
-	
 	public Bitmap getFoto() {
 		return foto;
 	}
@@ -141,6 +139,23 @@ public class Jogador implements EntidadeInterface, Serializable {
 	}
 	public void setMarcado(boolean marcado) {
 		this.marcado = marcado;
+	}
+	
+	//locuragens do byte array
+	public Bitmap getOutput() {
+		if(imagem != null) {
+			Bitmap b = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);  
+			return b;
+		} else {
+			return null;
+		}
+	}
+	public void setOutput(Bitmap img) {
+		if(img != null) {
+			ByteArrayOutputStream bs = new ByteArrayOutputStream();
+			img.compress(Bitmap.CompressFormat.PNG, 100, bs);
+			this.imagem = bs.toByteArray();
+		}
 	}
 	
 	//conversão do Date para String

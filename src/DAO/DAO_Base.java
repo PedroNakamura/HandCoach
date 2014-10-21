@@ -40,6 +40,10 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 		db.delete(getNomeTabela(), getNomeColunaPrimaryKey() + " = ?", valores);
 	}
 	
+	public void deletarUltimaCat(int id_cat) {
+		db.delete(getNomeTabela(), "id_cat = ? ORDER BY "+getNomeColunaPrimaryKey()+" DESC LIMIT 1", null);
+	}
+	
 	//
 	public void Editar(T entidade, T entidadeAtualizada) {
 		String[] valores = {String.valueOf(entidade.getId())};

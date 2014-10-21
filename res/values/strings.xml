@@ -141,5 +141,10 @@
     <string name="GK">Goleiro defendeu</string>
     <string name="fora">Pra fora!</string>
     <string name="defense">Na defesa!</string>
+    <string name="passerrado">Passe errado</string>
+    <string name="rcperrada">Recepção errada</string>
+    
+    <!--  Coisas extras -->
+    <string name="TempoDeJogo">Tempo da partida (em minutos):</string>
 
 </resources>

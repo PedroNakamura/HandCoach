@@ -81,6 +81,26 @@
         </AutoCompleteTextView>
 
         <TextView
+            android:id="@+id/textViewVAZIAO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tv_tempoJogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TempoDeJogo" 
+            style="@style/StringTelaSobreStyle_simple"/>
+
+        <EditText
+            android:id="@+id/editText_tempoDeJogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

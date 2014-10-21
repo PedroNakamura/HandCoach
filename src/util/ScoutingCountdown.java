@@ -1,16 +1,19 @@
-package com.example.handcoach.telaPartidas.Scouting;
+package util;
 
 import java.util.concurrent.TimeUnit;
+
+
 import com.example.handcoach.R;
+import com.example.handcoach.telaPartidas.Scouting.TelaScouting;
+
 import android.content.Context;
 import android.os.Vibrator;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 //http://example.javamonday.com/Open-Source/Android/Timer/multitimer-android/com/cycleindex/multitimer/CountDownTimerWithPause.java.htm
 
-public class FinalCountdown extends CountDownTimerWithPause {
+public class ScoutingCountdown extends CountDownTimerWithPause {
 	
 	protected TextView text;
 	protected Vibrator v;
@@ -18,9 +21,9 @@ public class FinalCountdown extends CountDownTimerWithPause {
 	protected long tempoJogo;
 	protected boolean onFinished;
 	protected int tipoCronos;
-	protected TelaScoutingOld tela;
+	protected TelaScouting tela;
 
-	public FinalCountdown(long millisInFuture, long countDownInterval, boolean mRunAtStart, int tipoCronos, TelaScoutingOld tela) {
+	public ScoutingCountdown(long millisInFuture, long countDownInterval, boolean mRunAtStart, int tipoCronos, TelaScouting tela) {
 		super(millisInFuture, countDownInterval, mRunAtStart);
 		this.tempoJogo = millisInFuture;
 		this.onFinished = false;
@@ -32,14 +35,21 @@ public class FinalCountdown extends CountDownTimerWithPause {
 	public void onFinish() {
 		Toast.makeText(tela, R.string.tempoAcabou, Toast.LENGTH_SHORT).show();
 		if(tipoCronos == 1) {
-			//if(tela)
+			tela.contTime = 0;
+			if(!tela.segundoTempo) {
+				tela.segundoTempo = true;
+				tela.onPause();
+			} else {
+				Toast.makeText(tela, R.string.segundoTempo, Toast.LENGTH_LONG).show();
+				tela.terminarPartida = true;
+			}
 		} else if(tipoCronos == 2) {
-			tela.habilitaPlayPause(true);
-			tela.cronosTempo.setVisibility(View.INVISIBLE);
-			tela.cronometroTempo.setFinished(true);
+			//tela.habilitaPlayPause(true);
+			//tela.cronosTempo.setVisibility(View.INVISIBLE);
+			//tela.cronometroTempo.setFinished(true);
 			Toast.makeText(tela, R.string.PlayPauseClick, Toast.LENGTH_LONG).show();
-		} else if(tipoCronos == 3) {
-			
+		} else if(tipoCronos == 3) /*cronosOnTime*/ {
+			tela.onPause();
 		}
 	}
 
@@ -53,12 +63,15 @@ public class FinalCountdown extends CountDownTimerWithPause {
 		tempoJogo = millisUntilFinished;
 		text.refreshDrawableState();
 		
-		/*if((TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished) == 0) && TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)) == 5) {
-			v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-			v.vibrate(500);
-			Toast.makeText(context, "ACABOOOOU", Toast.LENGTH_SHORT).show();
-        }*/
-		
+		if(tipoCronos == 3) {
+			if(millisUntilFinished == 10000) {
+				v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+				if(v.hasVibrator()) {
+					v.vibrate(500);
+					Toast.makeText(tela, "rsrs", Toast.LENGTH_LONG).show();
+				}
+			}
+		}
 	}
 	
 	public void setText(TextView text) {
@@ -83,3 +96,4 @@ public class FinalCountdown extends CountDownTimerWithPause {
 	}
 
 }
+
