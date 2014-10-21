@@ -7,6 +7,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import com.example.handcoach.R;
+
+import DAO.JogadorDAO;
 import DAO.PartidaDAO;
 import Entidades.Partida;
 import Entidades.Jogador;
@@ -57,13 +59,12 @@ public class TelaScouting extends Activity {
     private int id_eq;
 	private int id_eqadv;
 	private String local;
-	protected static int id_ptda;
+	protected int id_ptda;
 	private Partida partida = new Partida();
 	
 	protected int placarEqCont = 0;
 	protected int placarEqAdvCont = 0;
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -77,6 +78,7 @@ public class TelaScouting extends Activity {
 		id_eqadv = valores.getInt("id_equipeAdv");
 		local = valores.getString("Local");
 		idJogadores = ((List<Jogador>) valores.getSerializable("jog_joga"));
+		Log.i("Tamanho IDJogadores", idJogadores.size()+"");
 		for (Jogador joga : idJogadores) {
 			jogadores.add(joga);
 		}

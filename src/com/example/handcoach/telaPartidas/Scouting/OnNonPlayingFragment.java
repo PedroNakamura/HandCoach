@@ -23,7 +23,7 @@ public class OnNonPlayingFragment extends Fragment {
 	
 	private TelaScouting telaS;
 	private List<Jogador> joga = new ArrayList<Jogador>();
-	private int id_ptda = TelaScouting.id_ptda;
+	private int id_ptda;
 	private int eventinho;
 	private View vie;
 	
@@ -50,8 +50,8 @@ public class OnNonPlayingFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.onnonplayingfragment, container, false);
 		
-		Log.i("id_ptda: ", id_ptda+"");
 		telaS = (TelaScouting) getActivity();
+		id_ptda = telaS.id_ptda;
 		
 		Button btGanhoBola = (Button) v.findViewById(R.id.btGanhoSB);
 		Button btFalta = (Button) v.findViewById(R.id.btFaltaSB);

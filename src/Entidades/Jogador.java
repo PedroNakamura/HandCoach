@@ -10,6 +10,7 @@ import android.util.Log;
 public class Jogador implements EntidadeInterface, Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
 	private int id_jog;
 	private int id_eq;
 	private String nome;

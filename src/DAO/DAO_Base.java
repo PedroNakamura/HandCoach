@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import Entidades.EntidadeInterface;
 import android.content.ContentValues;
 import android.content.Context;
@@ -13,6 +12,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ParseException;
+
 
 public abstract class DAO_Base <T extends EntidadeInterface>{
 	

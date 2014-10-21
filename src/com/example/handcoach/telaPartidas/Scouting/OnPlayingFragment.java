@@ -24,14 +24,17 @@ public class OnPlayingFragment extends Fragment {
 	
 	private TelaScouting telaS;
 	private List<Jogador> joga = new ArrayList<Jogador>();
-	private int id_ptda = TelaScouting.id_ptda;
+	private int id_ptda;
 	private Jogador jogadorComBola;
+	private View viewzinha;
+	private int tipo_evento;
 	
 	private QuickAction arrQuick;
 	private QuickAction ftQuick;
 	private QuickAction jogFtQuick;
 	private QuickAction amarQuick;
 	private QuickAction minQuick;
+	private QuickAction pbQuick;
 	
 	private ActionItem jogador0;
 	private ActionItem jogador1;
@@ -46,6 +49,7 @@ public class OnPlayingFragment extends Fragment {
 		View v = inflater.inflate(R.layout.onplayingfragment, container, false);
 		
 		telaS = (TelaScouting) getActivity();
+		id_ptda = telaS.id_ptda;
 		
 		Button btArremesso = (Button) v.findViewById(R.id.btArremessoCB);
 		Button btFalta = (Button) v.findViewById(R.id.btFaltaCB);
@@ -66,6 +70,7 @@ public class OnPlayingFragment extends Fragment {
 		criaQuickFt();	
 		criaAmarQuick();
 		criaMinQuick();
+		criaPbQuick();
 		
 		btArremesso.setOnClickListener(new OnClickListener() {
 			
@@ -82,6 +87,7 @@ public class OnPlayingFragment extends Fragment {
 			public void onClick(View v) {
 				ftQuick.show(v);
 				ftQuick.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
+				viewzinha = v;
 			}
 		});
 		
@@ -89,7 +95,8 @@ public class OnPlayingFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				
+				pbQuick.show(v);
+				pbQuick.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
 			}
 		});
 		
@@ -151,18 +158,22 @@ public class OnPlayingFragment extends Fragment {
 				if(pos == 0) {
 					Evento evento = new Evento(1, jogadorComBola.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("ARREMESSO: ", jogadorComBola.getId()+"");
 					telaS.golEq();
 				} else if(pos == 1) {
 					Evento evento = new Evento(4, jogadorComBola.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("ARREMESSO: ", jogadorComBola.getId()+"");
 					telaS.semBolaS();
 				} else if(pos == 2) {
 					Evento evento = new Evento(3, jogadorComBola.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("ARREMESSO: ", jogadorComBola.getId()+"");
 					telaS.semBolaS();
 				} else if(pos == 3) {
 					Evento evento = new Evento(2, jogadorComBola.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("ARREMESSO: ", jogadorComBola.getId()+"");
 					telaS.semBolaS();
 				}
 			}
@@ -182,14 +193,69 @@ public class OnPlayingFragment extends Fragment {
 		ftQuick.addActionItem(ftAtk);
 		ftQuick.addActionItem(ftTec);
 		
+		jogFtQuick.addActionItem(jogador0);
+		jogFtQuick.addActionItem(jogador1);
+		jogFtQuick.addActionItem(jogador2);
+		jogFtQuick.addActionItem(jogador3);
+		jogFtQuick.addActionItem(jogador4);
+		jogFtQuick.addActionItem(jogador5);
+		jogFtQuick.addActionItem(jogador6);
+		
 		ftQuick.setOnActionItemClickListener(new OnActionItemClickListener() {
 			
 			@Override
 			public void onItemClick(int pos) {
 				if(pos == 0) {
-					
+					tipo_evento = 12;
+					jogFtQuick.show(viewzinha);
+					jogFtQuick.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
 				} else if(pos == 1) {
-					
+					tipo_evento = 10;
+					jogFtQuick.show(viewzinha);
+					jogFtQuick.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
+				}
+			}
+		});
+		
+		jogFtQuick.setOnActionItemClickListener(new OnActionItemClickListener() {
+			
+			@Override
+			public void onItemClick(int pos) {
+				if(pos == 0) {
+					Evento evento = new Evento(tipo_evento, jogador0.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Jogador Falta: ", jogador0.getId()+"");
+					telaS.semBolaS();
+				} else if(pos == 1) {
+					Evento evento = new Evento(tipo_evento, jogador1.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Jogador Falta: ", jogador1.getId()+"");
+					telaS.semBolaS();
+				} else if(pos == 2) {
+					Evento evento = new Evento(tipo_evento, jogador2.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Jogador Falta: ", jogador2.getId()+"");
+					telaS.semBolaS();
+				} else if(pos == 3) {
+					Evento evento = new Evento(tipo_evento, jogador3.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Jogador Falta: ", jogador3.getId()+"");
+					telaS.semBolaS();
+				} else if(pos == 4) {
+					Evento evento = new Evento(tipo_evento, jogador4.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Jogador Falta: ", jogador4.getId()+"");
+					telaS.semBolaS();
+				} else if(pos == 5) {
+					Evento evento = new Evento(tipo_evento, jogador5.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Jogador Falta: ", jogador5.getId()+"");
+					telaS.semBolaS();
+				} else if(pos == 6) {
+					Evento evento = new Evento(tipo_evento, jogador6.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Jogador Falta: ", jogador6.getId()+"");
+					telaS.semBolaS();
 				}
 			}
 		});
@@ -201,6 +267,10 @@ public class OnPlayingFragment extends Fragment {
 	
 	private void criaMinQuick() {
 		minQuick = new QuickAction(getActivity());
+	}
+	
+	private void criaPbQuick() {
+		pbQuick = new QuickAction(getActivity());
 	}
 	
 	private void criaItensJogadores() {
