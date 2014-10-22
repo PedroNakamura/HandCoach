@@ -148,5 +148,6 @@
     <string name="TempoDeJogo">Tempo da partida (em minutos):</string>
     <string name="avisoTempoJogo">Por favor, insira um tempo de partida</string>
     <string name="faltaSofrida">Falta sofrida</string>
+    <string name="avisoFimFim">Pause para terminar</string>
 
 </resources>

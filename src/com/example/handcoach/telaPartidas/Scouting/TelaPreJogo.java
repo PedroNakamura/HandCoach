@@ -66,8 +66,8 @@ public class TelaPreJogo extends Activity {
 					for(Jogador joga : listaJogadoresDisponiveis) {
 						if(joga.isTitular() || joga.isReserva()) {
 							Jogador jogador = joga;
-							jogador.setFoto(null);
 							jogador.setOutput(joga.getFoto());
+							jogador.setFoto(null);
 							idVaiProJogo.add(jogador);
 						}
 					}

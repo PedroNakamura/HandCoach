@@ -26,11 +26,10 @@ public class Jogador implements EntidadeInterface, Serializable {
 	
 	private boolean titular;
 	private boolean reserva;
-	
+	private boolean in2min;
 
 	public Jogador() {
 		this.dt_nasc = new Date();
-		//this.foto = new Bitmap();
 	}
 	
 	public Jogador(int id_eq, String nome, int sexo, Bitmap foto, double altura, Date dt_nasc, int pos) {
@@ -42,6 +41,7 @@ public class Jogador implements EntidadeInterface, Serializable {
 		this.dt_nasc = dt_nasc;
 		this.pos = pos;
 		this.imagem = null;
+		this.in2min = false;
 	}
 	
 	//Getters and Setters ID do Jogador
@@ -64,11 +64,17 @@ public class Jogador implements EntidadeInterface, Serializable {
 			reserva = false;
 		}	
 	}
+	
+	public boolean is2min() {
+		return in2min;
+	}
+	public void set2min(boolean tf) {
+		this.in2min = tf;
+	}
 
 	public boolean isReserva() {
 		return reserva;
 	}
-
 	public void setReserva(boolean reserva) {
 		this.reserva = reserva;
 	}
@@ -143,8 +149,8 @@ public class Jogador implements EntidadeInterface, Serializable {
 	
 	//locuragens do byte array
 	public Bitmap getOutput() {
-		if(imagem != null) {
-			Bitmap b = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);  
+		if(this.imagem != null) {
+			Bitmap b = BitmapFactory.decodeByteArray(this.imagem, 0, this.imagem.length);  
 			return b;
 		} else {
 			return null;

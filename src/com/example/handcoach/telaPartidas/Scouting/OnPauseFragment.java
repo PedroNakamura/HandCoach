@@ -2,6 +2,8 @@ package com.example.handcoach.telaPartidas.Scouting;
 
 import com.example.handcoach.R;
 
+import DAO.PartidaDAO;
+import Entidades.Partida;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -50,7 +52,11 @@ public class OnPauseFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				
+				Partida partida = telaS.partida;
+				partida.setGol_eq(telaS.placarEqCont);
+				partida.setGol_adv(telaS.placarEqAdvCont);
+				PartidaDAO.getInstancia(getActivity()).Editar(telaS.partida, partida);
+				telaS.finish();
 			}
 		});
 		

@@ -543,7 +543,7 @@ public class OnPlayingFragment extends Fragment {
 					Log.i("Passe errado: ", ""+jogadorComBola.getNome());
 					telaS.semBolaS();
 				} else if(pos == 1) {
-					EventoDAO.getInstancia(getActivity()).deletarUltimaCat(7);
+					EventoDAO.getInstancia(getActivity()).deletarUltimaCat();
 					Evento evento = new Evento(8, jogadorComBola.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(evento);
 					Log.i("Recepção errada", jogadorComBola.getNome()+"");

@@ -38,18 +38,18 @@ public class ScoutingCountdown extends CountDownTimerWithPause {
 			tela.contTime = 0;
 			if(!tela.segundoTempo) {
 				tela.segundoTempo = true;
-				tela.onPause();
+				tela.contTime = 0;
+				tela.onPauseTroca();
+				tela.resetCronometroJogo();
 			} else {
 				Toast.makeText(tela, R.string.segundoTempo, Toast.LENGTH_LONG).show();
 				tela.terminarPartida = true;
+				tela.resetCronometroJogo();
 			}
 		} else if(tipoCronos == 2) {
-			//tela.habilitaPlayPause(true);
-			//tela.cronosTempo.setVisibility(View.INVISIBLE);
-			//tela.cronometroTempo.setFinished(true);
-			Toast.makeText(tela, R.string.PlayPauseClick, Toast.LENGTH_LONG).show();
+			
 		} else if(tipoCronos == 3) /*cronosOnTime*/ {
-			tela.onPause();
+			tela.onPauseTroca();
 		}
 	}
 

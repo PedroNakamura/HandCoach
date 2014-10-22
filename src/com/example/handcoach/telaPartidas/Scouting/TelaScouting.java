@@ -62,7 +62,7 @@ public class TelaScouting extends Activity {
 	protected int id_ptda;
 	private long tempoJogo;
 	private long time;
-	private Partida partida = new Partida();
+	protected Partida partida = new Partida();
 	
 	protected int placarEqCont = 0;
 	protected int placarEqAdvCont = 0;
@@ -128,9 +128,7 @@ public class TelaScouting extends Activity {
 		tempoToMillis(tempoJogo);
 		
 		//Cria cronômetros
-		cronometroJogo = new ScoutingCountdown(time, 1000, false, 1, TelaScouting.this);
-		cronometroJogo.setText(cronosJogo);
-		cronometroJogo.create();
+		resetCronometroJogo();
 		
 		//Botões
         btPlayPause.setOnClickListener(new OnClickListener() {
@@ -146,7 +144,7 @@ public class TelaScouting extends Activity {
 					}
 				} else if(cronometroJogo.isRunning()) {
 					habilitaPlayPause(false);
-					onPause();
+					onPauseTroca();
 				}
 			}
 		});
@@ -155,12 +153,12 @@ public class TelaScouting extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				if(contTime <= 2) {
+				if(contTime == 3) {
+					Toast.makeText(TelaScouting.this, R.string.limiteTempo, Toast.LENGTH_LONG).show();
+				} else {
 					contTime++;
 					Toast.makeText(TelaScouting.this, R.string.tempo, Toast.LENGTH_SHORT).show();
 					onTime();
-				} else {
-					Toast.makeText(TelaScouting.this, R.string.limiteTempo, Toast.LENGTH_LONG).show();
 				}
 			}
 		});
@@ -201,6 +199,7 @@ public class TelaScouting extends Activity {
 	//saiu do OnCreate();
 	
 	
+	
 	//Métodos 
 	private void addFragment(Fragment fragment) {
 		FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -225,7 +224,7 @@ public class TelaScouting extends Activity {
 		replaceFragment(new OnTimeFragment());
 	}
 	
-	public void onPause() {
+	public void onPauseTroca() {
 		if(!cronometroJogo.isPaused()) {
 			cronometroJogo.pause();
 		}
@@ -360,5 +359,18 @@ public class TelaScouting extends Activity {
 	private void tempoToMillis(long tempoJogo) {
 		time = tempoJogo * 60000;
 	}
+	
+	public void resetCronometroJogo() {
+		if(!terminarPartida) {
+			cronometroJogo = new ScoutingCountdown(time, 1000, false, 1, TelaScouting.this);
+			cronometroJogo.setText(cronosJogo);
+			cronometroJogo.create();
+		} else {
+			cronosJogo.setText(getResources().getString(R.string.avisoFimFim));
+		}
+	}
 
+	
+
+	
 }
