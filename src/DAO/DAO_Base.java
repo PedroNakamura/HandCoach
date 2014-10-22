@@ -1,6 +1,5 @@
 package DAO;
 
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,7 +11,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ParseException;
-
+import android.util.Log;
 
 public abstract class DAO_Base <T extends EntidadeInterface>{
 	
@@ -41,7 +40,10 @@ public abstract class DAO_Base <T extends EntidadeInterface>{
 	}
 	
 	public void deletarUltimaCat(int id_cat) {
-		db.delete(getNomeTabela(), "id_cat = ? ORDER BY "+getNomeColunaPrimaryKey()+" DESC LIMIT 1", null);
+		int id = getQuery("SELECT * FROM "+getNomeTabela()+" WHERE id_cat = "+id_cat+" ORDER BY "+getNomeColunaPrimaryKey()+" DESC LIMIT 1").get(0).getId();
+		String[] id_valor = {String.valueOf(id)};
+		db.delete(getNomeTabela(), getNomeColunaPrimaryKey()+" = ?", id_valor);
+		Log.i("Deletou!", "");
 	}
 	
 	//

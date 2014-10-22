@@ -33,7 +33,7 @@ public class TelaPreJogo extends Activity {
 	private int id_eqAdv;
 	private int id_eq;
 	private int contador;
-	private int tempo;
+	private long tempo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class TelaPreJogo extends Activity {
 		id_eq = valor.getInt("id_equipe");
 		id_eqAdv = valor.getInt("id_equipeAdv");
 		local = valor.getString("Local");
-		tempo = Integer.parseInt(valor.getString("tempo"));
+		tempo = Long.parseLong(valor.getString("tempo"));
 		
 		listaJogadoresDisponiveis = JogadorDAO.getInstancia(TelaPreJogo.this).buscarDaEquipe(id_eq);
 		Log.i("DEBUG!", "BUSCOU DO BD A LISTA!");
@@ -75,7 +75,7 @@ public class TelaPreJogo extends Activity {
 					listas.putString("Local", local);
 					listas.putInt("id_equipe", id_eq);
 					listas.putInt("id_equipeAdv", id_eqAdv);
-					listas.putInt("tempo", tempo);
+					listas.putLong("tempo", tempo);
 					it = new Intent(TelaPreJogo.this, TelaScouting.class);
 					it.putExtras(listas);
 					startActivity(it);

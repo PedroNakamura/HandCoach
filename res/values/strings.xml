@@ -146,5 +146,7 @@
     
     <!--  Coisas extras -->
     <string name="TempoDeJogo">Tempo da partida (em minutos):</string>
+    <string name="avisoTempoJogo">Por favor, insira um tempo de partida</string>
+    <string name="faltaSofrida">Falta sofrida</string>
 
 </resources>

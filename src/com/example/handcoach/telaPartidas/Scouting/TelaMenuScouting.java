@@ -19,6 +19,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.example.handcoach.R;
 
 public class TelaMenuScouting extends Activity {
@@ -87,18 +89,31 @@ public class TelaMenuScouting extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				valores = new Bundle();
-				valores.putString("tempo", tempoJogo.getText().toString());
-				valores.putString("Local", autoCompleteLocal.getText().toString());
-				valores.putInt("id_equipe", id_eq);
-				valores.putInt("id_equipeAdv", id_eqadv);
-				it = new Intent(TelaMenuScouting.this, TelaPreJogo.class);
-				it.putExtras(valores);
-				startActivity(it);
-				finish();
+				if(!isLong(tempoJogo.getText().toString())) {
+					Toast.makeText(TelaMenuScouting.this, getResources().getString(R.string.avisoTempoJogo), Toast.LENGTH_LONG).show();
+				} else {
+					valores = new Bundle();
+					valores.putString("tempo", tempoJogo.getText().toString());
+					valores.putString("Local", autoCompleteLocal.getText().toString());
+					valores.putInt("id_equipe", id_eq);
+					valores.putInt("id_equipeAdv", id_eqadv);
+					it = new Intent(TelaMenuScouting.this, TelaPreJogo.class);
+					it.putExtras(valores);
+					startActivity(it);
+					finish();
+				}
 			}
 		});
 		
+	}
+	
+	private boolean isLong(String valor) {
+		try {
+            Long.parseLong(valor);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
 	}
 
 }

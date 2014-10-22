@@ -120,5 +120,32 @@
     <string name="initScouting">Clic, cuando iniciar el jogo, en posesión de su equipo!</string>
     <string name="limiteTempo">Solo dos tiempos por período permitidos!</string>
     <string name="segundoTempo">Clic en el play/pause para finalizar el juego!</string>
+     <!--  Botões! OnNonPlaying/OnPlaying -->
+    <string name="btRebote">Repuntar</string>
+    <string name="btFalta">Falta</string>
+    <string name="btRoubada">Bola robada</string>
+    <string name="btGanhoBola">Bola gañada</string>
+    <string name="btCtAmarelo">Tarjeta Amarilla</string>
+    <string name="bt2min">Dos Minutos</string>
+    <string name="btPerdaBola">Perdida de Bola</string>
+    <string name="btArremesso">Tiro a gol</string>
+    <string name="btGolAdv">Golo del oponente</string>
+    
+    <!--  Actions OnNonPlaying/OnPlaying -->
+    <string name="faltatecnica">Falta técnica</string>
+    <string name="falta7m">7 metros</string>
+    <string name="faltadefesa">Falta de defensa</string>
+    <string name="faltaatk">Falta de ataque</string>
+    <string name="gol">Golo!</string>
+    <string name="GK">Arquero defiende</string>
+    <string name="fora">Fora de gol!</string>
+    <string name="defense">En defensa!</string>
+    <string name="passerrado">Pasar errado</string>
+    <string name="rcperrada">Recepción errada</string>
+    
+    <!--  Coisas extras -->
+    <string name="TempoDeJogo">Tiempo del partido (en minutos):</string>
+    <string name="avisoTempoJogo">Por favor, inserte el tiempo del partido</string>
+    
     
 </resources>

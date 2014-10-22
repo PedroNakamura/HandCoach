@@ -60,6 +60,8 @@ public class TelaScouting extends Activity {
 	private int id_eqadv;
 	private String local;
 	protected int id_ptda;
+	private long tempoJogo;
+	private long time;
 	private Partida partida = new Partida();
 	
 	protected int placarEqCont = 0;
@@ -78,6 +80,7 @@ public class TelaScouting extends Activity {
 		id_eq = valores.getInt("id_equipe"); 
 		id_eqadv = valores.getInt("id_equipeAdv");
 		local = valores.getString("Local");
+		tempoJogo = valores.getLong("tempo");
 		
 		idJogadores = ((List<Jogador>) valores.getSerializable("jog_joga"));
 		Log.i("Tamanho IDJogadores", idJogadores.size()+"");
@@ -97,6 +100,8 @@ public class TelaScouting extends Activity {
 		
 		placarEq.setText(""+placarEqCont);
 		placarEqAdv.setText(""+placarEqAdvCont);
+		
+		cronosJogo.setText(tempoJogo+":00");
 		
 		habilitaPlayPause(false);
 		
@@ -120,8 +125,10 @@ public class TelaScouting extends Activity {
 		listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 		listaJogadores.setAdapter(listAdapter);
 		
+		tempoToMillis(tempoJogo);
+		
 		//Cria cronômetros
-		cronometroJogo = new ScoutingCountdown(900000, 1000, false, 1, TelaScouting.this);
+		cronometroJogo = new ScoutingCountdown(time, 1000, false, 1, TelaScouting.this);
 		cronometroJogo.setText(cronosJogo);
 		cronometroJogo.create();
 		
@@ -348,6 +355,10 @@ public class TelaScouting extends Activity {
 		placarEq.setText(placarEqCont+"");
 		placarEq.refreshDrawableState();
 		semBola();
+	}
+	
+	private void tempoToMillis(long tempoJogo) {
+		time = tempoJogo * 60000;
 	}
 
 }

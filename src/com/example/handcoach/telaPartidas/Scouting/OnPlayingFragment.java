@@ -245,9 +245,15 @@ public class OnPlayingFragment extends Fragment {
 		for(Jogador jog : joga) {
 			if(jog.getId() == telaS.jogadorComBola) {
 				jogadorComBola = jog;
+				telaS.jogadorComBola = jogadorComBola.getId();
 			} else {
 				jogadorSemBola.add(jog);
 			}
+		}
+		if(jogadorComBola == null) {
+			jogadorComBola = jogadorSemBola.get(6);
+			jogadorSemBola.remove(6);
+			telaS.jogadorComBola = jogadorComBola.getId();
 		}
 		SB1 = jogadorSemBola.get(0);
 		SB2 = jogadorSemBola.get(1);
@@ -339,6 +345,9 @@ public class OnPlayingFragment extends Fragment {
 		ActionItem ftTec = new ActionItem();
 		ftTec.setTitle(getResources().getString(R.string.faltatecnica));
 		
+		ActionItem sft = new ActionItem();
+		sft.setTitle(getResources().getString(R.string.faltaSofrida));
+		
 		ftQuick.addActionItem(ftAtk);
 		ftQuick.addActionItem(ftTec);
 		
@@ -362,6 +371,10 @@ public class OnPlayingFragment extends Fragment {
 					tipo_evento = 10;
 					jogFtQuick.show(viewzinha);
 					jogFtQuick.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
+				} else if(pos == 2) {
+					Evento evento = new Evento(16, jogadorComBola.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Sofreu falta: ", jogadorComBola.getNome()+"");
 				}
 			}
 		});
