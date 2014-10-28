@@ -375,6 +375,7 @@ public class OnPlayingFragment extends Fragment {
 					Evento evento = new Evento(16, jogadorComBola.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(evento);
 					Log.i("Sofreu falta: ", jogadorComBola.getNome()+"");
+					telaS.onPauseTroca();
 				}
 			}
 		});
@@ -530,6 +531,9 @@ public class OnPlayingFragment extends Fragment {
 		ActionItem rcpErrada = new ActionItem();
 		rcpErrada.setTitle(getResources().getString(R.string.rcperrada));
 		
+		ActionItem desarme = new ActionItem();
+		desarme.setTitle(getResources().getString(R.string.desarme));
+		
 		pbQuick.addActionItem(passeErrado);
 		pbQuick.addActionItem(rcpErrada);
 		
@@ -548,6 +552,11 @@ public class OnPlayingFragment extends Fragment {
 					EventoDAO.getInstancia(getActivity()).Inserir(evento);
 					Log.i("Recepção errada", jogadorComBola.getNome()+"");
 					telaS.semBolaS();
+				} else if(pos == 2) {
+					Evento evento = new Evento(21, jogadorComBola.getId(), id_ptda, 0, 0);
+					EventoDAO.getInstancia(getActivity()).Inserir(evento);
+					Log.i("Perdeu por desarme", jogadorComBola.getNome()+"");
+					telaS.semBolaS();	
 				}
 			}
 		});

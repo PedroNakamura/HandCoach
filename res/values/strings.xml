@@ -124,7 +124,7 @@
     <!--  Botões! OnNonPlaying/OnPlaying -->
     <string name="btRebote">Rebote</string>
     <string name="btFalta">Falta</string>
-    <string name="btRoubada">Roubada de Bola</string>
+    <string name="btRoubada">Desarme</string>
     <string name="btGanhoBola">Ganho de bola</string>
     <string name="btCtAmarelo">Cartão Amarelo</string>
     <string name="bt2min">Dois minutos</string>
@@ -149,5 +149,6 @@
     <string name="avisoTempoJogo">Por favor, insira um tempo de partida</string>
     <string name="faltaSofrida">Falta sofrida</string>
     <string name="avisoFimFim">Pause para terminar</string>
+    <string name="desarme">Desarme</string>
 
 </resources>

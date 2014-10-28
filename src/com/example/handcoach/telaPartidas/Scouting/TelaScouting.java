@@ -33,6 +33,8 @@ public class TelaScouting extends Activity {
 	//http://stackoverflow.com/questions/9741300/charts-for-android
 	//http://developer.android.com/training/basics/fragments/fragment-ui.html
 	
+	//https://github.com/lecho/hellocharts-android
+	
 	protected ScoutingCountdown cronometroJogo;
     private ImageButton btPlayPause;
     private TextView cronosJogo;
@@ -346,14 +348,16 @@ public class TelaScouting extends Activity {
 		placarEqAdvCont++;
 		placarEqAdv.setText(placarEqAdvCont+"");
 		placarEqAdv.refreshDrawableState();
-		comBola();
+		posseBola = true;
+		onPauseTroca();
 	}
 	
 	protected void golEq() {
 		placarEqCont++;
 		placarEq.setText(placarEqCont+"");
 		placarEq.refreshDrawableState();
-		semBola();
+		posseBola = false;
+		onPauseTroca();
 	}
 	
 	private void tempoToMillis(long tempoJogo) {

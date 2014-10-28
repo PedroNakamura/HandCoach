@@ -503,36 +503,43 @@ public class OnNonPlayingFragment extends Fragment {
 					Evento eventoRbt = new Evento(20, jogador0.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(eventoRbt);
 					Log.i("Rebote: ", jogador0.getId()+"");
+					telaS.jogadorComBola = jogador0.getId();
 					telaS.comBolaS();
 				} else if(pos == 1) {
 					Evento eventoRbt = new Evento(20, jogador1.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(eventoRbt);
 					Log.i("Rebote: ", jogador1.getId()+"");
+					telaS.jogadorComBola = jogador1.getId();
 					telaS.comBolaS();
 				} else if(pos == 2) {
 					Evento eventoRbt = new Evento(20, jogador2.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(eventoRbt);
 					Log.i("Rebote: ", jogador2.getId()+"");
+					telaS.jogadorComBola = jogador2.getId();
 					telaS.comBolaS();
 				} else if(pos == 3) {
 					Evento eventoRbt = new Evento(20, jogador3.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(eventoRbt);
 					Log.i("Rebote: ", jogador3.getId()+"");
+					telaS.jogadorComBola = jogador3.getId();
 					telaS.comBolaS();
 				} else if(pos == 4) {
 					Evento eventoRbt = new Evento(20, jogador4.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(eventoRbt);
 					Log.i("Rebote: ", jogador4.getId()+"");
+					telaS.jogadorComBola = jogador4.getId();
 					telaS.comBolaS();
 				} else if(pos == 5) {
 					Evento eventoRbt = new Evento(20, jogador5.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(eventoRbt);
 					Log.i("Rebote: ", jogador5.getId()+"");
+					telaS.jogadorComBola = jogador5.getId();
 					telaS.comBolaS();
 				} else if(pos == 6) {
 					Evento eventoRbt = new Evento(20, jogador6.getId(), id_ptda, 0, 0);
 					EventoDAO.getInstancia(getActivity()).Inserir(eventoRbt);
 					Log.i("Rebote: ", jogador6.getId()+"");
+					telaS.jogadorComBola = jogador6.getId();
 					telaS.comBolaS();
 				}
 			}

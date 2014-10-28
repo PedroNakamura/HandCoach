@@ -40,10 +40,8 @@ public class OnPauseFragment extends Fragment {
 			public void onClick(View v) {
 				if(telaS.posseBola) {
 					telaS.comBola();
-					telaS.cronometroJogo.resume();
 				} else {
 					telaS.semBola();
-					telaS.cronometroJogo.resume();
 				}
 			}
 		});
