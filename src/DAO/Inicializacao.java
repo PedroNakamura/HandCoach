@@ -5,7 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import Entidades.Equipe;
+import Entidades.Evento;
 import Entidades.Jogador;
+import Entidades.Partida;
 import android.content.Context;
 
 public class Inicializacao {
@@ -50,6 +52,133 @@ public class Inicializacao {
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
+			
+			try {
+				Partida partida = new Partida(1, 2, "Puta que o pariu", format.parse("28/03/1234"), "Zeni F.C", "Remor F.C");
+				partida.setGol_eq(14);
+				partida.setGol_adv(12);
+				
+				Partida partida2 = new Partida(1, 2, "Casa do caralho", format.parse("10/05/1999"), "Zeni F.C", "Remor F.C");
+				partida2.setGol_eq(15);
+				partida2.setGol_adv(19);
+				
+				Partida partida3 = new Partida(1, 2, "Casa do caralho", format.parse("10/05/1999"), "Zeni F.C", "Remor F.C");
+				partida3.setGol_eq(10);
+				partida3.setGol_adv(9);
+				
+				PartidaDAO.getInstancia(context).Inserir(partida);
+				PartidaDAO.getInstancia(context).Inserir(partida2);
+				PartidaDAO.getInstancia(context).Inserir(partida3);
+				
+				//categoria, jogador, partida, 0, 0
+				Evento evento = new Evento(1, 3, 1, 0, 0);
+				Evento evento1 = new Evento(1, 3, 1, 0, 0);
+				Evento evento2 = new Evento(1, 3, 1, 0, 0);
+				Evento evento3 = new Evento(1, 2, 1, 0, 0);
+				Evento evento4 = new Evento(1, 3, 2, 0, 0);
+				Evento evento5 = new Evento(1, 5, 2, 0, 0);
+				Evento evento6 = new Evento(1, 6, 2, 0, 0);
+				Evento evento7 = new Evento(1, 4, 2, 0, 0);
+				Evento evento8 = new Evento(1, 2, 2, 0, 0);
+				Evento evento9 = new Evento(1, 2, 2, 0, 0);
+				Evento evento10 = new Evento(1, 1, 3, 0, 0);
+				Evento evento11 = new Evento(1, 3, 3, 0, 0);
+				Evento evento12 = new Evento(1, 2, 3, 0, 0);
+				Evento evento13 = new Evento(1, 7, 3, 0, 0);
+				Evento evento14 = new Evento(5, 3, 1, 0, 0);
+				Evento evento15 = new Evento(5, 3, 1, 0, 0);
+				Evento evento16 = new Evento(5, 3, 1, 0, 0);
+				Evento evento17 = new Evento(5, 3, 1, 0, 0);
+				Evento evento18 = new Evento(5, 3, 1, 0, 0);
+				Evento evento19 = new Evento(5, 3, 1, 0, 0);
+				Evento evento20 = new Evento(5, 3, 2, 0, 0);
+				Evento evento21 = new Evento(5, 3, 2, 0, 0);
+				Evento evento22 = new Evento(5, 3, 2, 0, 0);
+				Evento evento23 = new Evento(5, 3, 2, 0, 0);
+				Evento evento24 = new Evento(5, 3, 3, 0, 0);
+				Evento evento25 = new Evento(5, 3, 3, 0, 0);
+				Evento evento26 = new Evento(5, 3, 3, 0, 0);
+				Evento evento27 = new Evento(5, 3, 3, 0, 0);
+				Evento evento28 = new Evento(5, 3, 3, 0, 0);
+				Evento evento29 = new Evento(6, 3, 1, 0, 0);
+				Evento evento30 = new Evento(6, 3, 1, 0, 0);
+				Evento evento31 = new Evento(6, 3, 1, 0, 0);
+				Evento evento32 = new Evento(6, 3, 1, 0, 0);
+				Evento evento33 = new Evento(6, 3, 1, 0, 0);
+				Evento evento34 = new Evento(6, 3, 2, 0, 0);
+				Evento evento35 = new Evento(6, 3, 2, 0, 0);
+				Evento evento36 = new Evento(6, 3, 2, 0, 0);
+				Evento evento37 = new Evento(6, 3, 2, 0, 0);
+				Evento evento38 = new Evento(6, 3, 2, 0, 0);
+				Evento evento39 = new Evento(6, 3, 2, 0, 0);
+				Evento evento40 = new Evento(6, 3, 3, 0, 0);
+				Evento evento41 = new Evento(6, 3, 3, 0, 0);
+				Evento evento42 = new Evento(6, 3, 3, 0, 0);
+				Evento evento43 = new Evento(6, 3, 3, 0, 0);
+				Evento evento44 = new Evento(14, 3, 1, 0, 0);
+				Evento evento45 = new Evento(14, 3, 1, 0, 0);
+				Evento evento46 = new Evento(14, 3, 1, 0, 0);
+				Evento evento47 = new Evento(14, 3, 1, 0, 0);
+				Evento evento48 = new Evento(15, 3, 1, 0, 0);
+				Evento evento49 = new Evento(15, 3, 1, 0, 0);
+				Evento evento50 = new Evento(13, 3, 1, 0, 0);
+				
+				EventoDAO.getInstancia(context).Inserir(evento);
+				EventoDAO.getInstancia(context).Inserir(evento1);
+				EventoDAO.getInstancia(context).Inserir(evento2);
+				EventoDAO.getInstancia(context).Inserir(evento3);
+				EventoDAO.getInstancia(context).Inserir(evento4);
+				EventoDAO.getInstancia(context).Inserir(evento5);
+				EventoDAO.getInstancia(context).Inserir(evento6);
+				EventoDAO.getInstancia(context).Inserir(evento7);
+				EventoDAO.getInstancia(context).Inserir(evento8);
+				EventoDAO.getInstancia(context).Inserir(evento9);
+				EventoDAO.getInstancia(context).Inserir(evento10);
+				EventoDAO.getInstancia(context).Inserir(evento11);
+				EventoDAO.getInstancia(context).Inserir(evento12);
+				EventoDAO.getInstancia(context).Inserir(evento13);
+				EventoDAO.getInstancia(context).Inserir(evento14);
+				EventoDAO.getInstancia(context).Inserir(evento15);
+				EventoDAO.getInstancia(context).Inserir(evento16);
+				EventoDAO.getInstancia(context).Inserir(evento17);
+				EventoDAO.getInstancia(context).Inserir(evento18);
+				EventoDAO.getInstancia(context).Inserir(evento19);
+				EventoDAO.getInstancia(context).Inserir(evento20);
+				EventoDAO.getInstancia(context).Inserir(evento21);
+				EventoDAO.getInstancia(context).Inserir(evento22);
+				EventoDAO.getInstancia(context).Inserir(evento23);
+				EventoDAO.getInstancia(context).Inserir(evento24);
+				EventoDAO.getInstancia(context).Inserir(evento25);
+				EventoDAO.getInstancia(context).Inserir(evento26);
+				EventoDAO.getInstancia(context).Inserir(evento27);
+				EventoDAO.getInstancia(context).Inserir(evento28);
+				EventoDAO.getInstancia(context).Inserir(evento29);
+				EventoDAO.getInstancia(context).Inserir(evento30);
+				EventoDAO.getInstancia(context).Inserir(evento31);
+				EventoDAO.getInstancia(context).Inserir(evento32);
+				EventoDAO.getInstancia(context).Inserir(evento33);
+				EventoDAO.getInstancia(context).Inserir(evento34);
+				EventoDAO.getInstancia(context).Inserir(evento35);
+				EventoDAO.getInstancia(context).Inserir(evento36);
+				EventoDAO.getInstancia(context).Inserir(evento37);
+				EventoDAO.getInstancia(context).Inserir(evento38);
+				EventoDAO.getInstancia(context).Inserir(evento39);
+				EventoDAO.getInstancia(context).Inserir(evento40);
+				EventoDAO.getInstancia(context).Inserir(evento41);
+				EventoDAO.getInstancia(context).Inserir(evento42);
+				EventoDAO.getInstancia(context).Inserir(evento43);
+				EventoDAO.getInstancia(context).Inserir(evento44);
+				EventoDAO.getInstancia(context).Inserir(evento45);
+				EventoDAO.getInstancia(context).Inserir(evento46);
+				EventoDAO.getInstancia(context).Inserir(evento47);
+				EventoDAO.getInstancia(context).Inserir(evento48);
+				EventoDAO.getInstancia(context).Inserir(evento49);
+				EventoDAO.getInstancia(context).Inserir(evento50);
+				
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 

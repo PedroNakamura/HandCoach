@@ -14,16 +14,20 @@ public class Partida implements EntidadeInterface {
 	private int gol_eq;
 	private int gol_adv;
 	private Date data_ptda;
+	private String nomeEquipe;
+	private String nomeEquipeAdv;
 	
 	public Partida() { }
 	
-	public Partida(int id_eq, int id_eqadv, String local, Date data_ptda) {
+	public Partida(int id_eq, int id_eqadv, String local, Date data_ptda, String nomeEquipe, String nomeEquipeAdv) {
 		this.id_eq = id_eq;
 		this.id_eqadv = id_eqadv;
 		this.local = local;
 		this.gol_eq = 0;
 		this.gol_adv = 0;
 		this.data_ptda = data_ptda;
+		this.nomeEquipe = nomeEquipe;
+		this.nomeEquipeAdv = nomeEquipeAdv;
 	}
 	
 	//Getters and Setters ID da Partida
@@ -53,6 +57,20 @@ public class Partida implements EntidadeInterface {
 	}
 	
 	//Getters and Setters Local
+	public String getNomeEquipe() {
+		return nomeEquipe;
+	}
+	public void setNomeEquipe(String local) {
+		this.nomeEquipe = local;
+	}
+	
+	public String getNomeEquipeAdv() {
+		return nomeEquipeAdv;
+	}
+	public void setNomeEquipeAdv(String local) {
+		this.nomeEquipeAdv = local;
+	}
+	
 	public String getLocal() {
 		return local;
 	}
@@ -109,7 +127,7 @@ public class Partida implements EntidadeInterface {
     }
     
     public String toString() {
-    	return this.local;
+    	return this.nomeEquipe+" "+this.gol_eq+" vs "+this.gol_adv+" "+this.nomeEquipeAdv;
     }
 	
 

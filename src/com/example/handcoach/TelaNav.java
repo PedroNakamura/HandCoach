@@ -1,6 +1,7 @@
 package com.example.handcoach;
 
 import com.example.handcoach.telaPartidas.TelaPartidas;
+import com.example.handcoach.telaStats.TelaEscolhaEquipes;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -56,12 +57,8 @@ public class TelaNav extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				AlertDialog.Builder alerta = new AlertDialog.Builder(TelaNav.this);
-				alerta.setIcon(R.drawable.ic_launcher);
-				alerta.setTitle(R.string.tituloAlertaEstatisticas);
-				alerta.setMessage(R.string.msgAlertaTreino);
-				alerta.setNeutralButton(R.string.btAlertatreino, null);
-				alerta.show();
+				Intent it = new Intent(TelaNav.this, TelaEscolhaEquipes.class);
+				startActivity(it);
 				
 			}
 		});

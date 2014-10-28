@@ -1,9 +1,7 @@
-package com.example.handcoach.telaPartidas.jogadores;
+package com.example.handcoach.telaStats;
 
 import java.util.List;
-
 import util.LazyAdapterEq;
-
 import com.example.handcoach.R;
 import DAO.EquipeDAO;
 import Entidades.Equipe;
@@ -15,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class TelaMenuEquipes extends Activity {
+public class TelaEscolhaEquipes extends Activity {
 	
 	private ListView lista;
 	private List<Equipe> listaEquipes;
@@ -24,11 +22,11 @@ public class TelaMenuEquipes extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.tela_menu_jogadores);
+		setContentView(R.layout.tela_escolha_equipes_stats);
 		
-		lista = (ListView) findViewById(R.id.listaEquipesJogadores);
-	
-        listaEquipes = EquipeDAO.getInstancia(TelaMenuEquipes.this).buscarTodos();
+		lista = (ListView) findViewById(R.id.listaEquipesJogadoresStats);
+		
+        listaEquipes = EquipeDAO.getInstancia(TelaEscolhaEquipes.this).buscarTodos();
 		adp = new LazyAdapterEq(this, listaEquipes);
 		lista.setAdapter(adp);
 		
@@ -36,9 +34,9 @@ public class TelaMenuEquipes extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Intent it = new Intent(TelaMenuEquipes.this, TelaMenuJog.class);
+				Intent it = new Intent(TelaEscolhaEquipes.this, TelaStatsEquipe.class);
 				Equipe equipeSelecionada = (Equipe) adp.getItem(position);
-				it.putExtra("Equipe", equipeSelecionada.getId());
+				it.putExtra("eq", equipeSelecionada.getId());
 				startActivity(it);
 			}
 		});

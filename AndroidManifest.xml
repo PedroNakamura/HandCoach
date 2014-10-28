@@ -99,12 +99,6 @@
         </activity>
         
         <activity 
-            android:name=".telaStats.TelaStats"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait">  
-        </activity>
-        
-        <activity 
             android:name=".telaPartidas.equipes.TelaMenuEq"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">
@@ -138,6 +132,31 @@
             android:name=".telaPartidas.Scouting.TelaPreJogo"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="landscape">
+        </activity>
+        
+        <activity 
+            android:name=".telaStats.TelaEscolhaEquipes"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        
+        <activity 
+            android:name=".telaStats.TelaStatsEquipe"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaStats.TelaStatsDasEquipes"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaStats.TelaStatsDosJogadores"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
         </activity>
         
     </application>

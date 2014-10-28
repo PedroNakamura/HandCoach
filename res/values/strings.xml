@@ -150,5 +150,11 @@
     <string name="faltaSofrida">Falta sofrida</string>
     <string name="avisoFimFim">Pause para terminar</string>
     <string name="desarme">Desarme</string>
+    
+    <!--  Estatísticas -->
+    <string name="ultimasPartidas">últimas partidas</string>
+    <string name="verStatsJogadores">ver as estatísticas dos jogadores</string>
+    <string name="verStatsEquipes">ver as estatísticas da equipe</string>
+    <string name="relacaoGols">Gols feitos/Gols sofridos</string>
 
 </resources>

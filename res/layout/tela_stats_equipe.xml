@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView199"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tv_tituloEquipeStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle"
+            android:text="Nome da Equipe" />
+
+        <TextView
+            android:id="@+id/tv_ultimasPartidas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple_clone"
+            android:text="@string/ultimasPartidas" />
+
+        <ListView
+            android:id="@+id/lv_ultimasPartidasStats"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" >
+        </ListView>
+
+        <TextView
+            android:id="@+id/textView1312321312"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tv_verStatsJogadores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple_clone"
+            android:text="@string/verStatsJogadores" />
+
+        <ImageButton
+            android:id="@+id/btstatsjog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/btstatsjog" />
+
+        <TextView
+            android:id="@+id/textView000312"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tv_verStatsEquipes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple_clone"
+            android:text="@string/verStatsEquipes" />
+
+        <ImageButton
+            android:id="@+id/btstatseq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/btstatseq" />
+
+        <TextView
+            android:id="@+id/tesadasdaw1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/golsFeitos_golsSofridos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple"
+            android:text="@string/relacaoGols" />
+        
+        <lecho.lib.hellocharts.view.PieChartView
+            android:id="@+id/ChartRelacaoGols"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</ScrollView>

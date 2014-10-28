@@ -9,6 +9,8 @@ import java.util.List;
 import util.ExpandableListAdapter;
 import util.ScoutingCountdown;
 import com.example.handcoach.R;
+
+import DAO.EquipeDAO;
 import DAO.PartidaDAO;
 import Entidades.Partida;
 import Entidades.Jogador;
@@ -56,6 +58,8 @@ public class TelaScouting extends Activity {
     public boolean segundoTempo = false;
     public boolean terminarPartida = false;
  
+    private String nomeEquipe;
+    private String nomeEquipeAdv;
     private Bundle valores;
     private Intent it;
     private int id_eq;
@@ -92,6 +96,9 @@ public class TelaScouting extends Activity {
 			jogadores.add(jogador);
 		}
 		
+		nomeEquipe = EquipeDAO.getInstancia(this).buscarPorID(id_eq).getNome();
+		nomeEquipeAdv = EquipeDAO.getInstancia(this).buscarPorID(id_eqadv).getNome();
+		
 		//Instancia layout e botões
 		placarEq = (TextView) findViewById(R.id.placar_Eq);
 		placarEqAdv = (TextView) findViewById(R.id.placar_EqAdv);
@@ -115,6 +122,8 @@ public class TelaScouting extends Activity {
 			partida.setGol_eq(0);
 			partida.setGol_adv(0);
 			partida.setData(PartidaDAO.getInstancia(context).stringToDate(getDataHoje()));
+			partida.setNomeEquipe(nomeEquipe);
+			partida.setNomeEquipeAdv(nomeEquipeAdv);
 			PartidaDAO.getInstancia(this).Inserir(partida);
 		} catch (ParseException e) {
 			e.printStackTrace();
