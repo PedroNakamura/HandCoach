@@ -23,12 +23,12 @@ import android.widget.Toast;
 
 public class TelaMenuJog extends Activity {
 	
-    List<Jogador> listaJogadores;
-	LazyAdapter adp;
-	Intent it;
-	Bundle valor;
-	int id_eq;
-	ListView listaJog;
+    private List<Jogador> listaJogadores;
+    private LazyAdapter adp;
+    private Intent it;
+    private Bundle valor;
+    private int id_eq;
+    private ListView listaJog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

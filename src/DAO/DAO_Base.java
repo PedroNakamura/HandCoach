@@ -72,34 +72,20 @@ public abstract class DAO_Base <T extends EntidadeInterface> {
 		return valor;
 	}
 	
-	public int retornaGols(int id_eq) {
-		Cursor c = db.rawQuery("SELECT gol_eq FROM "+getNomeTabela()+" WHERE id_eq="+id_eq, null);
+	public int retornaGolsEq(int id_eq) {
+		Cursor c = db.rawQuery("SELECT SUM(gol_eq) AS gols FROM "+getNomeTabela()+" WHERE id_eq="+id_eq, null);
 		int contador = 0;
-		int cont = 0;
-		int var = 0;
-		List<Integer> listaRetorno = new ArrayList<Integer>();
 		if(c.moveToFirst()) {
-			do {
-				var = listaRetorno.get(cont);
-				contador = var + contador;
-				cont++;
-			} while(c.moveToNext());
+			contador = c.getInt(c.getColumnIndex("gols"));
 		}
 		return contador;
 	}
 	
-	public int retornaGolsAdv(int id_eq) {
-		Cursor c = db.rawQuery("SELECT gol_eqadv FROM "+getNomeTabela()+" WHERE id_eq="+id_eq, null);
+	public int retornaGolsEqAdv(int id_eq) {
+		Cursor c = db.rawQuery("SELECT SUM(gol_adv) AS gols FROM "+getNomeTabela()+" WHERE id_eq="+id_eq, null);
 		int contador = 0;
-		int cont = 0;
-		int var = 0;
-		List<Integer> listaRetorno = new ArrayList<Integer>();
 		if(c.moveToFirst()) {
-			do {
-				var = listaRetorno.get(cont);
-				contador = var + contador;
-				cont++;
-			} while(c.moveToNext());
+			contador = c.getInt(c.getColumnIndex("gols"));
 		}
 		return contador;
 	}

@@ -1,12 +1,100 @@
 package com.example.handcoach.telaStats;
 
+import java.util.ArrayList;
+import java.util.List;
+import util.LazyAdapter;
+import com.example.handcoach.R;
+import com.example.handcoach.telaPartidas.Scouting.quickAction.ActionItem;
+import com.example.handcoach.telaPartidas.Scouting.quickAction.QuickAction;
+import com.example.handcoach.telaPartidas.Scouting.quickAction.QuickAction.OnActionItemClickListener;
+import DAO.JogadorDAO;
+import Entidades.Jogador;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 public class TelaStatsDosJogadores extends Activity { 
 	
+	private Intent it;
+	private Bundle valor;
+	private int id;
+	private Intent itt;
+	
+	private List<Jogador> listaJogadores = new ArrayList<Jogador>();
+	private LazyAdapter adp;
+	private ListView listaJog;
+	
+	private QuickAction quickStats = new QuickAction(TelaStatsDosJogadores.this);
+	private ActionItem arremessos = new ActionItem();
+	private ActionItem passes = new ActionItem();
+	private ActionItem recepcoes = new ActionItem();
+	private ActionItem faltas = new ActionItem();
+	private ActionItem soffaltas = new ActionItem();
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.tela_stats_dosjogadores);
+		
+		itt = new Intent(TelaStatsDosJogadores.this, PieChartJogador.class);
+		it = getIntent();
+		valor = it.getExtras();
+		id = (Integer) valor.get("eq");
+		
+		listaJog = (ListView) findViewById(R.id.listViewJogadoresStats);
+		
+		listaJogadores = JogadorDAO.getInstancia(TelaStatsDosJogadores.this).buscarDaEquipe(id);
+		adp = new LazyAdapter(this, listaJogadores);
+		listaJog.setAdapter(adp);
+		
+		listaJog.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+				
+				final int posit = position;
+				
+				arremessos.setTitle(getResources().getString(R.string.arremessos));
+				passes.setTitle(getResources().getString(R.string.passes));
+				recepcoes.setTitle(getResources().getString(R.string.recepcoes));
+				faltas.setTitle(getResources().getString(R.string.faltas));
+				soffaltas.setTitle(getResources().getString(R.string.soffaltas));
+				
+				quickStats.addActionItem(arremessos);
+				
+				quickStats.setOnActionItemClickListener(new OnActionItemClickListener() {
+					
+					@Override
+					public void onItemClick(int pos) {
+						if(pos == 0) {
+							itt.putExtra("stats", 1);
+							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+							startActivity(itt);
+						} else if(pos == 1) {
+							itt.putExtra("stats", 2);
+							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+							startActivity(itt);
+						} else if(pos == 2) {
+							itt.putExtra("stats", 3);
+							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+							startActivity(itt);
+						} else if(pos == 3) {
+							itt.putExtra("stats", 4);
+							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+							startActivity(itt);
+						} else if(pos == 4) {
+							itt.putExtra("stats", 5);
+							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+							startActivity(itt);
+						}
+					}
+				});
+			}
+		});
+		
 	}
 
 }

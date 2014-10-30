@@ -156,5 +156,12 @@
     <string name="verStatsJogadores">ver as estatísticas dos jogadores</string>
     <string name="verStatsEquipes">ver as estatísticas da equipe</string>
     <string name="relacaoGols">Gols feitos/Gols sofridos</string>
+    
+    <!--  Stats -->
+    <string name="arremessos">Arremessos</string>
+    <string name="passes">Passes</string>
+    <string name="recepcoes">Recepções</string>
+    <string name="faltas">Faltas</string>
+    <string name="soffaltas">Faltas sofridas</string>
 
 </resources>
