@@ -27,8 +27,9 @@ public class TelaStatsDosJogadores extends Activity {
 	private List<Jogador> listaJogadores = new ArrayList<Jogador>();
 	private LazyAdapter adp;
 	private ListView listaJog;
+	private int posit;
 	
-	private QuickAction quickStats = new QuickAction(TelaStatsDosJogadores.this);
+	private QuickAction quickStats;
 	private ActionItem arremessos = new ActionItem();
 	private ActionItem passes = new ActionItem();
 	private ActionItem recepcoes = new ActionItem();
@@ -38,6 +39,8 @@ public class TelaStatsDosJogadores extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_stats_dosjogadores);
+		
+		quickStats = new QuickAction(TelaStatsDosJogadores.this);
 		
 		itt = new Intent(TelaStatsDosJogadores.this, PieChartJogador.class);
 		it = getIntent();
@@ -55,43 +58,56 @@ public class TelaStatsDosJogadores extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
 				
-				final int posit = position;
+				posit = position;
+				createQuick();
 				
-				arremessos.setTitle(getResources().getString(R.string.arremessos));
-				passes.setTitle(getResources().getString(R.string.passes));
-				recepcoes.setTitle(getResources().getString(R.string.recepcoes));
-				faltas.setTitle(getResources().getString(R.string.faltas));
-				soffaltas.setTitle(getResources().getString(R.string.soffaltas));
+				quickStats.show(v);
+				quickStats.setAnimStyle(QuickAction.ANIM_GROW_FROM_CENTER);
 				
-				quickStats.addActionItem(arremessos);
-				
-				quickStats.setOnActionItemClickListener(new OnActionItemClickListener() {
-					
-					@Override
-					public void onItemClick(int pos) {
-						if(pos == 0) {
-							itt.putExtra("stats", 1);
-							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
-							startActivity(itt);
-						} else if(pos == 1) {
-							itt.putExtra("stats", 2);
-							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
-							startActivity(itt);
-						} else if(pos == 2) {
-							itt.putExtra("stats", 3);
-							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
-							startActivity(itt);
-						} else if(pos == 3) {
-							itt.putExtra("stats", 4);
-							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
-							startActivity(itt);
-						} else if(pos == 4) {
-							itt.putExtra("stats", 5);
-							itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
-							startActivity(itt);
-						}
-					}
-				});
+			}
+		});
+		
+	}
+	
+	private void createQuick() {
+		
+		arremessos.setTitle(getResources().getString(R.string.arremessos));
+		passes.setTitle(getResources().getString(R.string.passes));
+		recepcoes.setTitle(getResources().getString(R.string.recepcoes));
+		faltas.setTitle(getResources().getString(R.string.faltas));
+		soffaltas.setTitle(getResources().getString(R.string.soffaltas));
+		
+		quickStats.addActionItem(arremessos);
+		quickStats.addActionItem(passes);
+		quickStats.addActionItem(recepcoes);
+		quickStats.addActionItem(faltas);
+		quickStats.addActionItem(soffaltas);
+		
+		quickStats.setOnActionItemClickListener(new OnActionItemClickListener() {
+			
+			@Override
+			public void onItemClick(int pos) {
+				if(pos == 0) {
+					itt.putExtra("stats", 1);
+					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+					startActivity(itt);
+				} else if(pos == 1) {
+					itt.putExtra("stats", 2);
+					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+					startActivity(itt);
+				} else if(pos == 2) {
+					itt.putExtra("stats", 3);
+					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+					startActivity(itt);
+				} else if(pos == 3) {
+					itt.putExtra("stats", 4);
+					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+					startActivity(itt);
+				} else if(pos == 4) {
+					itt.putExtra("stats", 5);
+					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
+					startActivity(itt);
+				}
 			}
 		});
 		

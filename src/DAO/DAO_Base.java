@@ -63,6 +63,17 @@ public abstract class DAO_Base <T extends EntidadeInterface> {
 		return listaRetorno;
 	}
 	
+	public int retornaContadorQuery(String query) {
+		List<T> lista = getQuery(query);
+		int contador = 0;
+		if(lista != null) {
+			for(int x = 0; x < lista.size(); x++) {
+				contador++;
+			}
+		}
+		return contador;
+	}
+	
 	public int simpleGetQuery(String query) {
 		int valor = 1;
 		Cursor c = db.rawQuery(query, null);
