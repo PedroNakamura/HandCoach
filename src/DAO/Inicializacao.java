@@ -80,7 +80,13 @@ public class Inicializacao {
 				Evento evento6 = new Evento(1, 6, 2, 0, 0);
 				Evento evento7 = new Evento(1, 4, 2, 0, 0);
 				Evento evento8 = new Evento(1, 2, 2, 0, 0);
-				Evento evento9 = new Evento(1, 2, 2, 0, 0);
+				Evento evento9 = new Evento(2, 2, 2, 0, 0);
+				Evento evento99 = new Evento(2, 2, 2, 0, 0);
+				Evento evento999 = new Evento(2, 2, 2, 0, 0);
+				Evento evento9999 = new Evento(2, 2, 2, 0, 0);
+				Evento evento99999 = new Evento(3, 2, 2, 0, 0);
+				Evento evento999999 = new Evento(3, 2, 2, 0, 0);
+				Evento evento9999999 = new Evento(4, 2, 2, 0, 0);
 				Evento evento10 = new Evento(1, 1, 3, 0, 0);
 				Evento evento11 = new Evento(1, 3, 3, 0, 0);
 				Evento evento12 = new Evento(1, 2, 3, 0, 0);
@@ -174,6 +180,12 @@ public class Inicializacao {
 				EventoDAO.getInstancia(context).Inserir(evento48);
 				EventoDAO.getInstancia(context).Inserir(evento49);
 				EventoDAO.getInstancia(context).Inserir(evento50);
+				EventoDAO.getInstancia(context).Inserir(evento99);
+				EventoDAO.getInstancia(context).Inserir(evento999);
+				EventoDAO.getInstancia(context).Inserir(evento9999);
+				EventoDAO.getInstancia(context).Inserir(evento99999);
+				EventoDAO.getInstancia(context).Inserir(evento999999);
+				EventoDAO.getInstancia(context).Inserir(evento9999999);
 				
 			} catch (ParseException e) {
 				e.printStackTrace();

@@ -163,5 +163,9 @@
     <string name="recepcoes">Recepções</string>
     <string name="faltas">Faltas</string>
     <string name="soffaltas">Faltas sofridas</string>
+    <string name="artilheiro">Artilheiro</string>
+    <string name="melhorpassador">Melhor passador</string>
+    <string name="maisfaltoso">Mais faltoso</string>
+    <string name="maisrecep">Melhor receptor</string>
 
 </resources>

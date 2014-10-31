@@ -1,8 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="#F7F7F7" >
     
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F7F7" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/TextView18"
+            style="@style/StringTelaSobreStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/artilheiro" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/fotoArtilheiro"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/descrArtilheiro"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="string" />
+
+                <TextView
+                    android:id="@+id/numArtilheiro"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20" />
+
+                <TextView
+                    android:id="@+id/TextView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textVazio" />
+
+                <TextView
+                    android:id="@+id/nomeArtilheiro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="nome" />
+
+                <TextView
+                    android:id="@+id/TextView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textVazio" />
+
+                <TextView
+                    android:id="@+id/infoArtilheiro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="alguma info" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/TextView10"
+            style="@style/StringTelaSobreStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/melhorpassador" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/fotoMelhorPassador"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/descrMelhorPassador"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="string" />
+
+                <TextView
+                    android:id="@+id/numMelhorPassador"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15" />
+
+                <TextView
+                    android:id="@+id/TextView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:text="@string/textVazio"/>
+
+                <TextView
+                    android:id="@+id/nomeMelhorPassador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="nome" />
+
+                <TextView
+                    android:id="@+id/TextView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textVazio" />
+
+                <TextView
+                    android:id="@+id/infoMelhorPassador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="info" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            style="@style/StringTelaSobreStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/maisfaltoso" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/fotoMaisFaltoso"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/descrMaisFaltoso"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="string" />
+
+                <TextView
+                    android:id="@+id/numMaisFaltoso"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15" />
+
+                <TextView
+                    android:id="@+id/TextView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:text="@string/textVazio"/>
+
+                <TextView
+                    android:id="@+id/nomeMaisFaltoso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="nome" />
+
+                <TextView
+                    android:id="@+id/TextView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textVazio" />
+
+                <TextView
+                    android:id="@+id/infoMaisFaltoso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="info" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" >
+
+        <TextView
+            android:id="@+id/textView1123132131231231224141"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+
+        <TextView
+            android:id="@+id/tituloRecep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle"
+            android:text="@string/maisrecep" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/fotoMaisRecep"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/descrMaisRecep"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="string" />
+
+                <TextView
+                    android:id="@+id/numMaisRecep"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15" />
+
+                <TextView
+                    android:id="@+id/TextView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:text="@string/textVazio"/>
+
+                <TextView
+                    android:id="@+id/nomeMaisRecep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="nome" />
+
+                <TextView
+                    android:id="@+id/TextView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textVazio" />
+
+                <TextView
+                    android:id="@+id/infoMaisRecep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StringTelaSobreStyle_simple_clone"
+                    android:text="info" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
+
+</ScrollView>

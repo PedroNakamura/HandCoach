@@ -15,4 +15,13 @@
         android:layout_height="match_parent" >
     </lecho.lib.hellocharts.view.PieChartView>
 
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        style="@style/StringTelaSobreStyle_simple_clone" 
+        android:text=""/>
+
 </RelativeLayout>

@@ -74,6 +74,15 @@ public abstract class DAO_Base <T extends EntidadeInterface> {
 		return contador;
 	}
 	
+	public int retornaId(String query) {
+		int valor = 0;
+		Cursor c = db.rawQuery(query, null);
+		if(c.moveToFirst()) {
+			valor = c.getInt(c.getColumnIndex("id_jog"));
+		}
+		return valor;
+	}
+	
 	public int simpleGetQuery(String query) {
 		int valor = 1;
 		Cursor c = db.rawQuery(query, null);
