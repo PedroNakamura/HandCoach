@@ -8,12 +8,14 @@ import lecho.lib.hellocharts.util.Utils;
 import lecho.lib.hellocharts.view.PieChartView;
 import lecho.lib.hellocharts.view.PieChartView.PieChartOnValueTouchListener;
 import DAO.EventoDAO;
+import DAO.JogadorDAO;
+import Entidades.Jogador;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-//import android.widget.TextView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.handcoach.R;
 
@@ -22,10 +24,11 @@ public class PlaceholderFragment extends Fragment {
 	private PieChartJogador context;
 	private int tipo_stats;
 	private int jogador_id;
+	private Jogador jogador;
 
 	private PieChartView chart;
 	private PieChartData data;
-	//private TextView titulo;
+	private TextView titulo;
 
 	private boolean hasLabels = true;
 	private boolean hasLabelsOutside = false;
@@ -50,7 +53,11 @@ public class PlaceholderFragment extends Fragment {
 
 		chart = (PieChartView) rootView.findViewById(R.id.chart);
 		chart.setOnValueTouchListener(new ValueTouchListener());
-		//titulo = (TextView) rootView.findViewById(R.id.titulo);
+		titulo = (TextView) rootView.findViewById(R.id.nomeJogadorStats);
+		
+		jogador = JogadorDAO.getInstancia(context).buscarPorID(jogador_id);
+		
+		titulo.setText(jogador.getNome());
 
 		generateData();
 

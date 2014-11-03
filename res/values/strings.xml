@@ -168,4 +168,7 @@
     <string name="maisfaltoso">Mais faltoso</string>
     <string name="maisrecep">Melhor receptor</string>
 
+    <!--  avisos Stats -->
+    <string name="avisoPartida">Jogar ao menos uma partida para preencher estatísticas</string>
+    
 </resources>

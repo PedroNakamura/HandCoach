@@ -117,7 +117,11 @@ public class Jogador implements EntidadeInterface, Serializable {
 
 	//Getters and Setters Foto 
 	public Bitmap getFoto() {
-		return foto;
+		if(this.foto != null) {
+			return this.foto;
+		} else {
+			return null;
+		}
 	}
 	public void setFoto(Bitmap foto) {
 		this.foto = foto;

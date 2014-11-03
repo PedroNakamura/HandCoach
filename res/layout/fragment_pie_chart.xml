@@ -16,12 +16,12 @@
     </lecho.lib.hellocharts.view.PieChartView>
 
     <TextView
-        android:id="@+id/titulo"
+        android:id="@+id/nomeJogadorStats"
+        style="@style/StringTelaSobreStyle_simple_clone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        style="@style/StringTelaSobreStyle_simple_clone" 
-        android:text=""/>
+        android:layout_alignLeft="@+id/chart"
+        android:layout_alignTop="@+id/chart"
+        android:text="Nome" />
 
 </RelativeLayout>

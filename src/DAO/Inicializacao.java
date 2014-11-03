@@ -71,6 +71,7 @@ public class Inicializacao {
 				PartidaDAO.getInstancia(context).Inserir(partida3);
 				
 				//categoria, jogador, partida, 0, 0
+				Evento eventinho = new Evento(7, 5, 2, 0, 0);
 				Evento evento = new Evento(1, 3, 1, 0, 0);
 				Evento evento1 = new Evento(1, 3, 1, 0, 0);
 				Evento evento2 = new Evento(1, 3, 1, 0, 0);
@@ -129,6 +130,7 @@ public class Inicializacao {
 				Evento evento49 = new Evento(15, 3, 1, 0, 0);
 				Evento evento50 = new Evento(13, 3, 1, 0, 0);
 				
+				EventoDAO.getInstancia(context).Inserir(eventinho);
 				EventoDAO.getInstancia(context).Inserir(evento);
 				EventoDAO.getInstancia(context).Inserir(evento1);
 				EventoDAO.getInstancia(context).Inserir(evento2);

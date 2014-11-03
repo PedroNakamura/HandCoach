@@ -74,9 +74,9 @@ public abstract class DAO_Base <T extends EntidadeInterface> {
 		return contador;
 	}
 	
-	public int retornaId(String query) {
+	public int retornaJogMaiorIncidencia(int id) {
 		int valor = 0;
-		Cursor c = db.rawQuery(query, null);
+		Cursor c = db.rawQuery("SELECT id_jog FROM evento WHERE id_cat = "+id+" group by id_jog order by COUNT(id_eve) DESC LIMIT 1;", null);
 		if(c.moveToFirst()) {
 			valor = c.getInt(c.getColumnIndex("id_jog"));
 		}
