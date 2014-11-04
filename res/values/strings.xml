@@ -137,10 +137,10 @@
     <string name="falta7m">7 metros</string>
     <string name="faltadefesa">Falta de defesa</string>
     <string name="faltaatk">Falta de ataque</string>
-    <string name="gol">Gol!</string>
+    <string name="gol">Gol</string>
     <string name="GK">Goleiro defendeu</string>
-    <string name="fora">Pra fora!</string>
-    <string name="defense">Na defesa!</string>
+    <string name="fora">Pra fora</string>
+    <string name="defense">Na defesa</string>
     <string name="passerrado">Passe errado</string>
     <string name="rcperrada">Recepção errada</string>
     
@@ -170,5 +170,12 @@
 
     <!--  avisos Stats -->
     <string name="avisoPartida">Jogar ao menos uma partida para preencher estatísticas</string>
+    <string name="verStatsData">Ver a evolução dos jogadores</string>
+    <string name="passecerto">Passe certo</string>
+    <string name="rcpcerta">Recepção certa</string>
+    <string name="sofreatk">Sofreu falta no ataque</string>
+    <string name="sofredef">Sofreu falta na defesa</string>
+    
+    <string name="compararJogadores">ver comparações entre jogadores</string>
     
 </resources>

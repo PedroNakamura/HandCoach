@@ -146,6 +146,33 @@
     <!--  Coisas extras -->
     <string name="TempoDeJogo">Time of the match (in minutes):</string>
     <string name="avisoTempoJogo">Please, insert the time of the match</string>
+    <string name="faltaSofrida">Suffered fault</string>
+    <string name="avisoFimFim">Pause to finish</string>
+    <string name="desarme">Disarm</string>
     
+    <!--  Estatísticas -->
+    <string name="ultimasPartidas">Last matches</string>
+    <string name="verStatsJogadores">See player stats</string>
+    <string name="verStatsEquipes">See team stats</string>
+    <string name="relacaoGols">Made goals/Suffered goals</string>
+    
+    <!--  Stats -->
+    <string name="arremessos">Throws</string>
+    <string name="passes">Passes</string>
+    <string name="recepcoes">Receptions</string>
+    <string name="faltas">Faults</string>
+    <string name="soffaltas">Suffered faults</string>
+    <string name="artilheiro">Best thrower to goal</string>
+    <string name="melhorpassador">Best passer</string>
+    <string name="maisfaltoso">Biggest fault maker</string>
+    <string name="maisrecep">Best receptor</string>
+
+    <!--  avisos Stats -->
+    <string name="avisoPartida">Play, at least, one match to release stats</string>
+    <string name="verStatsData">See players evolution</string>
+    <string name="passecerto">Right pass</string>
+    <string name="rcpcerta">Right reception</string>
+    <string name="sofreatk">Suffered fault on attack</string>
+    <string name="sofredef">Suffered fault on defense</string>
     
 </resources>

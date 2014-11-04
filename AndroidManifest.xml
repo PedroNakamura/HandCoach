@@ -142,7 +142,7 @@
         
         
         <activity 
-            android:name=".telaStats.TelaStatsEquipe"
+            android:name=".telaStats.TelaStatsEquipeMenu"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">
         </activity>
@@ -161,6 +161,24 @@
         
         <activity 
             android:name=".telaStats.PieChartJogador"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaStats.TelaStatsSelecaoJog"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".telaStats.TelaComparacao"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity
+            android:name=".telaStats.TelaSelectJogadoresComp"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">
         </activity>

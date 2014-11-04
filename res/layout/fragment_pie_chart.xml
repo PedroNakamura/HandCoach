@@ -9,12 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="lecho.lib.hellocharts.samples.PieChartActivity$PlaceholderFragment" >
 
-    <lecho.lib.hellocharts.view.PieChartView
-        android:id="@+id/chart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </lecho.lib.hellocharts.view.PieChartView>
-
     <TextView
         android:id="@+id/nomeJogadorStats"
         style="@style/StringTelaSobreStyle_simple_clone"
@@ -23,5 +17,89 @@
         android:layout_alignLeft="@+id/chart"
         android:layout_alignTop="@+id/chart"
         android:text="Nome" />
+
+    <lecho.lib.hellocharts.view.PieChartView
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textCampo2"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_alignTop="@+id/textCampo2"
+        android:src="@drawable/amarelo" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textCampo3"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignTop="@+id/textCampo3"
+        android:src="@drawable/verde" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textCampo4"
+        android:layout_alignLeft="@+id/imageView3"
+        android:layout_alignRight="@+id/imageView3"
+        android:layout_alignTop="@+id/textCampo4"
+        android:src="@drawable/vermelho" />
+
+    <TextView
+        android:id="@+id/textCampo2"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/chart"
+        android:layout_below="@+id/imageView1"
+        android:text="campo2" />
+
+    <TextView
+        android:id="@+id/textCampo3"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/chart"
+        android:layout_below="@+id/textCampo2"
+        android:text="campo3" />
+
+    <TextView
+        android:id="@+id/textCampo4"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/chart"
+        android:layout_below="@+id/textCampo3"
+        android:text="campo4" />
+
+    <TextView
+        android:id="@+id/textCampo1"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/chart"
+        android:layout_alignLeft="@+id/chart"
+        android:layout_marginBottom="107dp"
+        android:text="campo1" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textCampo1"
+        android:layout_alignTop="@+id/textCampo1"
+        android:layout_marginLeft="88dp"
+        android:layout_toRightOf="@+id/textCampo2"
+        android:src="@drawable/violeta" />
 
 </RelativeLayout>

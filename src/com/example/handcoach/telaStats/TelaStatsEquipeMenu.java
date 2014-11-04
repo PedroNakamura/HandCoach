@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class TelaStatsEquipe extends Activity {
+public class TelaStatsEquipeMenu extends Activity {
 	
 	private Intent it;
 	private int id;
@@ -38,6 +38,8 @@ public class TelaStatsEquipe extends Activity {
 		ListView ultimasPartidas = (ListView) findViewById(R.id.lv_ultimasPartidasStats);
 		ImageButton btStatsJogadores = (ImageButton) findViewById(R.id.btstatsjog);
 		ImageButton btStatsEq = (ImageButton) findViewById(R.id.btstatseq);
+		ImageButton btStatsData = (ImageButton) findViewById(R.id.btstatsdata);
+		ImageButton btComp = (ImageButton) findViewById(R.id.btstatscomp);
 		
 		id = (Integer) valor.get("eq");
 		
@@ -51,7 +53,7 @@ public class TelaStatsEquipe extends Activity {
 		btStatsJogadores.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View arg0) {
-				itt = new Intent(TelaStatsEquipe.this, TelaStatsDosJogadores.class);
+				itt = new Intent(TelaStatsEquipeMenu.this, TelaStatsDosJogadores.class);
 				itt.putExtra("eq", id);
 			    startActivity(itt);
 			}
@@ -60,7 +62,27 @@ public class TelaStatsEquipe extends Activity {
 		btStatsEq.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				itt = new Intent(TelaStatsEquipe.this, TelaStatsDasEquipes.class);
+				itt = new Intent(TelaStatsEquipeMenu.this, TelaStatsDasEquipes.class);
+				itt.putExtra("eq", id);
+				startActivity(itt);
+			}
+		});
+		
+		btStatsData.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				itt = new Intent(TelaStatsEquipeMenu.this, TelaStatsSelecaoJog.class);
+				itt.putExtra("eq", id);
+				startActivity(itt);
+			}
+		});
+		
+		btComp.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				itt = new Intent(TelaStatsEquipeMenu.this, TelaSelectJogadoresComp.class);
 				itt.putExtra("eq", id);
 				startActivity(itt);
 			}

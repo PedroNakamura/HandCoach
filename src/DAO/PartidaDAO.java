@@ -18,6 +18,8 @@ public class PartidaDAO extends DAO_Base<Partida> {
 	public static final String COLUNA_DTPTDA = "dt_ptda";
 	public static final String COLUNA_GOLEQ = "gol_eq";
 	public static final String COLUNA_GOLADV = "gol_adv";
+	public static final String COLUNA_NOMEEQUIPE = "nome_equipe";
+	public static final String COLUNA_NOMEEQUIPEADV = "nome_equipeadv";
 	
 	public static final String CREATE_TABLE = "CREATE TABLE "+NOME_TABELA+" ("
 	                                                         +COLUNA_ID+" INTEGER NOT NULL PRIMARY KEY, "
@@ -25,6 +27,8 @@ public class PartidaDAO extends DAO_Base<Partida> {
 	                                                         +COLUNA_IDEQADV+" INTEGER NOT NULL, "
 	                                                         +COLUNA_DTPTDA+" DATE, "
 	                                                         +COLUNA_LOCAL+" TEXT, "
+	                                                         +COLUNA_NOMEEQUIPE+" TEXT, "
+	                                                         +COLUNA_NOMEEQUIPEADV+" TEXT, "
 	                                                         +COLUNA_GOLEQ+" INTEGER NOT NULL, "
 	                                                         +COLUNA_GOLADV+" INTEGER NOT NULL, "
 	                                                         +"FOREIGN KEY("+COLUNA_IDEQUIPE+") "+"REFERENCES "+TABELA_EQUIPE+"("+COLUNA_IDEQUIPE+"), "
@@ -68,6 +72,8 @@ public class PartidaDAO extends DAO_Base<Partida> {
 		cv.put(COLUNA_DTPTDA, entidade.dateToString());
 		cv.put(COLUNA_GOLEQ, entidade.getGol_eq());
 		cv.put(COLUNA_GOLADV, entidade.getGol_adv());
+		cv.put(COLUNA_NOMEEQUIPE, entidade.getNomeEquipe());
+		cv.put(COLUNA_NOMEEQUIPEADV, entidade.getNomeEquipeAdv());
 		return cv;
 	}
 
@@ -88,6 +94,9 @@ public class PartidaDAO extends DAO_Base<Partida> {
 		
 	    partida.setGol_eq(contentValues.getAsInteger(COLUNA_GOLEQ));
 		partida.setGol_adv(contentValues.getAsInteger(COLUNA_GOLADV));
+		
+		partida.setNomeEquipe(contentValues.getAsString(COLUNA_NOMEEQUIPE));
+		partida.setNomeEquipeAdv(contentValues.getAsString(COLUNA_NOMEEQUIPEADV));
 	    
 		return partida;
 	}

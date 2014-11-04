@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 	
 	private static final String NOME_BASE = "HandCoach_DB";
-	private static final int VERSAO_BASE = 11;
+	private static final int VERSAO_BASE = 20;
 	private static DbHelper instancia;
 
 	private DbHelper(Context context) {

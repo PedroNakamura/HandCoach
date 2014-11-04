@@ -82,6 +82,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textVazio" />
+        
+        <TextView
+            android:id="@+id/tv_verStatsData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple_clone"
+            android:text="@string/verStatsData" />
+
+        <ImageButton
+            android:id="@+id/btstatsdata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/btstatsdata" />
+        
+        <TextView
+            android:id="@+id/tesadasdawfwfw1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+        
+        <TextView
+            android:id="@+id/tv_verStatsComp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StringTelaSobreStyle_simple_clone"
+            android:text="@string/compararJogadores" />
+
+        <ImageButton
+            android:id="@+id/btstatscomp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/btcomparison" />
+        
+        <TextView
+            android:id="@+id/dawfwfw1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
+        
+        <TextView
+            android:id="@+id/dawfwfw1124124124"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textVazio" />
 
     </LinearLayout>
 

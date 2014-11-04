@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="textVazio"></string>
     
+    <string name="textVazio"></string>
+
     <string name="app_name">HandCoach</string>
     <string name="action_settings">Settings</string>
     
@@ -38,7 +38,7 @@
     <string name="tituloAlertaSobre">Sobre o aplicativo:</string>
     <string name="msgAlertaSobre">Deseja acessar um link com maiores informações sobre HandCoach?</string>
     <string name="btSimAlertaSobre">Sim</string>
-    <string name="btNaoAlertaSobre">Não</string>    
+    <string name="btNaoAlertaSobre">Não</string>
     
     <!-- TelaPartidas -->
     <string name="telaPartidasTitulo">Partidas</string>
@@ -47,27 +47,28 @@
     <string name="btMenuCadastroJogadores">Gerir Jogadores</string>
     <string name="btMenuTorneios">Competições</string>
     <string name="tituloAlertaTorneios">Competições</string>
-    <string name="EquipeAdicionada">Equipe adicionada!</string>
     
-        <!-- CadastroEquipesAdv -->
+    <!-- MenuEquipes e EquipesAdv -->
+    <string name="TituloEscolhaTipoEquipe">Escolha o tipo de equipe:</string>
+    <string name="EquipeEquipe">Suas equipes</string>
+    <string name="EquipeAdv">Adversários</string>
+    
+    <!-- CadastroEquipesAdv -->
     <string name="TituloTelaCadastroEqAdv">Equipes Adversárias</string>
     <string name="EquipeAdvAdicionada">Equipe adversária adicionada!</string>
-
+    
     <!-- CadastroEquipes -->
     <string name="TituloTelaCadastroEq">Cadastro Equipes</string>
+    <string name="TituloTelaEditarEq">Editar Equipe</string>
     <string name="CadastroEqNome">Nome da Equipe:</string>
     <string name="btCadastrar">Cadastrar!</string>
     <string name="CadastroEqLista">Equipes:</string>
+    <string name="EquipeAdicionada">Equipe adicionada!</string>
     <string name="btAtualizar">Atualizar</string>
     <string name="btDeletar">Deletar</string>
     <string name="alertaAtualizado">Atualizado!</string>
     <string name="alertaDeletado">Deletado!</string>
     <string name="cadastrarEquipes">Nova equipe</string>
-    
-        <!-- MenuEquipes e EquipesAdv -->
-    <string name="TituloEscolhaTipoEquipe">Escolha o tipo de equipe:</string>
-    <string name="EquipeEquipe">Suas equipes</string>
-    <string name="EquipeAdv">Adversários</string>
     
     <!-- Aviso Cadastro Jog -->
     <string name="CadastroEscolhaEq">Escolha uma equipe:</string>
@@ -78,8 +79,8 @@
     <string name="TituloTelaCadastroJog">Cadastro Jogador</string>
     <string name="TituloListaJogadores">Jogadores da Equipe</string>
     <string name="btNovoJogador">Novo Jogador</string>
-    <string name="JogadorEdit">Editar Jogadores</string>
     <string name="JogadorPosicao">Posição</string>
+    <string name="JogadorEdit">Editar Jogadores</string>
     <string name="JogadorEditNome">Nome:</string>
     <string name="JogadorEditSexo">Sexo:</string>
     <string name="JogadorEditFoto">Foto:</string>
@@ -92,7 +93,7 @@
     <string name="ErroCadastroData">Há um erro na data! Utilize o padrão dd/mm/aaaa</string>
     <string name="ErroCadastroAltura">Há um erro na altura! Digite apenas números e em centímetros</string>
     
-        <!-- MenuScouting -->
+    <!-- MenuScouting -->
     <string name="TituloMenuScouting">Pré-Jogo</string>
     <string name="tv_suaequipe_ms">Sua equipe:</string>
     <string name="tv_adv_ms">Adversário:</string>
@@ -100,11 +101,11 @@
     <string name="btiniciarpartida">Iniciar partida!</string>
     <string name="autoCompleteLocal">Local da partida</string>
     
-        <!-- Pré Jogo -->
+    <!-- Pré Jogo -->
     <string name="btTacaLePauNessaPartida">Começar partida!</string>
     <string name="titulares">Titulares</string>
     <string name="reservas">Reservas</string>
-    <string name="avisoTitInsuf">Por favor escolha 7 titulares</string>
+    <string name="avisoTitInsuf">Por favor, escolha 7 titulares</string>
     
     <!-- Avisos variados -->
     <string name="stringSelecionado">Marcado!</string>
@@ -123,7 +124,7 @@
     <!--  Botões! OnNonPlaying/OnPlaying -->
     <string name="btRebote">Rebote</string>
     <string name="btFalta">Falta</string>
-    <string name="btRoubada">Roubada de Bola</string>
+    <string name="btRoubada">Desarme</string>
     <string name="btGanhoBola">Ganho de bola</string>
     <string name="btCtAmarelo">Cartão Amarelo</string>
     <string name="bt2min">Dois minutos</string>
@@ -136,15 +137,43 @@
     <string name="falta7m">7 metros</string>
     <string name="faltadefesa">Falta de defesa</string>
     <string name="faltaatk">Falta de ataque</string>
-    <string name="gol">Gol!</string>
+    <string name="gol">Gol</string>
     <string name="GK">Goleiro defendeu</string>
-    <string name="fora">Pra fora!</string>
-    <string name="defense">Na defesa!</string>
+    <string name="fora">Pra fora</string>
+    <string name="defense">Na defesa</string>
     <string name="passerrado">Passe errado</string>
     <string name="rcperrada">Recepção errada</string>
     
     <!--  Coisas extras -->
     <string name="TempoDeJogo">Tempo da partida (em minutos):</string>
     <string name="avisoTempoJogo">Por favor, insira um tempo de partida</string>
+    <string name="faltaSofrida">Falta sofrida</string>
+    <string name="avisoFimFim">Pause para terminar</string>
+    <string name="desarme">Desarme</string>
+    
+    <!--  Estatísticas -->
+    <string name="ultimasPartidas">últimas partidas</string>
+    <string name="verStatsJogadores">ver as estatísticas dos jogadores</string>
+    <string name="verStatsEquipes">ver as estatísticas da equipe</string>
+    <string name="relacaoGols">Gols feitos/Gols sofridos</string>
+    
+    <!--  Stats -->
+    <string name="arremessos">Arremessos</string>
+    <string name="passes">Passes</string>
+    <string name="recepcoes">Recepções</string>
+    <string name="faltas">Faltas</string>
+    <string name="soffaltas">Faltas sofridas</string>
+    <string name="artilheiro">Artilheiro</string>
+    <string name="melhorpassador">Melhor passador</string>
+    <string name="maisfaltoso">Mais faltoso</string>
+    <string name="maisrecep">Melhor receptor</string>
+
+    <!--  avisos Stats -->
+    <string name="avisoPartida">Jogar ao menos uma partida para preencher estatísticas</string>
+    <string name="verStatsData">Ver a evolução dos jogadores</string>
+    <string name="passecerto">Passe certo</string>
+    <string name="rcpcerta">Recepção certa</string>
+    <string name="sofreatk">Sofreu falta no ataque</string>
+    <string name="sofredef">Sofreu falta na defesa</string>
     
 </resources>

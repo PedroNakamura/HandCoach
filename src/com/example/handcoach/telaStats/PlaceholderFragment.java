@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.handcoach.R;
@@ -29,6 +30,16 @@ public class PlaceholderFragment extends Fragment {
 	private PieChartView chart;
 	private PieChartData data;
 	private TextView titulo;
+	
+	private ImageView corvermelho;
+	private ImageView coramarelo;
+	private ImageView corverde;
+	private ImageView corvioleta;
+	
+	private TextView campo1;
+	private TextView campo2;
+	private TextView campo3;
+	private TextView campo4;
 
 	private boolean hasLabels = true;
 	private boolean hasLabelsOutside = false;
@@ -54,6 +65,25 @@ public class PlaceholderFragment extends Fragment {
 		chart = (PieChartView) rootView.findViewById(R.id.chart);
 		chart.setOnValueTouchListener(new ValueTouchListener());
 		titulo = (TextView) rootView.findViewById(R.id.nomeJogadorStats);
+		
+		corvermelho = (ImageView) rootView.findViewById(R.id.imageView4);
+		coramarelo = (ImageView) rootView.findViewById(R.id.imageView2);
+		corverde = (ImageView) rootView.findViewById(R.id.imageView3);
+		corvioleta = (ImageView) rootView.findViewById(R.id.imageView1);
+		
+		campo1 = (TextView) rootView.findViewById(R.id.textCampo1);
+		campo2 = (TextView) rootView.findViewById(R.id.textCampo2);
+		campo3 = (TextView) rootView.findViewById(R.id.textCampo3);
+		campo4 = (TextView) rootView.findViewById(R.id.textCampo4);
+		
+		corvermelho.setVisibility(View.INVISIBLE);
+		coramarelo.setVisibility(View.INVISIBLE);
+		corverde.setVisibility(View.INVISIBLE);
+		corvioleta.setVisibility(View.INVISIBLE);
+		campo1.setVisibility(View.INVISIBLE);
+		campo2.setVisibility(View.INVISIBLE);
+		campo3.setVisibility(View.INVISIBLE);
+		campo4.setVisibility(View.INVISIBLE);
 		
 		jogador = JogadorDAO.getInstancia(context).buscarPorID(jogador_id);
 		
@@ -82,18 +112,30 @@ public class PlaceholderFragment extends Fragment {
 			
 			if(gols > 0) {
 				ArcValue gol = new ArcValue(gols, Utils.COLOR_RED);
+				campo4.setText(getResources().getString(R.string.gol));
+				campo4.setVisibility(View.VISIBLE);
+				corvermelho.setVisibility(View.VISIBLE);
 				values.add(gol);
 			}
 			if(defesas > 0) {
 				ArcValue defesa = new ArcValue(defesas, Utils.COLOR_VIOLET);
+				campo1.setText(getResources().getString(R.string.defense));
+				campo1.setVisibility(View.VISIBLE);
+				corvioleta.setVisibility(View.VISIBLE);
 				values.add(defesa);
 			}
 			if(foras > 0) {
 				ArcValue fora = new ArcValue(foras, Utils.COLOR_GREEN);
+				campo3.setText(getResources().getString(R.string.fora));
+				campo3.setVisibility(View.VISIBLE);
+				corverde.setVisibility(View.VISIBLE);
 				values.add(fora);
 			}
 			if(gks > 0) {
 				ArcValue gk = new ArcValue(gks, Utils.COLOR_ORANGE);
+				campo2.setText(getResources().getString(R.string.GK));
+				campo2.setVisibility(View.VISIBLE);
+				coramarelo.setVisibility(View.VISIBLE);
 				values.add(gk);
 			}
 
@@ -121,11 +163,17 @@ public class PlaceholderFragment extends Fragment {
 			pss_errado = EventoDAO.getInstancia(context).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 6 AND id_jog="+jogador_id);
 			
 			if(pss_certo > 0) {
-				ArcValue pss_c = new ArcValue(pss_certo, Utils.COLOR_BLUE);
+				ArcValue pss_c = new ArcValue(pss_certo, Utils.COLOR_RED);
+				campo4.setText(getResources().getString(R.string.passecerto));
+				campo4.setVisibility(View.VISIBLE);
+				corvermelho.setVisibility(View.VISIBLE);
 				values.add(pss_c);
 			}
 			if(pss_errado > 0) {
 				ArcValue pss_e = new ArcValue(pss_errado, Utils.COLOR_GREEN);
+				campo3.setText(getResources().getString(R.string.passerrado));
+				campo3.setVisibility(View.VISIBLE);
+				corverde.setVisibility(View.VISIBLE);
 				values.add(pss_e);
 			}
 			
@@ -158,18 +206,30 @@ public class PlaceholderFragment extends Fragment {
 			
 			if(rcp_certa > 0) {
 				ArcValue rcp_c = new ArcValue(rcp_certa, Utils.COLOR_VIOLET);
+				campo1.setText(getResources().getString(R.string.rcpcerta));
+				campo1.setVisibility(View.VISIBLE);
+				corvioleta.setVisibility(View.VISIBLE);
 				values.add(rcp_c);
 			}
 			if(rcp_errada > 0) {
 				ArcValue rcp_e = new ArcValue(rcp_errada, Utils.COLOR_GREEN);
+				campo3.setText(getResources().getString(R.string.rcperrada));
+				campo3.setVisibility(View.VISIBLE);
+				corverde.setVisibility(View.VISIBLE);
 				values.add(rcp_e);
 			}
 			if(rcp_rbdbola > 0) {
 				ArcValue rcp_rbd = new ArcValue(rcp_rbdbola, Utils.COLOR_RED);
+				campo4.setText(getResources().getString(R.string.desarme));
+				campo4.setVisibility(View.VISIBLE);
+				corvermelho.setVisibility(View.VISIBLE);
 				values.add(rcp_rbd);
 			}
 			if(rbt > 0) {
 				ArcValue rbtt = new ArcValue(rbt, Utils.COLOR_ORANGE);
+				campo2.setText(getResources().getString(R.string.btRebote));
+				campo2.setVisibility(View.VISIBLE);
+				coramarelo.setVisibility(View.VISIBLE);
 				values.add(rbtt);
 			}
 			
@@ -202,18 +262,30 @@ public class PlaceholderFragment extends Fragment {
 			
 			if(ft_tecnica > 0) {
 				ArcValue ft_tec = new ArcValue(ft_tecnica, Utils.COLOR_VIOLET);
+				campo1.setText(getResources().getString(R.string.faltatecnica));
+				campo1.setVisibility(View.VISIBLE);
+				corvioleta.setVisibility(View.VISIBLE);
 				values.add(ft_tec);
 			}
 			if(ft_defesa > 0) {
 				ArcValue ft_def = new ArcValue(ft_defesa, Utils.COLOR_GREEN);
+				campo3.setText(getResources().getString(R.string.faltadefesa));
+				campo3.setVisibility(View.VISIBLE);
+				corverde.setVisibility(View.VISIBLE);
 				values.add(ft_def);
 			}
 			if(ft_ataque > 0) {
 				ArcValue ft_atk = new ArcValue(ft_ataque, Utils.COLOR_RED);
+				campo4.setText(getResources().getString(R.string.faltaatk));
+				campo4.setVisibility(View.VISIBLE);
+				corvermelho.setVisibility(View.VISIBLE);
 				values.add(ft_atk);
 			}
 			if(ft_7m > 0) {
 				ArcValue ft_7 = new ArcValue(ft_7m, Utils.COLOR_ORANGE);
+				campo2.setText(getResources().getString(R.string.falta7m));
+				campo2.setVisibility(View.VISIBLE);
+				coramarelo.setVisibility(View.VISIBLE);
 				values.add(ft_7);
 			}
 			
@@ -242,10 +314,16 @@ public class PlaceholderFragment extends Fragment {
 			
 			if(sft_atk > 0) {
 				ArcValue sof_at = new ArcValue(sft_atk, Utils.COLOR_RED);
+				campo4.setText(getResources().getString(R.string.sofreatk));
+				campo4.setVisibility(View.VISIBLE);
+				corvermelho.setVisibility(View.VISIBLE);
 				values.add(sof_at);
 			}
 			if(sft_def > 0) {
 				ArcValue sof_def = new ArcValue(sft_def, Utils.COLOR_ORANGE);
+				campo2.setText(getResources().getString(R.string.sofredef));
+				campo2.setVisibility(View.VISIBLE);
+				coramarelo.setVisibility(View.VISIBLE);
 				values.add(sof_def);
 			}
 			

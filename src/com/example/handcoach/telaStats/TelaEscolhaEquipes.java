@@ -43,7 +43,7 @@ public class TelaEscolhaEquipes extends Activity {
 
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-					Intent it = new Intent(TelaEscolhaEquipes.this, TelaStatsEquipe.class);
+					Intent it = new Intent(TelaEscolhaEquipes.this, TelaStatsEquipeMenu.class);
 					Equipe equipeSelecionada = (Equipe) adp.getItem(position);
 					it.putExtra("eq", equipeSelecionada.getId());
 					startActivity(it);
