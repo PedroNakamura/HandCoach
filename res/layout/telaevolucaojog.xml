@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.handcoach.telaStats.TelaEvolucaoJog" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <lecho.lib.hellocharts.view.ColumnChartView
+            android:id="@+id/comboLineChart"
+            android:layout_width="wrap_content"
+            android:layout_height="575dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/nomeDoMalandro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LinearLayout1"
+        android:layout_centerHorizontal="true"
+        style="@style/StringTelaSobreStyle_simple"
+        android:text="Nome" />
+
+    <TextView
+        android:id="@+id/campoVioleta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/campoVermelho"
+        android:layout_below="@+id/campoVermelho"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="@string/defense" />
+
+    <TextView
+        android:id="@+id/campoVerde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/campoVioleta"
+        android:layout_below="@+id/campoVioleta"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="@string/fora" />
+
+    <TextView
+        android:id="@+id/campoVermelho"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/nomeDoMalandro"
+        android:layout_marginLeft="77dp"
+        android:text="@string/gol" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/campoVioleta"
+        android:layout_below="@+id/nomeDoMalandro"
+        android:layout_toLeftOf="@+id/campoVioleta"
+        android:src="@drawable/vermelho" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/campoVerde"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_alignTop="@+id/campoVioleta"
+        android:src="@drawable/violeta" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/campoLaranja"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignTop="@+id/campoVerde"
+        android:src="@drawable/verde" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/campoLaranja"
+        android:layout_alignLeft="@+id/imageView3"
+        android:layout_alignRight="@+id/imageView3"
+        android:layout_alignTop="@+id/campoLaranja"
+        android:src="@drawable/amarelo" />
+
+    <TextView
+        android:id="@+id/campoLaranja"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campoVerde"
+        android:layout_toRightOf="@+id/imageView4"
+        android:text="@string/GK" />
+
+</RelativeLayout>

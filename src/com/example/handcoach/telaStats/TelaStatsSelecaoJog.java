@@ -89,22 +89,27 @@ public class TelaStatsSelecaoJog extends Activity {
 			public void onItemClick(int pos) {
 				if(pos == 0) {
 					itt.putExtra("stats", 1);
+					itt.putExtra("eq", id);
 					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
 					startActivity(itt);
 				} else if(pos == 1) {
 					itt.putExtra("stats", 2);
+					itt.putExtra("eq", id);
 					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
 					startActivity(itt);
 				} else if(pos == 2) {
 					itt.putExtra("stats", 3);
+					itt.putExtra("eq", id);
 					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
 					startActivity(itt);
 				} else if(pos == 3) {
 					itt.putExtra("stats", 4);
+					itt.putExtra("eq", id);
 					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
 					startActivity(itt);
 				} else if(pos == 4) {
 					itt.putExtra("stats", 5);
+					itt.putExtra("eq", id);
 					itt.putExtra("jog", ((Jogador) adp.getItem(posit)).getId());
 					startActivity(itt);
 				}

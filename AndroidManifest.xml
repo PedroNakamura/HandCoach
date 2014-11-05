@@ -183,6 +183,12 @@
             android:screenOrientation="portrait">
         </activity>
         
+        <activity 
+            android:name=".telaStats.TelaEvolucaoJog"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+        
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import Entidades.EntidadeInterface;
+import Entidades.Partida;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -108,6 +109,17 @@ public abstract class DAO_Base <T extends EntidadeInterface> {
 			contador = c.getInt(c.getColumnIndex("gols"));
 		}
 		return contador;
+	}
+	
+	public List<Integer> retornaQuatroUltimas(int id_eq) {
+		String query = "SELECT * FROM "+getNomeTabela()+" WHERE id_eq="+id_eq+" ORDER BY "+getNomeColunaPrimaryKey()+" DESC LIMIT 4";
+		@SuppressWarnings("unchecked")
+		List<Partida> listaObj = ((List<Partida>) getQuery(query));
+		List<Integer> lista = new ArrayList<Integer>();
+		for(int x = 0; x < listaObj.size(); x++) {
+			lista.add(listaObj.get(x).getId());
+		}
+		return lista;
 	}
 	
 	//
