@@ -177,5 +177,7 @@
     <string name="sofredef">Sofreu falta na defesa</string>
     
     <string name="compararJogadores">ver comparações entre jogadores</string>
+    <string name="comparar">Comparar!</string>
+    <string name="avisoComparacao">Favor escolher jogadores para comparação!</string>
     
 </resources>

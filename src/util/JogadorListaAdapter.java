@@ -6,7 +6,6 @@ import java.util.ArrayList;
 //http://www.guj.com.br/4372-listview-multiselecionavel-com-checkbox-selecionar-varios-itens-de-uma-listview
 
 import java.util.List;
-
 import Entidades.Jogador;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -21,7 +20,6 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.example.handcoach.R;
 
 public class JogadorListaAdapter extends BaseAdapter {
@@ -97,13 +95,11 @@ public class JogadorListaAdapter extends BaseAdapter {
 				Jogador j = (Jogador) v.getTag();
 				j.setMarcado(check.isChecked());
 				if(check.isChecked()) {
-					Toast.makeText(act, R.string.stringSelecionado, Toast.LENGTH_SHORT).show();
 					if(!idSelecionados.contains(new Integer(j.getId()))) {
 						Log.i("DEBUG!!!", "======== "+"I:"+j.getId()+"T:"+idSelecionados.size()+" ========");
 						idSelecionados.add(new Integer(j.getId()));
 					}
-				} else {
-					Toast.makeText(act, R.string.stringDesSelecionado, Toast.LENGTH_SHORT).show();					
+				} else {				
 					if(idSelecionados.contains(new Integer(j.getId()))) {
 						Log.i("DEBUG!!!", "======== "+"I:"+j.getId()+"T:"+idSelecionados.size()+" ========");
 						idSelecionados.remove(new Integer(j.getId()));

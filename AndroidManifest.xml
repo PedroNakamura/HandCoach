@@ -173,7 +173,6 @@
         
         <activity 
             android:name=".telaStats.TelaComparacao"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">
         </activity>
         
