@@ -48,7 +48,7 @@ public class TelaSelectJogadoresComp extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if(listaAdp.getSelecionados().size() < 0) {
+				if(listaAdp.getSelecionados().size() != 0) {
 					outraTela = new Intent(TelaSelectJogadoresComp.this, TelaComparacao.class);
 					outraTela.putIntegerArrayListExtra("lista", (ArrayList<Integer>) listaAdp.getSelecionados());
 					startActivity(outraTela);

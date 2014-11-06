@@ -13,7 +13,6 @@
     <uses-permission 
         android:name="android.permission.CAMERA"
         android:required="true"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -173,6 +172,7 @@
         
         <activity 
             android:name=".telaStats.TelaComparacao"
+            android:theme="@android:style/Theme.WithActionBar"
             android:screenOrientation="portrait">
         </activity>
         
