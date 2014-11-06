@@ -54,7 +54,7 @@ public class OnPauseFragment extends Fragment {
 				partida.setGol_eq(telaS.placarEqCont);
 				partida.setGol_adv(telaS.placarEqAdvCont);
 				PartidaDAO.getInstancia(getActivity()).Editar(telaS.partida, partida);
-				telaS.finish();
+				telaS.terminar();
 			}
 		});
 		

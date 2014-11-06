@@ -383,7 +383,9 @@ public class TelaScouting extends Activity {
 		}
 	}
 
-	
+	public void terminar() {
+		finish();
+	}
 
 	
 }
