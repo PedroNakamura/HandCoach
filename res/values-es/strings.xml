@@ -175,5 +175,12 @@
     <string name="sofreatk">Sufrir falta en ataque</string>
     <string name="sofredef">Sufrir falta en defensa</string>
     
+    <string name="compararJogadores">ver las comparaciones entre jugadores</string>
+    <string name="comparar">Comparar!</string>
+    <string name="avisoComparacao">Por favor, elegir jugadores para la comparación</string>
+    <string name="terminarPartida">Partido acabado!</string>
+        
+    <string name="deixarPartida">Dejar partido</string>
+    <string name="deixarPartidaConf">Quiere dejar el partido y borrarlo?</string>
     
 </resources>

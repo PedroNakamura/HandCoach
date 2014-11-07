@@ -39,6 +39,11 @@ public abstract class DAO_Base <T extends EntidadeInterface> {
 		db.delete(getNomeTabela(), getNomeColunaPrimaryKey() + " = ?", valores);
 	}
 	
+	public void DeletarTodos(int id_ptda) {
+		String query = "DELETE * FROM "+getNomeTabela()+" WHERE id_ptda = "+id_ptda;
+		db.execSQL(query);
+	}
+	
 	public void deletarUltimaCat() {
 		Deletar(buscarMaiorID());
 	}

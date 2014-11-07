@@ -9,15 +9,17 @@ import java.util.List;
 import util.ExpandableListAdapter;
 import util.ScoutingCountdown;
 import com.example.handcoach.R;
-
 import DAO.EquipeDAO;
+import DAO.EventoDAO;
 import DAO.PartidaDAO;
 import Entidades.Partida;
 import Entidades.Jogador;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,7 +36,6 @@ public class TelaScouting extends Activity {
 	
 	//http://stackoverflow.com/questions/9741300/charts-for-android
 	//http://developer.android.com/training/basics/fragments/fragment-ui.html
-	
 	//https://github.com/lecho/hellocharts-android
 	
 	protected ScoutingCountdown cronometroJogo;
@@ -79,7 +80,7 @@ public class TelaScouting extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_scouting);
 		addFragment(new FragmentInitScout());
-		
+
 		//Get Intent, etc;
 		it = getIntent();
 		valores = it.getExtras();
@@ -185,10 +186,12 @@ public class TelaScouting extends Activity {
 				listDataHeader.get(groupPosition).setReserva(true);
 				refreshLista();
 				listaJogadores.setAdapter(new ExpandableListAdapter(TelaScouting.this, listDataHeader, listDataChild));
-				if(!posseBola) {
-					replaceFragment(new OnNonPlayingFragment());
-				} else {
-					replaceFragment(new OnPlayingFragment());
+				if(cronometroJogo.isRunning()) {
+					if(!posseBola) {
+						semBola();
+					} else {
+						comBola();
+					}
 				}
 				return false;
 			}
@@ -386,6 +389,35 @@ public class TelaScouting extends Activity {
 	public void terminar() {
 		finish();
 	}
+	
+	@Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        backButtonHandler();
+        return;
+    }
 
+	public void backButtonHandler() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(TelaScouting.this);
+        
+        alertDialog.setTitle(getResources().getString(R.string.deixarPartida));
+        alertDialog.setMessage(getResources().getString(R.string.deixarPartidaConf));
+        alertDialog.setIcon(R.drawable.ic_launcher);
+        // Setting Positive "Yes" Button
+        alertDialog.setPositiveButton(getResources().getString(R.string.btSimAlertaSobre), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    	PartidaDAO.getInstancia(TelaScouting.this).Deletar(partida);
+                    	EventoDAO.getInstancia(TelaScouting.this).DeletarTodos(id_ptda);
+                        finish();
+                    }
+                });
+        // Setting Negative "NO" Button
+        alertDialog.setNegativeButton(getResources().getString(R.string.btNaoAlertaSobre), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        alertDialog.show();
+    }
 	
 }
