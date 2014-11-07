@@ -40,7 +40,7 @@ public abstract class DAO_Base <T extends EntidadeInterface> {
 	}
 	
 	public void DeletarTodos(int id_ptda) {
-		String query = "DELETE * FROM "+getNomeTabela()+" WHERE id_ptda = "+id_ptda;
+		String query = "DELETE FROM "+getNomeTabela()+" WHERE id_ptda = "+id_ptda;
 		db.execSQL(query);
 	}
 	

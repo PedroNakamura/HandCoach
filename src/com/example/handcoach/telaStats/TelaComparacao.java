@@ -2,9 +2,6 @@ package com.example.handcoach.telaStats;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.handcoach.R;
-import DAO.JogadorDAO;
-import Entidades.Jogador;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
@@ -14,12 +11,14 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
+import com.example.handcoach.R;
+
 public class TelaComparacao extends FragmentActivity implements ActionBar.TabListener  {
 	
 	private Intent it;
 	private Bundle bdt;
-	private List<Jogador> listaJog = new ArrayList<Jogador>();
-	private List<Integer> lista = new ArrayList<Integer>();
+	protected List<Integer> lista = new ArrayList<Integer>();
+	protected int id_eq;
 	
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
@@ -33,11 +32,7 @@ public class TelaComparacao extends FragmentActivity implements ActionBar.TabLis
 		it = getIntent();
 		bdt = it.getExtras();
 		lista = bdt.getIntegerArrayList("lista");
-		
-		for(Integer id : lista) {
-			Jogador jog = JogadorDAO.getInstancia(TelaComparacao.this).buscarPorID(id);
-			listaJog.add(jog);
-		}
+		id_eq = bdt.getInt("eq");
 
 		// Initilization
 		viewPager = (ViewPager) findViewById(R.id.pager);
@@ -50,6 +45,7 @@ public class TelaComparacao extends FragmentActivity implements ActionBar.TabLis
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setDisplayShowHomeEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setStackedBackgroundDrawable(getResources().getDrawable(R.drawable.fundo_tab));
 
 		actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.arremessos)).setTabListener(this));
 		actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.passes)).setTabListener(this));

@@ -408,6 +408,7 @@ public class TelaScouting extends Activity {
                     public void onClick(DialogInterface dialog, int which) {
                     	PartidaDAO.getInstancia(TelaScouting.this).Deletar(partida);
                     	EventoDAO.getInstancia(TelaScouting.this).DeletarTodos(id_ptda);
+                    	cronometroJogo.cancel();
                         finish();
                     }
                 });

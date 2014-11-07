@@ -48,9 +48,10 @@ public class TelaSelectJogadoresComp extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if(listaAdp.getSelecionados().size() != 0) {
+				if(listaAdp.getSelecionados().size() != 0 || listaAdp.getSelecionados().size() <= 5) {
 					outraTela = new Intent(TelaSelectJogadoresComp.this, TelaComparacao.class);
 					outraTela.putIntegerArrayListExtra("lista", (ArrayList<Integer>) listaAdp.getSelecionados());
+					outraTela.putExtra("eq", id);
 					startActivity(outraTela);
 				} else {
 					Toast.makeText(TelaSelectJogadoresComp.this, R.string.avisoComparacao, Toast.LENGTH_LONG).show();

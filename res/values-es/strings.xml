@@ -177,7 +177,7 @@
     
     <string name="compararJogadores">ver las comparaciones entre jugadores</string>
     <string name="comparar">Comparar!</string>
-    <string name="avisoComparacao">Por favor, elegir jugadores para la comparación</string>
+    <string name="avisoComparacao">Por favor, elegir 2 jugadores ou no maximo cinco para la comparación</string>
     <string name="terminarPartida">Partido acabado!</string>
         
     <string name="deixarPartida">Dejar partido</string>

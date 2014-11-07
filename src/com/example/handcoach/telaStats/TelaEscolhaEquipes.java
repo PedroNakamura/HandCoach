@@ -26,7 +26,7 @@ public class TelaEscolhaEquipes extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_escolha_equipes_stats);
 	    
-		if(PartidaDAO.getInstancia(this).buscarTodos() == null) {
+		if(PartidaDAO.getInstancia(this).buscarTodos().size() == 0) {
 			
 			lista.setVisibility(View.INVISIBLE);
 			Toast.makeText(this, R.string.avisoPartida, Toast.LENGTH_LONG).show();

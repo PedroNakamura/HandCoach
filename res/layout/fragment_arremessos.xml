@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7F7F7"
@@ -10,7 +11,97 @@
     <lecho.lib.hellocharts.view.LineChartView
         android:id="@+id/lineChart_arremessos"
         android:layout_width="match_parent"
-        android:layout_height="500dp" >
+        android:layout_height="500dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
     </lecho.lib.hellocharts.view.LineChartView>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/azulC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/lineChart_arremessos"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="47dp"
+        android:src="@drawable/azul" />
+
+    <ImageView
+        android:id="@+id/verdeC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/azulC"
+        android:layout_below="@+id/azulC"
+        android:src="@drawable/verde" />
+
+    <ImageView
+        android:id="@+id/amareloC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/verdeC"
+        android:layout_below="@+id/verdeC"
+        android:src="@drawable/amarelo" />
+
+    <ImageView
+        android:id="@+id/vermelhoC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/amareloC"
+        android:layout_below="@+id/amareloC"
+        android:src="@drawable/vermelho" />
+
+    <ImageView
+        android:id="@+id/violetaC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/vermelhoC"
+        android:layout_below="@+id/vermelhoC"
+        android:src="@drawable/violeta" />
+
+    <TextView
+        android:id="@+id/jogador1C"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/azulC"
+        android:layout_marginLeft="29dp"
+        android:layout_toRightOf="@+id/azulC"
+        android:text="jogador1" />
+
+    <TextView
+        android:id="@+id/jogador2C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jogador1C"
+        android:layout_alignTop="@+id/verdeC"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="jogador2" />
+
+    <TextView
+        android:id="@+id/jogador3C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jogador2C"
+        android:layout_alignTop="@+id/amareloC"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="jogador3" />
+
+    <TextView
+        android:id="@+id/jogador4C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jogador3C"
+        android:layout_alignTop="@+id/vermelhoC"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="jogador4" />
+
+    <TextView
+        android:id="@+id/jogador5C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jogador4C"
+        android:layout_alignTop="@+id/violetaC"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="jogador5" />
+
+</RelativeLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7F7F7"
@@ -8,9 +9,99 @@
     tools:context="com.example.handcoach.telaStats.TelaComparacao" >
 
     <lecho.lib.hellocharts.view.LineChartView
-        android:id="@+id/lineChart_rcp"
+        android:id="@+id/lineChart_recepcao"
         android:layout_width="match_parent"
-        android:layout_height="500dp" >
+        android:layout_height="500dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
     </lecho.lib.hellocharts.view.LineChartView>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/azulC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/lineChart_recepcao"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="47dp"
+        android:src="@drawable/azul" />
+
+    <ImageView
+        android:id="@+id/verdeC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/azulC2"
+        android:layout_below="@+id/azulC2"
+        android:src="@drawable/verde" />
+
+    <ImageView
+        android:id="@+id/amareloC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/verdeC2"
+        android:layout_below="@+id/verdeC2"
+        android:src="@drawable/amarelo" />
+
+    <ImageView
+        android:id="@+id/vermelhoC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/amareloC2"
+        android:layout_below="@+id/amareloC2"
+        android:src="@drawable/vermelho" />
+
+    <ImageView
+        android:id="@+id/violetaC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/vermelhoC2"
+        android:layout_below="@+id/vermelhoC2"
+        android:src="@drawable/violeta" />
+
+    <TextView
+        android:id="@+id/jogador1C2"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/azulC2"
+        android:layout_marginLeft="29dp"
+        android:layout_toRightOf="@+id/azulC2"
+        android:text="jogador1" />
+
+    <TextView
+        android:id="@+id/jogador2C2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jogador1C2"
+        android:layout_alignTop="@+id/verdeC2"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="jogador2" />
+
+    <TextView
+        android:id="@+id/jogador3C2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jogador2C2"
+        android:layout_alignTop="@+id/amareloC2"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="jogador3" />
+
+    <TextView
+        android:id="@+id/jogador4C2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jogador3C2"
+        android:layout_alignTop="@+id/vermelhoC2"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="jogador4" />
+
+    <TextView
+        android:id="@+id/jogador5C2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jogador4C2"
+        android:layout_alignTop="@+id/violetaC2"
+        style="@style/StringTelaSobreStyle_simple_clone"
+        android:text="jogador5" />
+
+</RelativeLayout>

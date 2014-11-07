@@ -23,9 +23,9 @@ import android.widget.Toast;
 
 public class TelaCadastroJog extends Activity {
 	
-	ImageButton btFoto;
-	Bitmap image = null;
-	ArrayList<String> posicoes;
+	private ImageButton btFoto;
+	private Bitmap image = null;
+	private ArrayList<String> posicoes;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

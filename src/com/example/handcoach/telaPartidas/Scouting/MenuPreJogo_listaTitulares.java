@@ -19,14 +19,14 @@ import android.widget.ListView;
 @SuppressLint("ValidFragment")
 public class MenuPreJogo_listaTitulares extends Fragment {
 	
-	TelaPreJogo telaPreJogo;
-	View v;
-	List<Jogador> listaJogadores;
-	JogadorTitularListaAdapter jogadorAdapterT;
-	ListView listaTitulares;
-	Bundle valor;
-	Intent it;
-	int id_eq;
+	private TelaPreJogo telaPreJogo;
+	private View v;
+	private List<Jogador> listaJogadores;
+	private JogadorTitularListaAdapter jogadorAdapterT;
+	private ListView listaTitulares;
+	private Bundle valor;
+	private Intent it;
+	private int id_eq;
 	
 	public MenuPreJogo_listaTitulares(List<Jogador> listaJogadores){
 		this.listaJogadores = listaJogadores;

@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 public class OnTimeFragment extends Fragment {
 	
-	TextView onTime;
-	ScoutingCountdown contTempo;
+	private TextView onTime;
+	private ScoutingCountdown contTempo;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

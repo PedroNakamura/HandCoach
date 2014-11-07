@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 public class FragmentVazio extends Fragment {
 	
-	View v;
+	private View v;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

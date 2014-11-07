@@ -88,6 +88,7 @@
         <activity 
             android:name=".telaPartidas.Scouting.TelaScouting"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:noHistory="true"
             android:screenOrientation="landscape">
         </activity>
         

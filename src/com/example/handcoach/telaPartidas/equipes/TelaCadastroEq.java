@@ -1,6 +1,5 @@
 package com.example.handcoach.telaPartidas.equipes;
 
-
 import com.example.handcoach.R;
 import DAO.EquipeDAO;
 import Entidades.Equipe;
