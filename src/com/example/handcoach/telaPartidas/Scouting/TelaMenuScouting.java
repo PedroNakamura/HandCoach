@@ -1,11 +1,11 @@
 package com.example.handcoach.telaPartidas.Scouting;
 
 import java.util.List;
-import DAO.EquipeAdv;
 import DAO.EquipeAdvDAO;
 import DAO.EquipeDAO;
 import DAO.PartidaDAO;
 import Entidades.Equipe;
+import Entidades.EquipeAdv;
 import Entidades.Partida;
 import android.app.Activity;
 import android.content.Intent;

@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import Entidades.Equipe;
+import Entidades.EquipeAdv;
 import Entidades.Evento;
 import Entidades.Jogador;
 import Entidades.Partida;

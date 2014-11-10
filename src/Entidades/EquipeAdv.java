@@ -1,6 +1,5 @@
-package DAO;
+package Entidades;
 
-import Entidades.EntidadeInterface;
 
 public class EquipeAdv implements EntidadeInterface {
 

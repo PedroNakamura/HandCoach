@@ -1,8 +1,8 @@
 package com.example.handcoach.telaPartidas.equipes;
 
 import com.example.handcoach.R;
-import DAO.EquipeAdv;
 import DAO.EquipeAdvDAO;
+import Entidades.EquipeAdv;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

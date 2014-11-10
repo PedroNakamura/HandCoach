@@ -2,7 +2,8 @@ package util;
 
 import java.util.List;
 import com.example.handcoach.R;
-import DAO.EquipeAdv;
+
+import Entidades.EquipeAdv;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;

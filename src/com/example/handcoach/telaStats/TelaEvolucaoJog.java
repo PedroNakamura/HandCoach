@@ -3,6 +3,7 @@ package com.example.handcoach.telaStats;
 import java.util.ArrayList;
 import java.util.List;
 import lecho.lib.hellocharts.model.Axis;
+import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Column;
 import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.ColumnValue;
@@ -50,6 +51,9 @@ public class TelaEvolucaoJog extends Activity {
     private Integer partida2 = 0;
     private Integer partida3 = 0;
     private Integer partida4 = 0;
+    
+    private Axis axisX;
+    private Axis axisY;
     
     private Jogador jogador;
 	
@@ -112,6 +116,26 @@ public class TelaEvolucaoJog extends Activity {
 			
 			List<Column> columns = new ArrayList<Column>();
 			
+			data = new ColumnChartData();
+			data.setStacked(true);
+			
+			if(hasAxes) {
+				   axisX = new Axis();
+				   axisY = new Axis().setHasLines(true);
+				   if(hasAxesNames) {
+					   axisX.setName(getResources().getString(R.string.arremessos));
+					   axisY.setName(getResources().getString(R.string.partidas));
+				   }
+				   data.setAxisXBottom(axisX);
+				   data.setAxisYLeft(axisY);
+				} else {
+				   data.setAxisXBottom(null);
+				   data.setAxisYLeft(null);
+				}
+			
+			List<AxisValue> eixoX = new ArrayList<AxisValue>();
+			List<AxisValue> eixoY = new ArrayList<AxisValue>();
+			
 			if(partida1 > 0) {
 				List<ColumnValue> values = new ArrayList<ColumnValue>();
 				
@@ -119,6 +143,12 @@ public class TelaEvolucaoJog extends Activity {
 				defesas = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 2 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
 				foras = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 3 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
 				gks = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 4 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
+				
+				int soma = gols + defesas + foras + gks;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
 				
 				values.add(new ColumnValue(gols, Utils.COLOR_RED));
 				values.add(new ColumnValue(defesas, Utils.COLOR_VIOLET));
@@ -128,7 +158,9 @@ public class TelaEvolucaoJog extends Activity {
 				Column coluna = new Column(values);
 				coluna.setHasLabels(hasLabels);
 				coluna.setHasLabelsOnlyForSelected(hasLabelForSelected);
-				columns.add(coluna);			
+				columns.add(coluna);
+				
+				eixoX.add(new AxisValue(1));
 			}
 			
 			if(partida2 > 0) {
@@ -139,6 +171,12 @@ public class TelaEvolucaoJog extends Activity {
 				foras = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 3 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				gks = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 4 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				
+                int soma = gols + defesas + foras + gks;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+				
 				values1.add(new ColumnValue(gols, Utils.COLOR_RED));
 				values1.add(new ColumnValue(defesas, Utils.COLOR_VIOLET));
 				values1.add(new ColumnValue(foras, Utils.COLOR_GREEN));
@@ -148,6 +186,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna1.setHasLabels(hasLabels);
 				coluna1.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna1);
+				
+				eixoX.add(new AxisValue(2));
 			}
 			
 			if(partida3 > 0) {
@@ -158,6 +198,12 @@ public class TelaEvolucaoJog extends Activity {
 				foras = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 3 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
 				gks = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 4 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
 				
+                int soma = gols + defesas + foras + gks;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+				
 				values2.add(new ColumnValue(gols, Utils.COLOR_RED));
 				values2.add(new ColumnValue(defesas, Utils.COLOR_VIOLET));
 				values2.add(new ColumnValue(foras, Utils.COLOR_GREEN));
@@ -167,6 +213,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna2.setHasLabels(hasLabels);
 				coluna2.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna2);
+				
+				eixoX.add(new AxisValue(3));
 			}
 			
 			if(partida4 > 0) {
@@ -177,6 +225,12 @@ public class TelaEvolucaoJog extends Activity {
 				foras = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 3 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				gks = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 4 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				
+                int soma = gols + defesas + foras + gks;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+				
 				values3.add(new ColumnValue(gols, Utils.COLOR_RED));
 				values3.add(new ColumnValue(defesas, Utils.COLOR_VIOLET));
 				values3.add(new ColumnValue(foras, Utils.COLOR_GREEN));
@@ -186,25 +240,14 @@ public class TelaEvolucaoJog extends Activity {
 				coluna3.setHasLabels(hasLabels);
 				coluna3.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna3);
+				
+				eixoX.add(new AxisValue(4));
 			}
 			
-			data = new ColumnChartData(columns);
-			data.setStacked(true);
+			axisX.setValues(eixoX);
+			axisY.setValues(eixoY);
 			
-			if(hasAxes) {
-			   Axis axisX = new Axis();
-		   	   Axis axisY = new Axis().setHasLines(true);
-			   if(hasAxesNames) {
-			      axisX.setName("Eixo X");
-			      axisY.setName("Eixo Y");
-			   }
-			   data.setAxisXBottom(axisX);
-			   data.setAxisYLeft(axisY);
-			} else {
-			data.setAxisXBottom(null);
-			data.setAxisYLeft(null);
-			}
-			
+			data.setColumns(columns);
 			columnChart.setColumnChartData(data);
 			
 		}
@@ -217,6 +260,9 @@ public class TelaEvolucaoJog extends Activity {
 			
 			List<Column> columns = new ArrayList<Column>();
 			
+			data = new ColumnChartData(columns);
+			data.setStacked(true);
+			
 			campoLj.setVisibility(View.INVISIBLE);
 			campoVe.setVisibility(View.INVISIBLE);
 		    laranja.setVisibility(View.INVISIBLE);
@@ -224,6 +270,23 @@ public class TelaEvolucaoJog extends Activity {
 		    
 		    campoVm.setText(getResources().getString(R.string.passecerto));
 		    campoVl.setText(getResources().getString(R.string.passerrado));
+		    
+		    if(hasAxes) {
+			   Axis axisX = new Axis();
+			   Axis axisY = new Axis().setHasLines(true);
+			   if(hasAxesNames) {
+				   axisX.setName(getResources().getString(R.string.arremessos));
+				   axisY.setName(getResources().getString(R.string.partidas));
+			   }
+			   data.setAxisXBottom(axisX);
+			   data.setAxisYLeft(axisY);
+			} else {
+			   data.setAxisXBottom(null);
+			   data.setAxisYLeft(null);
+			}
+		    
+		    List<AxisValue> eixoX = new ArrayList<AxisValue>();
+			List<AxisValue> eixoY = new ArrayList<AxisValue>();
 			
 			if(partida1 > 0) {
 				List<ColumnValue> values = new ArrayList<ColumnValue>();
@@ -231,13 +294,21 @@ public class TelaEvolucaoJog extends Activity {
 				pss_certo = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 5 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
 				pss_errado = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 6 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
 				
+                int soma = pss_certo + pss_errado;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+				
 				values.add(new ColumnValue(pss_certo, Utils.COLOR_RED));
 				values.add(new ColumnValue(pss_errado, Utils.COLOR_VIOLET));
 				
 				Column coluna = new Column(values);
 				coluna.setHasLabels(hasLabels);
 				coluna.setHasLabelsOnlyForSelected(hasLabelForSelected);
-				columns.add(coluna);			
+				columns.add(coluna);		
+				
+				eixoX.add(new AxisValue(1));
 			}
 			
 			if(partida2 > 0) {
@@ -246,6 +317,12 @@ public class TelaEvolucaoJog extends Activity {
                 pss_certo = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 5 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
                 pss_errado = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 6 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				
+                int soma = pss_certo + pss_errado;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values1.add(new ColumnValue(pss_certo, Utils.COLOR_RED));
 				values1.add(new ColumnValue(pss_errado, Utils.COLOR_VIOLET));
 				
@@ -253,6 +330,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna1.setHasLabels(hasLabels);
 				coluna1.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna1);
+				
+				eixoX.add(new AxisValue(2));
 			}
 			
 			if(partida3 > 0) {
@@ -261,6 +340,12 @@ public class TelaEvolucaoJog extends Activity {
                 pss_certo = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 5 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
                 pss_errado = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 6 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
 				
+                int soma = pss_certo + pss_errado;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values2.add(new ColumnValue(pss_certo, Utils.COLOR_RED));
 				values2.add(new ColumnValue(pss_errado, Utils.COLOR_VIOLET));
 				
@@ -268,6 +353,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna2.setHasLabels(hasLabels);
 				coluna2.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna2);
+				
+				eixoX.add(new AxisValue(3));
 			}
 			
 			if(partida4 > 0) {
@@ -276,6 +363,12 @@ public class TelaEvolucaoJog extends Activity {
                 pss_certo = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 5 AND id_jog="+jogador_id+" AND id_ptda="+partida4);
                 pss_errado = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 6 AND id_jog="+jogador_id+" AND id_ptda="+partida4);
 				
+                int soma = pss_certo + pss_errado;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values3.add(new ColumnValue(pss_certo, Utils.COLOR_RED));
 				values3.add(new ColumnValue(pss_errado, Utils.COLOR_VIOLET));
 				
@@ -283,24 +376,14 @@ public class TelaEvolucaoJog extends Activity {
 				coluna3.setHasLabels(hasLabels);
 				coluna3.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna3);
+				
+				eixoX.add(new AxisValue(4));
 			}
 			
-			data = new ColumnChartData(columns);
-			data.setStacked(true);
+			axisX.setValues(eixoX);
+			axisY.setValues(eixoY);
 			
-			if(hasAxes) {
-			   Axis axisX = new Axis();
-		   	   Axis axisY = new Axis().setHasLines(true);
-			   if(hasAxesNames) {
-			      axisX.setName("Eixo X");
-			      axisY.setName("Eixo Y");
-			   }
-			   data.setAxisXBottom(axisX);
-			   data.setAxisYLeft(axisY);
-			} else {
-			data.setAxisXBottom(null);
-			data.setAxisYLeft(null);
-			}
+			data.setColumns(columns);
 			
 			columnChart.setColumnChartData(data);
 			
@@ -314,12 +397,60 @@ public class TelaEvolucaoJog extends Activity {
 			int rcp_rbdbola = 0;
 			int rbt = 0;
 			
+			data = new ColumnChartData();
+			data.setStacked(true);
+			
+			if(hasAxes) {
+				   axisX = new Axis();
+				   axisY = new Axis().setHasLines(true);
+				   if(hasAxesNames) {
+					   axisX.setName(getResources().getString(R.string.arremessos));
+					   axisY.setName(getResources().getString(R.string.partidas));
+				   }
+				   data.setAxisXBottom(axisX);
+				   data.setAxisYLeft(axisY);
+				} else {
+				   data.setAxisXBottom(null);
+				   data.setAxisYLeft(null);
+				}
+			
+			List<AxisValue> eixoX = new ArrayList<AxisValue>();
+			List<AxisValue> eixoY = new ArrayList<AxisValue>();
+			
 			List<Column> columns = new ArrayList<Column>();
 			
 			campoVm.setText(getResources().getString(R.string.rcpcerta));
 		    campoVl.setText(getResources().getString(R.string.rcperrada));
 		    campoVe.setText(getResources().getString(R.string.desarme));
 		    campoLj.setText(getResources().getString(R.string.btRebote));
+		    
+		    if(hasAxes) {
+				   Axis axisX = new Axis();
+				   Axis axisY = new Axis().setHasLines(true);
+				   if(hasAxesNames) {
+					   axisX.setName(getResources().getString(R.string.arremessos));
+					   axisY.setName(getResources().getString(R.string.partidas));
+				   }
+				   data.setAxisXBottom(axisX);
+				   data.setAxisYLeft(axisY);
+				} else {
+				   data.setAxisXBottom(null);
+				   data.setAxisYLeft(null);
+				}
+		    
+		    if(hasAxes) {
+				   Axis axisX = new Axis();
+				   Axis axisY = new Axis().setHasLines(true);
+				   if(hasAxesNames) {
+					   axisX.setName(getResources().getString(R.string.arremessos));
+					   axisY.setName(getResources().getString(R.string.partidas));
+				   }
+				   data.setAxisXBottom(axisX);
+				   data.setAxisYLeft(axisY);
+				} else {
+				   data.setAxisXBottom(null);
+				   data.setAxisYLeft(null);
+				}
 		    
 		    if(partida1 > 0) {
 				List<ColumnValue> values = new ArrayList<ColumnValue>();
@@ -329,6 +460,12 @@ public class TelaEvolucaoJog extends Activity {
 				rcp_rbdbola = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 9 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
 				rbt = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 20 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
 				
+                int soma = rcp_certa + rcp_errada + rcp_rbdbola + rbt;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+				
 				values.add(new ColumnValue(rcp_certa, Utils.COLOR_RED));
 				values.add(new ColumnValue(rcp_errada, Utils.COLOR_VIOLET));
 				values.add(new ColumnValue(rcp_rbdbola, Utils.COLOR_GREEN));
@@ -337,7 +474,9 @@ public class TelaEvolucaoJog extends Activity {
 				Column coluna = new Column(values);
 				coluna.setHasLabels(hasLabels);
 				coluna.setHasLabelsOnlyForSelected(hasLabelForSelected);
-				columns.add(coluna);			
+				columns.add(coluna);	
+				
+				eixoX.add(new AxisValue(1));
 			}
 			
 			if(partida2 > 0) {
@@ -348,6 +487,12 @@ public class TelaEvolucaoJog extends Activity {
 				rcp_rbdbola = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 9 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				rbt = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 20 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				
+                int soma = rcp_certa + rcp_errada + rcp_rbdbola + rbt;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+				
 				values1.add(new ColumnValue(rcp_certa, Utils.COLOR_RED));
 				values1.add(new ColumnValue(rcp_errada, Utils.COLOR_VIOLET));
 				values1.add(new ColumnValue(rcp_rbdbola, Utils.COLOR_GREEN));
@@ -357,6 +502,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna1.setHasLabels(hasLabels);
 				coluna1.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna1);
+				
+				eixoX.add(new AxisValue(2));
 			}
 			
 			if(partida3 > 0) {
@@ -367,6 +514,12 @@ public class TelaEvolucaoJog extends Activity {
 				rcp_rbdbola = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 9 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
 				rbt = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 20 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
 				
+                int soma = rcp_certa + rcp_errada + rcp_rbdbola + rbt;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+				
 				values2.add(new ColumnValue(rcp_certa, Utils.COLOR_RED));
 				values2.add(new ColumnValue(rcp_errada, Utils.COLOR_VIOLET));
 				values2.add(new ColumnValue(rcp_rbdbola, Utils.COLOR_GREEN));
@@ -376,6 +529,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna2.setHasLabels(hasLabels);
 				coluna2.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna2);
+				
+				eixoX.add(new AxisValue(3));
 			}
 			
 			if(partida4 > 0) {
@@ -386,6 +541,12 @@ public class TelaEvolucaoJog extends Activity {
 				rcp_rbdbola = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 9 AND id_jog="+jogador_id+" AND id_ptda="+partida4);
 				rbt = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 20 AND id_jog="+jogador_id+" AND id_ptda="+partida4);
 				
+                int soma = rcp_certa + rcp_errada + rcp_rbdbola + rbt;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+				
 				values3.add(new ColumnValue(rcp_certa, Utils.COLOR_RED));
 				values3.add(new ColumnValue(rcp_errada, Utils.COLOR_VIOLET));
 				values3.add(new ColumnValue(rcp_rbdbola, Utils.COLOR_GREEN));
@@ -395,24 +556,14 @@ public class TelaEvolucaoJog extends Activity {
 				coluna3.setHasLabels(hasLabels);
 				coluna3.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna3);
+				
+				eixoX.add(new AxisValue(4));
 			}
 			
-			data = new ColumnChartData(columns);
-			data.setStacked(true);
+			axisX.setValues(eixoX);
+			axisY.setValues(eixoY);
 			
-			if(hasAxes) {
-			   Axis axisX = new Axis();
-		   	   Axis axisY = new Axis().setHasLines(true);
-			   if(hasAxesNames) {
-			      axisX.setName("Eixo X");
-			      axisY.setName("Eixo Y");
-			   }
-			   data.setAxisXBottom(axisX);
-			   data.setAxisYLeft(axisY);
-			} else {
-			data.setAxisXBottom(null);
-			data.setAxisYLeft(null);
-			}
+			data.setColumns(columns);
 			
 			columnChart.setColumnChartData(data);
 			
@@ -433,6 +584,26 @@ public class TelaEvolucaoJog extends Activity {
 		    campoVe.setText(getResources().getString(R.string.faltaatk));
 		    campoLj.setText(getResources().getString(R.string.falta7m));
 		    
+		    data = new ColumnChartData();
+			data.setStacked(true);
+		    
+		    if(hasAxes) {
+				   axisX = new Axis();
+				   axisY = new Axis().setHasLines(true);
+				   if(hasAxesNames) {
+					   axisX.setName(getResources().getString(R.string.arremessos));
+					   axisY.setName(getResources().getString(R.string.partidas));
+				   }
+				   data.setAxisXBottom(axisX);
+				   data.setAxisYLeft(axisY);
+				} else {
+				   data.setAxisXBottom(null);
+				   data.setAxisYLeft(null);
+				}
+			
+			List<AxisValue> eixoX = new ArrayList<AxisValue>();
+			List<AxisValue> eixoY = new ArrayList<AxisValue>();
+		    
 		    if(partida1 > 0) {
                 List<ColumnValue> values = new ArrayList<ColumnValue>();
 				
@@ -441,6 +612,12 @@ public class TelaEvolucaoJog extends Activity {
                 ft_ataque = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 12 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
                 ft_7m = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 13 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
 				
+                int soma = ft_tecnica + ft_defesa + ft_ataque + ft_7m;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values.add(new ColumnValue(ft_tecnica, Utils.COLOR_RED));
 				values.add(new ColumnValue(ft_defesa, Utils.COLOR_VIOLET));
 				values.add(new ColumnValue(ft_ataque, Utils.COLOR_GREEN));
@@ -450,6 +627,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna.setHasLabels(hasLabels);
 				coluna.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna);
+				
+				eixoX.add(new AxisValue(1));
 		    }
 		    
 		    if(partida2 > 0) {
@@ -460,6 +639,12 @@ public class TelaEvolucaoJog extends Activity {
                 ft_ataque = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 12 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
                 ft_7m = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 13 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				
+                int soma = ft_tecnica + ft_defesa + ft_ataque + ft_7m;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values1.add(new ColumnValue(ft_tecnica, Utils.COLOR_RED));
 				values1.add(new ColumnValue(ft_defesa, Utils.COLOR_VIOLET));
 				values1.add(new ColumnValue(ft_ataque, Utils.COLOR_GREEN));
@@ -469,6 +654,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna1.setHasLabels(hasLabels);
 				coluna1.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna1);
+				
+				eixoX.add(new AxisValue(2));
 		    }
 		    
 		    if(partida3 > 0) {
@@ -479,6 +666,12 @@ public class TelaEvolucaoJog extends Activity {
                 ft_ataque = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 12 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
                 ft_7m = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 13 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
 				
+                int soma = ft_tecnica + ft_defesa + ft_ataque + ft_7m;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values2.add(new ColumnValue(ft_tecnica, Utils.COLOR_RED));
 				values2.add(new ColumnValue(ft_defesa, Utils.COLOR_VIOLET));
 				values2.add(new ColumnValue(ft_ataque, Utils.COLOR_GREEN));
@@ -488,6 +681,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna2.setHasLabels(hasLabels);
 				coluna2.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna2);
+				
+				eixoX.add(new AxisValue(3));
 		    }
 		    
 		    if(partida4 > 0) {
@@ -498,6 +693,12 @@ public class TelaEvolucaoJog extends Activity {
                 ft_ataque = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 12 AND id_jog="+jogador_id+" AND id_ptda="+partida4);
                 ft_7m = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 13 AND id_jog="+jogador_id+" AND id_ptda="+partida4);
 				
+                int soma = ft_tecnica + ft_defesa + ft_ataque + ft_7m;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values3.add(new ColumnValue(ft_tecnica, Utils.COLOR_RED));
 				values3.add(new ColumnValue(ft_defesa, Utils.COLOR_VIOLET));
 				values3.add(new ColumnValue(ft_ataque, Utils.COLOR_GREEN));
@@ -507,24 +708,14 @@ public class TelaEvolucaoJog extends Activity {
 				coluna3.setHasLabels(hasLabels);
 				coluna3.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna3);
+				
+				eixoX.add(new AxisValue(4));
 		    }
 
-			data = new ColumnChartData(columns);
-			data.setStacked(true);
+		    axisX.setValues(eixoX);
+			axisY.setValues(eixoY);
 			
-			if(hasAxes) {
-			   Axis axisX = new Axis();
-		   	   Axis axisY = new Axis().setHasLines(true);
-			   if(hasAxesNames) {
-			      axisX.setName("Eixo X");
-			      axisY.setName("Eixo Y");
-			   }
-			   data.setAxisXBottom(axisX);
-			   data.setAxisYLeft(axisY);
-			} else {
-			data.setAxisXBottom(null);
-			data.setAxisYLeft(null);
-			}
+			data.setColumns(columns);
 			
 			columnChart.setColumnChartData(data);
 			
@@ -546,12 +737,52 @@ public class TelaEvolucaoJog extends Activity {
 		    campoVm.setText(getResources().getString(R.string.sofreatk));
 		    campoVl.setText(getResources().getString(R.string.sofredef));
 		    
+		    data = new ColumnChartData();
+			data.setStacked(true);
+		    
+		    if(hasAxes) {
+				   axisX = new Axis();
+				   axisY = new Axis().setHasLines(true);
+				   if(hasAxesNames) {
+					   axisX.setName(getResources().getString(R.string.arremessos));
+					   axisY.setName(getResources().getString(R.string.partidas));
+				   }
+				   data.setAxisXBottom(axisX);
+				   data.setAxisYLeft(axisY);
+				} else {
+				   data.setAxisXBottom(null);
+				   data.setAxisYLeft(null);
+				}
+			
+			List<AxisValue> eixoX = new ArrayList<AxisValue>();
+			List<AxisValue> eixoY = new ArrayList<AxisValue>();
+		    
+		    if(hasAxes) {
+				   Axis axisX = new Axis();
+				   Axis axisY = new Axis().setHasLines(true);
+				   if(hasAxesNames) {
+					   axisX.setName(getResources().getString(R.string.arremessos));
+					   axisY.setName(getResources().getString(R.string.partidas));
+				   }
+				   data.setAxisXBottom(axisX);
+				   data.setAxisYLeft(axisY);
+				} else {
+				   data.setAxisXBottom(null);
+				   data.setAxisYLeft(null);
+				}
+		    
 		    if(partida1 > 0) {
                 List<ColumnValue> values = new ArrayList<ColumnValue>();
 				
                 sft_atk = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 16 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
                 sft_def = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 17 AND id_jog="+jogador_id+" AND id_ptda="+partida1);
 				
+                int soma = sft_atk + sft_def;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values.add(new ColumnValue(sft_atk, Utils.COLOR_RED));
 				values.add(new ColumnValue(sft_def, Utils.COLOR_VIOLET));
 				
@@ -559,6 +790,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna.setHasLabels(hasLabels);
 				coluna.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna);	
+				
+				eixoX.add(new AxisValue(1));
 		    }
 		    
 		    if(partida2 > 0) {
@@ -567,6 +800,12 @@ public class TelaEvolucaoJog extends Activity {
                 sft_atk = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 16 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
                 sft_def = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 17 AND id_jog="+jogador_id+" AND id_ptda="+partida2);
 				
+                int soma = sft_atk + sft_def;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values1.add(new ColumnValue(sft_atk, Utils.COLOR_RED));
 				values1.add(new ColumnValue(sft_def, Utils.COLOR_VIOLET));
 				
@@ -574,6 +813,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna1.setHasLabels(hasLabels);
 				coluna1.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna1);
+				
+				eixoX.add(new AxisValue(2));
 		    }
 		    
 		    if(partida3 > 0) {
@@ -582,6 +823,12 @@ public class TelaEvolucaoJog extends Activity {
                 sft_atk = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 16 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
                 sft_def = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 17 AND id_jog="+jogador_id+" AND id_ptda="+partida3);
 				
+                int soma = sft_atk + sft_def;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values2.add(new ColumnValue(sft_atk, Utils.COLOR_RED));
 				values2.add(new ColumnValue(sft_def, Utils.COLOR_VIOLET));
 				
@@ -589,6 +836,8 @@ public class TelaEvolucaoJog extends Activity {
 				coluna2.setHasLabels(hasLabels);
 				coluna2.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna2);
+				
+				eixoX.add(new AxisValue(3));
 		    }
 		    
 		    if(partida4 > 0) {
@@ -597,6 +846,12 @@ public class TelaEvolucaoJog extends Activity {
                 sft_atk = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 16 AND id_jog="+jogador_id+" AND id_ptda="+partida4);
                 sft_def = EventoDAO.getInstancia(TelaEvolucaoJog.this).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 17 AND id_jog="+jogador_id+" AND id_ptda="+partida4);
 				
+                int soma = sft_atk + sft_def;
+				
+				for(int x = 1; x <= soma; x++) {
+					eixoY.add(new AxisValue(x));
+				}
+                
 				values3.add(new ColumnValue(sft_atk, Utils.COLOR_RED));
 				values3.add(new ColumnValue(sft_def, Utils.COLOR_VIOLET));
 				
@@ -604,24 +859,14 @@ public class TelaEvolucaoJog extends Activity {
 				coluna3.setHasLabels(hasLabels);
 				coluna3.setHasLabelsOnlyForSelected(hasLabelForSelected);
 				columns.add(coluna3);
+				
+				eixoX.add(new AxisValue(4));
 		    }
 
-			data = new ColumnChartData(columns);
-			data.setStacked(true);
+		    axisX.setValues(eixoX);
+			axisY.setValues(eixoY);
 			
-			if(hasAxes) {
-			   Axis axisX = new Axis();
-		   	   Axis axisY = new Axis().setHasLines(true);
-			   if(hasAxesNames) {
-			      axisX.setName("Eixo X");
-			      axisY.setName("Eixo Y");
-			   }
-			   data.setAxisXBottom(axisX);
-			   data.setAxisYLeft(axisY);
-			} else {
-			data.setAxisXBottom(null);
-			data.setAxisYLeft(null);
-			}
+			data.setColumns(columns);
 			
 			columnChart.setColumnChartData(data);
 			

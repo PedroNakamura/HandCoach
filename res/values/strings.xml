@@ -184,4 +184,6 @@
     <string name="deixarPartida">Deixar partida</string>
     <string name="deixarPartidaConf">Deseja deixar partida e excluí-la?</string>
     
+    <string name="partidas">Partidas</string>
+    
 </resources>

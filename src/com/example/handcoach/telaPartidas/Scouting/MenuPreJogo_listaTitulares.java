@@ -19,7 +19,6 @@ import android.widget.ListView;
 @SuppressLint("ValidFragment")
 public class MenuPreJogo_listaTitulares extends Fragment {
 	
-	private TelaPreJogo telaPreJogo;
 	private View v;
 	private List<Jogador> listaJogadores;
 	private JogadorTitularListaAdapter jogadorAdapterT;

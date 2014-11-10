@@ -2,7 +2,6 @@ package com.example.handcoach.telaPartidas.jogadores;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import com.example.handcoach.R;
 import DAO.JogadorDAO;
 import Entidades.Jogador;
@@ -25,7 +24,6 @@ public class TelaCadastroJog extends Activity {
 	
 	private ImageButton btFoto;
 	private Bitmap image = null;
-	private ArrayList<String> posicoes;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
