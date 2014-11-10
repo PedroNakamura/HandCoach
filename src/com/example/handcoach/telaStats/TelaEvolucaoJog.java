@@ -258,11 +258,6 @@ public class TelaEvolucaoJog extends Activity {
 			int pss_certo = 0;
 			int pss_errado = 0;
 			
-			List<Column> columns = new ArrayList<Column>();
-			
-			data = new ColumnChartData(columns);
-			data.setStacked(true);
-			
 			campoLj.setVisibility(View.INVISIBLE);
 			campoVe.setVisibility(View.INVISIBLE);
 		    laranja.setVisibility(View.INVISIBLE);
@@ -271,21 +266,26 @@ public class TelaEvolucaoJog extends Activity {
 		    campoVm.setText(getResources().getString(R.string.passecerto));
 		    campoVl.setText(getResources().getString(R.string.passerrado));
 		    
-		    if(hasAxes) {
-			   Axis axisX = new Axis();
-			   Axis axisY = new Axis().setHasLines(true);
+            List<Column> columns = new ArrayList<Column>();
+			
+			data = new ColumnChartData();
+			data.setStacked(true);
+			
+			if(hasAxes) {
+			   axisX = new Axis();
+			   axisY = new Axis().setHasLines(true);
 			   if(hasAxesNames) {
-				   axisX.setName(getResources().getString(R.string.arremessos));
-				   axisY.setName(getResources().getString(R.string.partidas));
+		    	  axisX.setName(getResources().getString(R.string.passes));
+			 	  axisY.setName(getResources().getString(R.string.partidas));
 			   }
 			   data.setAxisXBottom(axisX);
 			   data.setAxisYLeft(axisY);
 			} else {
 			   data.setAxisXBottom(null);
-			   data.setAxisYLeft(null);
+		       data.setAxisYLeft(null);
 			}
-		    
-		    List<AxisValue> eixoX = new ArrayList<AxisValue>();
+			
+			List<AxisValue> eixoX = new ArrayList<AxisValue>();
 			List<AxisValue> eixoY = new ArrayList<AxisValue>();
 			
 			if(partida1 > 0) {
