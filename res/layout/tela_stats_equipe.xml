@@ -58,26 +58,6 @@
             android:src="@drawable/btstatsjog" />
 
         <TextView
-            android:id="@+id/textView000312"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textVazio" />
-
-        <TextView
-            android:id="@+id/tv_verStatsEquipes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/StringTelaSobreStyle_simple_clone"
-            android:text="@string/verStatsEquipes" />
-
-        <ImageButton
-            android:id="@+id/btstatseq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:src="@drawable/btstatseq" />
-
-        <TextView
             android:id="@+id/tesadasdaw1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

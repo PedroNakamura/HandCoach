@@ -28,7 +28,6 @@ public class TelaEscolhaEquipes extends Activity {
 	    
 		if(PartidaDAO.getInstancia(this).buscarTodos().size() == 0) {
 			
-			lista.setVisibility(View.INVISIBLE);
 			Toast.makeText(this, R.string.avisoPartida, Toast.LENGTH_LONG).show();
 			
 		} else {

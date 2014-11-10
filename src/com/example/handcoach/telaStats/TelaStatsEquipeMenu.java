@@ -37,7 +37,6 @@ public class TelaStatsEquipeMenu extends Activity {
 		TextView nomeDaEquipe = (TextView) findViewById(R.id.tv_tituloEquipeStats);
 		ListView ultimasPartidas = (ListView) findViewById(R.id.lv_ultimasPartidasStats);
 		ImageButton btStatsJogadores = (ImageButton) findViewById(R.id.btstatsjog);
-		ImageButton btStatsEq = (ImageButton) findViewById(R.id.btstatseq);
 		ImageButton btStatsData = (ImageButton) findViewById(R.id.btstatsdata);
 		ImageButton btComp = (ImageButton) findViewById(R.id.btstatscomp);
 		
@@ -56,15 +55,6 @@ public class TelaStatsEquipeMenu extends Activity {
 				itt = new Intent(TelaStatsEquipeMenu.this, TelaStatsDosJogadores.class);
 				itt.putExtra("eq", id);
 			    startActivity(itt);
-			}
-		});
-		
-		btStatsEq.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				itt = new Intent(TelaStatsEquipeMenu.this, TelaStatsDasEquipes.class);
-				itt.putExtra("eq", id);
-				startActivity(itt);
 			}
 		});
 		

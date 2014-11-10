@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lecho.lib.hellocharts.model.Axis;
+import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Line;
 import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.PointValue;
@@ -53,11 +54,13 @@ public class PasseFragment extends Fragment {
 	private boolean isCubic = false;
 	private boolean hasLabelForSelected = false;
 	
-	private ImageView blue;
 	private ImageView green;
 	private ImageView orange;
 	private ImageView red;
 	private ImageView violet;
+	
+	private Axis axisX;
+	private Axis axisY;
 	
 	private TextView blueV;
 	private TextView greenV;
@@ -78,7 +81,6 @@ public class PasseFragment extends Fragment {
 		ultimasPartidas = PartidaDAO.getInstancia(getActivity()).retornaQuatroUltimas(id_eq);
 		tamanho = ultimasPartidas.size();
 		
-		blue = (ImageView) rootView.findViewById(R.id.azulC1);
 		green = (ImageView) rootView.findViewById(R.id.verdeC1);
 		orange = (ImageView) rootView.findViewById(R.id.amareloC1);
 		red = (ImageView) rootView.findViewById(R.id.vermelhoC1);
@@ -96,7 +98,17 @@ public class PasseFragment extends Fragment {
 		listaText.add(redV);
 		listaText.add(violetV);
 		
-		if(numJog == 2) {
+		if(numJog == 1) {
+			green.setVisibility(View.INVISIBLE);
+			orange.setVisibility(View.INVISIBLE);
+			red.setVisibility(View.INVISIBLE);
+			violet.setVisibility(View.INVISIBLE);
+			
+			greenV.setVisibility(View.INVISIBLE);
+			orangeV.setVisibility(View.INVISIBLE);
+			redV.setVisibility(View.INVISIBLE);
+			violetV.setVisibility(View.INVISIBLE);
+	    } else if(numJog == 2) {
 			orange.setVisibility(View.INVISIBLE);
 			red.setVisibility(View.INVISIBLE);
 			violet.setVisibility(View.INVISIBLE);
@@ -127,7 +139,31 @@ public class PasseFragment extends Fragment {
 		
 		int pss_c = 0;
 		
+        data = new LineChartData();
+		
 		List<Line> lines = new ArrayList<Line>();
+		
+		if(hasAxes) {
+			axisX = new Axis();
+			axisY = new Axis().setHasLines(true);
+			if(hasAxesNames) {
+				axisX.setName(getResources().getString(R.string.partidas));
+				axisY.setName(getResources().getString(R.string.arremessos));
+			}
+			data.setAxisXBottom(axisX);
+			data.setAxisYLeft(axisY);
+		} else {
+			data.setAxisXBottom(null);
+			data.setAxisYLeft(null);
+		}
+		
+		List<AxisValue> eixoX = new ArrayList<AxisValue>();
+		List<AxisValue> eixoY = new ArrayList<AxisValue>();
+		
+		for(int a = 0; a < tamanho; a++) {
+			eixoX.add(new AxisValue(a+1));
+		}
+		
 		for(int y = 0; y < numJog; y++) {	
 			
 			contador = 0;
@@ -139,10 +175,14 @@ public class PasseFragment extends Fragment {
 				
 				pss_c = EventoDAO.getInstancia(getActivity()).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 5 AND id_jog="+listaJog.get(y).getId()+" AND id_ptda="+ultimasPartidas.get(x));	
 				
-				contador = pss_c;
+				for(int b = 0; b <= pss_c; b++) {
+					eixoY.add(new AxisValue(b));
+				}
+
 				values.add(new PointValue(x, contador));
 				
 			}
+			
 			Line line = new Line(values);
 			line.setColor(listaCores.get(y));
 			line.setShape(shape);
@@ -155,20 +195,10 @@ public class PasseFragment extends Fragment {
 			lines.add(line);	
 		}
 		
-		data = new LineChartData(lines);
-		if(hasAxes) {
-			Axis axisX = new Axis();
-			Axis axisY = new Axis().setHasLines(true);
-			if(hasAxesNames) {
-				axisX.setName("Jogos");
-				axisY.setName("Passes certos");
-			}
-			data.setAxisXBottom(axisX);
-			data.setAxisYLeft(axisY);
-		} else {
-			data.setAxisXBottom(null);
-			data.setAxisYLeft(null);
-		}
+		axisX.setValues(eixoX);
+		axisY.setValues(eixoY);
+		
+		data.setLines(lines);
 		data.setBaseValue(Float.NEGATIVE_INFINITY);
 		chart.setLineChartData(data);
 		

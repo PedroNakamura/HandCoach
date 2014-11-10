@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lecho.lib.hellocharts.model.Axis;
+import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Line;
 import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.PointValue;
@@ -52,11 +53,13 @@ public class RecepcaoFragment extends Fragment {
 	private boolean isCubic = false;
 	private boolean hasLabelForSelected = false;
 	
-	private ImageView blue;
 	private ImageView green;
 	private ImageView orange;
 	private ImageView red;
 	private ImageView violet;
+	
+	private Axis axisX;
+	private Axis axisY;
 	
 	private TextView blueV;
 	private TextView greenV;
@@ -77,7 +80,6 @@ public class RecepcaoFragment extends Fragment {
 		ultimasPartidas = PartidaDAO.getInstancia(getActivity()).retornaQuatroUltimas(id_eq);
 		tamanho = ultimasPartidas.size();
 		
-		blue = (ImageView) rootView.findViewById(R.id.azulC2);
 		green = (ImageView) rootView.findViewById(R.id.verdeC2);
 		orange = (ImageView) rootView.findViewById(R.id.amareloC2);
 		red = (ImageView) rootView.findViewById(R.id.vermelhoC2);
@@ -95,7 +97,18 @@ public class RecepcaoFragment extends Fragment {
 		listaText.add(redV);
 		listaText.add(violetV);
 		
-		if(numJog == 2) {
+		
+		if(numJog == 1) {
+			green.setVisibility(View.INVISIBLE);
+			orange.setVisibility(View.INVISIBLE);
+			red.setVisibility(View.INVISIBLE);
+			violet.setVisibility(View.INVISIBLE);
+			
+			greenV.setVisibility(View.INVISIBLE);
+			orangeV.setVisibility(View.INVISIBLE);
+			redV.setVisibility(View.INVISIBLE);
+			violetV.setVisibility(View.INVISIBLE);
+	    } else if(numJog == 2) {
 			orange.setVisibility(View.INVISIBLE);
 			red.setVisibility(View.INVISIBLE);
 			violet.setVisibility(View.INVISIBLE);
@@ -128,7 +141,31 @@ public class RecepcaoFragment extends Fragment {
 		int rcp_rbdbola = 0;
 		int rbt = 0;
 		
+        data = new LineChartData();
+		
 		List<Line> lines = new ArrayList<Line>();
+		
+		if(hasAxes) {
+			axisX = new Axis();
+			axisY = new Axis().setHasLines(true);
+			if(hasAxesNames) {
+				axisX.setName(getResources().getString(R.string.partidas));
+				axisY.setName(getResources().getString(R.string.arremessos));
+			}
+			data.setAxisXBottom(axisX);
+			data.setAxisYLeft(axisY);
+		} else {
+			data.setAxisXBottom(null);
+			data.setAxisYLeft(null);
+		}
+		
+		List<AxisValue> eixoX = new ArrayList<AxisValue>();
+		List<AxisValue> eixoY = new ArrayList<AxisValue>();
+		
+		for(int a = 0; a < tamanho; a++) {
+			eixoX.add(new AxisValue(a+1));
+		}  
+		
 		for(int y = 0; y < numJog; y++) {	
 			
 			contador = 0;
@@ -143,6 +180,10 @@ public class RecepcaoFragment extends Fragment {
 				rbt = EventoDAO.getInstancia(getActivity()).retornaContadorQuery("SELECT * FROM evento WHERE id_cat = 20 AND id_jog="+listaJog.get(y).getId()+" AND id_ptda="+ultimasPartidas.get(x));
 				
 				contador = rcp_certa + rcp_rbdbola + rbt;
+				for(int b = 0; b <= contador; b++) {
+					eixoY.add(new AxisValue(b));
+				}
+				
 				values.add(new PointValue(x, contador));
 				
 			}
@@ -158,20 +199,10 @@ public class RecepcaoFragment extends Fragment {
 			lines.add(line);	
 		}
 		
-		data = new LineChartData(lines);
-		if(hasAxes) {
-			Axis axisX = new Axis();
-			Axis axisY = new Axis().setHasLines(true);
-			if(hasAxesNames) {
-				axisX.setName("Jogos");
-				axisY.setName("Recepções certas");
-			}
-			data.setAxisXBottom(axisX);
-			data.setAxisYLeft(axisY);
-		} else {
-			data.setAxisXBottom(null);
-			data.setAxisYLeft(null);
-		}
+		axisX.setValues(eixoX);
+		axisY.setValues(eixoY);
+		
+		data.setLines(lines);
 		data.setBaseValue(Float.NEGATIVE_INFINITY);
 		chart.setLineChartData(data);
 		
